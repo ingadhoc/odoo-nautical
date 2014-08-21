@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+#
+#    Nautical
+#    Copyright (C) 2014 Sistemas ADHOC
+#    No email
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+-->
+<!-- nautical.craft -->
+<!-- nautical.craft -->
+<!-- nautical.craft -->
+<openerp>
+    <data>
+        <!-- Workflow -->
+
+        <record id="craft_basic_wkf" model="workflow">
+            <field name="name">nautical.craft.basic</field>
+            <field name="osv">nautical.craft</field>
+            <field name="on_create">True</field>
+        </record>
+
+        <!-- Activities -->
+
+        <record id="a_1264_241B" model="workflow.activity">
+            <field name="wkf_id" ref="craft_basic_wkf"/>
+            <field name="flow_start">True</field>
+            <field name="name">Draft</field>
+            <field name="action">
+                write({'state':'draft'})
+            </field>
+            <field name="kind">function</field>
+        </record>
+        <record id="a_1264_14D3" model="workflow.activity">
+            <field name="wkf_id" ref="craft_basic_wkf"/>
+            <field name="name">To Dispatch</field>
+            <field name="action">
+                write({'state':'to_dispatch'})
+            </field>
+            <field name="kind">function</field>
+        </record>
+        <record id="a_1264_27FA" model="workflow.activity">
+            <field name="wkf_id" ref="craft_basic_wkf"/>
+            <field name="name">Sailing</field>
+            <field name="action">
+                write({'state':'sailing'})
+            </field>
+            <field name="kind">function</field>
+        </record>
+        <record id="a_1264_14D5" model="workflow.activity">
+            <field name="wkf_id" ref="craft_basic_wkf"/>
+            <field name="name">In Reparation</field>
+            <field name="action">
+                write({'state':'in_reparation'})
+            </field>
+            <field name="kind">function</field>
+        </record>
+        <record id="a_1264_14D6" model="workflow.activity">
+            <field name="wkf_id" ref="craft_basic_wkf"/>
+            <field name="name">In Custody</field>
+            <field name="action">
+                write({'state':'in_custody'})
+            </field>
+            <field name="kind">function</field>
+        </record>
+        <record id="a_1264_0D5A" model="workflow.activity">
+            <field name="wkf_id" ref="craft_basic_wkf"/>
+            <field name="name">Transitional Retirement</field>
+            <field name="action">
+                write({'state':'transitional_retirement'})
+            </field>
+            <field name="kind">function</field>
+        </record>
+        <record id="a_1264_0E6F" model="workflow.activity">
+            <field name="wkf_id" ref="craft_basic_wkf"/>
+            <field name="name">Expired</field>
+            <field name="action">
+                write({'state':'expired'})
+            </field>
+            <field name="kind">function</field>
+        </record>
+        <record id="a_1264_33A1" model="workflow.activity">
+            <field name="wkf_id" ref="craft_basic_wkf"/>
+            <field name="name">Contracted</field>
+            <field name="action">
+                write({'state':'contracted'})
+            </field>
+            <field name="kind">function</field>
+        </record>
+        <record id="a_1264_14D2" model="workflow.activity">
+            <field name="wkf_id" ref="craft_basic_wkf"/>
+            <field name="name">Stored</field>
+            <field name="action">
+                write({'state':'stored'})
+            </field>
+            <field name="kind">function</field>
+        </record>
+        <record id="a_1264_0E73" model="workflow.activity">
+            <field name="wkf_id" ref="craft_basic_wkf"/>
+            <field name="name">Check Due</field>
+            <field name="action">
+                write({'state':'check_due'})
+            </field>
+            <field name="kind">function</field>
+        </record>
+        <record id="a_1264_0E70" model="workflow.activity">
+            <field name="wkf_id" ref="craft_basic_wkf"/>
+            <field name="name">Do not Dispatch</field>
+            <field name="action">
+                write({'state':'do_not_dispatch'})
+            </field>
+            <field name="kind">function</field>
+        </record>
+        <record id="a_1264_241A" model="workflow.activity">
+            <field name="wkf_id" ref="craft_basic_wkf"/>
+            <field name="flow_stop">True</field>
+            <field name="name">Permanent Cancellation</field>
+            <field name="action">
+                write({'state':'permanent_cancellation'})
+            </field>
+            <field name="kind">function</field>
+        </record>
+
+        <!-- Transitions -->
+
+        <record id="t_1264_0E71" model="workflow.transition">
+            <field name="act_from" ref="a_1264_0E73"/>
+            <field name="act_to" ref="a_1264_0E70"/>
+            <field name="condition">True</field>
+        </record>
+        <record id="t_1264_0E74" model="workflow.transition">
+            <field name="act_from" ref="a_1264_0E73"/>
+            <field name="act_to" ref="a_1264_14D3"/>
+            <field name="condition">True</field>
+        </record>
+        <record id="t_1264_14D8" model="workflow.transition">
+            <field name="act_from" ref="a_1264_14D2"/>
+            <field name="act_to" ref="a_1264_0E73"/>
+            <field name="signal">sgn_requested</field>
+            <field name="condition">True</field>
+        </record>
+        <record id="t_1264_14DB" model="workflow.transition">
+            <field name="act_from" ref="a_1264_14D2"/>
+            <field name="act_to" ref="a_1264_14D5"/>
+            <field name="signal">sgn_to_reparation</field>
+            <field name="condition">True</field>
+        </record>
+        <record id="t_1264_14DC" model="workflow.transition">
+            <field name="act_from" ref="a_1264_14D2"/>
+            <field name="act_to" ref="a_1264_14D6"/>
+            <field name="signal">sgn_to_custody</field>
+            <field name="condition">True</field>
+        </record>
+        <record id="t_1264_14DD" model="workflow.transition">
+            <field name="act_from" ref="a_1264_14D6"/>
+            <field name="act_to" ref="a_1264_14D2"/>
+            <field name="signal">sgn_store</field>
+            <field name="condition">True</field>
+        </record>
+        <record id="t_1264_14DE" model="workflow.transition">
+            <field name="act_from" ref="a_1264_14D5"/>
+            <field name="act_to" ref="a_1264_14D2"/>
+            <field name="signal">sgn_store</field>
+            <field name="condition">True</field>
+        </record>
+        <record id="t_1264_0D5B" model="workflow.transition">
+            <field name="act_from" ref="a_1264_14D2"/>
+            <field name="act_to" ref="a_1264_0D5A"/>
+            <field name="signal">sgn_to_transitional_retirement</field>
+            <field name="condition">True</field>
+        </record>
+        <record id="t_1264_0D5D" model="workflow.transition">
+            <field name="act_from" ref="a_1264_0D5A"/>
+            <field name="act_to" ref="a_1264_14D2"/>
+            <field name="signal">sgn_store</field>
+            <field name="condition">True</field>
+        </record>
+        <record id="t_1264_241C" model="workflow.transition">
+            <field name="act_from" ref="a_1264_241B"/>
+            <field name="act_to" ref="a_1264_33A1"/>
+            <field name="signal">sgn_contract_signed</field>
+            <field name="condition">True</field>
+        </record>
+        <record id="t_1264_241D" model="workflow.transition">
+            <field name="act_from" ref="a_1264_14D2"/>
+            <field name="act_to" ref="a_1264_241A"/>
+            <field name="signal">sgn_contract_cancelled</field>
+            <field name="condition">True</field>
+        </record>
+        <record id="t_1264_241F" model="workflow.transition">
+            <field name="act_from" ref="a_1264_241A"/>
+            <field name="act_to" ref="a_1264_241B"/>
+            <field name="signal">sgn_to_draft</field>
+            <field name="condition">True</field>
+        </record>
+        <record id="t_1264_27F9" model="workflow.transition">
+            <field name="act_from" ref="a_1264_27FA"/>
+            <field name="act_to" ref="a_1264_14D2"/>
+            <field name="signal">sgn_store</field>
+            <field name="condition">True</field>
+        </record>
+        <record id="t_1264_27FB" model="workflow.transition">
+            <field name="act_from" ref="a_1264_14D3"/>
+            <field name="act_to" ref="a_1264_27FA"/>
+            <field name="signal">sgn_dispached</field>
+            <field name="condition">True</field>
+        </record>
+        <record id="t_1264_33A2" model="workflow.transition">
+            <field name="act_from" ref="a_1264_33A1"/>
+            <field name="act_to" ref="a_1264_14D2"/>
+            <field name="signal">sgn_store</field>
+            <field name="condition">True</field>
+        </record>
+        <record id="t_1264_0E47" model="workflow.transition">
+            <field name="act_from" ref="a_1264_14D3"/>
+            <field name="act_to" ref="a_1264_14D2"/>
+            <field name="signal">sgn_store</field>
+            <field name="condition">True</field>
+        </record>
+        <record id="t_1264_0E64" model="workflow.transition">
+            <field name="act_from" ref="a_1264_14D2"/>
+            <field name="act_to" ref="a_1264_0E6F"/>
+            <field name="signal">sgn_expired</field>
+            <field name="condition">True</field>
+        </record>
+        <record id="t_1264_0E65" model="workflow.transition">
+            <field name="act_from" ref="a_1264_0E6F"/>
+            <field name="act_to" ref="a_1264_33A1"/>
+            <field name="signal">sgn_contract_signed</field>
+            <field name="condition">True</field>
+        </record>
+        <record id="t_1264_0E69" model="workflow.transition">
+            <field name="act_from" ref="a_1264_33A1"/>
+            <field name="act_to" ref="a_1264_0E6F"/>
+            <field name="signal">sgn_expired</field>
+            <field name="condition">True</field>
+        </record>
+        <record id="t_1264_0E6A" model="workflow.transition">
+            <field name="act_from" ref="a_1264_14D5"/>
+            <field name="act_to" ref="a_1264_0E6F"/>
+            <field name="signal">sgn_expired</field>
+            <field name="condition">True</field>
+        </record>
+        <record id="t_1264_0E6B" model="workflow.transition">
+            <field name="act_from" ref="a_1264_14D6"/>
+            <field name="act_to" ref="a_1264_0E6F"/>
+            <field name="signal">sgn_expired</field>
+            <field name="condition">True</field>
+        </record>
+        <record id="t_1264_0E6C" model="workflow.transition">
+            <field name="act_from" ref="a_1264_0D5A"/>
+            <field name="act_to" ref="a_1264_0E6F"/>
+            <field name="signal">sgn_expired</field>
+            <field name="condition">True</field>
+        </record>
+        <record id="t_1264_0E6D" model="workflow.transition">
+            <field name="act_from" ref="a_1264_14D3"/>
+            <field name="act_to" ref="a_1264_0E6F"/>
+            <field name="signal">sgn_expired</field>
+            <field name="condition">True</field>
+        </record>
+        <record id="t_1264_0E6E" model="workflow.transition">
+            <field name="act_from" ref="a_1264_27FA"/>
+            <field name="act_to" ref="a_1264_0E6F"/>
+            <field name="signal">sgn_expired</field>
+            <field name="condition">True</field>
+        </record>
+        <record id="t_1264_0E72" model="workflow.transition">
+            <field name="act_from" ref="a_1264_0E70"/>
+            <field name="act_to" ref="a_1264_14D2"/>
+            <field name="signal">sgn_store</field>
+            <field name="condition">True</field>
+        </record>
+        <record id="t_1264_0E75" model="workflow.transition">
+            <field name="act_from" ref="a_1264_0E70"/>
+            <field name="act_to" ref="a_1264_14D3"/>
+            <field name="signal">sgn_allow_dispatch</field>
+            <field name="condition">True</field>
+        </record>
+    </data>
+</openerp>
+<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4
+     -->

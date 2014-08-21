@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <!--
+    Resource: product.uom.categ
+    -->
+        <record id="product_uom_categ_power" model="product.uom.categ">
+            <field name="name">Power</field>
+        </record>
+
+        <!--
+            Resource: product.uom
+        -->
+        <record id="product_uom_hp" model="product.uom">
+            <field eval="product_uom_categ_power" name="category_id"/>
+            <field name="name">HP(s)</field>
+            <field name="factor" eval="1"/>
+        </record>       
+
+        <record id="product_uom_month" model="product.uom">
+            <field name="name">Month(s)</field>
+            <field ref="product.uom_categ_wtime" name="category_id"/>
+            <field name="factor" eval="30"/>
+            <field name="uom_type">bigger</field>
+        </record>        
+
+        <record id="product_uom_ton" model="product.uom">
+            <field name="category_id" ref="product.product_uom_categ_kgm"/>
+            <field name="name">Ton(s)</field>
+            <field name="factor" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+
+    </data>
+</openerp>

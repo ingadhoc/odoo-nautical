@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+#
+#    Nautical
+#    Copyright (C) 2013 Sistemas ADHOC
+#    No email
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+-->
+<!-- nautical.contract -->
+<!-- nautical.contract -->
+<!-- nautical.contract -->
+<openerp>
+    <data>
+
+        <!-- SEARCH VIEW -->
+<!--         <record id="view_nautical_contract_filter" model="ir.ui.view">
+            <field name="name">nautical.contract.select</field>
+            <field name="model">nautical.contract</field>
+            <field name="arch" type="xml">
+                <search string="Contract" version="7.0">
+                    <group string="By Attribute">
+                    <field name="start_date" string="Contract Date"
+                            />
+                    <field name="start_code" string="Contract Number"
+                            />
+                    <field name="end_date" string="Cancellation Date"
+                            />
+                    <field name="end_code" string="Cancellation Number"
+                            />
+                    </group>
+                    <group string="By object">
+                    </group>
+                </search>
+            </field>
+        </record> -->
+
+        <!-- FORMVIEW -->
+        <record id="view_nautical_contract_form" model="ir.ui.view">
+            <field name="name">nautical.contract.form</field>
+            <field name="model">nautical.contract</field>
+            <field name="inherit_id" ref="nautical.view_nautical_contract_form"/>
+            <field name="arch" type="xml">
+                <!-- we remove header in otrther to remove buttons -->
+                <header position="replace">
+                    <header>
+                        <field name="state" widget="statusbar"
+                            statusbar_visible="draft,contracted,permanent_cancellation" 
+                            statusbar_colors='{}'/>
+                    </header>
+                </header>
+                <field name="start_code" position="after">
+                    <!-- <field name="datas_start_file" filename="datas_fname_start_file"/> -->
+                    <!-- <field name="datas_fname_start_file" invisible="1" class="oe_inline oe_right"/> -->
+                    <field name="start_file"  widget="many2many_binary"/>
+                </field>                
+                <field name="end_code" position="after">
+                    <!-- <field name="datas_end_file" filename="datas_fname_end_file"/> -->
+                    <!-- <field name="datas_fname_end_file" invisible="1" class="oe_inline oe_right"/> -->
+                    <field name="end_file"  widget="many2many_binary" attrs="{'invisible':[('state','!=','permanent_cancellation')]}"/>
+                </field>
+            </field>
+        </record>
+
+        <!-- TREEVIEW -->
+
+        <record id="view_nautical_contract_tree" model="ir.ui.view">
+            <field name="name">nautical.contract.tree</field>
+            <field name="model">nautical.contract</field>
+            <field name="inherit_id" ref="nautical.view_nautical_contract_tree"/>
+            <field name="arch" type="xml">
+                <tree position="attributes">
+                    <attribute name="create">false</attribute>
+                    <attribute name="delete">false</attribute>
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</openerp>
+<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4
+     -->

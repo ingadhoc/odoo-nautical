@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+#
+#    Nautical
+#    Copyright (C) 2013 Sistemas ADHOC
+#    No email
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+-->
+<!-- nautical.craft_record -->
+<!-- nautical.craft_record -->
+<!-- nautical.craft_record -->
+<openerp>
+    <data>
+
+
+        <!-- FORMVIEW -->
+        <record id="view_nautical_craft_record_form" model="ir.ui.view">
+            <field name="name">nautical.craft_record.form</field>
+            <field name="model">nautical.craft_record</field>
+            <field name="inherit_id" ref="nautical.view_nautical_craft_record_form"/>
+            <field name="arch" type="xml">
+                <field name="type" position="after">
+                    <field name="attachment_ids"  widget="many2many_binary"/>
+                </field>
+            </field>
+        </record>
+
+        <!-- TREEVIEW -->
+
+        <record id="view_nautical_craft_record_tree" model="ir.ui.view">
+            <field name="name">nautical.craft_record.tree</field>
+            <field name="model">nautical.craft_record</field>
+            <field name="inherit_id" ref="nautical.view_nautical_craft_record_tree"/>
+            <field name="arch" type="xml">
+                <field name="craft_id" position="replace">                    
+                    <field name="craft_id" invisible="'from_craft' in context"/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</openerp>
+<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4
+     -->

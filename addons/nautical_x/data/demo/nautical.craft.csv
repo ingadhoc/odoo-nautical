@@ -1,0 +1,5 @@
+id,owner_id/id,product_id/id,name,plate,measures_uom_id/id,lenght,breadth,draught,prop,product_uom/id
+nautical_craft_01,nautical_partner_01,nautical_product_02,La 22,rey-2314,product.product_uom_meter,4,2,2,3,product_uom_month
+nautical_craft_02,nautical_partner_02,nautical_product_01,,,,,,,,product_uom_month
+nautical_craft_03,nautical_partner_06,nautical_product_03,El Tifon,rey-4546,product.product_uom_meter,3,2,2,1,product_uom_month
+nautical_craft_04,nautical_partner_08,nautical_product_03,Claudia II,En proceso,product.product_uom_meter,5,3,2,2,product_uom_month

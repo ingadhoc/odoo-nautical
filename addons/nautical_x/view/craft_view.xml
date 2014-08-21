@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+#
+#    Nautical
+#    Copyright (C) 2013 Sistemas ADHOC
+#    No email
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+-->
+<!-- nautical.craft -->
+<!-- nautical.craft -->
+<!-- nautical.craft -->
+<openerp>
+    <data>
+<!-- To dispatch and receive -->
+        <record id="view_nautical_craft_to_dispatch_tree" model="ir.ui.view">
+            <field name="name">nautical.craft.to.dispatch.tree</field>
+            <field name="model">nautical.craft</field>
+            <field name="auto_refresh">5</field>
+            <field name="arch" type="xml">
+                <tree string="Craft"
+                    colors="grey:state=='cancelled';blue:state in ('draft',);black:state in ('in_reparation', 'sailing', 'contracted', 'check_due', 'transitional_retirement', 'stored', 'expired', 'in_custody'); red:state in ('do_not_dispatch'); green:state in ('to_dispatch')"
+                    >
+                    <field name="ref"
+                        />
+                    <field name="product_id"
+                        />
+                    <field name="plate"
+                        />
+                    <field name="name"
+                        />
+                    <field name="last_action_date"
+                        />
+                    <field name="owner_id"
+                        />
+                    <field name="locations_string"/>
+                    
+                    <field name="state" />
+
+                    <button name="sgn_store"
+                        states="contracted,do_not_dispatch,in_custody,in_reparation,sailing,to_dispatch,transitional_retirement"
+                        string="Store"
+                        icon="gtk-go-back"
+                        class="oe_highlight"
+                        />                        
+                    <button name="sgn_dispached"
+                        states="to_dispatch"
+                        string="Dispached"
+                        icon="gtk-go-forward"
+                        class="oe_highlight"
+                        />                          
+                </tree>
+            </field>
+        </record>            
+
+        <record id="nautical.action_nautical_craft_to_dispatch" model="ir.actions.act_window">
+            <field name="view_id" ref="view_nautical_craft_to_dispatch_tree"/>
+            <field name="domain">[('state','in',['to_dispatch', 'do_not_dispatch'])]</field>
+            <field name="context">{}</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <record id="nautical.action_nautical_craft_to_receive" model="ir.actions.act_window">
+            <field name="view_id" ref="view_nautical_craft_to_dispatch_tree"/>
+            <field name="domain">[('state','in',['sailing'])]</field>
+            <field name="context">{}</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+
+       <!-- TREEVIEW -->
+        <record id="view_nautical_craft_tree" model="ir.ui.view">
+            <field name="name">nautical.craft.tree</field>
+            <field name="model">nautical.craft</field>
+            <field name="inherit_id" ref="nautical.view_nautical_craft_tree"/>
+            <field name="arch" type="xml">
+                <tree string="Craft" position="attributes">
+                    <attribute name="colors">grey:state in ('permanent_cancellation');blue:state in ('draft',);black:state in ('in_reparation', 'sailing', 'contracted', 'check_due', 'transitional_retirement', 'stored', 'in_custody'); red:state in ('do_not_dispatch','expired'); green:state in ('to_dispatch')</attribute>
+                </tree>                   
+            </field>
+        </record>                
+
+       <!-- FORMVIEW -->
+        <record id="view_nautical_craft_form" model="ir.ui.view">
+            <field name="name">nautical.craft.form</field>
+            <field name="model">nautical.craft</field>
+            <field name="inherit_id" ref="nautical.view_nautical_craft_form"/>            
+            <field name="arch" type="xml">
+                <button name="sgn_requested" position="replace">
+                    <button name="%(nautical_x.action_craft_request)d" context="{'default_request_type':'sail','craft_id':id}" type="action" states="stored" string="Requested" class="oe_highlight"/>
+                </button>              
+                <button name="sgn_to_transitional_retirement" position="replace">
+                    <button name="%(nautical_x.action_craft_request)d" context="{'default_request_type':'transitional_retirement','craft_id':id}" type="action" states="stored" string="To Transitional Retirement"/>
+                </button>     
+                <button name="sgn_to_reparation" position="replace">
+                    <button name="%(nautical_x.action_craft_request)d" context="{'default_request_type':'in_reparation','craft_id':id}" type="action" states="stored" string="To Reparation"/>
+                </button> 
+                <button name="sgn_to_custody" position="replace">
+                    <button name="%(nautical_x.action_craft_request)d" context="{'default_request_type':'in_custody','craft_id':id}" type="action" states="stored" string="To Custody"/>
+                </button>                                                                   
+                <button name="sgn_contract_signed" position="replace">
+                    <button name="%(nautical_x.action_create_contract)d" type="action" states="draft,expired" string="Contract Signed" class="oe_highlight"/>
+                </button>   
+                <button name="sgn_contract_cancelled" position="replace">
+                    <button name="%(nautical_x.action_contract_cancelled_wizard)d" type="action" states="stored" string="Contract Cancelled" />
+                </button>                
+                <button name="sgn_expired" position="replace"/>                             
+                <field name="state" position="replace">
+                    <field name="state" widget="statusbar" statusbar_visible="stored,to_dispatch,sailing"/>
+                    <!-- <field name="state" widget="statusbar" attrs="{'invisible':[('state','not in',['stored','to_dispatch','sailing'])]}"  statusbar_visible="stored,to_dispatch,sailing"/> -->
+
+                    <!-- <field name="state" widget="statusbar" attrs="{'invisible':[('state','not in',['draft','contracted'])]}" statusbar_visible="draft,contracted,stored"/> -->
+                    <!-- <field name="state" widget="statusbar" domain="[('name','in',['stored','to_dispatch','sailing'])]" statusbar_colors='{"permanent_cancellation":"red","expired":"red"}'/> -->
+                </field>
+                <sheet string="Craft" position="replace">
+                    <sheet string="Craft">
+                        <field name="pricelist_id" invisible="1"/>
+                        <field name="fiscal_position" invisible="1"/>
+                        <!-- <field name="product_uom" invisible="1"/> -->
+                        <field name="currency_id" invisible="1"/>
+                        <field name="craft_type" invisible="1"/>            
+                        <field name="image_medium" widget="image" class="oe_avatar oe_left"/>            
+                        <!-- <field name="image" widget="image" class="oe_avatar oe_left"/> -->
+                            <field name="ref" class="oe_inline"/>
+                            <h1>Craft Owned by <field name="owner_id" domain="[('customer','=',True)]" context="{'default_customer':True}" readonly="'from_partner' in context" on_change="onchange_partner_id(owner_id)" required="'from_partner' not in context" placeholder="Owner..." class="oe_inline"/></h1>
+                        <group>
+                            <group>                        
+                                <field name="product_id"
+                                    context="{'default_type':'storage_service', 'default_sale_ok':False, 'default_purchase_ok':False, 'partner_id':owner_id, 'pricelist':pricelist_id,}"
+                                    groups="base.group_user"
+                                    on_change="product_id_change(pricelist_id, product_id, owner_id, True, fiscal_position, context)"/>
+                                <field name="tax_id" widget="many2many_tags"/>
+                                <field name="name" attrs="{'required':[('craft_type','!=','kayak')]}"/>
+                                <field name="plate" attrs="{'invisible':[('craft_type','=','kayak')],'required':[('craft_type','!=','kayak')]}"/>                            
+                            </group>                            
+                            <group class="oe_subtotal_footer oe_right" name="sale_total">
+                                <field name="price_unit" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                <field name="discount"/>
+                                <field name="amount_untaxed" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                <field name="amount_tax" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                <div class="oe_subtotal_footer_separator oe_inline">
+                                    <label for="amount_total"/>
+                                    <button name="button_dummy" string="(update)" type="object" class="oe_edit_only oe_link"/>
+                                </div>
+                                <field name="amount_total" nolabel="1" class="oe_subtotal_footer_separator" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                            </group>                     
+                        </group>                        
+                        <notebook>
+                            <page string="Gral. Inf.">
+                                <group>
+                                    <field name="material_id"/>
+                                    <field name="brand_id"/>
+                                    <field name="shipyard_id" attrs="{'invisible':[('craft_type','=','kayak')]}"/>
+                                </group>
+                                <group>
+                                    <group string="Measures">
+                                        <field name="measures_uom_id" attrs="{'required':[('craft_type','!=','kayak')]}"/>
+                                        <field name="lenght" attrs="{'required':[('craft_type','!=','kayak')]}"/>
+                                        <field name="breadth" attrs="{'required':[('craft_type','!=','kayak')]}"/>
+                                        <!-- No lo usan -->
+                                        <!-- <field name="draught" attrs="{'required':[('craft_type','!=','kayak')]}"/> -->
+                                        <field name="prop" attrs="{'invisible':[('craft_type','=','kayak')]}"/>
+                                    </group>
+                                    <group string="Displacement" attrs="{'invisible':[('craft_type','=','kayak')]}">
+                                        <field name="displacement"/>
+                                        <field name="displacement_uom_id"/>
+                                    </group>
+                                    <group string="Engine" attrs="{'invisible':[('craft_type','=','kayak')]}">
+                                        <field name="engine_brand_id"/>
+                                        <field name="engine_power"/>
+                                        <field name="engine_power_uom_id"/>
+                                        <field name="engine_serial_number"/>
+                                    </group>
+                                    <group string="Aux. Engine" attrs="{'invisible':[('craft_type','=','kayak')]}">
+                                        <field name="aux_engine_brand_id"/>
+                                        <field name="aux_engine_power"/>
+                                        <field name="aux_engine_power_uom_id"/>
+                                        <field name="aux_engine_serial_number"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <field name="note"/>
+                                </group>
+                            </page>
+                            <page string="Locations">
+                                <field name="location_ids" widget="many2many" domain="[('type','=','normal'),('craft_id','=',False)]">
+<!--                                     <tree>
+                                        <field name="complete_name"/>
+                                        <field name="complete_ref"/>
+                                        <field name="type"/>
+                                    </tree> -->
+                                </field>
+                            </page>
+                            <page string="Authorizations">
+                                <field name="authorization_ids" context="{'from_craft':True, 'default_craft_id':id}">
+                                    <tree editable="top">
+                                        <field name="authorization_type_id"/>
+                                        <field name="partner_id"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Contracts">
+                                <field name="contract_ids"/>
+                            </page>  
+                            <page string="Record">
+                                <field name="craft_record_ids" context="{'from_craft':True,'default_craft_id':id}"/>
+                            </page>          
+                            <page string="Invoices">
+                                <field name="account_invoice_line_ids">
+                                    <tree>
+                                        <field name="partner_id"/>
+                                        <field name="name"/>
+                                        <field name="account_id" groups="account.group_account_user"/>
+                                        <field name="quantity"/>
+                                        <field name="uos_id" groups="product.group_uom"/>
+                                        <field name="price_unit"/>
+                                        <field name="discount" groups="sale.group_discount_per_so_line"/>
+                                        <field name="price_subtotal"/>                            
+                                    </tree>
+                                </field>                                
+                            </page>
+                            <page string="Service Authorizations">
+                                <field name="service_authorization_ids"/>
+                            </page>                              
+                        </notebook>
+                    </sheet>
+                </sheet>
+            </field>
+        </record>
+
+
+        <!-- SEARCH VIEW -->
+        <record id="view_nautical_craft_filter" model="ir.ui.view">
+            <field name="name">nautical.craft.select</field>
+            <field name="model">nautical.craft</field>
+            <field name="inherit_id" ref="nautical.view_nautical_craft_filter"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="authorization_ids" string="Authorized" filter_domain="[('authorization_ids.partner_id.name', 'ilike', self)]"/>
+                </field>
+                <field name="owner_id" position="replace">
+                    <field name="owner_id" filter_domain="[('owner_id', 'child_of', self)]"/>
+                </field>
+                <search string="Craft">
+                        <filter string="Don't Dispatch Partner" name="dont_dispatch" domain="[('partner_payment_earliest_due_date', '&lt;=', (context_today() + relativedelta(months=-2)).strftime('%%Y-%%m-%%d') )]" help="Customers have higher fees due to two months"/>
+                        <group string="Filter By State...">
+                            <filter string="Stored" name="stored" domain="[('state','=','stored')]"/>
+                            <filter string="To Dispatch" name="to_dispatch" domain="[('state','=','to_dispatch')]"/>
+                            <filter string="Do Not Dispatch" name="do_not_dispatch" domain="[('state','=','do_not_dispatch')]"/>
+                            <filter string="Sailing" name="sailing" domain="[('state','=','sailing')]"/>
+                            <!-- sacamos el separador porque hace que los filtros no puedan sumarse -->
+                            <!-- <separator/> -->
+                            <filter string=""/>
+                            <filter string="Draft" name="draft" domain="[('state','=','draft')]"/>
+                            <filter string="Contracted" name="contracted" domain="[('state','=','contracted')]"/>
+                            <filter string="Transitional Retirement" name="transitional_retirement" domain="[('state','=','transitional_retirement')]"/>
+                            <filter string="In Reparation" name="in_reparation" domain="[('state','=','in_reparation')]"/>
+                            <filter string="In Custody" name="in_custody" domain="[('state','=','in_custody')]"/>
+                            <filter string="Expired" name="expired" domain="[('state','=','expired')]"/>
+                            <filter string="Permanet Cancellation" name="permanet_cancellation" domain="[('state','=','permanet_cancellation')]"/>
+                            <field name="state"/>
+                        </group>
+                    <group expand="0" string="Group By...">
+                        <filter string="Product" domain="[]" context="{'group_by':'product_id'}"/>
+                        <filter string="State" domain="[]" context="{'group_by':'state'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+<!-- Agregamos menus to dispatch y to receive, por eso saco esta opcion -->
+<!--         <record id="nautical.action_nautical_craft_crafts" model="ir.actions.act_window">
+            <field name="context">{'search_default_to_dispatch':True}</field>
+        </record>
+ --> 
+
+    </data>
+</openerp>
+<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4
+     -->

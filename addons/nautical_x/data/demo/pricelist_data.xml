@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="0">
+    <!-- Product Category -->
+        <record id="product_category_storage_service" model="product.category">
+            <field name="parent_id" ref="product.product_category_all"/>
+            <field name="name">Storage Service</field>
+        </record>
+
+        <!--
+    Price list
+    -->
+        <record id="list_luz_y_fuerza" model="product.pricelist">
+            <field name="name">Luz y Fuerza</field>
+            <field name="type">sale</field>
+        </record>
+        <record id="ver0" model="product.pricelist.version">
+            <field name="pricelist_id" ref="list_luz_y_fuerza"/>
+            <field name="name">Default Luz Y Fuerza Pricelist Version</field>
+        </record>
+        <record id="item0" model="product.pricelist.item">
+            <field name="price_version_id" ref="ver0"/>
+            <field name="base" ref="product.list_price"/>
+            <field name="categ_id" ref="product_category_storage_service"/>
+            <field name="name">Default Luz Y Fuerza Pricelist Line</field>
+        </record>
+    </data>
+</openerp>
+

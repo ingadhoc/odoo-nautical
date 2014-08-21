@@ -1,0 +1,10 @@
+id,name,customer,is_company,parent_id/id,property_product_pricelist/id
+nautical_partner_01,Roberto Perez,True,True,,product.list0
+nautical_partner_02,Robero Perez Junior,True,False,,product.list0
+nautical_partner_03,Laura García de Perez,True,False,nautical_partner_01,product.list0
+nautical_partner_04,Angelica Perez,False,False,nautical_partner_01,product.list0
+nautical_partner_05,Luz y Fuerza,True,True,,list_luz_y_fuerza
+nautical_partner_06,Pepe Pescador,True,False,nautical_partner_05,list_luz_y_fuerza
+nautical_partner_07,Empresa SA,True,True,,product.list0
+nautical_partner_08,Pablo Pinasco,True,True,nautical_partner_07,product.list0
+nautical_partner_09,Pancho Reparador,False,False,,product.list0

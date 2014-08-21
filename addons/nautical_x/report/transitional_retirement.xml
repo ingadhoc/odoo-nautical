@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<openerp>
+<data>
+
+    <record id="report_transitional_retirement_odt" model="ir.actions.report.xml">
+        <field name="name">Transitional Retirement Report</field>
+        <field name="type">ir.actions.report.xml</field>
+        <field name="model">nautical.craft</field>
+        <field name="report_name">report_transitional_retirement_odt</field>
+        <field name="report_type">aeroo</field>
+        <field name="in_format">oo-odt</field>
+        <field name="out_format" ref="report_aeroo_ooo.report_mimetypes_pdf_odt"/>
+        <field name="parser_loc"></field>
+        <field name="report_rml">nautical_x/report/transitional_retirement.odt</field>
+        <field name="parser_state">default</field>
+        <!-- <field name="parser_state">loc</field> -->
+        <field name="tml_source">file</field>
+    </record> 
+
+</data>
+</openerp>

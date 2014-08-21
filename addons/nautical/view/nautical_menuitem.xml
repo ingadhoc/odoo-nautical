@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+#
+#    Nautical
+#    Copyright (C) 2014 Sistemas ADHOC
+#    No email
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+
+-->
+<openerp>
+    <data>
+
+        <menuitem
+            name="Nautical"
+            id="menu_nautical"
+            sequence="25"
+            groups="group_tractorista"
+            />
+
+
+        <menuitem
+            name="Configuration"
+            id="menu_configuration"
+            sequence="100"
+            parent="menu_nautical"
+            groups="group_manager"
+            />
+
+
+        <menuitem
+            name="Crafts"
+            id="menu_crafts_view"
+            sequence="20"
+            parent="menu_nautical"
+            groups="group_user"
+            />
+
+
+        <menuitem
+            name="Locations"
+            id="menu_data"
+            sequence="30"
+            parent="menu_nautical"
+            groups="group_user"
+            />
+
+
+        <menuitem
+            name="Dispatch"
+            id="menu_dispatch"
+            sequence="10"
+            parent="menu_nautical"
+            groups="group_tractorista"
+            />
+
+        <record id="action_nautical_authorization_type_authorization_types" model="ir.actions.act_window">
+            <field name="name">Authorization Types</field>
+            <field name="res_model">nautical.authorization_type</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_nautical_authorization_type_tree"/>
+            <field name="search_view_id" ref="view_nautical_authorization_type_filter"/>
+            <field name="domain">[]</field>
+        </record>
+
+        <menuitem
+            name="Authorization Types"
+            id="menu_authorization_types"
+            sequence="30"
+            action="action_nautical_authorization_type_authorization_types"
+            parent="menu_configuration"
+            groups="group_manager"
+            />
+
+
+        <menuitem
+            name="Craft Data"
+            id="menu_craft_data"
+            sequence="40"
+            parent="menu_configuration"
+            groups="group_manager"
+            />
+
+        <record id="action_nautical_craft_crafts" model="ir.actions.act_window">
+            <field name="name">Crafts</field>
+            <field name="res_model">nautical.craft</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_nautical_craft_tree"/>
+            <field name="search_view_id" ref="view_nautical_craft_filter"/>
+            <field name="domain">[]</field>
+        </record>
+
+        <menuitem
+            name="Crafts"
+            id="menu_crafts"
+            sequence="20"
+            action="action_nautical_craft_crafts"
+            parent="menu_crafts_view"
+            groups="group_user"
+            />
+
+        <record id="action_nautical_craft_record_crafts___record" model="ir.actions.act_window">
+            <field name="name">Crafts - Record</field>
+            <field name="res_model">nautical.craft_record</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_nautical_craft_record_tree"/>
+            <field name="search_view_id" ref="view_nautical_craft_record_filter"/>
+            <field name="domain">[]</field>
+        </record>
+
+        <menuitem
+            name="Crafts - Record"
+            id="menu_crafts___record"
+            sequence="30"
+            action="action_nautical_craft_record_crafts___record"
+            parent="menu_crafts_view"
+            groups="group_user"
+            />
+
+        <record id="action_nautical_location_locations" model="ir.actions.act_window">
+            <field name="name">Locations</field>
+            <field name="res_model">nautical.location</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_nautical_location_tree"/>
+            <field name="search_view_id" ref="view_nautical_location_filter"/>
+            <field name="context">{'from_menu':True}</field>
+            <field name="domain">[]</field>
+        </record>
+
+        <menuitem
+            name="Locations"
+            id="menu_locations"
+            sequence="40"
+            action="action_nautical_location_locations"
+            parent="menu_data"
+            groups="group_user"
+            />
+
+        <record id="action_nautical_service_authorization_service_authorizations" model="ir.actions.act_window">
+            <field name="name">Service Authorizations</field>
+            <field name="res_model">nautical.service_authorization</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_nautical_service_authorization_tree"/>
+            <field name="search_view_id" ref="view_nautical_service_authorization_filter"/>
+            <field name="domain">[]</field>
+        </record>
+
+        <menuitem
+            name="Service Authorizations"
+            id="menu_service_authorizations"
+            sequence="100"
+            action="action_nautical_service_authorization_service_authorizations"
+            parent="menu_crafts_view"
+            groups="group_user"
+            />
+
+        <record id="action_nautical_craft_to_dispatch" model="ir.actions.act_window">
+            <field name="name">To Dispatch</field>
+            <field name="res_model">nautical.craft</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_nautical_craft_tree"/>
+            <field name="search_view_id" ref="view_nautical_craft_filter"/>
+            <field name="domain">[]</field>
+        </record>
+
+        <menuitem
+            name="To Dispatch"
+            id="menu_to_dispatch"
+            sequence="10"
+            action="action_nautical_craft_to_dispatch"
+            parent="menu_dispatch"
+            groups="group_tractorista"
+            />
+
+        <record id="action_nautical_craft_to_receive" model="ir.actions.act_window">
+            <field name="name">To Receive</field>
+            <field name="res_model">nautical.craft</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_nautical_craft_tree"/>
+            <field name="search_view_id" ref="view_nautical_craft_filter"/>
+            <field name="domain">[]</field>
+        </record>
+
+        <menuitem
+            name="To Receive"
+            id="menu_to_receive"
+            sequence="20"
+            action="action_nautical_craft_to_receive"
+            parent="menu_dispatch"
+            groups="group_tractorista"
+            />
+
+        <record id="action_nautical_craft_brand_craft_brands" model="ir.actions.act_window">
+            <field name="name">Craft Brands</field>
+            <field name="res_model">nautical.craft_brand</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_nautical_craft_brand_tree"/>
+            <field name="search_view_id" ref="view_nautical_craft_brand_filter"/>
+            <field name="domain">[]</field>
+        </record>
+
+        <menuitem
+            name="Craft Brands"
+            id="menu_craft_brands"
+            sequence="20"
+            action="action_nautical_craft_brand_craft_brands"
+            parent="menu_craft_data"
+            groups="group_manager"
+            />
+
+        <record id="action_nautical_craft_material_craft_materials" model="ir.actions.act_window">
+            <field name="name">Craft Materials</field>
+            <field name="res_model">nautical.craft_material</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_nautical_craft_material_tree"/>
+            <field name="search_view_id" ref="view_nautical_craft_material_filter"/>
+            <field name="domain">[]</field>
+        </record>
+
+        <menuitem
+            name="Craft Materials"
+            id="menu_craft_materials"
+            sequence="10"
+            action="action_nautical_craft_material_craft_materials"
+            parent="menu_craft_data"
+            groups="group_manager"
+            />
+
+        <record id="action_nautical_engine_brand_engine_brands" model="ir.actions.act_window">
+            <field name="name">Engine Brands</field>
+            <field name="res_model">nautical.engine_brand</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_nautical_engine_brand_tree"/>
+            <field name="search_view_id" ref="view_nautical_engine_brand_filter"/>
+            <field name="domain">[]</field>
+        </record>
+
+        <menuitem
+            name="Engine Brands"
+            id="menu_engine_brands"
+            sequence="40"
+            action="action_nautical_engine_brand_engine_brands"
+            parent="menu_craft_data"
+            groups="group_manager"
+            />
+
+        <record id="action_nautical_shipyard_shipyard" model="ir.actions.act_window">
+            <field name="name">Shipyard</field>
+            <field name="res_model">nautical.shipyard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_nautical_shipyard_tree"/>
+            <field name="search_view_id" ref="view_nautical_shipyard_filter"/>
+            <field name="domain">[]</field>
+        </record>
+
+        <menuitem
+            name="Shipyard"
+            id="menu_shipyard"
+            sequence="30"
+            action="action_nautical_shipyard_shipyard"
+            parent="menu_craft_data"
+            groups="group_manager"
+            />
+
+    </data>
+</openerp>
+<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4
+     -->

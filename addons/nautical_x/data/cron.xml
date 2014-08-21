@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <!-- <record forcecreate="True" id="ir_cron_nautical_invoices" model="ir.cron"> -->
+        <record  id="ir_cron_nautical_invoices" model="ir.cron">
+            <field name="name">Nautical Create Storage Service Invoices</field>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">months</field>
+            <field name="numbercall">-1</field>
+            <field eval="False" name="doall"/>
+            <field eval="'res.partner'" name="model"/>
+            <field eval="'process_active_partner_invoices'" name="function"/>
+            <field eval="'()'" name="args"/>
+        </record>
+                
+        <record  id="ir_cron_nautical_interests" model="ir.cron">
+            <field name="name">Nautical Calculate Interests</field>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">months</field>
+            <field name="numbercall">-1</field>
+            <field eval="False" name="doall"/>
+            <field eval="'res.partner'" name="model"/>
+            <field eval="'process_interests'" name="function"/>
+            <field eval="'()'" name="args"/>
+        </record>           
+
+        <record  id="ir_cron_manual_invoice" model="ir.cron">
+            <field name="name">Nautical Process Sale Order, Manual Invoice</field>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">months</field>
+            <field name="numbercall">-1</field>
+            <field eval="False" name="doall"/>
+            <field eval="'sale.order'" name="model"/>
+            <field eval="'proccess_manual_invoice'" name="function"/>
+            <field eval="'()'" name="args"/>
+        </record>
+
+        <record  id="ir_cron_verify_contract_validity" model="ir.cron">
+            <field name="name">Nautical Contract Validity Verification</field>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field eval="False" name="doall"/>
+            <field eval="'nautical.contract'" name="model"/>
+            <field eval="'verify_contracts_validity'" name="function"/>
+            <field eval="'()'" name="args"/>
+        </record>        
+    </data>
+</openerp>        

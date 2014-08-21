@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+#
+#    Nautical
+#    Copyright (C) 2014 Sistemas ADHOC
+#    No email
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+-->
+<!-- nautical.contract -->
+<!-- nautical.contract -->
+<!-- nautical.contract -->
+<openerp>
+    <data>
+
+        <!-- SEARCH VIEW -->
+        <record id="view_nautical_contract_filter" model="ir.ui.view">
+            <field name="name">nautical.contract.select</field>
+            <field name="model">nautical.contract</field>
+            <field name="arch" type="xml">
+                <search string="Contract" version="7.0">
+                    <group string="By Attribute">
+                    <field name="start_date" string="Contract Date"
+                            />
+                    <field name="start_code" string="Contract Number"
+                            />
+                    <field name="expiration_date" string="Expiration Date"
+                            />
+                    <field name="owner_id" string="Owner"
+                            />
+                    <field name="end_date" string="Cancellation Date"
+                            />
+                    <field name="end_code" string="Cancellation Number"
+                            />
+                    </group>
+                    <group string="By object">
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- FORMVIEW -->
+        <record id="view_nautical_contract_form" model="ir.ui.view">
+            <field name="name">nautical.contract.form</field>
+            <field name="model">nautical.contract</field>
+            <field name="arch" type="xml">
+                <form string="Contract" version="7.0">
+                    <header>
+                        <button name="sgn_contract_signed"
+                            states="draft"
+                            string="Contract Signed"
+                            class="oe_highlight"
+                            />
+                        <button name="action_wfk_set_draft"
+                            type="object"
+                            states="permanent_cancellation"
+                            string="To Draft"
+                            />
+                        <button name="sgn_expired"
+                            states="contracted"
+                            string="Expired"
+                            />
+                        <button name="sgn_contract_cancelled"
+                            states="contracted,draft,expired"
+                            string="Contract Cancelled"
+                            />
+                        <field name="state" widget="statusbar"
+                            statusbar_colors='{}'
+                            />
+                    </header>
+                    <sheet string="Contract">
+                     <group>
+                        <field name="start_date"
+                            />
+                        <field name="start_code"
+                            />
+                        <field name="expiration_date"
+                            />
+                        <field name="owner_id"
+                            />
+                        <field name="end_date"
+                            attrs="{'invisible':[('state','!=','permanent_cancellation')]}"
+                            />
+                        <field name="end_code"
+                            attrs="{'invisible':[('state','!=','permanent_cancellation')]}"
+                            />
+                        <field name="cancellation_note"
+                            attrs="{'invisible':[('state','!=','permanent_cancellation')]}"
+                            />
+                     </group>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+
+        <!-- TREEVIEW -->
+
+        <record id="view_nautical_contract_tree" model="ir.ui.view">
+            <field name="name">nautical.contract.tree</field>
+            <field name="model">nautical.contract</field>
+            <field name="arch" type="xml">
+                <tree string="Contract"
+                    colors="grey:state=='cancelled';blue:state in ('draft',);black:state in ('contracted', 'expired'); red:state in ()"
+                    >
+                    <field name="start_date"
+                        />
+                    <field name="start_code"
+                        />
+                    <field name="expiration_date"
+                        />
+                    <field name="owner_id"
+                        />
+                    <field name="end_date"
+                        />
+                    <field name="end_code"
+                        />
+                    <field name="state" />
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</openerp>
+<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4
+     -->

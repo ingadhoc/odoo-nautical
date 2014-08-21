@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record id="view_create_contract" model="ir.ui.view">
+            <field name="name">create_contract.form</field>
+            <field name="model">create_contract</field>
+            <field name="arch" type="xml">
+                <form string="Create Contract" version="7.0">
+                    <group col="4">
+                        <field name="start_date"/>
+                        <field name="start_code"/>
+                        <field name="expiration_date"/>
+                    </group>
+                    <footer>
+                        <button name="create_contract" string="Create Contract" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        
+        <record id="action_create_contract" model="ir.actions.act_window">
+            <field name="name">Create Contract</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">create_contract</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <!-- Craft FORMVIEW -->
+<!--         <record id="view_nautical_craft_create_contract_form" model="ir.ui.view">
+            <field name="name">nautical.craft.create.contact.form</field>
+            <field name="model">nautical.craft</field>
+            <field name="inherit_id" ref="nautical.view_nautical_craft_form"/>
+            <field name="arch" type="xml">
+                <button name="sgn_contract_signed" position="replace">
+                    <button name="%(nautical_x.action_create_contract)d" type="action" states="draft,expired" string="Contract Signed" class="oe_highlight"/>
+                </button>
+            </field>
+        </record> -->
+
+    </data>
+</openerp>

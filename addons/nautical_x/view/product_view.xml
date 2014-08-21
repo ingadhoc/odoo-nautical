@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<openerp>
+    <data>
+
+        <!-- INHERITED SEARCH  -->
+<!--         <record id="view_sgr_product_filter" model="ir.ui.view">
+            <field name="name">sgr.product.select</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_search_form_view"/>
+            <field name="arch" type="xml">
+                <filter name="consumable" position="after">
+                </filter>
+            </field>
+        </record>
+ -->
+        <!-- INHERITED FORM -->
+        <record id="view_nautical_product_form" model="ir.ui.view">
+            <field name="name">sgr.product.form</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <field name="type" position="after">
+                    <field name="craft_type" attrs="{'invisible':[('type','!=','storage_service')],'required':[('type','=','storage_service')]}"/>
+                </field>
+            </field>
+        </record>
+
+        <!-- INHERITED TREE -->
+<!--         <record id="view_sgr_product_tree" model="ir.ui.view">
+            <field name="name">sgr.product.tree</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_product_tree_view"/>
+            <field name="arch" type="xml">
+            </field>
+        </record> -->
+
+
+    </data>
+</openerp>
+<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4
+     -->

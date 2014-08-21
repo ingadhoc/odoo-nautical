@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+#
+#    Nautical
+#    Copyright (C) 2014 Sistemas ADHOC
+#    No email
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+-->
+<!-- nautical.craft -->
+<!-- nautical.craft -->
+<!-- nautical.craft -->
+<openerp>
+    <data>
+
+        <!-- SEARCH VIEW -->
+        <record id="view_nautical_craft_filter" model="ir.ui.view">
+            <field name="name">nautical.craft.select</field>
+            <field name="model">nautical.craft</field>
+            <field name="arch" type="xml">
+                <search string="Craft" version="7.0">
+                    <group string="By Attribute">
+                    <field name="ref" string="Internal Reference"
+                            />
+                    <field name="product_id" string="Product"
+                            />
+                    <field name="plate" string="Plate"
+                            />
+                    <field name="name" string="Name"
+                            />
+                    <field name="engine_brand_id" string="Engine Brand"
+                            />
+                    </group>
+                    <group string="By object">
+                    <field name="location_ids" string="Location"
+                            />
+                    <field name="owner_id" string="Owner"
+                            />
+                    <field name="contract_ids" string="Contracts"
+                            />
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- FORMVIEW -->
+        <record id="view_nautical_craft_form" model="ir.ui.view">
+            <field name="name">nautical.craft.form</field>
+            <field name="model">nautical.craft</field>
+            <field name="arch" type="xml">
+                <form string="Craft" version="7.0">
+                    <header>
+                        <button name="action_wfk_set_draft"
+                            type="object"
+                            states="permanent_cancellation"
+                            string="To Draft"
+                            />
+                        <button name="sgn_dispached"
+                            states="to_dispatch"
+                            string="Dispached"
+                            class="oe_highlight"
+                            />
+                        <button name="sgn_allow_dispatch"
+                            states="do_not_dispatch"
+                            string="Allow Dispatch"
+                            />
+                        <button name="sgn_to_reparation"
+                            states="stored"
+                            string="To Reparation"
+                            />
+                        <button name="sgn_to_custody"
+                            states="stored"
+                            string="To Custody"
+                            />
+                        <button name="sgn_to_transitional_retirement"
+                            states="stored"
+                            string="To Transitional Retirement"
+                            />
+                        <button name="sgn_contract_signed"
+                            states="draft,expired"
+                            string="Contract Signed"
+                            class="oe_highlight"
+                            />
+                        <button name="sgn_expired"
+                            states="stored"
+                            string="Expired"
+                            />
+                        <button name="sgn_requested"
+                            states="stored"
+                            string="Requested"
+                            class="oe_highlight"
+                            />
+                        <button name="sgn_store"
+                            states="contracted,do_not_dispatch,in_custody,in_reparation,sailing,to_dispatch,transitional_retirement"
+                            string="Store"
+                            class="oe_highlight"
+                            />
+                        <button name="sgn_contract_cancelled"
+                            states="stored"
+                            string="Contract Cancelled"
+                            />
+                        <field name="state" widget="statusbar"
+                            statusbar_colors='{}'
+                            />
+                    </header>
+                    <sheet string="Craft">
+                     <group>
+                        <field name="ref"
+                            />
+                        <field name="product_id"
+                            on_change="onchange_product(product_id)"
+                            />
+                        <field name="plate"
+                            attrs="{'invisible':[('craft_type','=','kayak')],'required':[('craft_type','!=','kayak')]}"
+                            />
+                        <field name="name"
+                            attrs="{'required':[('craft_type','!=','kayak')]}"
+                            />
+                        <field name="measures_uom_id"
+                            attrs="{'invisible':[('craft_type','=','kayak')]}"
+                            />
+                        <field name="lenght"
+                            attrs="{'required':[('craft_type','!=','kayak')]}"
+                            />
+                        <field name="breadth"
+                            attrs="{'required':[('craft_type','!=','kayak')]}"
+                            />
+                        <field name="draught"
+                            attrs="{'required':[('craft_type','!=','kayak')]}"
+                            />
+                        <field name="prop"
+                            attrs="{'invisible':[('craft_type','=','kayak')]}"
+                            />
+                        <field name="displacement"
+                            attrs="{'invisible':[('craft_type','=','kayak')]}"
+                            />
+                        <field name="displacement_uom_id"
+                            attrs="{'invisible':[('craft_type','=','kayak')]}"
+                            />
+                        <field name="material_id"
+                            />
+                        <field name="engine_brand_id"
+                            attrs="{'invisible':[('craft_type','=','kayak')]}"
+                            />
+                        <field name="engine_power"
+                            attrs="{'invisible':[('craft_type','=','kayak')]}"
+                            />
+                        <field name="engine_power_uom_id"
+                            attrs="{'invisible':[('craft_type','=','kayak')]}"
+                            />
+                        <field name="engine_serial_number"
+                            attrs="{'invisible':[('craft_type','=','kayak')]}"
+                            />
+                        <field name="aux_engine_brand_id"
+                            attrs="{'invisible':[('craft_type','=','kayak')]}"
+                            />
+                        <field name="aux_engine_power"
+                            attrs="{'invisible':[('craft_type','=','kayak')]}"
+                            />
+                        <field name="aux_engine_power_uom_id"
+                            attrs="{'invisible':[('craft_type','=','kayak')]}"
+                            />
+                        <field name="aux_engine_serial_number"
+                            attrs="{'invisible':[('craft_type','=','kayak')]}"
+                            />
+                        <field name="note"
+                            />
+                        <field name="craft_type"
+                            invisible="True"
+                            />
+                        <field name="brand_id"
+                            />
+                        <field name="shipyard_id"
+                            attrs="{'invisible':[('craft_type','=','kayak')]}"
+                            />
+                    <field name="location_ids"
+                            widget="many2many"
+                            />
+                    <field name="authorization_ids"
+                            context="{'from_craft':True, 'default_craft_id':id}"
+                            />
+                    <field name="contract_ids"
+                            />
+                     </group>
+                    </sheet>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- TREEVIEW -->
+
+        <record id="view_nautical_craft_tree" model="ir.ui.view">
+            <field name="name">nautical.craft.tree</field>
+            <field name="model">nautical.craft</field>
+            <field name="arch" type="xml">
+                <tree string="Craft"
+                    colors="grey:state=='cancelled';blue:state in ('draft',);black:state in ('in_reparation', 'sailing', 'do_not_dispatch', 'contracted', 'check_due', 'transitional_retirement', 'stored', 'to_dispatch', 'expired', 'in_custody'); red:state in ()"
+                    >
+                    <field name="ref"
+                        />
+                    <field name="product_id"
+                        />
+                    <field name="plate"
+                        />
+                    <field name="name"
+                        />
+                    <field name="last_action_date"
+                        />
+                    <field name="owner_id"
+                        />
+                    <field name="state" />
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</openerp>
+<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4
+     -->

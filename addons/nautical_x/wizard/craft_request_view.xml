@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record id="view_craft_request" model="ir.ui.view">
+            <field name="name">craft_request.form</field>
+            <field name="model">craft_request</field>
+            <field name="arch" type="xml">
+                <form string="Craft Request" version="7.0">
+                    <field name="request_type"  on_change="onchange_request_type(request_type, context)" invisible="True" />
+                    <group col="4">
+                        <field name="requestor_type" attrs="{'readonly':[('request_type','=','transitional_retirement')],'invisible':[('request_type','in',['in_reparation','in_custody'])]}"/>
+                        <newline/>
+                        <!-- <field name="requestor_id"/> -->
+                        <field name="requestor_id" attrs="{'invisible':[('requestor_type','=','owner')],'required':[('requestor_type','!=','owner')]}"/>
+                        <field name="service_requestor_id" attrs="{'invisible':[('request_type','!=','in_reparation')],'required':[('request_type','=','in_reparation')]}"/> 
+                        <field name="custody_requestor_id" attrs="{'invisible':[('request_type','!=','in_custody')],'required':[('request_type','=','in_custody')]}"/>
+                    </group>
+                    <div attrs="{'invisible':[('request_type','!=','transitional_retirement')]}">
+Remember to print, fill, scan and attache this form <button string="Transitional Retirement Form" class="oe_link" name="generate_report" type="object"/>
+                    </div>
+                    <footer>
+                        <button name="craft_request" string="Confirm" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        
+        <record id="action_craft_request" model="ir.actions.act_window">
+            <field name="name">craft_request.action</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">craft_request</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</openerp>

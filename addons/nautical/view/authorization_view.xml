@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+#
+#    Nautical
+#    Copyright (C) 2014 Sistemas ADHOC
+#    No email
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+-->
+<!-- nautical.authorization -->
+<!-- nautical.authorization -->
+<!-- nautical.authorization -->
+<openerp>
+    <data>
+
+        <!-- SEARCH VIEW -->
+        <record id="view_nautical_authorization_filter" model="ir.ui.view">
+            <field name="name">nautical.authorization.select</field>
+            <field name="model">nautical.authorization</field>
+            <field name="arch" type="xml">
+                <search string="Authorizations" version="7.0">
+                    <group string="By Attribute">
+                    <field name="authorization_type_id" string="Authorization Type"
+                            />
+                    </group>
+                    <group string="By object">
+                    <field name="partner_id" string="Partner"
+                            />
+                    <field name="craft_id" string="Craft"
+                            />
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- FORMVIEW -->
+        <record id="view_nautical_authorization_form" model="ir.ui.view">
+            <field name="name">nautical.authorization.form</field>
+            <field name="model">nautical.authorization</field>
+            <field name="arch" type="xml">
+                <form string="Authorizations" version="7.0">
+                    <header>
+                    </header>
+                    <sheet string="Authorizations">
+                     <group>
+                        <field name="authorization_type_id"
+                            />
+                    <field name="partner_id"
+                            invisible="'from_partner' in context"
+                            />
+                    <field name="craft_id"
+                            invisible="'from_craft' in context"
+                            />
+                     </group>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+
+        <!-- TREEVIEW -->
+
+        <record id="view_nautical_authorization_tree" model="ir.ui.view">
+            <field name="name">nautical.authorization.tree</field>
+            <field name="model">nautical.authorization</field>
+            <field name="arch" type="xml">
+                <tree string="Authorizations"
+                    >
+                    <field name="authorization_type_id"
+                        />
+                    <field name="partner_id"
+                        />
+                    <field name="craft_id"
+                        />
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</openerp>
+<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4
+     -->

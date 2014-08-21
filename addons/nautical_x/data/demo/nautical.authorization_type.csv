@@ -1,0 +1,4 @@
+id,name,can_sail
+authorization_type_01,Visita,
+authorization_type_02,Visita e Ingreso,
+authorization_type_03,"Visita, Ingreso y Uso",True

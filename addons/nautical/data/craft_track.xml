@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+#
+#    Nautical
+#    Copyright (C) 2014 Sistemas ADHOC
+#    No email
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+-->
+<openerp>
+    <data>
+        <record id="nautical.craft_draft" model="mail.message.subtype">
+	    <field name="name">Draft</field>
+	    <field name="res_model">nautical.craft</field>
+            <field name="default" eval="True"/>
+	    <field name="description">Draft</field>
+        </record>
+        <record id="nautical.craft_to_dispatch" model="mail.message.subtype">
+	    <field name="name">To Dispatch</field>
+	    <field name="res_model">nautical.craft</field>
+            <field name="default" eval="True"/>
+	    <field name="description">To Dispatch</field>
+        </record>
+        <record id="nautical.craft_sailing" model="mail.message.subtype">
+	    <field name="name">Sailing</field>
+	    <field name="res_model">nautical.craft</field>
+            <field name="default" eval="True"/>
+	    <field name="description">Sailing</field>
+        </record>
+        <record id="nautical.craft_in_reparation" model="mail.message.subtype">
+	    <field name="name">In Reparation</field>
+	    <field name="res_model">nautical.craft</field>
+            <field name="default" eval="True"/>
+	    <field name="description">In Reparation</field>
+        </record>
+        <record id="nautical.craft_in_custody" model="mail.message.subtype">
+	    <field name="name">In Custody</field>
+	    <field name="res_model">nautical.craft</field>
+            <field name="default" eval="True"/>
+	    <field name="description">In Custody</field>
+        </record>
+        <record id="nautical.craft_transitional_retirement" model="mail.message.subtype">
+	    <field name="name">Transitional Retirement</field>
+	    <field name="res_model">nautical.craft</field>
+            <field name="default" eval="True"/>
+	    <field name="description">Transitional Retirement</field>
+        </record>
+        <record id="nautical.craft_expired" model="mail.message.subtype">
+	    <field name="name">Expired</field>
+	    <field name="res_model">nautical.craft</field>
+            <field name="default" eval="True"/>
+	    <field name="description">Expired</field>
+        </record>
+        <record id="nautical.craft_contracted" model="mail.message.subtype">
+	    <field name="name">Contracted</field>
+	    <field name="res_model">nautical.craft</field>
+            <field name="default" eval="True"/>
+	    <field name="description">Contracted</field>
+        </record>
+        <record id="nautical.craft_stored" model="mail.message.subtype">
+	    <field name="name">Stored</field>
+	    <field name="res_model">nautical.craft</field>
+            <field name="default" eval="True"/>
+	    <field name="description">Stored</field>
+        </record>
+        <record id="nautical.craft_check_due" model="mail.message.subtype">
+	    <field name="name">Check Due</field>
+	    <field name="res_model">nautical.craft</field>
+            <field name="default" eval="True"/>
+	    <field name="description">Check Due</field>
+        </record>
+        <record id="nautical.craft_do_not_dispatch" model="mail.message.subtype">
+	    <field name="name">Do not Dispatch</field>
+	    <field name="res_model">nautical.craft</field>
+            <field name="default" eval="True"/>
+	    <field name="description">Do not Dispatch</field>
+        </record>
+        <record id="nautical.craft_permanent_cancellation" model="mail.message.subtype">
+	    <field name="name">Permanent Cancellation</field>
+	    <field name="res_model">nautical.craft</field>
+            <field name="default" eval="True"/>
+	    <field name="description">Permanent Cancellation</field>
+        </record>
+    </data>
+</openerp>
+<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4
+     -->

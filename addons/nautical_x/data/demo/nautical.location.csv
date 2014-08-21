@@ -1,0 +1,40 @@
+id,name,type,parent_id/id,ref,sufix
+nautical_location_01,Tierra,view,,T,
+nautical_location_02,Arroyo,view,,A,
+nautical_location_03,Caleta,view,,C,
+nautical_location_04,Galpon,view,,G,
+nautical_location_05,Baradero,view,,B,
+nautical_location_06,Calle A,view,nautical_location_04,A,
+nautical_location_07,Calle B,view,nautical_location_04,B,
+nautical_location_08,Columna 1,view,nautical_location_06,1,-
+nautical_location_09,Columna 2,view,nautical_location_06,2,-
+nautical_location_10,Columna 3,view,nautical_location_06,3,-
+nautical_location_11,Columna 4,view,nautical_location_06,4,-
+nautical_location_12,Columna 1,view,nautical_location_07,1,-
+nautical_location_13,Columna 2,view,nautical_location_07,2,-
+nautical_location_14,Columna 3,view,nautical_location_07,3,-
+nautical_location_15,Columna 4,view,nautical_location_07,4,-
+nautical_location_16,Nivel 1,normal,nautical_location_08,1,
+nautical_location_17,Nivel 2,normal,nautical_location_08,2,
+nautical_location_18,Nivel 3,normal,nautical_location_08,3,
+nautical_location_19,Nivel 1,normal,nautical_location_09,1,
+nautical_location_20,Nivel 2,normal,nautical_location_09,2,
+nautical_location_21,Nivel 3,normal,nautical_location_09,3,
+nautical_location_22,Nivel 1,normal,nautical_location_10,1,
+nautical_location_23,Nivel 2,normal,nautical_location_10,2,
+nautical_location_24,Nivel 3,normal,nautical_location_10,3,
+nautical_location_25,Nivel 1,normal,nautical_location_11,1,
+nautical_location_26,Nivel 2,normal,nautical_location_11,2,
+nautical_location_27,Nivel 3,normal,nautical_location_11,3,
+nautical_location_28,Nivel 1,normal,nautical_location_12,1,
+nautical_location_29,Nivel 2,normal,nautical_location_12,2,
+nautical_location_30,Nivel 3,normal,nautical_location_12,3,
+nautical_location_31,Nivel 1,normal,nautical_location_13,1,
+nautical_location_32,Nivel 2,normal,nautical_location_13,2,
+nautical_location_33,Nivel 3,normal,nautical_location_13,3,
+nautical_location_34,Nivel 1,normal,nautical_location_14,1,
+nautical_location_35,Nivel 2,normal,nautical_location_14,2,
+nautical_location_36,Nivel 3,normal,nautical_location_14,3,
+nautical_location_37,Nivel 1,normal,nautical_location_15,1,
+nautical_location_38,Nivel 2,normal,nautical_location_15,2,
+nautical_location_39,Nivel 3,normal,nautical_location_15,3,
