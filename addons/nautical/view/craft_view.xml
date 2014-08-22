@@ -69,8 +69,13 @@
                             states="permanent_cancellation"
                             string="To Draft"
                             />
-                        <button name="sgn_dispached"
+                        <button name="sgn_picked"
                             states="to_dispatch"
+                            string="Picked"
+                            class="oe_highlight"
+                            />
+                        <button name="sgn_dispached"
+                            states="picked"
                             string="Dispached"
                             class="oe_highlight"
                             />
@@ -105,7 +110,7 @@
                             class="oe_highlight"
                             />
                         <button name="sgn_store"
-                            states="contracted,do_not_dispatch,in_custody,in_reparation,sailing,to_dispatch,transitional_retirement"
+                            states="contracted,do_not_dispatch,in_custody,in_reparation,picked,sailing,to_dispatch,transitional_retirement"
                             string="Store"
                             class="oe_highlight"
                             />
@@ -213,7 +218,7 @@
             <field name="model">nautical.craft</field>
             <field name="arch" type="xml">
                 <tree string="Craft"
-                    colors="grey:state=='cancelled';blue:state in ('draft',);black:state in ('in_reparation', 'sailing', 'do_not_dispatch', 'contracted', 'check_due', 'transitional_retirement', 'stored', 'to_dispatch', 'expired', 'in_custody'); red:state in ()"
+                    colors="grey:state=='cancelled';blue:state in ('draft',);black:state in ('in_reparation', 'sailing', 'do_not_dispatch', 'contracted', 'check_due', 'transitional_retirement', 'stored', 'picked', 'to_dispatch', 'expired', 'in_custody'); red:state in ()"
                     >
                     <field name="ref"
                         />

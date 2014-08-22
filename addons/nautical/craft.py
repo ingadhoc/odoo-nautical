@@ -37,6 +37,7 @@ class craft(osv.osv):
         # State machine: basic
         ('draft','Draft'),
         ('to_dispatch','To Dispatch'),
+        ('picked','Picked'),
         ('sailing','Sailing'),
         ('in_reparation','In Reparation'),
         ('in_custody','In Custody'),
@@ -52,6 +53,7 @@ class craft(osv.osv):
         'state': {
             'nautical.craft_draft': lambda self, cr, uid, obj, ctx=None: obj['state'] == 'draft',
             'nautical.craft_to_dispatch': lambda self, cr, uid, obj, ctx=None: obj['state'] == 'to_dispatch',
+            'nautical.craft_picked': lambda self, cr, uid, obj, ctx=None: obj['state'] == 'picked',
             'nautical.craft_sailing': lambda self, cr, uid, obj, ctx=None: obj['state'] == 'sailing',
             'nautical.craft_in_reparation': lambda self, cr, uid, obj, ctx=None: obj['state'] == 'in_reparation',
             'nautical.craft_in_custody': lambda self, cr, uid, obj, ctx=None: obj['state'] == 'in_custody',

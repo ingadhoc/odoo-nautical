@@ -35,6 +35,12 @@
             <field name="default" eval="True"/>
 	    <field name="description">To Dispatch</field>
         </record>
+        <record id="nautical.craft_picked" model="mail.message.subtype">
+	    <field name="name">Picked</field>
+	    <field name="res_model">nautical.craft</field>
+            <field name="default" eval="True"/>
+	    <field name="description">Picked</field>
+        </record>
         <record id="nautical.craft_sailing" model="mail.message.subtype">
 	    <field name="name">Sailing</field>
 	    <field name="res_model">nautical.craft</field>

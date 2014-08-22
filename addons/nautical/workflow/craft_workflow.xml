@@ -53,6 +53,14 @@
             </field>
             <field name="kind">function</field>
         </record>
+        <record id="a_1264_0F24" model="workflow.activity">
+            <field name="wkf_id" ref="craft_basic_wkf"/>
+            <field name="name">Picked</field>
+            <field name="action">
+                write({'state':'picked'})
+            </field>
+            <field name="kind">function</field>
+        </record>
         <record id="a_1264_27FA" model="workflow.activity">
             <field name="wkf_id" ref="craft_basic_wkf"/>
             <field name="name">Sailing</field>
@@ -214,7 +222,7 @@
             <field name="condition">True</field>
         </record>
         <record id="t_1264_27FB" model="workflow.transition">
-            <field name="act_from" ref="a_1264_14D3"/>
+            <field name="act_from" ref="a_1264_0F24"/>
             <field name="act_to" ref="a_1264_27FA"/>
             <field name="signal">sgn_dispached</field>
             <field name="condition">True</field>
@@ -289,6 +297,18 @@
             <field name="act_from" ref="a_1264_0E70"/>
             <field name="act_to" ref="a_1264_14D3"/>
             <field name="signal">sgn_allow_dispatch</field>
+            <field name="condition">True</field>
+        </record>
+        <record id="t_1264_0F25" model="workflow.transition">
+            <field name="act_from" ref="a_1264_14D3"/>
+            <field name="act_to" ref="a_1264_0F24"/>
+            <field name="signal">sgn_picked</field>
+            <field name="condition">True</field>
+        </record>
+        <record id="t_1264_0F27" model="workflow.transition">
+            <field name="act_from" ref="a_1264_0F24"/>
+            <field name="act_to" ref="a_1264_14D2"/>
+            <field name="signal">sgn_store</field>
             <field name="condition">True</field>
         </record>
     </data>
