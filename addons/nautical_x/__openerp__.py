@@ -29,7 +29,8 @@
       'l10n_ar_states',
       'web_m2x_options',
       'account_interests',
-      'report_aeroo_ooo',
+      'report_aeroo',
+      # 'report_aeroo_ooo',
       # OpenERP officla addons
       'procurement',
       'sale',
