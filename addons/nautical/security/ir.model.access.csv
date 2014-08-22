@@ -44,3 +44,6 @@
 "access_nautical_service_authorization_manager","nautical.service_authorization.manager","model_nautical_service_authorization","group_manager",1,1,1,1
 "access_nautical_service_authorization_user","nautical.service_authorization.user","model_nautical_service_authorization","group_user",1,1,1,1
 "access_nautical_service_authorization_tractorista","nautical.service_authorization.tractorista","model_nautical_service_authorization","group_tractorista",1,1,1,1
+"access_nautical_role_book_manager","nautical.role_book.manager","model_nautical_role_book","group_manager",1,1,1,1
+"access_nautical_role_book_user","nautical.role_book.user","model_nautical_role_book","group_user",1,1,1,1
+"access_nautical_role_book_tractorista","nautical.role_book.tractorista","model_nautical_role_book","group_tractorista",1,1,1,1

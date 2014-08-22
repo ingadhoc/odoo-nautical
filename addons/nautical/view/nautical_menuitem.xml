@@ -173,6 +173,25 @@
             groups="group_tractorista"
             />
 
+        <record id="action_nautical_role_book_role_book" model="ir.actions.act_window">
+            <field name="name">Role Book</field>
+            <field name="res_model">nautical.role_book</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_nautical_role_book_tree"/>
+            <field name="search_view_id" ref="view_nautical_role_book_filter"/>
+            <field name="domain">[]</field>
+        </record>
+
+        <menuitem
+            name="Role Book"
+            id="menu_role_book"
+            sequence="50"
+            action="action_nautical_role_book_role_book"
+            parent="menu_crafts_view"
+            groups="group_user"
+            />
+
         <record id="action_nautical_service_authorization_service_authorizations" model="ir.actions.act_window">
             <field name="name">Service Authorizations</field>
             <field name="res_model">nautical.service_authorization</field>
@@ -186,7 +205,7 @@
         <menuitem
             name="Service Authorizations"
             id="menu_service_authorizations"
-            sequence="100"
+            sequence="40"
             action="action_nautical_service_authorization_service_authorizations"
             parent="menu_crafts_view"
             groups="group_user"

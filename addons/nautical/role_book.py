@@ -21,23 +21,35 @@
 ##############################################################################
 
 
-import product
-import authorization_type
-import craft_record
-import service_authorization
-import engine_brand
-import partner_record
-import record_category
-import contract
-import shipyard
-import craft
-import location
-import craft_material
-import role_book
-import partner
-import craft_brand
-import authorization
-import wizard
-import report
+import re
+from openerp import netsvc
+from openerp.osv import osv, fields
+
+class role_book(osv.osv):
+    """"""
+    
+    _name = 'nautical.role_book'
+    _description = 'role_book'
+
+    _columns = {
+        'estimated_dep_date': fields.datetime(string='estimated_dep_date', required=True),
+        'partner_id': fields.many2one('res.partner', string='partner_id', readonly=True, required=True),
+        'craft_id': fields.many2one('nautical.craft', string='craft_id', readonly=True, required=True),
+        'destiny': fields.char(string='destiny'),
+        'crew_qty': fields.integer(string='crew_qty'),
+        'est_arrival_date': fields.datetime(string='Estimated Arrival Date'),
+    }
+
+    _defaults = {
+    }
+
+
+    _constraints = [
+    ]
+
+
+
+
+role_book()
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

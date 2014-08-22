@@ -93,6 +93,7 @@ class craft(osv.osv):
         'brand_id': fields.many2one('nautical.craft_brand', string='Brand'),
         'shipyard_id': fields.many2one('nautical.shipyard', string='Shipyard'),
         'aux_requestor_id': fields.many2one('res.partner', string='Aux. Requestor'),
+        'estimated_dep_date': fields.datetime(string='Estimated Departure Date'),
         'state': fields.selection(_states_, "State"),
         'location_ids': fields.one2many('nautical.location', 'craft_id', string='Location', states={'draft':[('readonly', True)],'permanent_cancellation':[('readonly', True)]}, context={'default_type':'normal'}, domain=[('type','=','normal')]), 
         'authorization_ids': fields.one2many('nautical.authorization', 'craft_id', string='Authorizations'), 
