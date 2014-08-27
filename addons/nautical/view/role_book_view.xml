@@ -34,15 +34,15 @@
             <field name="arch" type="xml">
                 <search string="role_book" version="7.0">
                     <group string="By Attribute">
-                    <field name="estimated_dep_date" string="estimated_dep_date"
+                    <field name="estimated_dep_date" string="Estimated Departure Date"
                             />
-                    <field name="partner_id" string="partner_id"
+                    <field name="partner_id" string="Partner"
                             />
-                    <field name="craft_id" string="craft_id"
+                    <field name="craft_id" string="Craft"
                             />
-                    <field name="destiny" string="destiny"
+                    <field name="destiny" string="Destiny"
                             />
-                    <field name="crew_qty" string="crew_qty"
+                    <field name="crew_qty" string="Crew"
                             />
                     <field name="est_arrival_date" string="Estimated Arrival Date"
                             />

@@ -32,11 +32,11 @@ class role_book(osv.osv):
     _description = 'role_book'
 
     _columns = {
-        'estimated_dep_date': fields.datetime(string='estimated_dep_date', required=True),
-        'partner_id': fields.many2one('res.partner', string='partner_id', readonly=True, required=True),
-        'craft_id': fields.many2one('nautical.craft', string='craft_id', readonly=True, required=True),
-        'destiny': fields.char(string='destiny'),
-        'crew_qty': fields.integer(string='crew_qty'),
+        'estimated_dep_date': fields.datetime(string='Estimated Departure Date', required=True),
+        'partner_id': fields.many2one('res.partner', string='Partner', readonly=True, required=True),
+        'craft_id': fields.many2one('nautical.craft', string='Craft', readonly=True, required=True),
+        'destiny': fields.char(string='Destiny'),
+        'crew_qty': fields.integer(string='Crew'),
         'est_arrival_date': fields.datetime(string='Estimated Arrival Date'),
     }
 
