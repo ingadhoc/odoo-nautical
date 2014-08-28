@@ -37,6 +37,7 @@
       'base_import',
       'purchase',
       'account_cancel',
+      'portal_account_summary',
         ],
     'description': """
 Nautical Project
