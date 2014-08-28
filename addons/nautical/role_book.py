@@ -25,9 +25,11 @@ import re
 from openerp import netsvc
 from openerp.osv import osv, fields
 
+
 class role_book(osv.osv):
+
     """"""
-    
+
     _name = 'nautical.role_book'
     _description = 'role_book'
 
@@ -43,11 +45,8 @@ class role_book(osv.osv):
     _defaults = {
     }
 
-
     _constraints = [
     ]
-
-
 
 
 role_book()

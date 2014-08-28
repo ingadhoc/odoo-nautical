@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="wizard_reserve_form_view" model="ir.ui.view">
+            <field name="name">Reserve</field>
+            <field name="model">nautical_portal.reserve_boat</field>
+            <field name="arch" type="xml">
+                <form string="Reserve" version="7.0">
+                   <h2>Complate de Role book</h2>
+                   <group>
+                    <field name="estimated_dep_date" string="Estimated Departure Date"/>
+                    <field name="destiny" string="Destiny"/>
+                    <field name="crew_qty" string="Crew"/>
+                    <field name="est_arrival_date" string="Estimated Arrival Date"/>
+                </group>
+                    <footer>
+                        <button name="reserve" string="Confirm" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        
+
+
+        <act_window name="Reserve"
+                   src_model="nautical.craft"
+                   res_model="nautical_portal.reserve_boat"
+                   view_mode="form"
+                   target="new"
+                   id="wizard_reserve_action"
+                   groups="portal.group_portal"/>
+
+    </data>
+</openerp>

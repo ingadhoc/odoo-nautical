@@ -26,13 +26,14 @@ from dateutil.relativedelta import relativedelta
 from openerp.osv import fields, osv
 import openerp.addons.decimal_precision as dp
 from openerp.tools.translate import _
-from openerp import tools
+from openerp import tools, netsvc
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT, DEFAULT_SERVER_DATETIME_FORMAT, DATETIME_FORMATS_MAP, float_compare
 
 class craft(osv.osv):
     """Craft"""
     
     _inherit = 'nautical.craft'
+
 
     def name_get(self, cr, uid, ids, context=None):
         # always return the full hierarchical name
@@ -114,6 +115,17 @@ class craft(osv.osv):
             result[obj.id] = loc_name
         return result
 
+    def _cal_role(self, cr, uid, ids, name, args, context=None):
+        result = {}
+        role_obj=self.pool['nautical.role_book']
+        for craft in self.browse(cr, uid, ids, context=context):
+            role_book_id = False
+            role_book_ids = role_obj.search(cr, uid, [('craft_id','=',craft.id)], order='estimated_dep_date desc', context=context)
+            if role_book_ids:
+                role_book_id = role_book_ids[0]
+            result[craft.id] = role_book_id
+        return result
+
     def _set_image(self, cr, uid, id, name, value, args, context=None):
         return self.write(cr, uid, [id], {'image': tools.image_resize_image_big(value)}, context=context)
 
@@ -152,6 +164,9 @@ class craft(osv.osv):
         'pricelist_id': fields.related('owner_id', 'property_product_pricelist', type='many2one', relation='product.pricelist', string='Pricelist'),
         'fiscal_position': fields.related('owner_id', 'property_account_position', type='many2one', relation='account.fiscal.position', string='Fiscal Position'),
         'currency_id': fields.related('pricelist_id', 'currency_id', type="many2one", relation="res.currency", string="Currency", readonly=True, required=False),
+        'role_book_id': fields.function(_cal_role, string='Role book', type='many2one', relation='nautical.role_book'),
+        'estimated_dep_date': fields.related('role_book_id', 'estimated_dep_date', type='datetime', string='Estimated Departure Date'),
+        'est_arrival_date': fields.related('role_book_id', 'est_arrival_date', type='datetime', string='Estimated Arrival Date'),
 # ADDED TRACKING
         # El tracking en locations, por ser m2m, registra los ids y eso no esta bueno
         # 'location_ids': fields.one2many('nautical.location', 'craft_id', string='Location', states={'draft':[('readonly', True)],'permanent_cancellation':[('readonly', True)]}, context={'default_type':'normal'}, domain=[('type','=','normal')], track_visibility='onchange'), 
@@ -161,7 +176,7 @@ class craft(osv.osv):
     _defaults = {
     }
 
-    _order = 'last_action_date'
+    # _order = 'estimated_dep_date' 
 
     def create(self, cr, uid, vals, context=None):
         if vals.get('ref','/')=='/':
@@ -169,8 +184,7 @@ class craft(osv.osv):
         return super(craft, self).create(cr, uid, vals, context=context)    
 
     def write(self, cr, uid, ids, vals, context=None):
-        print ('vals', vals)
-        print ('context', context)
+        # print ('context', context)
         if 'state' in vals:
             # self.wkf_preconditions(cr, uid, ids, vals, context=context)
             if vals['state'] not in 'check_due':
@@ -180,6 +194,31 @@ class craft(osv.osv):
         
         ret = super(craft, self).write(cr, uid, ids, vals, context=context)
         return ret
+
+    #TODO mover este metodo a el modulo nautical_portal
+    def action_reserver(self, cr, uid, ids, context=None):
+        reserve_obj = self.pool['nautical_portal.reserve_boat']
+        if self.test_partner_dispatch(cr, 1, ids):
+            reserve_obj.reserve(cr, uid, ids, context=None)
+        else:
+            raise osv.except_osv(_('Error!'),
+                        _('Member  does not have the fee per day.') )
+
+            return True  
+
+    def craft_request(self, cr, uid, ids, request_type, partner_id, context=None):
+        wf_service = netsvc.LocalService("workflow")
+        if request_type == 'sail':
+            signal = 'sgn_requested'
+        elif request_type== 'transitional_retirement':
+            signal = 'sgn_to_transitional_retirement'
+        elif request_type== 'in_reparation':
+            signal = 'sgn_to_reparation'
+        elif request_type== 'in_custody':
+            signal = 'sgn_to_custody'           
+        self.write(cr, uid, ids, {'aux_requestor_id':partner_id}, context)
+        for craft_id in ids:
+            wf_service.trg_validate(uid, 'nautical.craft', craft_id, signal, cr)
 
     def create_craft_record(self, cr, uid, ids, vals, context=None):
         craft_record_obj = self.pool.get('nautical.craft_record')

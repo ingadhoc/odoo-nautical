@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<openerp>
+    <data><record id="action_nautical_craft_portal" model="ir.actions.act_window">
+            <field name="name">Crafts</field>
+            <field name="res_model">nautical.craft</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_nautical_craft_tree_portal"/>
+            <field name="search_view_id" ref="nautical.view_nautical_craft_filter"/> 
+            <field name="domain">[]</field>
+        </record>
+
+        <menuitem name="Nautical" id="portal_nautical_athletics" parent="portal.portal_menu"
+            sequence="10"/>
+        <menuitem name="Craft" id="portal_nautical_craft" parent="portal_nautical_athletics" action="action_nautical_craft_portal" sequence="10"/>
+
+        <menuitem
+            
+            id="portal.portal_company"
+            sequence="100"
+            parent="portal.portal_menu"
+            groups="base.group_erp_manager"
+            />
+        
+         <menuitem
+            
+            id="portal_sale.portal_quotations"
+            sequence="10"
+            parent="portal.portal_orders"
+            groups="base.group_erp_manager"
+            />
+
+             <menuitem
+            
+            id="portal_sale.portal_sales_orders"
+            sequence="20"
+            parent="portal.portal_orders"
+            groups="base.group_erp_manager"
+            />
+
+
+    </data>
+</openerp>
