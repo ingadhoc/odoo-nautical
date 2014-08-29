@@ -13,11 +13,11 @@
         </record>
 
 
-     <record id="portal.portal_read_own_res_partner" model="ir.rule">
-            <!-- <field name="name">Portal Nautical</field> -->
+     <record id="portal_nautical_res_partner" model="ir.rule">
+            <field name="name">res_partner: fix de nautical para mandar mensajes</field>
             <field ref="base.model_res_partner" name="model_id"/>
-            <field name="domain_force">[('user_ids', 'in', user.id)]</field>
-            <field name="groups" eval="[(3, ref('portal.group_portal'))]"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('portal.group_portal'))]"/>
             <field eval="0" name="perm_unlink"/>
             <field eval="0" name="perm_write"/>
             <field eval="1" name="perm_read"/>

@@ -14,7 +14,7 @@
                     <field name="name"/>
                     <field name="last_action_date"/>
                     <field name="state"/>
-                    <button type="object" icon="gtk-index" string="Reserve" class="oe_highlight"  help="Reserve" name="action_reserve" context="{'readonly':True}"/>
+                    <button type="object" icon="gtk-index" string="Reserve" class="oe_highlight"  help="Reserve" name="action_reserve" context="{'readonly':True}" attrs="{'invisible':[('state','!=','stored')]}"/>
             
                 </tree>
             </field>
