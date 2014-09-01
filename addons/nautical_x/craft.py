@@ -320,11 +320,23 @@ class craft(osv.osv):
         return True
 
     def test_partner_dispatch(self, cr, uid, ids, *args):
+        user_obj=self.pool['res.users']
+        company_obj = self.pool['res.company']
+        craft = self.browse(cr, uid, ids, context=None)[0]
+            
+        company_ids = user_obj.search(cr, uid, [('company_id','=',craft.aux_requestor_id.company_id.id)], context=None)
+        company_id=company_obj.browse(cr, uid, company_ids, context=None)[0]
+        months_debt=company_id.debt_limit_months
+        print months_debt
+
         # Test if partner due date is highter than 2 months. If not, return true so he can dispatch. Else, return False
-        tolerance_date = (datetime.today() + relativedelta(months=-2)).strftime('%Y-%m-%d')
-        for record in self.browse(cr, uid, ids, context={}):
-            if not record.owner_id.payment_earliest_due_date or record.owner_id.payment_earliest_due_date >= tolerance_date:
-                return True
-            else:
-                return False
+        if months_debt == 0 or not months_debt:
+            return True
+        else:
+            tolerance_date = (datetime.today() + relativedelta(months=-months_debt)).strftime('%Y-%m-%d')
+            for record in self.browse(cr, uid, ids, context={}):
+                if not record.owner_id.payment_earliest_due_date or record.owner_id.payment_earliest_due_date >= tolerance_date:
+                    return True
+                else:
+                    return False
             

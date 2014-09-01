@@ -94,6 +94,7 @@
                                     </div>
                                 </group>
                             </page>
+                            
                         </notebook>
                         <field name="supplier" invisible="True"/>
                         </sheet>
