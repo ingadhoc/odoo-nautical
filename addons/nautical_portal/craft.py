@@ -53,6 +53,6 @@ class craft(osv.osv):
             # reserve_obj.reserve(cr, uid, ids, context=None)
         else:
             raise osv.except_osv(_('Error!'),
-                        _('Member  does not have the fee per day.') )
+                        _('Member does not have the fee per day.') )
 
             return True
