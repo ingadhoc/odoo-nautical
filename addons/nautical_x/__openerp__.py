@@ -27,7 +27,7 @@
     'depends': [
       'nautical',
       'l10n_ar_states',
-      'web_m2x_options',
+      # 'web_m2x_options',
       'account_interests',
       'report_aeroo',
       # 'report_aeroo_ooo',

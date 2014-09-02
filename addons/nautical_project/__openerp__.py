@@ -28,10 +28,10 @@
       'nautical_x',
       'nautical_search_by_ni',
       'web_group_expand',
-      'web_adhoc_cust',
+      # 'web_adhoc_cust',
       # Others addons
       # 'web_nocreatedb', Disabled for now to make it easier to test
-      'cron_run_manually',
+      # 'cron_run_manually',
       'disable_openerp_online',
       # OpenERP officla addons
       'base_import',

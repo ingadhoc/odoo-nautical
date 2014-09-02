@@ -19,12 +19,12 @@
 #
 ##############################################################################
 
-from osv import fields, osv
-from tools.translate import _
+from openerp.osv import fields, osv
+from openerp import _
 from openerp import netsvc
 from datetime import datetime, date
 
-class craft_request(osv.osv_memory):
+class craft_request(osv.osv):
     _name = 'craft_request'
     _description = 'Wizard to cancel contract'
 

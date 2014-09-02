@@ -1,4 +1,4 @@
-id,name,type,craft_type,categ_id/id,list_price,uom_id/id,uom_po_id/id,sale_ok,purchase_ok
-nautical_product_01,Kayak,storage_service,kayak,product_category_storage_service,150,product_uom_month,product_uom_month,False,False
-nautical_product_02,Embarcación Tipo 1,storage_service,craft,product_category_storage_service,800,product_uom_month,product_uom_month,False,False
-nautical_product_03,Embarcación Tipo 2,storage_service,craft,product_category_storage_service,1500,product_uom_month,product_uom_month,False,False
+id,name,type,craft_type,categ_id/id,list_price,uom_id/id,uom_po_id/id,sale_ok
+nautical_product_01,Kayak,storage_service,kayak,product_category_storage_service,150,product_uom_month,product_uom_month,False
+nautical_product_02,Embarcacion Tipo 1,storage_service,craft,product_category_storage_service,800,product_uom_month,product_uom_month,False
+nautical_product_03,Embarcacion Tipo 2,storage_service,craft,product_category_storage_service,1500,product_uom_month,product_uom_month,False

@@ -19,11 +19,11 @@
 #
 ##############################################################################
 
-from osv import fields, osv
-from tools.translate import _
+from openerp.osv import fields, osv
+from openerp import _
 from openerp import netsvc
 
-class contract_cancelled_wizard(osv.osv_memory):
+class contract_cancelled_wizard(osv.osv):
     _name = 'contract_cancelled_wizard'
     _description = 'Wizard to cancel contract'
 

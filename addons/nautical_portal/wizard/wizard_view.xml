@@ -32,7 +32,7 @@
                    view_mode="form"
                    target="new"
                    id="wizard_reserve_action"
-                   groups="portal.group_portal"/>
+                   groups="base.group_portal"/>
 
     </data>
 </openerp>

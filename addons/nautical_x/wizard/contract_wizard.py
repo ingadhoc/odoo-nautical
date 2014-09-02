@@ -19,11 +19,11 @@
 #
 ##############################################################################
 
-from osv import fields, osv
-from tools.translate import _
+from openerp.osv import fields, osv
+from openerp import _
 from openerp import netsvc
 
-class create_contract(osv.osv_memory):
+class create_contract(osv.osv):
     _name = 'create_contract'
     _description = 'Wizard to create contract'
 

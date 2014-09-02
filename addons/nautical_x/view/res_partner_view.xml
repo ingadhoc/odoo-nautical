@@ -8,7 +8,7 @@
             <field name="model">res.partner</field>
             <field name="inherit_id" ref="base.view_res_partner_filter"></field>
             <field name="arch" type="xml">
-                <group string="Group By..." position="before">
+                <group string="Group By" position="before">
                     <filter string="Don't Dispatch" name="dont_dispatch" domain="[('payment_earliest_due_date', '&lt;=', (context_today() + relativedelta(months=-2)).strftime('%%Y-%%m-%%d') )]" help="Customers have higher fees due to two months"/>
                 </group>
             </field>
