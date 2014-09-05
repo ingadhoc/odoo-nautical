@@ -1,0 +1,773 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* nautical
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-09-05 17:09+0000\n"
+"PO-Revision-Date: 2014-09-05 17:09+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: nautical
+#: model:ir.model,name:nautical.model_nautical_partner_record
+#: view:nautical.partner_record:0
+msgid "Partner Record"
+msgstr "Historial"
+
+#. module: nautical
+#: model:ir.model,name:nautical.model_nautical_record_category
+#: view:nautical.record_category:0
+msgid "Record Category"
+msgstr "Categoría de Registro"
+
+#. module: nautical
+#: model:ir.actions.act_window,name:nautical.action_nautical_craft_to_dispatch
+#: model:ir.ui.menu,name:nautical.menu_to_dispatch
+#: model:mail.message.subtype,description:nautical.craft_to_dispatch
+#: model:mail.message.subtype,name:nautical.craft_to_dispatch
+#: selection:nautical.craft,state:0
+#: selection:nautical.craft_record,type:0
+msgid "To Dispatch"
+msgstr "A despachar"
+
+#. module: nautical
+#: view:nautical.craft_record:0
+#: field:nautical.craft_record,requestor_id:0
+msgid "Requestor"
+msgstr "Solicitante"
+
+#. module: nautical
+#: model:ir.actions.act_window,name:nautical.action_nautical_craft_material_craft_materials
+#: model:ir.ui.menu,name:nautical.menu_craft_materials
+msgid "Craft Materials"
+msgstr "Materiales Embarcación"
+
+#. module: nautical
+#: view:nautical.service_authorization:0
+#: field:nautical.service_authorization,supplier_id:0
+msgid "Supplier"
+msgstr "Proveedor"
+
+#. module: nautical
+#: view:nautical.contract:0
+#: field:nautical.contract,start_code:0
+msgid "Contract Number"
+msgstr "Número de Contrato"
+
+#. module: nautical
+#: field:nautical.craft,engine_power_uom_id:0
+msgid "Engine Power UOM"
+msgstr "UDM Potencia Motor"
+
+#. module: nautical
+#: view:nautical.craft:0
+#: field:nautical.craft,plate:0
+msgid "Plate"
+msgstr "Matrícula"
+
+#. module: nautical
+#: model:ir.model,name:nautical.model_nautical_engine_brand
+#: view:nautical.craft:0
+#: field:nautical.craft,engine_brand_id:0
+#: view:nautical.engine_brand:0
+msgid "Engine Brand"
+msgstr "Marca de Motor"
+
+#. module: nautical
+#: field:nautical.craft,message_unread:0
+msgid "Unread Messages"
+msgstr "Mensajes no leídos"
+
+#. module: nautical
+#: field:nautical.craft,brand_id:0
+msgid "Brand"
+msgstr "Marca"
+
+#. module: nautical
+#: model:ir.model,name:nautical.model_nautical_craft
+#: view:nautical.authorization:0
+#: field:nautical.authorization,craft_id:0
+#: view:nautical.craft:0
+#: view:nautical.craft_record:0
+#: field:nautical.craft_record,craft_id:0
+#: view:nautical.location:0
+#: field:nautical.location,craft_id:0
+#: view:nautical.service_authorization:0
+#: field:nautical.service_authorization,craft_id:0
+#: selection:product.product,craft_type:0
+msgid "Craft"
+msgstr "Embarcación"
+
+#. module: nautical
+#: view:nautical.contract:0
+#: field:nautical.contract,start_date:0
+msgid "Contract Date"
+msgstr "Fecha de Contrato"
+
+#. module: nautical
+#: model:res.groups,name:nautical.group_tractorista
+msgid "Tractorista"
+msgstr "Tractorista"
+
+#. module: nautical
+#: field:nautical.craft,message_ids:0
+msgid "Messages"
+msgstr "Mensajes"
+
+#. module: nautical
+#: model:ir.actions.act_window,name:nautical.action_nautical_craft_crafts
+#: model:ir.ui.menu,name:nautical.menu_crafts
+#: model:ir.ui.menu,name:nautical.menu_crafts_view
+msgid "Crafts"
+msgstr "Embarcaciones"
+
+#. module: nautical
+#: help:nautical.craft,message_unread:0
+msgid "If checked new messages require your attention."
+msgstr "Si esta marcado, nuevos mensajes requieren su atención"
+
+#. module: nautical
+#: field:nautical.craft,aux_engine_power:0
+msgid "Aux. Engine Power"
+msgstr "Potencia de Motor Aux."
+
+#. module: nautical
+#: model:ir.ui.menu,name:nautical.menu_dispatch
+msgid "Dispatch"
+msgstr "Despacho"
+
+#. module: nautical
+#: help:nautical.craft,message_summary:0
+msgid "Holds the Chatter summary (number of messages, ...). This summary is directly in html format in order to be inserted in kanban views."
+msgstr "Conserva el resumen del Chateador (número de mensajes, ...). Este resumen esta directamente en formato html para poder ser insertado en las vistas kanban"
+
+#. module: nautical
+#: model:mail.message.subtype,description:nautical.craft_stored
+#: model:mail.message.subtype,name:nautical.craft_stored
+#: selection:nautical.craft,state:0
+#: selection:nautical.craft_record,type:0
+msgid "Stored"
+msgstr "Almacenado"
+
+#. module: nautical
+#: model:ir.model,name:nautical.model_res_partner
+#: view:nautical.authorization:0
+#: field:nautical.authorization,partner_id:0
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: nautical
+#: field:nautical.partner_record,partner_id:0
+#: field:nautical.record_category,partner_record_id:0
+msgid "&lt;no label&gt;"
+msgstr "&lt;no label&gt;"
+
+#. module: nautical
+#: field:nautical.contract,state:0
+#: field:nautical.craft,state:0
+msgid "State"
+msgstr "Estado"
+
+#. module: nautical
+#: field:nautical.craft,message_follower_ids:0
+msgid "Followers"
+msgstr "Seguidores"
+
+#. module: nautical
+#: model:ir.model,name:nautical.model_nautical_location
+#: view:nautical.craft:0
+#: field:nautical.craft,location_ids:0
+#: view:nautical.location:0
+msgid "Location"
+msgstr "Ubicación"
+
+#. module: nautical
+#: view:nautical.location:0
+#: field:nautical.location,ref:0
+msgid "Ref"
+msgstr "Ref"
+
+#. module: nautical
+#: field:nautical.craft,aux_engine_serial_number:0
+msgid "Aux. Engine Serial Number"
+msgstr "Número de serie de Motor Aux."
+
+#. module: nautical
+#: field:nautical.craft,material_id:0
+msgid "Material"
+msgstr "Material"
+
+#. module: nautical
+#: model:ir.actions.act_window,name:nautical.action_nautical_shipyard_shipyard
+#: model:ir.model,name:nautical.model_nautical_shipyard
+#: model:ir.ui.menu,name:nautical.menu_shipyard
+#: field:nautical.craft,shipyard_id:0
+#: view:nautical.shipyard:0
+msgid "Shipyard"
+msgstr "Astillero"
+
+#. module: nautical
+#: field:nautical.craft,last_action_date:0
+msgid "Last Action Date"
+msgstr "Fecha de Última Acción"
+
+#. module: nautical
+#: view:nautical.craft:0
+msgid "Dispached"
+msgstr "Despachado"
+
+#. module: nautical
+#: model:ir.model,name:nautical.model_nautical_craft_material
+#: view:nautical.craft_material:0
+msgid "Craft Material"
+msgstr "Material de Embarcación"
+
+#. module: nautical
+#: model:ir.ui.menu,name:nautical.menu_configuration
+msgid "Configuration"
+msgstr "Configuración"
+
+#. module: nautical
+#: model:mail.message.subtype,description:nautical.craft_in_reparation
+#: model:mail.message.subtype,name:nautical.craft_in_reparation
+#: selection:nautical.craft,state:0
+#: selection:nautical.craft_record,type:0
+msgid "In Reparation"
+msgstr "En reparación"
+
+#. module: nautical
+#: view:nautical.contract:0
+#: field:nautical.contract,expiration_date:0
+#: view:nautical.service_authorization:0
+#: field:nautical.service_authorization,expiration_date:0
+msgid "Expiration Date"
+msgstr "Fecha de Vencimiento"
+
+#. module: nautical
+#: model:ir.actions.act_window,name:nautical.action_nautical_engine_brand_engine_brands
+#: model:ir.ui.menu,name:nautical.menu_engine_brands
+msgid "Engine Brands"
+msgstr "Marcas de Motores"
+
+#. module: nautical
+#: field:res.partner,historical_record_ids:0
+msgid "historical_record_ids"
+msgstr "historical_record_ids"
+
+#. module: nautical
+#: field:nautical.craft,craft_record_ids:0
+msgid "Record"
+msgstr "Historial"
+
+#. module: nautical
+#: view:nautical.location:0
+#: field:nautical.location,parent_id:0
+msgid "Parent Location"
+msgstr "Ubicación Padre"
+
+#. module: nautical
+#: view:nautical.contract:0
+#: view:nautical.craft:0
+msgid "Contract Cancelled"
+msgstr "Contrato Cancelado"
+
+#. module: nautical
+#: view:nautical.authorization:0
+#: view:nautical.authorization_type:0
+#: view:nautical.contract:0
+#: view:nautical.craft:0
+#: view:nautical.craft_brand:0
+#: view:nautical.craft_material:0
+#: view:nautical.craft_record:0
+#: view:nautical.engine_brand:0
+#: view:nautical.location:0
+#: view:nautical.partner_record:0
+#: view:nautical.record_category:0
+#: view:nautical.service_authorization:0
+#: view:nautical.shipyard:0
+msgid "By object"
+msgstr "Por Objeto"
+
+#. module: nautical
+#: model:ir.model,name:nautical.model_nautical_authorization_type
+#: view:nautical.authorization:0
+#: field:nautical.authorization,authorization_type_id:0
+#: view:nautical.authorization_type:0
+msgid "Authorization Type"
+msgstr "Tipo de Autorización"
+
+#. module: nautical
+#: field:nautical.partner_record,categ_ids:0
+msgid "Tags"
+msgstr "Tags"
+
+#. module: nautical
+#: view:nautical.craft_record:0
+#: field:nautical.craft_record,type:0
+#: view:nautical.location:0
+#: field:nautical.location,type:0
+msgid "Type"
+msgstr "Tipo"
+
+#. module: nautical
+#: model:ir.module.category,description:nautical.module_category_nautical
+#: model:ir.module.category,name:nautical.module_category_nautical
+#: model:ir.ui.menu,name:nautical.menu_nautical
+msgid "Nautical"
+msgstr "Náutico"
+
+#. module: nautical
+#: view:nautical.contract:0
+#: field:nautical.contract,owner_id:0
+#: view:nautical.craft:0
+#: field:nautical.craft,owner_id:0
+msgid "Owner"
+msgstr "Propietario"
+
+#. module: nautical
+#: field:nautical.contract,craft_id:0
+msgid "craft_id"
+msgstr "craft_id"
+
+#. module: nautical
+#: model:mail.message.subtype,description:nautical.craft_contracted
+#: model:mail.message.subtype,name:nautical.craft_contracted
+#: selection:nautical.contract,state:0
+#: selection:nautical.craft,state:0
+#: selection:nautical.craft_record,type:0
+msgid "Contracted"
+msgstr "Contratado"
+
+#. module: nautical
+#: model:ir.model,name:nautical.model_nautical_craft_record
+#: view:nautical.craft_record:0
+msgid "Craft Record"
+msgstr "Craft Record"
+
+#. module: nautical
+#: field:nautical.craft,prop:0
+msgid "Prop"
+msgstr "Puntal"
+
+#. module: nautical
+#: field:nautical.craft,note:0
+#: view:nautical.craft_record:0
+#: field:nautical.craft_record,note:0
+#: view:nautical.partner_record:0
+#: field:nautical.partner_record,note:0
+msgid "Note"
+msgstr "Nota"
+
+#. module: nautical
+#: view:nautical.authorization:0
+#: view:nautical.authorization_type:0
+#: view:nautical.contract:0
+#: view:nautical.craft:0
+#: view:nautical.craft_brand:0
+#: view:nautical.craft_material:0
+#: view:nautical.craft_record:0
+#: view:nautical.engine_brand:0
+#: view:nautical.location:0
+#: view:nautical.partner_record:0
+#: view:nautical.record_category:0
+#: view:nautical.service_authorization:0
+#: view:nautical.shipyard:0
+msgid "By Attribute"
+msgstr "Por Atributo"
+
+#. module: nautical
+#: model:mail.message.subtype,description:nautical.craft_draft
+#: model:mail.message.subtype,name:nautical.craft_draft
+#: selection:nautical.contract,state:0
+#: selection:nautical.craft,state:0
+#: selection:nautical.craft_record,type:0
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: nautical
+#: model:mail.message.subtype,description:nautical.craft_do_not_dispatch
+#: model:mail.message.subtype,name:nautical.craft_do_not_dispatch
+#: selection:nautical.craft,state:0
+#: selection:nautical.craft_record,type:0
+msgid "Do not Dispatch"
+msgstr "No despachar"
+
+#. module: nautical
+#: view:nautical.craft:0
+msgid "Store"
+msgstr "Almacenar"
+
+#. module: nautical
+#: view:nautical.craft:0
+msgid "To Reparation"
+msgstr "A reparación"
+
+#. module: nautical
+#: field:nautical.craft,aux_engine_power_uom_id:0
+msgid "Aux. Engine Power UOM"
+msgstr "UDM de Potencia Motor Aux."
+
+#. module: nautical
+#: selection:nautical.location,type:0
+msgid "Normal"
+msgstr "Normal"
+
+#. module: nautical
+#: view:nautical.craft:0
+#: field:nautical.craft,contract_ids:0
+msgid "Contracts"
+msgstr "Contratos"
+
+#. module: nautical
+#: field:nautical.location,child_ids:0
+msgid "Child Locations"
+msgstr "Ubicaciones Hijas"
+
+#. module: nautical
+#: field:nautical.contract,cancellation_note:0
+msgid "Cancellation Notes"
+msgstr "Notas de Cancelación"
+
+#. module: nautical
+#: field:res.partner,birthday:0
+msgid "Birthday"
+msgstr "Birthday"
+
+#. module: nautical
+#: field:nautical.craft,message_is_follower:0
+msgid "Is a Follower"
+msgstr "Es un seguidor"
+
+#. module: nautical
+#: view:nautical.craft_record:0
+#: field:nautical.craft_record,user_id:0
+#: view:nautical.partner_record:0
+#: field:nautical.partner_record,user_id:0
+#: model:res.groups,name:nautical.group_user
+msgid "User"
+msgstr "Usuario"
+
+#. module: nautical
+#: field:nautical.craft,aux_engine_brand_id:0
+msgid "Aux. Engine Brand"
+msgstr "Marca de Motor Auxiliar"
+
+#. module: nautical
+#: model:mail.message.subtype,description:nautical.craft_sailing
+#: model:mail.message.subtype,name:nautical.craft_sailing
+#: selection:nautical.craft,state:0
+#: selection:nautical.craft_record,type:0
+msgid "Sailing"
+msgstr "Navegando"
+
+#. module: nautical
+#: view:nautical.contract:0
+#: view:nautical.craft:0
+msgid "To Draft"
+msgstr "A Borrador"
+
+#. module: nautical
+#: model:ir.model,name:nautical.model_nautical_service_authorization
+#: view:nautical.service_authorization:0
+msgid "Service Authorization"
+msgstr "Autorización de Servicio"
+
+#. module: nautical
+#: model:ir.model,name:nautical.model_nautical_contract
+#: view:nautical.contract:0
+msgid "Contract"
+msgstr "Contrato"
+
+#. module: nautical
+#: view:nautical.contract:0
+#: field:nautical.contract,end_code:0
+msgid "Cancellation Number"
+msgstr "Número de Cancelación"
+
+#. module: nautical
+#: view:nautical.craft_record:0
+#: field:nautical.craft_record,date:0
+#: view:nautical.partner_record:0
+#: field:nautical.partner_record,date:0
+msgid "Date"
+msgstr "Fecha"
+
+#. module: nautical
+#: view:nautical.authorization_type:0
+#: field:nautical.authorization_type,can_sail:0
+msgid "Can Sail"
+msgstr "Puede Navegar"
+
+#. module: nautical
+#: field:nautical.craft,message_summary:0
+msgid "Summary"
+msgstr "Resumen"
+
+#. module: nautical
+#: model:ir.actions.act_window,name:nautical.action_nautical_craft_to_receive
+#: model:ir.ui.menu,name:nautical.menu_to_receive
+msgid "To Receive"
+msgstr "A Recibir"
+
+#. module: nautical
+#: model:ir.actions.act_window,name:nautical.action_nautical_craft_record_crafts___record
+#: model:ir.ui.menu,name:nautical.menu_crafts___record
+msgid "Crafts - Record"
+msgstr "Embaraciones - Historial"
+
+#. module: nautical
+#: field:res.partner,owned_craft_ids:0
+msgid "Owned Crafts"
+msgstr "Embarcaciones Poseídas"
+
+#. module: nautical
+#: field:res.partner,national_identity:0
+msgid "National Identity"
+msgstr "Documento Nacional de Identidad"
+
+#. module: nautical
+#: field:nautical.craft,lenght:0
+msgid "Lenght"
+msgstr "Eslora"
+
+#. module: nautical
+#: model:ir.actions.act_window,name:nautical.action_nautical_location_locations
+#: model:ir.ui.menu,name:nautical.menu_data
+#: model:ir.ui.menu,name:nautical.menu_locations
+msgid "Locations"
+msgstr "Ubicaciones"
+
+#. module: nautical
+#: field:nautical.location,sufix:0
+msgid "Sufix"
+msgstr "Sufijo"
+
+#. module: nautical
+#: field:nautical.craft,engine_power:0
+msgid "Engine Power"
+msgstr "Potencia Motor"
+
+#. module: nautical
+#: model:ir.actions.act_window,name:nautical.action_nautical_authorization_type_authorization_types
+#: model:ir.ui.menu,name:nautical.menu_authorization_types
+msgid "Authorization Types"
+msgstr "Tipos de Autorización"
+
+#. module: nautical
+#: model:ir.actions.act_window,name:nautical.action_nautical_craft_brand_craft_brands
+#: model:ir.ui.menu,name:nautical.menu_craft_brands
+msgid "Craft Brands"
+msgstr "Marcas de Embaraciones"
+
+#. module: nautical
+#: view:nautical.craft:0
+msgid "To Transitional Retirement"
+msgstr "A retiro transitorio"
+
+#. module: nautical
+#: model:mail.message.subtype,description:nautical.craft_permanent_cancellation
+#: model:mail.message.subtype,name:nautical.craft_permanent_cancellation
+#: selection:nautical.contract,state:0
+#: selection:nautical.craft,state:0
+#: selection:nautical.craft_record,type:0
+msgid "Permanent Cancellation"
+msgstr "Cancelación Permanente"
+
+#. module: nautical
+#: model:ir.model,name:nautical.model_nautical_authorization
+#: view:nautical.authorization:0
+#: field:nautical.craft,authorization_ids:0
+#: field:res.partner,authorization_ids:0
+msgid "Authorizations"
+msgstr "Autorizaciones"
+
+#. module: nautical
+#: field:nautical.craft,displacement_uom_id:0
+msgid "Displacement UOM"
+msgstr "UDM Desplazamiento"
+
+#. module: nautical
+#: view:nautical.craft:0
+msgid "To Custody"
+msgstr "A Custodia"
+
+#. module: nautical
+#: model:ir.model,name:nautical.model_nautical_craft_brand
+#: view:nautical.craft_brand:0
+msgid "Craft Brand"
+msgstr "Marca de Embarcación"
+
+#. module: nautical
+#: selection:nautical.craft_record,type:0
+msgid "Other"
+msgstr "Otro"
+
+#. module: nautical
+#: field:nautical.craft,aux_requestor_id:0
+msgid "Aux. Requestor"
+msgstr "Aux. Requestor"
+
+#. module: nautical
+#: view:nautical.craft:0
+msgid "Requested"
+msgstr "Requerido"
+
+#. module: nautical
+#: model:ir.model,name:nautical.model_product_product
+#: view:nautical.craft:0
+#: field:nautical.craft,product_id:0
+msgid "Product"
+msgstr "Producto"
+
+#. module: nautical
+#: field:nautical.craft,draught:0
+msgid "Draught"
+msgstr "Calado"
+
+#. module: nautical
+#: view:nautical.contract:0
+#: view:nautical.craft:0
+msgid "Contract Signed"
+msgstr "Contrato Firmado"
+
+#. module: nautical
+#: field:nautical.craft,engine_serial_number:0
+msgid "Engine Serial Number"
+msgstr "Número de Serie de Motor"
+
+#. module: nautical
+#: field:nautical.craft,measures_uom_id:0
+msgid "Measures UOM"
+msgstr "UDM Medidas"
+
+#. module: nautical
+#: view:nautical.craft:0
+#: field:nautical.craft,ref:0
+msgid "Internal Reference"
+msgstr "Referencia Interna"
+
+#. module: nautical
+#: model:mail.message.subtype,description:nautical.craft_expired
+#: model:mail.message.subtype,name:nautical.craft_expired
+#: view:nautical.contract:0
+#: selection:nautical.contract,state:0
+#: view:nautical.craft:0
+#: selection:nautical.craft,state:0
+#: selection:nautical.craft_record,type:0
+msgid "Expired"
+msgstr "Expirado"
+
+#. module: nautical
+#: view:nautical.authorization_type:0
+#: field:nautical.authorization_type,name:0
+#: view:nautical.craft:0
+#: field:nautical.craft,name:0
+#: view:nautical.craft_brand:0
+#: field:nautical.craft_brand,name:0
+#: view:nautical.craft_material:0
+#: field:nautical.craft_material,name:0
+#: view:nautical.engine_brand:0
+#: field:nautical.engine_brand,name:0
+#: view:nautical.location:0
+#: field:nautical.location,name:0
+#: view:nautical.record_category:0
+#: field:nautical.record_category,name:0
+#: view:nautical.shipyard:0
+#: field:nautical.shipyard,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: nautical
+#: view:product.product:0
+#: field:product.product,craft_type:0
+msgid "Craft Type"
+msgstr "Tipo de Embarcación"
+
+#. module: nautical
+#: model:mail.message.subtype,description:nautical.craft_in_custody
+#: model:mail.message.subtype,name:nautical.craft_in_custody
+#: selection:nautical.craft,state:0
+#: selection:nautical.craft_record,type:0
+msgid "In Custody"
+msgstr "En Custodia"
+
+#. module: nautical
+#: view:nautical.craft:0
+msgid "Allow Dispatch"
+msgstr "Permitir Despacho"
+
+#. module: nautical
+#: view:nautical.contract:0
+#: field:nautical.contract,end_date:0
+msgid "Cancellation Date"
+msgstr "Fecha de Cancelación"
+
+#. module: nautical
+#: model:mail.message.subtype,description:nautical.craft_check_due
+#: model:mail.message.subtype,name:nautical.craft_check_due
+#: selection:nautical.craft,state:0
+msgid "Check Due"
+msgstr "Controlar Vencimiento"
+
+#. module: nautical
+#: help:nautical.craft,message_ids:0
+msgid "Messages and communication history"
+msgstr "Historial de Mensajes y Comunicación"
+
+#. module: nautical
+#: selection:nautical.location,type:0
+msgid "View"
+msgstr "Vista"
+
+#. module: nautical
+#: field:nautical.craft,breadth:0
+msgid "Breadth"
+msgstr "Manga"
+
+#. module: nautical
+#: model:ir.ui.menu,name:nautical.menu_craft_data
+msgid "Craft Data"
+msgstr "Datos de la Embarcación"
+
+#. module: nautical
+#: field:nautical.craft,craft_type:0
+msgid "Craft Type Code"
+msgstr "Código de Tipo de Embarcación"
+
+#. module: nautical
+#: model:mail.message.subtype,description:nautical.craft_transitional_retirement
+#: model:mail.message.subtype,name:nautical.craft_transitional_retirement
+#: selection:nautical.craft,state:0
+#: selection:nautical.craft_record,type:0
+msgid "Transitional Retirement"
+msgstr "Retiro Transitorio"
+
+#. module: nautical
+#: field:nautical.craft,displacement:0
+msgid "Displacement"
+msgstr "Desplazamiento"
+
+#. module: nautical
+#: selection:product.product,craft_type:0
+msgid "Kayak"
+msgstr "Kayak"
+
+#. module: nautical
+#: model:res.groups,name:nautical.group_manager
+msgid "Manager"
+msgstr "Responsable"
+
+#. module: nautical
+#: model:ir.actions.act_window,name:nautical.action_nautical_service_authorization_service_authorizations
+#: model:ir.ui.menu,name:nautical.menu_service_authorizations
+#: field:nautical.craft,service_authorization_ids:0
+msgid "Service Authorizations"
+msgstr "Autorizaciones de Servicio"
+

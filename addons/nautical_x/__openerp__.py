@@ -29,8 +29,6 @@
       'l10n_ar_states',
       # 'web_m2x_options',
       # 'account_interests',
-      'report_aeroo',
-      # 'report_aeroo_ooo',
       # OpenERP officla addons
       'procurement',
       'sale',
@@ -75,7 +73,6 @@ Projects required:
       'data/sequences.xml',
       'data/cron.xml',
       'data/product_data.xml',
-      'report/transitional_retirement.xml',
     ],
     'init_xml': [   
 

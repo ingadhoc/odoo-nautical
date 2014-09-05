@@ -7,8 +7,9 @@ addons: nautical
 
 nautical: design/nautical.uml
 	xmi2oerp -r -i $< -t addons -v 2
+	mv addons/i18n addons/nautical/
 
 clean:
-	rm -rf addons/nautical/*
+	mv addons/nautical/i18n/ addons/
 	sleep 1
 	touch design/nautical.uml

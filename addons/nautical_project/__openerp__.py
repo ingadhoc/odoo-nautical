@@ -1,44 +1,23 @@
 # -*- coding: utf-8 -*-
-##############################################################################
-#
-#    Saas Manager
-#    Copyright (C) 2013 Sistemas ADHOC
-#    No email
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
-
-
-{   'active': False,
+{'active': False,
     'author': u'Sistemas ADHOC',
     'category': u'base.module_category_knowledge_management',
     'depends': [
-      'nautical_x',
-      'nautical_search_by_ni',
-      'web_group_expand',
-      # 'web_adhoc_cust',
-      # Others addons
-      # 'web_nocreatedb', Disabled for now to make it easier to test
-      # 'cron_run_manually',
-      'disable_openerp_online',
-      # OpenERP officla addons
-      'base_import',
-      'purchase',
-      'account_cancel',
-      'portal_account_summary',
-        ],
+        'nautical_x',
+        'nautical_search_by_ni',
+        'web_group_expand',
+        # 'web_adhoc_cust',
+        # Others addons
+        # 'web_nocreatedb', Disabled for now to make it easier to test
+        # 'cron_run_manually',
+        'disable_openerp_online',
+        # OpenERP officla addons
+        'base_import',
+        'purchase',
+        'account_cancel',
+        # nautical_reports, TODO hasta que ande bien aeroo lo instalamos a mano para poder traducir
+        # 'portal_account_summary', TODO hasta que ande bien aeroo lo instalamos a mano para poder traducir
+    ],
     'description': """
 Nautical Project
 ================
@@ -72,13 +51,8 @@ Projects required:
     'license': 'AGPL-3',
     'name': u'Nautical Project',
     'test': [],
-    'demo': [
+    'data': [
     ],
-    'data': [     
-    ],
-    'init_xml': [   
-
-    ],    
     'version': u'1.1',
     'website': 'www.ingadhoc.com.ar'}
 
