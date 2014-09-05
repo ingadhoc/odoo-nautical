@@ -66,7 +66,6 @@ Projects required:
 * lp:~sistemas-adhoc/adhoc-oerp/7.0
 * lp:server-env-tools/7.0 --> disable_openerp_online
 * lp:web-addons/7.0 --> web_nocreatedb, web_m2x_options
-* lp:~openerp-india/openerp-india/7.0 --> web_group_expand
 """,
     'init_xml': [],
     'installable': True,
@@ -81,6 +80,6 @@ Projects required:
 
     ],    
     'version': u'1.1',
-    'website': 'www.sistemasadhoc.com.ar'}
+    'website': 'www.ingadhoc.com.ar'}
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

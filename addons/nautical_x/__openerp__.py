@@ -22,13 +22,13 @@
 
 
 {   'active': False,
-    'author': u'Sistemas ADHOC',
+    'author': u'Ingenieria ADHOC',
     'category': u'base.module_category_knowledge_management',
     'depends': [
       'nautical',
       'l10n_ar_states',
       # 'web_m2x_options',
-      'account_interests',
+      # 'account_interests',
       'report_aeroo',
       # 'report_aeroo_ooo',
       # OpenERP officla addons
@@ -41,7 +41,7 @@ Nautical Module Modifications
 =============================
 
 Projects required:
-* lp:web-addons/7.0 --> web_nocreatedb, web_m2x_options
+* lp:web-addons/8.0 --> web_nocreatedb, web_m2x_options
 """,
     'init_xml': [],
     'installable': True,
@@ -81,6 +81,6 @@ Projects required:
 
     ],    
     'version': u'1.1',
-    'website': 'www.sistemasadhoc.com.ar'}
+    'website': 'www.ingadhoc.com.ar'}
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
