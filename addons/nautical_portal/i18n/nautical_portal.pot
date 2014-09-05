@@ -1,0 +1,128 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* nautical_portal
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0rc1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-09-05 17:42+0000\n"
+"PO-Revision-Date: 2014-09-05 17:42+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: nautical_portal
+#: view:nautical_portal.reserve_boat:nautical_portal.wizard_reserve_form_view
+msgid "Cancel"
+msgstr ""
+
+#. module: nautical_portal
+#: view:nautical_portal.reserve_boat:nautical_portal.wizard_reserve_form_view
+msgid "Complate de Role book"
+msgstr ""
+
+#. module: nautical_portal
+#: view:nautical_portal.reserve_boat:nautical_portal.wizard_reserve_form_view
+msgid "Confirm"
+msgstr ""
+
+#. module: nautical_portal
+#: model:ir.model,name:nautical_portal.model_nautical_craft
+#: model:ir.ui.menu,name:nautical_portal.portal_nautical_craft
+msgid "Craft"
+msgstr ""
+
+#. module: nautical_portal
+#: view:nautical.craft:nautical_portal.view_nautical_craft_tree_portal
+msgid "Craft Portal"
+msgstr ""
+
+#. module: nautical_portal
+#: model:ir.actions.act_window,name:nautical_portal.action_nautical_craft_portal
+msgid "Crafts"
+msgstr ""
+
+#. module: nautical_portal
+#: field:nautical_portal.reserve_boat,create_uid:0
+msgid "Created by"
+msgstr ""
+
+#. module: nautical_portal
+#: field:nautical_portal.reserve_boat,create_date:0
+msgid "Created on"
+msgstr ""
+
+#. module: nautical_portal
+#: view:nautical_portal.reserve_boat:nautical_portal.wizard_reserve_form_view
+#: field:nautical_portal.reserve_boat,crew_qty:0
+msgid "Crew"
+msgstr ""
+
+#. module: nautical_portal
+#: view:nautical_portal.reserve_boat:nautical_portal.wizard_reserve_form_view
+#: field:nautical_portal.reserve_boat,destiny:0
+msgid "Destiny"
+msgstr ""
+
+#. module: nautical_portal
+#: code:addons/nautical_portal/craft.py:54
+#: code:addons/sources/odoo-nautical/addons/nautical_portal/craft.py:54
+#, python-format
+msgid "Error!"
+msgstr ""
+
+#. module: nautical_portal
+#: view:nautical_portal.reserve_boat:nautical_portal.wizard_reserve_form_view
+#: field:nautical_portal.reserve_boat,est_arrival_date:0
+msgid "Estimated Arrival Date"
+msgstr ""
+
+#. module: nautical_portal
+#: view:nautical_portal.reserve_boat:nautical_portal.wizard_reserve_form_view
+#: field:nautical_portal.reserve_boat,estimated_dep_date:0
+msgid "Estimated Departure Date"
+msgstr ""
+
+#. module: nautical_portal
+#: field:nautical_portal.reserve_boat,id:0
+msgid "ID"
+msgstr ""
+
+#. module: nautical_portal
+#: field:nautical_portal.reserve_boat,write_uid:0
+msgid "Last Updated by"
+msgstr ""
+
+#. module: nautical_portal
+#: field:nautical_portal.reserve_boat,write_date:0
+msgid "Last Updated on"
+msgstr ""
+
+#. module: nautical_portal
+#: code:addons/nautical_portal/craft.py:55
+#: code:addons/sources/odoo-nautical/addons/nautical_portal/craft.py:55
+#, python-format
+msgid "Member does not have the fee per day."
+msgstr ""
+
+#. module: nautical_portal
+#: model:ir.ui.menu,name:nautical_portal.portal_nautical_athletics
+msgid "Nautical"
+msgstr ""
+
+#. module: nautical_portal
+#: model:ir.actions.act_window,name:nautical_portal.wizard_reserve_action
+#: view:nautical.craft:nautical_portal.view_nautical_craft_tree_portal
+#: view:nautical_portal.reserve_boat:nautical_portal.wizard_reserve_form_view
+msgid "Reserve"
+msgstr ""
+
+#. module: nautical_portal
+#: model:ir.model,name:nautical_portal.model_nautical_portal_reserve_boat
+msgid "Wizard to reserve craft"
+msgstr ""
+
