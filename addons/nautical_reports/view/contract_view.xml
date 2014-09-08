@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<openerp>
+    <data>
+
+        <record id="view_contract_form" model="ir.ui.view">
+            <field name="name">nautical.contract.report.form</field>
+            <field name="model">nautical.contract</field>
+            <field name="inherit_id" ref="nautical_x.view_nautical_contract_form"/>
+            <field name="arch" type="xml">
+                <field name="state" position="before">
+                                
+                        <button name="contract_print" string="Print Contract" type="object" attrs="{'invisible':[('state', '!=', 'contracted')]}"/>
+                    
+            </field>
+                
+            </field>
+        </record>
+
+       
+
+    </data>
+</openerp>
+

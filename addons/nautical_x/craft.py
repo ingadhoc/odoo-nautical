@@ -25,7 +25,7 @@ from datetime import datetime, date, timedelta
 from dateutil.relativedelta import relativedelta
 from openerp.osv import fields, osv
 import openerp.addons.decimal_precision as dp
-from openerp import _
+from openerp.tools.translate import _
 from openerp import tools, netsvc
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT, DEFAULT_SERVER_DATETIME_FORMAT, DATETIME_FORMATS_MAP, float_compare
 

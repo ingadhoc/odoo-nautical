@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0rc1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-05 17:38+0000\n"
-"PO-Revision-Date: 2014-09-05 14:40-0300\n"
+"POT-Creation-Date: 2014-09-08 13:55+0000\n"
+"PO-Revision-Date: 2014-09-08 11:55-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 #. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_form
 msgid "(update)"
-msgstr "(actualizar)"
+msgstr "(update)"
 
 #. module: nautical_x
 #: code:addons/nautical_x/partner.py:150
@@ -73,7 +73,7 @@ msgstr "Embarcaciones Autorizadas"
 #. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_form
 msgid "Aux. Engine"
-msgstr "Motor Aux."
+msgstr "Motor Auxiliar"
 
 #. module: nautical_x
 #: code:addons/nautical_x/craft.py:267
@@ -175,7 +175,7 @@ msgstr "Configuration Error!"
 #. module: nautical_x
 #: view:craft_request:nautical_x.view_craft_request
 msgid "Confirm"
-msgstr "Comfirmar"
+msgstr "Confirmar"
 
 #. module: nautical_x
 #: view:res.partner:nautical_x.view_res_partner_form
@@ -240,17 +240,17 @@ msgstr "Embarcación"
 #. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_form
 msgid "Craft Owned by"
-msgstr "Embarcación poseída por"
+msgstr "Embarcación Poseída Por"
 
 #. module: nautical_x
 #: model:ir.model,name:nautical_x.model_nautical_craft_record
 msgid "Craft Record"
-msgstr "Craft Record"
+msgstr "Historial de Embarcación"
 
 #. module: nautical_x
 #: view:craft_request:nautical_x.view_craft_request
 msgid "Craft Request"
-msgstr "Solicitudes de Embarcaciones"
+msgstr "Solicitud de Embarcación "
 
 #. module: nautical_x
 #: view:res.partner:nautical_x.view_res_partner_form
@@ -289,17 +289,17 @@ msgstr "Clientes"
 #: view:nautical.craft:nautical_x.view_nautical_craft_filter
 #: view:res.partner:nautical_x.view_res_partner_filter
 msgid "Customers have higher fees due to two months"
-msgstr "Clientes poseen tarifas más altas debido a dos meses"
+msgstr "Customers have higher fees due to two months"
 
 #. module: nautical_x
 #: field:res.company,debt_limit_months:0
 msgid "Debt limit Months"
-msgstr "Debt limit Months"
+msgstr "Deuda mas Antigua"
 
 #. module: nautical_x
 #: view:res.partner:nautical_x.view_res_partner_account_form
 msgid "Debt oldest"
-msgstr "Deuda mas antigua"
+msgstr "Debt oldest"
 
 #. module: nautical_x
 #: model:product.pricelist.version,name:nautical_x.ver0
@@ -319,22 +319,22 @@ msgstr "Despachado"
 #. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_form
 msgid "Displacement"
-msgstr "Desplazamiento"
+msgstr "Displacement"
 
 #. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_filter
 msgid "Do Not Dispatch"
-msgstr "No despachar"
+msgstr "Do Not Dispatch"
 
 #. module: nautical_x
 #: view:res.partner:nautical_x.view_res_partner_filter
 msgid "Don't Dispatch"
-msgstr "No despachar"
+msgstr "Don't Dispatch"
 
 #. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_filter
 msgid "Don't Dispatch Partner"
-msgstr "No despachar cliente"
+msgstr "Don't Dispatch Partner"
 
 #. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_filter
@@ -400,7 +400,7 @@ msgstr "Expirado"
 #. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_filter
 msgid "Filter By State..."
-msgstr "Filtrar por estado..."
+msgstr "Filter By State..."
 
 #. module: nautical_x
 #: field:nautical.craft,fiscal_position:0
@@ -410,12 +410,12 @@ msgstr "Posición Fiscal"
 #. module: nautical_x
 #: view:nautical.location:nautical_x.view_nautical_location_filter
 msgid "Free"
-msgstr "Libre"
+msgstr "Free"
 
 #. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_form
 msgid "Gral. Inf."
-msgstr "Inf.Gral."
+msgstr "Gral. Inf."
 
 #. module: nautical_x
 #: view:res.partner:nautical_x.view_res_partner_filter
@@ -425,7 +425,7 @@ msgstr "Group By"
 #. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_filter
 msgid "Group By..."
-msgstr "Agrupar por..."
+msgstr "Group By..."
 
 #. module: nautical_x
 #: model:product.uom,name:nautical_x.product_uom_hp
@@ -435,7 +435,7 @@ msgstr "HP(s)"
 #. module: nautical_x
 #: view:res.partner:nautical_x.view_res_partner_form
 msgid "Historical Records"
-msgstr "Registros Históricos"
+msgstr "Historical Records"
 
 #. module: nautical_x
 #: field:contract_cancelled_wizard,id:0 field:craft_request,id:0
@@ -451,12 +451,12 @@ msgstr "Imágen"
 #. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_filter
 msgid "In Custody"
-msgstr "En Custodia"
+msgstr "En custodia"
 
 #. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_filter
 msgid "In Reparation"
-msgstr "En reparación"
+msgstr "En Reparacion"
 
 #. module: nautical_x
 #: view:res.partner:nautical_x.view_res_partner_form
@@ -516,7 +516,7 @@ msgstr "Luz y Fuerza"
 #. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_form
 msgid "Measures"
-msgstr "Medidas"
+msgstr "Measures"
 
 #. module: nautical_x
 #: field:nautical.craft,image_medium:0
@@ -554,7 +554,7 @@ msgstr "Nombre"
 #. module: nautical_x
 #: view:res.partner:nautical_x.view_res_partner_form
 msgid "National Identity"
-msgstr "Documento Nacional de Identidad"
+msgstr "National Identity"
 
 #. module: nautical_x
 #: sql_constraint:res.partner:0
@@ -590,7 +590,7 @@ msgstr "Propietario"
 #. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_form
 msgid "Owner..."
-msgstr "Propietario..."
+msgstr "Dueño..."
 
 #. module: nautical_x
 #: model:ir.model,name:nautical_x.model_res_partner
@@ -606,12 +606,12 @@ msgstr "Historial"
 #. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_filter
 msgid "Permanet Cancellation"
-msgstr "Cancelación Permanente"
+msgstr "Permanet Cancellation"
 
 #. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_to_dispatch_tree
 msgid "Picked"
-msgstr "Picked"
+msgstr "Acopiado"
 
 #. module: nautical_x
 #: model:product.uom.categ,name:nautical_x.product_uom_categ_power
@@ -646,7 +646,7 @@ msgstr "Historial"
 #. module: nautical_x
 #: view:craft_request:nautical_x.view_craft_request
 msgid "Remember to print, fill, scan and attache this form"
-msgstr "Recuerde imprimir, comppletar, escanear y adjuntar este formulario"
+msgstr "Remember to print, fill, scan and attache this form"
 
 #. module: nautical_x
 #: field:craft_request,request_type:0
@@ -688,7 +688,7 @@ msgstr "Autorización de Servicio"
 #. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_form
 msgid "Service Authorizations"
-msgstr "Autorizaciones de Servicio"
+msgstr "Service Authorizations"
 
 #. module: nautical_x
 #: field:nautical.craft,image_small:0
@@ -744,12 +744,12 @@ msgstr "Almacenado"
 #. module: nautical_x
 #: view:res.partner:nautical_x.view_res_partner_form
 msgid "Street..."
-msgstr "Calle..."
+msgstr "Street..."
 
 #. module: nautical_x
 #: view:res.partner:nautical_x.view_res_partner_form
 msgid "Tags..."
-msgstr "Etiquetas..."
+msgstr "Tags..."
 
 #. module: nautical_x
 #: field:nautical.craft,amount_tax:0 field:nautical.craft,tax_id:0
@@ -773,7 +773,7 @@ msgstr "A Custodia"
 #. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_filter
 msgid "To Dispatch"
-msgstr "A despachar"
+msgstr "A Despachar"
 
 #. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_form
@@ -798,12 +798,12 @@ msgstr "Total"
 #. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_filter
 msgid "Transitional Retirement"
-msgstr "Retiro Transitorio"
+msgstr "Transitional Retirement"
 
 #. module: nautical_x
 #: view:craft_request:nautical_x.view_craft_request
 msgid "Transitional Retirement Form"
-msgstr "Formulario de Retiro Transitorio"
+msgstr "Transitional Retirement Form"
 
 #. module: nautical_x
 #: field:craft_request,requestor_type:0
@@ -845,7 +845,7 @@ msgstr ""
 #. module: nautical_x
 #: view:res.partner:nautical_x.view_res_partner_form
 msgid "ZIP"
-msgstr "C.P."
+msgstr "ZIP"
 
 #. module: nautical_x
 #: model:ir.actions.act_window,name:nautical_x.action_craft_request
@@ -855,12 +855,12 @@ msgstr "craft_request.action"
 #. module: nautical_x
 #: view:res.partner:nautical_x.view_res_partner_form
 msgid "e.g. Sales Director"
-msgstr "Por ejemplo, Director de ventas"
+msgstr "e.g. Sales Director"
 
 #. module: nautical_x
 #: view:nautical.contract:nautical_x.view_nautical_contract_tree
 msgid "false"
-msgstr "falso"
+msgstr "false"
 
 #. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_tree

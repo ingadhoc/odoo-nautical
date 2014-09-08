@@ -14,12 +14,14 @@ Nautical Reports
     'init_xml': [],
     'installable': True,
     'license': 'AGPL-3',
-    'name': u'Nautical Module Modifications',
+    'name': u'Nautical Reports',
     'test': [],
     'demo': [
     ],
     'data': [
         'report/transitional_retirement.xml',
+        'report/contract_report.xml',
+        'view/contract_view.xml',
     ],
     'init_xml': [
 

@@ -21,6 +21,7 @@
 
 from openerp.osv import fields, osv
 from openerp import netsvc
+from openerp import _
 from datetime import datetime, date
 
 class craft_reserve(osv.osv_memory):
