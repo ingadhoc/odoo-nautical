@@ -6,6 +6,11 @@
         'nautical_x',
         'nautical_search_by_ni',
         'web_group_expand',
+        'l10n_ar_invoice',
+        'l10n_ar_chart_generic',
+        'l10n_ar_bank',
+        'adhoc_base_setup',
+        'purchase',
         # 'web_adhoc_cust',
         # Others addons
         # 'web_nocreatedb', Disabled for now to make it easier to test
