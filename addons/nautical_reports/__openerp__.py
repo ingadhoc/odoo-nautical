@@ -23,6 +23,7 @@ Nautical Reports
         'report/transitional_retirement.xml',
         'report/contract_report.xml',
         'view/contract_view.xml',
+        'report/cuota_report.xml',
     ],
     'init_xml': [
 
