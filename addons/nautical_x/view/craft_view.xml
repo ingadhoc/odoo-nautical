@@ -1,29 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-##############################################################################
-#
-#    Nautical
-#    Copyright (C) 2013 Sistemas ADHOC
-#    No email
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
--->
-<!-- nautical.craft -->
-<!-- nautical.craft -->
-<!-- nautical.craft -->
 <openerp>
     <data>
 <!-- To dispatch and receive -->
@@ -177,9 +152,21 @@
                         <notebook>
                             <page string="Gral. Inf.">
                                 <group>
-                                    <field name="material_id"/>
-                                    <field name="brand_id"/>
-                                    <field name="shipyard_id" attrs="{'invisible':[('craft_type','=','kayak')]}"/>
+                                    <group>
+                                        <field name="material_id"/>
+                                        <field name="brand_id"/>
+                                        <field name="shipyard_id" attrs="{'invisible':[('craft_type','=','kayak')]}"/>
+                                    </group>
+                                    <group>
+                                        <field name="location_category_id"/>
+                                        <field name="hull"/>
+                                        <field name="hull_year"/>
+                                        <label for="weight"/>
+                                        <div class="oe_inline">
+                                            <field name="weight" class="oe_inline"/>
+                                            <field name="weight_uom_id" class="oe_inline"/>
+                                        </div>
+                                    </group>
                                 </group>
                                 <group>
                                     <group string="Measures">

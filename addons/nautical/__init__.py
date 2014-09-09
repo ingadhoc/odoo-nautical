@@ -21,6 +21,7 @@
 ##############################################################################
 
 
+import location_category
 import product
 import authorization_type
 import craft_record

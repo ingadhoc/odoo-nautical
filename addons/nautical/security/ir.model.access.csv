@@ -47,3 +47,6 @@
 "access_nautical_role_book_manager","nautical.role_book.manager","model_nautical_role_book","group_manager",1,1,1,1
 "access_nautical_role_book_user","nautical.role_book.user","model_nautical_role_book","group_user",1,1,1,1
 "access_nautical_role_book_tractorista","nautical.role_book.tractorista","model_nautical_role_book","group_tractorista",1,1,1,1
+"access_nautical_location_category_manager","nautical.location_category.manager","model_nautical_location_category","group_manager",1,1,1,1
+"access_nautical_location_category_user","nautical.location_category.user","model_nautical_location_category","group_user",1,1,1,1
+"access_nautical_location_category_tractorista","nautical.location_category.tractorista","model_nautical_location_category","group_tractorista",1,1,1,1

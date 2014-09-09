@@ -1,19 +1,20 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* nautical
+# 	* nautical
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0rc1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-08 13:53+0000\n"
-"PO-Revision-Date: 2014-09-08 13:53+0000\n"
+"POT-Creation-Date: 2014-09-09 12:58+0000\n"
+"PO-Revision-Date: 2014-09-09 10:04-0300\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
+"X-Generator: Poedit 1.5.4\n"
 
 #. module: nautical
 #: field:nautical.partner_record,partner_id:0
@@ -102,6 +103,7 @@ msgstr "Manga"
 #: view:nautical.craft_record:nautical.view_nautical_craft_record_filter
 #: view:nautical.engine_brand:nautical.view_nautical_engine_brand_filter
 #: view:nautical.location:nautical.view_nautical_location_filter
+#: view:nautical.location_category:nautical.view_nautical_location_category_filter
 #: view:nautical.partner_record:nautical.view_nautical_partner_record_filter
 #: view:nautical.record_category:nautical.view_nautical_record_category_filter
 #: view:nautical.role_book:nautical.view_nautical_role_book_filter
@@ -120,6 +122,7 @@ msgstr "Por Atributo"
 #: view:nautical.craft_record:nautical.view_nautical_craft_record_filter
 #: view:nautical.engine_brand:nautical.view_nautical_engine_brand_filter
 #: view:nautical.location:nautical.view_nautical_location_filter
+#: view:nautical.location_category:nautical.view_nautical_location_category_filter
 #: view:nautical.partner_record:nautical.view_nautical_partner_record_filter
 #: view:nautical.record_category:nautical.view_nautical_record_category_filter
 #: view:nautical.role_book:nautical.view_nautical_role_book_filter
@@ -203,8 +206,7 @@ msgstr "Contrato Firmado"
 #. module: nautical
 #: model:mail.message.subtype,description:nautical.craft_contracted
 #: model:mail.message.subtype,name:nautical.craft_contracted
-#: selection:nautical.contract,state:0
-#: selection:nautical.craft,state:0
+#: selection:nautical.contract,state:0 selection:nautical.craft,state:0
 #: selection:nautical.craft_record,type:0
 msgid "Contracted"
 msgstr "Contratado"
@@ -302,13 +304,13 @@ msgstr "Embaraciones - Historial"
 #. module: nautical
 #: field:nautical.authorization,create_uid:0
 #: field:nautical.authorization_type,create_uid:0
-#: field:nautical.contract,create_uid:0
-#: field:nautical.craft,create_uid:0
+#: field:nautical.contract,create_uid:0 field:nautical.craft,create_uid:0
 #: field:nautical.craft_brand,create_uid:0
 #: field:nautical.craft_material,create_uid:0
 #: field:nautical.craft_record,create_uid:0
 #: field:nautical.engine_brand,create_uid:0
 #: field:nautical.location,create_uid:0
+#: field:nautical.location_category,create_uid:0
 #: field:nautical.partner_record,create_uid:0
 #: field:nautical.record_category,create_uid:0
 #: field:nautical.role_book,create_uid:0
@@ -320,13 +322,13 @@ msgstr "Created by"
 #. module: nautical
 #: field:nautical.authorization,create_date:0
 #: field:nautical.authorization_type,create_date:0
-#: field:nautical.contract,create_date:0
-#: field:nautical.craft,create_date:0
+#: field:nautical.contract,create_date:0 field:nautical.craft,create_date:0
 #: field:nautical.craft_brand,create_date:0
 #: field:nautical.craft_material,create_date:0
 #: field:nautical.craft_record,create_date:0
 #: field:nautical.engine_brand,create_date:0
 #: field:nautical.location,create_date:0
+#: field:nautical.location_category,create_date:0
 #: field:nautical.partner_record,create_date:0
 #: field:nautical.record_category,create_date:0
 #: field:nautical.role_book,create_date:0
@@ -383,16 +385,14 @@ msgstr "UDM Desplazamiento"
 #. module: nautical
 #: model:mail.message.subtype,description:nautical.craft_do_not_dispatch
 #: model:mail.message.subtype,name:nautical.craft_do_not_dispatch
-#: selection:nautical.craft,state:0
-#: selection:nautical.craft_record,type:0
+#: selection:nautical.craft,state:0 selection:nautical.craft_record,type:0
 msgid "Do not Dispatch"
 msgstr "No despachar"
 
 #. module: nautical
 #: model:mail.message.subtype,description:nautical.craft_draft
 #: model:mail.message.subtype,name:nautical.craft_draft
-#: selection:nautical.contract,state:0
-#: selection:nautical.craft,state:0
+#: selection:nautical.contract,state:0 selection:nautical.craft,state:0
 #: selection:nautical.craft_record,type:0
 msgid "Draft"
 msgstr "Borrador"
@@ -460,8 +460,7 @@ msgstr "Fecha de Vencimiento"
 #: view:nautical.contract:nautical.view_nautical_contract_form
 #: selection:nautical.contract,state:0
 #: view:nautical.craft:nautical.view_nautical_craft_form
-#: selection:nautical.craft,state:0
-#: selection:nautical.craft_record,type:0
+#: selection:nautical.craft,state:0 selection:nautical.craft_record,type:0
 msgid "Expired"
 msgstr "Expirado"
 
@@ -472,23 +471,32 @@ msgstr "Seguidores"
 
 #. module: nautical
 #: help:nautical.craft,message_summary:0
-msgid "Holds the Chatter summary (number of messages, ...). This summary is directly in html format in order to be inserted in kanban views."
-msgstr "Conserva el resumen del Chateador (número de mensajes, ...). Este resumen esta directamente en formato html para poder ser insertado en las vistas kanban"
+msgid ""
+"Holds the Chatter summary (number of messages, ...). This summary is "
+"directly in html format in order to be inserted in kanban views."
+msgstr ""
+"Conserva el resumen del Chateador (número de mensajes, ...). Este resumen "
+"esta directamente en formato html para poder ser insertado en las vistas "
+"kanban"
 
 #. module: nautical
-#: field:nautical.authorization,id:0
-#: field:nautical.authorization_type,id:0
-#: field:nautical.contract,id:0
-#: field:nautical.craft,id:0
-#: field:nautical.craft_brand,id:0
-#: field:nautical.craft_material,id:0
-#: field:nautical.craft_record,id:0
-#: field:nautical.engine_brand,id:0
-#: field:nautical.location,id:0
-#: field:nautical.partner_record,id:0
-#: field:nautical.record_category,id:0
-#: field:nautical.role_book,id:0
-#: field:nautical.service_authorization,id:0
+#: field:nautical.craft,hull:0
+msgid "Hull"
+msgstr "Casco"
+
+#. module: nautical
+#: field:nautical.craft,hull_year:0
+msgid "Hull Year"
+msgstr "Año del Casco"
+
+#. module: nautical
+#: field:nautical.authorization,id:0 field:nautical.authorization_type,id:0
+#: field:nautical.contract,id:0 field:nautical.craft,id:0
+#: field:nautical.craft_brand,id:0 field:nautical.craft_material,id:0
+#: field:nautical.craft_record,id:0 field:nautical.engine_brand,id:0
+#: field:nautical.location,id:0 field:nautical.location_category,id:0
+#: field:nautical.partner_record,id:0 field:nautical.record_category,id:0
+#: field:nautical.role_book,id:0 field:nautical.service_authorization,id:0
 #: field:nautical.shipyard,id:0
 msgid "ID"
 msgstr "ID"
@@ -501,16 +509,14 @@ msgstr "Si esta marcado, nuevos mensajes requieren su atención"
 #. module: nautical
 #: model:mail.message.subtype,description:nautical.craft_in_custody
 #: model:mail.message.subtype,name:nautical.craft_in_custody
-#: selection:nautical.craft,state:0
-#: selection:nautical.craft_record,type:0
+#: selection:nautical.craft,state:0 selection:nautical.craft_record,type:0
 msgid "In Custody"
 msgstr "En Custodia"
 
 #. module: nautical
 #: model:mail.message.subtype,description:nautical.craft_in_reparation
 #: model:mail.message.subtype,name:nautical.craft_in_reparation
-#: selection:nautical.craft,state:0
-#: selection:nautical.craft_record,type:0
+#: selection:nautical.craft,state:0 selection:nautical.craft_record,type:0
 msgid "In Reparation"
 msgstr "En reparación"
 
@@ -543,13 +549,12 @@ msgstr "Last Message Date"
 #. module: nautical
 #: field:nautical.authorization,write_uid:0
 #: field:nautical.authorization_type,write_uid:0
-#: field:nautical.contract,write_uid:0
-#: field:nautical.craft,write_uid:0
+#: field:nautical.contract,write_uid:0 field:nautical.craft,write_uid:0
 #: field:nautical.craft_brand,write_uid:0
 #: field:nautical.craft_material,write_uid:0
 #: field:nautical.craft_record,write_uid:0
-#: field:nautical.engine_brand,write_uid:0
-#: field:nautical.location,write_uid:0
+#: field:nautical.engine_brand,write_uid:0 field:nautical.location,write_uid:0
+#: field:nautical.location_category,write_uid:0
 #: field:nautical.partner_record,write_uid:0
 #: field:nautical.record_category,write_uid:0
 #: field:nautical.role_book,write_uid:0
@@ -561,13 +566,13 @@ msgstr "Last Updated by"
 #. module: nautical
 #: field:nautical.authorization,write_date:0
 #: field:nautical.authorization_type,write_date:0
-#: field:nautical.contract,write_date:0
-#: field:nautical.craft,write_date:0
+#: field:nautical.contract,write_date:0 field:nautical.craft,write_date:0
 #: field:nautical.craft_brand,write_date:0
 #: field:nautical.craft_material,write_date:0
 #: field:nautical.craft_record,write_date:0
 #: field:nautical.engine_brand,write_date:0
 #: field:nautical.location,write_date:0
+#: field:nautical.location_category,write_date:0
 #: field:nautical.partner_record,write_date:0
 #: field:nautical.record_category,write_date:0
 #: field:nautical.role_book,write_date:0
@@ -590,6 +595,13 @@ msgstr "Eslora"
 #: view:nautical.location:nautical.view_nautical_location_tree
 msgid "Location"
 msgstr "Ubicación"
+
+#. module: nautical
+#: model:ir.actions.act_window,name:nautical.action_nautical_location_category_location_category
+#: model:ir.ui.menu,name:nautical.menu_location_category
+#: field:nautical.craft,location_category_id:0
+msgid "Location Category"
+msgstr "Categoría de Guarda"
 
 #. module: nautical
 #: model:ir.actions.act_window,name:nautical.action_nautical_location_locations
@@ -636,6 +648,8 @@ msgstr "Historial de Mensajes y Comunicación"
 #: field:nautical.engine_brand,name:0
 #: view:nautical.location:nautical.view_nautical_location_filter
 #: field:nautical.location,name:0
+#: view:nautical.location_category:nautical.view_nautical_location_category_filter
+#: field:nautical.location_category,name:0
 #: view:nautical.record_category:nautical.view_nautical_record_category_filter
 #: field:nautical.record_category,name:0
 #: view:nautical.shipyard:nautical.view_nautical_shipyard_filter
@@ -713,8 +727,7 @@ msgstr "Historial"
 #. module: nautical
 #: model:mail.message.subtype,description:nautical.craft_permanent_cancellation
 #: model:mail.message.subtype,name:nautical.craft_permanent_cancellation
-#: selection:nautical.contract,state:0
-#: selection:nautical.craft,state:0
+#: selection:nautical.contract,state:0 selection:nautical.craft,state:0
 #: selection:nautical.craft_record,type:0
 msgid "Permanent Cancellation"
 msgstr "Cancelación Permanente"
@@ -725,8 +738,7 @@ msgstr "Cancelación Permanente"
 #: model:mail.message.subtype,description:nautical.craft_picked
 #: model:mail.message.subtype,name:nautical.craft_picked
 #: view:nautical.craft:nautical.view_nautical_craft_form
-#: selection:nautical.craft,state:0
-#: selection:nautical.craft_record,type:0
+#: selection:nautical.craft,state:0 selection:nautical.craft_record,type:0
 msgid "Picked"
 msgstr "Acopiado"
 
@@ -782,13 +794,12 @@ msgstr "Solicitante"
 #: model:ir.actions.act_window,name:nautical.action_nautical_role_book_role_book
 #: model:ir.ui.menu,name:nautical.menu_role_book
 msgid "Role Book"
-msgstr "Libro de Role"
+msgstr "Libro de Rol"
 
 #. module: nautical
 #: model:mail.message.subtype,description:nautical.craft_sailing
 #: model:mail.message.subtype,name:nautical.craft_sailing
-#: selection:nautical.craft,state:0
-#: selection:nautical.craft_record,type:0
+#: selection:nautical.craft,state:0 selection:nautical.craft_record,type:0
 msgid "Sailing"
 msgstr "Navegando"
 
@@ -819,8 +830,7 @@ msgid "Shipyard"
 msgstr "Astillero"
 
 #. module: nautical
-#: field:nautical.contract,state:0
-#: field:nautical.craft,state:0
+#: field:nautical.contract,state:0 field:nautical.craft,state:0
 msgid "State"
 msgstr "Estado"
 
@@ -832,8 +842,7 @@ msgstr "Almacenar"
 #. module: nautical
 #: model:mail.message.subtype,description:nautical.craft_stored
 #: model:mail.message.subtype,name:nautical.craft_stored
-#: selection:nautical.craft,state:0
-#: selection:nautical.craft_record,type:0
+#: selection:nautical.craft,state:0 selection:nautical.craft_record,type:0
 msgid "Stored"
 msgstr "Almacenado"
 
@@ -868,8 +877,7 @@ msgstr "A Custodia"
 #: model:ir.ui.menu,name:nautical.menu_to_dispatch
 #: model:mail.message.subtype,description:nautical.craft_to_dispatch
 #: model:mail.message.subtype,name:nautical.craft_to_dispatch
-#: selection:nautical.craft,state:0
-#: selection:nautical.craft_record,type:0
+#: selection:nautical.craft,state:0 selection:nautical.craft_record,type:0
 msgid "To Dispatch"
 msgstr "A despachar"
 
@@ -903,8 +911,7 @@ msgstr "Tractorista"
 #. module: nautical
 #: model:mail.message.subtype,description:nautical.craft_transitional_retirement
 #: model:mail.message.subtype,name:nautical.craft_transitional_retirement
-#: selection:nautical.craft,state:0
-#: selection:nautical.craft_record,type:0
+#: selection:nautical.craft,state:0 selection:nautical.craft_record,type:0
 msgid "Transitional Retirement"
 msgstr "Retiro Transitorio"
 
@@ -936,6 +943,16 @@ msgid "View"
 msgstr "Vista"
 
 #. module: nautical
+#: field:nautical.craft,weight:0
+msgid "Weight"
+msgstr "Peso"
+
+#. module: nautical
+#: field:nautical.craft,weight_uom_id:0
+msgid "Weight UOM"
+msgstr "UDM del Peso"
+
+#. module: nautical
 #: field:nautical.contract,craft_id:0
 msgid "craft_id"
 msgstr "craft_id"
@@ -946,10 +963,17 @@ msgid "historical_record_ids"
 msgstr "historical_record_ids"
 
 #. module: nautical
+#: model:ir.model,name:nautical.model_nautical_location_category
+#: view:nautical.location_category:nautical.view_nautical_location_category_filter
+#: view:nautical.location_category:nautical.view_nautical_location_category_form
+#: view:nautical.location_category:nautical.view_nautical_location_category_tree
+msgid "location_category"
+msgstr "location_category"
+
+#. module: nautical
 #: model:ir.model,name:nautical.model_nautical_role_book
 #: view:nautical.role_book:nautical.view_nautical_role_book_filter
 #: view:nautical.role_book:nautical.view_nautical_role_book_form
 #: view:nautical.role_book:nautical.view_nautical_role_book_tree
 msgid "role_book"
-msgstr "Libro de Role"
-
+msgstr "Libro de Rol"

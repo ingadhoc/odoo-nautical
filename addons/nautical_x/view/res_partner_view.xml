@@ -18,14 +18,16 @@
         <record id="view_res_partner_form" model="ir.ui.view">
             <field name="name">contact.partner.form</field>
             <field name="model">res.partner</field>
-            <field name="inherit_id" ref="base.view_partner_form"></field>
+            <field name="inherit_id" ref="partner_person.view_partner_person_form"></field>
             <field name="arch" type="xml">
+                <!-- <field name="birthdate" position="replace"/> -->
+                <field name="national_identity" position="replace"/>
                 <h1 position="after">
                     <h2><field name="national_identity" attrs="{'required':[('customer','=',True)]}" placeholder="National Identity"/></h2>
                 </h1>
-                <field name="website" position="after">
-                    <field name="birthday"/>
-                </field>
+<!--                 <field name="website" position="after">
+                    <field name="birthdate"/>
+                </field> -->
                 <page string="Internal Notes" position="before">
                     <page string="Historical Records">
                         <field name="historical_record_ids"/>
@@ -57,7 +59,7 @@
                             </div>
                             <group>
                                 <field name="customer"/>
-                                <field name="birthday"/>
+                                <field name="birthdate"/>
                                 <field name="function" placeholder="e.g. Sales Director"/>
                                 <field name="email"/>
                                 <field name="phone"/>

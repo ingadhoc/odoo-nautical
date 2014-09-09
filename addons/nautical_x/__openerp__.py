@@ -32,7 +32,8 @@
       # OpenERP officla addons
       'procurement',
       'sale',
-      'account_followup',  
+      'account_followup',
+      'partner_person',
         ],
     'description': """
 Nautical Module Modifications

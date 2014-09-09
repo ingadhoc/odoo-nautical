@@ -192,6 +192,16 @@
                         <field name="shipyard_id"
                             attrs="{'invisible':[('craft_type','=','kayak')]}"
                             />
+                        <field name="hull"
+                            />
+                        <field name="hull_year"
+                            />
+                        <field name="weight"
+                            />
+                        <field name="weight_uom_id"
+                            />
+                        <field name="location_category_id"
+                            />
                     <field name="location_ids"
                             widget="many2many"
                             />

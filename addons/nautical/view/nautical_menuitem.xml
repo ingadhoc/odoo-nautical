@@ -306,6 +306,25 @@
             groups="group_manager"
             />
 
+        <record id="action_nautical_location_category_location_category" model="ir.actions.act_window">
+            <field name="name">Location Category</field>
+            <field name="res_model">nautical.location_category</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_nautical_location_category_tree"/>
+            <field name="search_view_id" ref="view_nautical_location_category_filter"/>
+            <field name="domain">[]</field>
+        </record>
+
+        <menuitem
+            name="Location Category"
+            id="menu_location_category"
+            sequence="40"
+            action="action_nautical_location_category_location_category"
+            parent="menu_craft_data"
+            groups="group_manager"
+            />
+
         <record id="action_nautical_shipyard_shipyard" model="ir.actions.act_window">
             <field name="name">Shipyard</field>
             <field name="res_model">nautical.shipyard</field>
