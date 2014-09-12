@@ -11,6 +11,7 @@
         'l10n_ar_bank',
         'adhoc_base_setup',
         'purchase',
+        'account_interests',
         # 'web_adhoc_cust',
         # Others addons
         # 'web_nocreatedb', Disabled for now to make it easier to test
