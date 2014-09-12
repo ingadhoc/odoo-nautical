@@ -24,6 +24,7 @@ Nautical Reports
         'report/contract_report.xml',
         'view/contract_view.xml',
         'report/cuota_report.xml',
+        'report/recibo.xml',
     ],
     'init_xml': [
 

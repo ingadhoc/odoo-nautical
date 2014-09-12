@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<openerp>
+<data>
+    <record id="action_aeroo_report_ar_receipt" model="ir.actions.report.xml">
+        <field name="name">Recibo Sorrento</field>
+        <field name="type">ir.actions.report.xml</field>
+        <field name="model">account.voucher.receipt</field>
+        <field name="report_name">nautical_receipt</field>
+        <field name="report_type">aeroo</field>
+        <field name="in_format">oo-odt</field>
+        <field name="parser_loc">l10n_ar_aeroo_base/parser.py</field>
+        <field name="parser_state">loc</field>
+        <field name="report_rml">nautical_reports/report/recibo.odt</field>
+        <field name="tml_source">file</field>
+        <field name="print_logo">no_logo</field> <!-- Or 'company_logo' or ''  -->
+        <!-- <field name="background_image" type="base64" file="l10n_ar_aeroo_invoice/invoice.png"/> -->
+        <field name="use_background_image" eval="False"/>
+    </record>
+
+</data>
+</openerp>
