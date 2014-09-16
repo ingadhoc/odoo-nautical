@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0rc1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-08 15:06+0000\n"
-"PO-Revision-Date: 2014-09-08 15:06+0000\n"
+"POT-Creation-Date: 2014-09-16 16:01+0000\n"
+"PO-Revision-Date: 2014-09-16 16:01+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -22,7 +22,6 @@ msgstr ""
 
 #. module: nautical_x
 #: code:addons/nautical_x/partner.py:150
-#: code:addons/sources/odoo-nautical/addons/nautical_x/partner.py:150
 #, python-format
 msgid ". Period "
 msgstr ""
@@ -76,7 +75,6 @@ msgstr ""
 
 #. module: nautical_x
 #: code:addons/nautical_x/craft.py:267
-#: code:addons/sources/odoo-nautical/addons/nautical_x/craft.py:267
 #, python-format
 msgid "Before choosing a product,\n"
 " select an owner."
@@ -117,7 +115,6 @@ msgstr ""
 
 #. module: nautical_x
 #: code:addons/nautical_x/craft.py:298
-#: code:addons/sources/odoo-nautical/addons/nautical_x/craft.py:298
 #, python-format
 msgid "Cannot find a pricelist line matching this product and quantity.\n"
 "You have to change either the product, the quantity or the pricelist."
@@ -125,14 +122,12 @@ msgstr ""
 
 #. module: nautical_x
 #: code:addons/nautical_x/contract.py:141
-#: code:addons/sources/odoo-nautical/addons/nautical_x/contract.py:141
 #, python-format
 msgid "Cannot move to next stage, an End Code should be provided first."
 msgstr ""
 
 #. module: nautical_x
 #: code:addons/nautical_x/contract.py:138
-#: code:addons/sources/odoo-nautical/addons/nautical_x/contract.py:138
 #, python-format
 msgid "Cannot move to next stage, an End Date should be provided first."
 msgstr ""
@@ -160,7 +155,6 @@ msgstr ""
 
 #. module: nautical_x
 #: code:addons/nautical_x/craft.py:307
-#: code:addons/sources/odoo-nautical/addons/nautical_x/craft.py:307
 #, python-format
 msgid "Configuration Error!"
 msgstr ""
@@ -276,13 +270,17 @@ msgid "Currency"
 msgstr ""
 
 #. module: nautical_x
-#: model:ir.ui.menu,name:nautical_x.menu_partner_form
+#: view:res.partner:nautical_x.view_res_partner_filter
+msgid "Customer Partners"
+msgstr ""
+
+#. module: nautical_x
+#: view:res.partner:nautical_x.view_res_partner_filter
 msgid "Customers"
 msgstr ""
 
 #. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_filter
-#: view:res.partner:nautical_x.view_res_partner_filter
 msgid "Customers have higher fees due to two months"
 msgstr ""
 
@@ -322,11 +320,6 @@ msgid "Do Not Dispatch"
 msgstr ""
 
 #. module: nautical_x
-#: view:res.partner:nautical_x.view_res_partner_filter
-msgid "Don't Dispatch"
-msgstr ""
-
-#. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_filter
 msgid "Don't Dispatch Partner"
 msgstr ""
@@ -348,14 +341,12 @@ msgstr ""
 
 #. module: nautical_x
 #: code:addons/nautical_x/contract.py:140
-#: code:addons/sources/odoo-nautical/addons/nautical_x/contract.py:140
 #, python-format
 msgid "End Code is Required."
 msgstr ""
 
 #. module: nautical_x
 #: code:addons/nautical_x/contract.py:137
-#: code:addons/sources/odoo-nautical/addons/nautical_x/contract.py:137
 #, python-format
 msgid "End Date is Required."
 msgstr ""
@@ -372,7 +363,6 @@ msgstr ""
 
 #. module: nautical_x
 #: code:addons/nautical_x/craft.py:204
-#: code:addons/sources/odoo-nautical/addons/nautical_x/craft.py:204
 #, python-format
 msgid "Error!"
 msgstr ""
@@ -410,11 +400,6 @@ msgstr ""
 #. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_form
 msgid "Gral. Inf."
-msgstr ""
-
-#. module: nautical_x
-#: view:res.partner:nautical_x.view_res_partner_filter
-msgid "Group By"
 msgstr ""
 
 #. module: nautical_x
@@ -494,7 +479,7 @@ msgid "Location"
 msgstr ""
 
 #. module: nautical_x
-#: view:nautical.craft:0
+#: view:nautical.craft:nautical_x.view_nautical_craft_form
 #: field:nautical.craft,locations_string:0
 msgid "Locations"
 msgstr ""
@@ -528,7 +513,6 @@ msgstr ""
 
 #. module: nautical_x
 #: code:addons/nautical_x/craft.py:205
-#: code:addons/sources/odoo-nautical/addons/nautical_x/craft.py:205
 #, python-format
 msgid "Member  does not have the fee per day."
 msgstr ""
@@ -555,21 +539,18 @@ msgstr ""
 
 #. module: nautical_x
 #: code:addons/nautical_x/craft.py:267
-#: code:addons/sources/odoo-nautical/addons/nautical_x/craft.py:267
 #, python-format
 msgid "No Owner Defined!"
 msgstr ""
 
 #. module: nautical_x
 #: code:addons/nautical_x/craft.py:290
-#: code:addons/sources/odoo-nautical/addons/nautical_x/craft.py:290
 #, python-format
 msgid "No Pricelist ! : "
 msgstr ""
 
 #. module: nautical_x
 #: code:addons/nautical_x/craft.py:301
-#: code:addons/sources/odoo-nautical/addons/nautical_x/craft.py:301
 #, python-format
 msgid "No valid pricelist line found ! :"
 msgstr ""
@@ -586,6 +567,7 @@ msgstr ""
 
 #. module: nautical_x
 #: model:ir.model,name:nautical_x.model_res_partner
+#: model:ir.ui.menu,name:nautical_x.menu_partner_form
 msgid "Partner"
 msgstr ""
 
@@ -593,6 +575,11 @@ msgstr ""
 #: model:ir.model,name:nautical_x.model_nautical_partner_record
 #: view:nautical.partner_record:nautical_x.view_nautical_partner_record_tree
 msgid "Partner Record"
+msgstr ""
+
+#. module: nautical_x
+#: view:res.partner:nautical_x.view_res_partner_filter
+msgid "Partners"
 msgstr ""
 
 #. module: nautical_x
@@ -700,7 +687,6 @@ msgstr ""
 
 #. module: nautical_x
 #: code:addons/nautical_x/partner.py:78
-#: code:addons/sources/odoo-nautical/addons/nautical_x/partner.py:78
 #, python-format
 msgid "Storage Serv. "
 msgstr ""
@@ -712,7 +698,6 @@ msgstr ""
 
 #. module: nautical_x
 #: code:addons/nautical_x/partner.py:77
-#: code:addons/sources/odoo-nautical/addons/nautical_x/partner.py:77
 #, python-format
 msgid "Storage Service Period "
 msgstr ""
@@ -789,6 +774,11 @@ msgid "Transitional Retirement Form"
 msgstr ""
 
 #. module: nautical_x
+#: view:res.partner:nautical_x.view_res_partner_form
+msgid "True"
+msgstr ""
+
+#. module: nautical_x
 #: field:craft_request,requestor_type:0
 msgid "Type"
 msgstr ""
@@ -816,7 +806,6 @@ msgstr ""
 
 #. module: nautical_x
 #: code:addons/nautical_x/craft.py:288
-#: code:addons/sources/odoo-nautical/addons/nautical_x/craft.py:288
 #, python-format
 msgid "You have to select an owner!\n"
 "Please set one before choosing a product."

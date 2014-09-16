@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+
+ <record id="base.action_partner_form" model="ir.actions.act_window">
+            <field name="name">Socios</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_type">form</field>
+        </record>
+
+<!-- INHERITED SEARCH  -->
+        <record id="view_res_partner_filter" model="ir.ui.view">
+            <field name="name">res.partner.select</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <filter string="Customers" position="replace">
+
+                <filter string="Socios" name="customer" domain="[('customer','=',1)]" help="Customer Partners"/>
+                </filter>
+            </field>
+        </record>
+
+ <record id="view_partner_form" model="ir.ui.view">
+            <field name="name">nautical.partner</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                 <div class="oe_edit_only" position="replace">
+                    <label for="name"/> (
+                            <field name="is_company" on_change="onchange_type(is_company)" class="oe_inline"/> <label for="is_company" string="Es organizacion?"/>)
+                </div>
+            </field>
+        </record>
+    </data>
+</openerp>
+<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4
+     -->
