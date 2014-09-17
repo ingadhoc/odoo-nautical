@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 8.0rc1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-16 16:01+0000\n"
-"PO-Revision-Date: 2014-09-16 13:28-0300\n"
+"PO-Revision-Date: 2014-09-17 12:08-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -67,7 +67,7 @@ msgstr "Autorizado"
 #. module: nautical_x
 #: view:res.partner:nautical_x.view_res_partner_form
 msgid "Authorized Crafts"
-msgstr "Authorized Crafts"
+msgstr "Embarcaciones Autorizadas"
 
 #. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_form
@@ -277,12 +277,12 @@ msgstr "Currency"
 #. module: nautical_x
 #: view:res.partner:nautical_x.view_res_partner_filter
 msgid "Customer Partners"
-msgstr "Clientes"
+msgstr "Socios"
 
 #. module: nautical_x
 #: view:res.partner:nautical_x.view_res_partner_filter
 msgid "Customers"
-msgstr "Clientes"
+msgstr "Socios"
 
 #. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_filter
@@ -332,7 +332,7 @@ msgstr "Don't Dispatch Partner"
 #. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_filter
 msgid "Draft"
-msgstr "Draft"
+msgstr "Borrador"
 
 #. module: nautical_x
 #: model:product.template,name:nautical_x.nautical_product_02_product_template
@@ -549,7 +549,7 @@ msgstr "El Documento Nacional de Identidad debe ser único por Compañía!"
 #: code:addons/nautical_x/craft.py:267
 #, python-format
 msgid "No Owner Defined!"
-msgstr "No Owner Defined!"
+msgstr "No hay Dueño Definido!"
 
 #. module: nautical_x
 #: code:addons/nautical_x/craft.py:290
@@ -628,7 +628,7 @@ msgstr "Plantilla de producto"
 #. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_form
 msgid "Record"
-msgstr "Record"
+msgstr "Historial"
 
 #. module: nautical_x
 #: view:craft_request:nautical_x.view_craft_request
@@ -729,7 +729,7 @@ msgstr "Almacenado"
 #. module: nautical_x
 #: view:res.partner:nautical_x.view_res_partner_form
 msgid "Street..."
-msgstr "Street..."
+msgstr "Calle..."
 
 #. module: nautical_x
 #: view:res.partner:nautical_x.view_res_partner_form
@@ -753,7 +753,7 @@ msgstr ""
 #. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_form
 msgid "To Custody"
-msgstr "To Custody"
+msgstr "A Custodia"
 
 #. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_filter
@@ -763,7 +763,7 @@ msgstr "A Despachar"
 #. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_form
 msgid "To Reparation"
-msgstr "To Reparation"
+msgstr "A Reparacion"
 
 #. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_form

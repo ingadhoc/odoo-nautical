@@ -164,9 +164,9 @@ class craft(osv.osv):
         'pricelist_id': fields.related('owner_id', 'property_product_pricelist', type='many2one', relation='product.pricelist', string='Pricelist'),
         'fiscal_position': fields.related('owner_id', 'property_account_position', type='many2one', relation='account.fiscal.position', string='Fiscal Position'),
         'currency_id': fields.related('pricelist_id', 'currency_id', type="many2one", relation="res.currency", string="Currency", readonly=True, required=False),
-        'role_book_id': fields.function(_cal_role, string='Role book', type='many2one', relation='nautical.role_book'),
-        'estimated_dep_date': fields.related('role_book_id', 'estimated_dep_date', type='datetime', string='Estimated Departure Date'),
-        'est_arrival_date': fields.related('role_book_id', 'est_arrival_date', type='datetime', string='Estimated Arrival Date'),
+        'role_book_id': fields.function(_cal_role, string='Role book', type='many2one', relation='nautical.role_book',store=True),
+        'estimated_dep_date': fields.related('role_book_id', 'estimated_dep_date', type='datetime', string='Estimated Departure Date',store=True),
+        'est_arrival_date': fields.related('role_book_id', 'est_arrival_date', type='datetime', string='Estimated Arrival Date',store=True),
 # ADDED TRACKING
         # El tracking en locations, por ser m2m, registra los ids y eso no esta bueno
         # 'location_ids': fields.one2many('nautical.location', 'craft_id', string='Location', states={'draft':[('readonly', True)],'permanent_cancellation':[('readonly', True)]}, context={'default_type':'normal'}, domain=[('type','=','normal')], track_visibility='onchange'), 
@@ -176,7 +176,7 @@ class craft(osv.osv):
     _defaults = {
     }
 
-    # _order = 'estimated_dep_date' 
+    _order = 'estimated_dep_date, est_arrival_date, id'
 
     def create(self, cr, uid, vals, context=None):
         if vals.get('ref','/')=='/':
