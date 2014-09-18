@@ -50,7 +50,6 @@ class craft_reserve(osv.osv_memory):
         partner_id = self.pool['res.users'].browse(cr,uid,uid,context)
         craft_id = craft_obj.browse(cr, uid, [active_id])[0]
         role_obj=self.pool['nautical.role_book']
-        print wizard
         
         vals = {
                 'estimated_dep_date': wizard.estimated_dep_date,
@@ -60,7 +59,6 @@ class craft_reserve(osv.osv_memory):
                 'crew_qty':wizard.crew_qty,
                 'est_arrival_date':wizard.est_arrival_date,
             }
-        print vals
 
         craft_obj.craft_request(cr, 1, [craft_id.id], 'sail', partner_id.id, context=None)
         role_obj.create(cr, uid, vals, context=context)

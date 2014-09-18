@@ -26,14 +26,19 @@ from dateutil.relativedelta import relativedelta
 from openerp.osv import fields, osv
 import openerp.addons.decimal_precision as dp
 from openerp.tools.translate import _
+from openerp import fields as fields_new
+from openerp import models, api
 from openerp import tools, netsvc
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT, DEFAULT_SERVER_DATETIME_FORMAT, DATETIME_FORMATS_MAP, float_compare
 
-class craft(osv.osv):
+class craft(models.Model):
+# class craft(osv.osv):
     """Craft"""
     
     _inherit = 'nautical.craft'
 
+    # role_book_id = fields_new.function(_cal_role, string='Role book', type='many2one', relation='nautical.role_book',store=True),
+    role_book_id = fields_new.Many2one('nautical.role_book', string='Role book', compute='_cal_role')
 
     def name_get(self, cr, uid, ids, context=None):
         # always return the full hierarchical name
@@ -115,16 +120,31 @@ class craft(osv.osv):
             result[obj.id] = loc_name
         return result
 
-    def _cal_role(self, cr, uid, ids, name, args, context=None):
-        result = {}
-        role_obj=self.pool['nautical.role_book']
-        for craft in self.browse(cr, uid, ids, context=context):
-            role_book_id = False
-            role_book_ids = role_obj.search(cr, uid, [('craft_id','=',craft.id)], order='estimated_dep_date desc', context=context)
-            if role_book_ids:
-                role_book_id = role_book_ids[0]
-            result[craft.id] = role_book_id
-        return result
+    # def _cal_role(self, cr, uid, ids, name, args, context=None):
+    #     result = {}
+    #     role_obj=self.pool['nautical.role_book']
+    #     for craft in self.browse(cr, uid, ids, context=context):
+    #         role_book_id = False
+    #         role_book_ids = role_obj.search(cr, uid, [('craft_id','=',craft.id)], order='estimated_dep_date desc', context=context)
+    #         if role_book_ids:
+    #             role_book_id = role_book_ids[0]
+    #         result[craft.id] = role_book_id
+    #     return result
+    # @api.one
+    @api.depends('estimated_dep_date','est_arrival_date')
+    def _cal_role(self):
+        
+        role_book_id = False
+        role_book=self.env['nautical.role_book'].search([('craft_id','=',self.id)])
+        print role_book
+        if role_book:
+            role_book_id = role_book[0]
+        # result[self.id] = role_book_id
+        print role_book_id
+        return role_book_id
+
+
+
 
     def _set_image(self, cr, uid, id, name, value, args, context=None):
         return self.write(cr, uid, [id], {'image': tools.image_resize_image_big(value)}, context=context)
@@ -164,7 +184,7 @@ class craft(osv.osv):
         'pricelist_id': fields.related('owner_id', 'property_product_pricelist', type='many2one', relation='product.pricelist', string='Pricelist'),
         'fiscal_position': fields.related('owner_id', 'property_account_position', type='many2one', relation='account.fiscal.position', string='Fiscal Position'),
         'currency_id': fields.related('pricelist_id', 'currency_id', type="many2one", relation="res.currency", string="Currency", readonly=True, required=False),
-        'role_book_id': fields.function(_cal_role, string='Role book', type='many2one', relation='nautical.role_book',store=True),
+        # 'role_book_id': fields.function(_cal_role, string='Role book', type='many2one', relation='nautical.role_book',store=True),
         'estimated_dep_date': fields.related('role_book_id', 'estimated_dep_date', type='datetime', string='Estimated Departure Date',store=True),
         'est_arrival_date': fields.related('role_book_id', 'est_arrival_date', type='datetime', string='Estimated Arrival Date',store=True),
 # ADDED TRACKING
