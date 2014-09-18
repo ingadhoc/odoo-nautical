@@ -36,9 +36,11 @@ class craft(models.Model):
     """Craft"""
     
     _inherit = 'nautical.craft'
-
-    # role_book_id = fields_new.function(_cal_role, string='Role book', type='many2one', relation='nautical.role_book',store=True),
-    role_book_id = fields_new.Many2one('nautical.role_book', string='Role book', compute='_cal_role')
+    # 'est_arrival_date': fields.related('role_book_id', 'est_arrival_date', type='datetime', string='Estimated Arrival Date',store=True),
+    # 'estimated_dep_date': fields.related('role_book_id', 'estimated_dep_date', type='datetime', string='Estimated Departure Date',store=True),
+    estimated_dep_date = fields_new.Datetime(related='role_book_id.estimated_dep_date', string='Estimated Departure Date', store=True)
+    est_arrival_date = fields_new.Datetime(related='role_book_id.est_arrival_date', string='Estimated Arrival Date', store=True)
+    role_book_id = fields_new.Many2one('nautical.role_book', string='Role book', compute='_cal_role', store=True)
 
     def name_get(self, cr, uid, ids, context=None):
         # always return the full hierarchical name
@@ -130,7 +132,7 @@ class craft(models.Model):
     #             role_book_id = role_book_ids[0]
     #         result[craft.id] = role_book_id
     #     return result
-    # @api.one
+    @api.one
     @api.depends('estimated_dep_date','est_arrival_date')
     def _cal_role(self):
         
@@ -185,8 +187,8 @@ class craft(models.Model):
         'fiscal_position': fields.related('owner_id', 'property_account_position', type='many2one', relation='account.fiscal.position', string='Fiscal Position'),
         'currency_id': fields.related('pricelist_id', 'currency_id', type="many2one", relation="res.currency", string="Currency", readonly=True, required=False),
         # 'role_book_id': fields.function(_cal_role, string='Role book', type='many2one', relation='nautical.role_book',store=True),
-        'estimated_dep_date': fields.related('role_book_id', 'estimated_dep_date', type='datetime', string='Estimated Departure Date',store=True),
-        'est_arrival_date': fields.related('role_book_id', 'est_arrival_date', type='datetime', string='Estimated Arrival Date',store=True),
+        # 'estimated_dep_date': fields.related('role_book_id', 'estimated_dep_date', type='datetime', string='Estimated Departure Date',store=True),
+        # 'est_arrival_date': fields.related('role_book_id', 'est_arrival_date', type='datetime', string='Estimated Arrival Date',store=True),
 # ADDED TRACKING
         # El tracking en locations, por ser m2m, registra los ids y eso no esta bueno
         # 'location_ids': fields.one2many('nautical.location', 'craft_id', string='Location', states={'draft':[('readonly', True)],'permanent_cancellation':[('readonly', True)]}, context={'default_type':'normal'}, domain=[('type','=','normal')], track_visibility='onchange'), 
