@@ -37,6 +37,18 @@ class craft(models.Model):
 
     _inherit = 'nautical.craft'
 
+    @api.one
+    @api.depends('role_book_ids.estimated_dep_date','role_book_ids.est_arrival_date','role_book_ids')
+    def _cal_role(self):
+        role_books = self.env['nautical.role_book'].search([('craft_id','=',self.id)], order='estimated_dep_date desc')
+        print role_books
+        if role_books:
+            self.role_book_id = role_books[0]
+            self.estimated_dep_date = role_books[0].estimated_dep_date
+            self.est_arrival_date = role_books[0].est_arrival_date
+        else:
+            self.role_book_id = False    
+
     role_book_id = fields_new.Many2one(
         'nautical.role_book',
         string='Role book',
@@ -45,13 +57,15 @@ class craft(models.Model):
     )
 
     estimated_dep_date = fields_new.Datetime(
-        related='role_book_id.estimated_dep_date',
+        # related='role_book_id.estimated_dep_date',
+        compute='_cal_role',
         string='Estimated Departure Date',
         store=True
     )
 
     est_arrival_date = fields_new.Datetime(
-        related='role_book_id.est_arrival_date',
+        compute='_cal_role',
+        # related='role_book_id.est_arrival_date',
         string='Estimated Arrival Date',
         store=True
     )
@@ -146,15 +160,6 @@ class craft(models.Model):
     #             role_book_id = role_book_ids[0]
     #         result[craft.id] = role_book_id
     #     return result
-
-    @api.one
-    @api.depends('estimated_dep_date','est_arrival_date')
-    def _cal_role(self):
-        role_books = self.env['nautical.role_book'].search([('craft_id','=',self.id)])
-        if role_books:
-            self.role_book_id = role_books[0]
-        else:
-            self.role_book_id = False
 
 
     def _set_image(self, cr, uid, id, name, value, args, context=None):

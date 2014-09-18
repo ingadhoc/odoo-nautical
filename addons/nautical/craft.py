@@ -104,6 +104,7 @@ class craft(osv.osv):
         'authorization_ids': fields.one2many('nautical.authorization', 'craft_id', string='Authorizations'), 
         'owner_id': fields.many2one('res.partner', string='Owner', readonly=True, states={'draft':[('readonly', False)]}, domain=[('customer','=',True)], ondelete='cascade', required=True), 
         'service_authorization_ids': fields.one2many('nautical.service_authorization', 'craft_id', string='Service Authorizations'), 
+        'role_book_ids': fields.one2many('nautical.role_book', 'craft_id', string='role_book_ids'), 
         'contract_ids': fields.one2many('nautical.contract', 'craft_id', string='Contracts'), 
         'craft_record_ids': fields.one2many('nautical.craft_record', 'craft_id', string='Record', context={'from_craft':True}), 
     }

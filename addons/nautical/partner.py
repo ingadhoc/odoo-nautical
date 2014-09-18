@@ -33,8 +33,6 @@ class partner(osv.osv):
     _inherit = [ 'res.partner' ]
 
     _columns = {
-        'national_identity': fields.char(string='National Identity'),
-        'birthday': fields.date(string='Birthday'),
         'authorization_ids': fields.one2many('nautical.authorization', 'partner_id', string='Authorizations'), 
         'historical_record_ids': fields.one2many('nautical.partner_record', 'partner_id', string='historical_record_ids'), 
         'owned_craft_ids': fields.one2many('nautical.craft', 'owner_id', string='Owned Crafts'), 
