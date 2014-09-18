@@ -34,13 +34,27 @@ from openerp.tools import DEFAULT_SERVER_DATE_FORMAT, DEFAULT_SERVER_DATETIME_FO
 class craft(models.Model):
 # class craft(osv.osv):
     """Craft"""
-    
+
     _inherit = 'nautical.craft'
-    # 'est_arrival_date': fields.related('role_book_id', 'est_arrival_date', type='datetime', string='Estimated Arrival Date',store=True),
-    # 'estimated_dep_date': fields.related('role_book_id', 'estimated_dep_date', type='datetime', string='Estimated Departure Date',store=True),
-    estimated_dep_date = fields_new.Datetime(related='role_book_id.estimated_dep_date', string='Estimated Departure Date', store=True)
-    est_arrival_date = fields_new.Datetime(related='role_book_id.est_arrival_date', string='Estimated Arrival Date', store=True)
-    role_book_id = fields_new.Many2one('nautical.role_book', string='Role book', compute='_cal_role', store=True)
+
+    role_book_id = fields_new.Many2one(
+        'nautical.role_book',
+        string='Role book',
+        compute='_cal_role',
+        store=True
+    )
+
+    estimated_dep_date = fields_new.Datetime(
+        related='role_book_id.estimated_dep_date',
+        string='Estimated Departure Date',
+        store=True
+    )
+
+    est_arrival_date = fields_new.Datetime(
+        related='role_book_id.est_arrival_date',
+        string='Estimated Arrival Date',
+        store=True
+    )
 
     def name_get(self, cr, uid, ids, context=None):
         # always return the full hierarchical name
@@ -50,13 +64,13 @@ class craft(models.Model):
                 sep = ' - '
             else:
                 sep = ''
-            res[line.id] = (line.name or '')+ sep + line.owner_id.name        
-        return res.items()     
+            res[line.id] = (line.name or '')+ sep + line.owner_id.name
+        return res.items()
 
     def name_search(self, cr, user, name='', args=None, operator='ilike', context=None, limit=100):
         if not args:
-            args = []    
-        ids = set()     
+            args = []
+        ids = set()
         if name:
             ids.update(self.search(cr, user, args + [('name',operator,name)], limit=(limit and (limit-len(ids)) or False) , context=context))
             if not limit or len(ids) < limit:
@@ -71,8 +85,8 @@ class craft(models.Model):
         tax_obj = self.pool.get('account.tax')
         cur_obj = self.pool.get('res.currency')
         res = {}
-        date_order = time.strftime(DEFAULT_SERVER_DATE_FORMAT)    
-        
+        date_order = time.strftime(DEFAULT_SERVER_DATE_FORMAT)
+
         for record in self.browse(cr, uid, ids, context=context):
             res[record.id] = {
                 'amount_untaxed': 0.0,
@@ -80,7 +94,7 @@ class craft(models.Model):
                 'amount_total': 0.0,
                 'price_unit': 0.0,
             }
-            
+
             # Get price
             price_unit = self.pool.get('product.pricelist').price_get(cr, uid, [record.pricelist_id.id],
                     record.product_id.id, 1.0, record.owner_id.id, {
@@ -104,7 +118,7 @@ class craft(models.Model):
             for c in taxes['taxes']:
                 val += c.get('amount', 0.0)
             res[record.id]['amount_tax'] = cur_obj.round(cr, uid, cur, val)
-            res[record.id]['amount_total'] = cur_obj.round(cr, uid, cur, taxes['total_included']) 
+            res[record.id]['amount_total'] = cur_obj.round(cr, uid, cur, taxes['total_included'])
         return res
 
     def _get_image(self, cr, uid, ids, name, args, context=None):
@@ -132,20 +146,15 @@ class craft(models.Model):
     #             role_book_id = role_book_ids[0]
     #         result[craft.id] = role_book_id
     #     return result
+
     @api.one
     @api.depends('estimated_dep_date','est_arrival_date')
     def _cal_role(self):
-        
-        role_book_id = False
-        role_book=self.env['nautical.role_book'].search([('craft_id','=',self.id)])
-        print role_book
-        if role_book:
-            role_book_id = role_book[0]
-        # result[self.id] = role_book_id
-        print role_book_id
-        return role_book_id
-
-
+        role_books = self.env['nautical.role_book'].search([('craft_id','=',self.id)])
+        if role_books:
+            self.role_book_id = role_books[0]
+        else:
+            self.role_book_id = False
 
 
     def _set_image(self, cr, uid, id, name, value, args, context=None):
@@ -172,11 +181,11 @@ class craft(models.Model):
                  "resized as a 64x64px image, with aspect ratio preserved. "\
                  "Use this field anywhere a small image is required."),
 # Others
-        'craft_type': fields.related('product_id', 'craft_type', type='char', string='Craft Type Code',), 
-        'partner_payment_earliest_due_date': fields.related('owner_id', 'payment_earliest_due_date', type='char', string='Worst Due Date',), 
+        'craft_type': fields.related('product_id', 'craft_type', type='char', string='Craft Type Code',),
+        'partner_payment_earliest_due_date': fields.related('owner_id', 'payment_earliest_due_date', type='char', string='Worst Due Date',),
         'locations_string': fields.function(_get_location_string, string='Locations', type='char'),
 # TODO. Could be good to add states restricion "readonly=True, states={'draft': [('readonly', False)]}"" to all this fields
-        'account_invoice_line_ids': fields.one2many('account.invoice.line', 'craft_id', string='Account Invoice Lines', readonly=True), 
+        'account_invoice_line_ids': fields.one2many('account.invoice.line', 'craft_id', string='Account Invoice Lines', readonly=True),
         'price_unit': fields.function(_amount_all, string='Price', digits_compute= dp.get_precision('Product Price'), multi='sums'),
         'amount_untaxed': fields.function(_amount_all, string='Untaxed Amount', digits_compute= dp.get_precision('Account'), multi='sums'),
         'amount_tax': fields.function(_amount_all, string='Taxes', digits_compute= dp.get_precision('Account'), multi='sums'),
@@ -191,8 +200,8 @@ class craft(models.Model):
         # 'est_arrival_date': fields.related('role_book_id', 'est_arrival_date', type='datetime', string='Estimated Arrival Date',store=True),
 # ADDED TRACKING
         # El tracking en locations, por ser m2m, registra los ids y eso no esta bueno
-        # 'location_ids': fields.one2many('nautical.location', 'craft_id', string='Location', states={'draft':[('readonly', True)],'permanent_cancellation':[('readonly', True)]}, context={'default_type':'normal'}, domain=[('type','=','normal')], track_visibility='onchange'), 
-        'owner_id': fields.many2one('res.partner', string='Owner', readonly=True, states={'draft':[('readonly', False)]}, ondelete='cascade', required=True, track_visibility='onchange'), 
+        # 'location_ids': fields.one2many('nautical.location', 'craft_id', string='Location', states={'draft':[('readonly', True)],'permanent_cancellation':[('readonly', True)]}, context={'default_type':'normal'}, domain=[('type','=','normal')], track_visibility='onchange'),
+        'owner_id': fields.many2one('res.partner', string='Owner', readonly=True, states={'draft':[('readonly', False)]}, ondelete='cascade', required=True, track_visibility='onchange'),
     }
 
     _defaults = {
@@ -203,7 +212,7 @@ class craft(models.Model):
     def create(self, cr, uid, vals, context=None):
         if vals.get('ref','/')=='/':
             vals['ref'] = self.pool.get('ir.sequence').get(cr, uid, 'craft_reference') or '/'
-        return super(craft, self).create(cr, uid, vals, context=context)    
+        return super(craft, self).create(cr, uid, vals, context=context)
 
     def write(self, cr, uid, ids, vals, context=None):
         # print ('context', context)
@@ -213,7 +222,7 @@ class craft(models.Model):
                 self.create_craft_record(cr, uid, ids, vals, context=context)
 
             vals['last_action_date'] = datetime.now()
-        
+
         ret = super(craft, self).write(cr, uid, ids, vals, context=context)
         return ret
 
@@ -226,7 +235,7 @@ class craft(models.Model):
             raise osv.except_osv(_('Error!'),
                         _('Member  does not have the fee per day.') )
 
-            return True  
+            return True
 
     def craft_request(self, cr, uid, ids, request_type, partner_id, context=None):
         wf_service = netsvc.LocalService("workflow")
@@ -237,7 +246,7 @@ class craft(models.Model):
         elif request_type== 'in_reparation':
             signal = 'sgn_to_reparation'
         elif request_type== 'in_custody':
-            signal = 'sgn_to_custody'           
+            signal = 'sgn_to_custody'
         self.write(cr, uid, ids, {'aux_requestor_id':partner_id}, context)
         for craft_id in ids:
             wf_service.trg_validate(uid, 'nautical.craft', craft_id, signal, cr)
@@ -255,16 +264,16 @@ class craft(models.Model):
                 'requestor_id': craft.aux_requestor_id.id,
                 'type': vals['state'] or '',
             }
-            craft_record_obj.create(cr, uid, record_vals, context=context)   
-        self.write(cr, uid, ids, {'aux_requestor_id':False}, context)            
+            craft_record_obj.create(cr, uid, record_vals, context=context)
+        self.write(cr, uid, ids, {'aux_requestor_id':False}, context)
 
 
     def wkf_preconditions(self, cr, uid, ids, vals, context=None):
         if 'state' not in vals:
             return
         # if vals['state'] == 'contracted':
-        #     self.check_contract_permanent_cancellation(cr, uid, ids, context=context) 
-                
+        #     self.check_contract_permanent_cancellation(cr, uid, ids, context=context)
+
 
     def onchange_partner_id(self, cr, uid, ids, part, context=None):
         if not part:
@@ -280,7 +289,7 @@ class craft(models.Model):
         }
         if pricelist:
             val['pricelist_id'] = pricelist
-        return {'value': val}        
+        return {'value': val}
 
 
     def product_id_change(self, cr, uid, ids, pricelist, product_id, partner_id=False, update_tax=True, fiscal_position=False, context=None):
@@ -305,7 +314,7 @@ class craft(models.Model):
                 result['tax_id'] = self.pool.get('account.fiscal.position').map_tax(cr, uid, fpos, product_obj.taxes_id)
             result['product_uom'] = product_obj.uom_id.id
             result['craft_type'] = product_obj.craft_type
-            date_order = time.strftime(DEFAULT_SERVER_DATE_FORMAT)        
+            date_order = time.strftime(DEFAULT_SERVER_DATE_FORMAT)
             if not pricelist:
                 warn_msg = _('You have to select an owner!\n'
                         'Please set one before choosing a product.')
@@ -345,7 +354,7 @@ class craft(models.Model):
         user_obj=self.pool['res.users']
         company_obj = self.pool['res.company']
         craft = self.browse(cr, uid, ids, context=None)[0]
-            
+
         company_ids = user_obj.search(cr, uid, [('company_id','=',craft.owner_id.company_id.id)], context=None)
         company_id=company_obj.browse(cr, uid, company_ids, context=None)[0]
         months_debt=company_id.debt_limit_months
@@ -360,4 +369,4 @@ class craft(models.Model):
                     return True
                 else:
                     return False
-            
+
