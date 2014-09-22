@@ -212,7 +212,7 @@ class craft(models.Model):
     _defaults = {
     }
 
-    _order = 'estimated_dep_date, est_arrival_date, id'
+    # _order = 'estimated_dep_date, est_arrival_date, id'
 
     def create(self, cr, uid, vals, context=None):
         if vals.get('ref','/')=='/':
