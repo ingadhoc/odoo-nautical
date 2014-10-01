@@ -45,8 +45,19 @@
                     </page>
                 </page>
                 <page string="Internal Notes" position="after">
-                    <page string="Crafts">
+                    <page string="Crafts and Products">
                         <group col="1">
+                            <!-- <button class="oe_link" name="process_partner_invoices"  string="⇒ create invoices" type="object" /> -->                    
+                           <field name="recurring_invoice_line_ids" string="Products">
+                                <tree string="Account Analytic Lines" editable="bottom">
+                                    <field name="product_id" on_change="product_id_change(product_id, uom_id, quantity, False, partner_id)"/>
+                                    <field name="name"/>
+                                    <field name="quantity"/>
+                                    <field name="uom_id"/>
+                                    <field name="price_unit"/>
+                                    <field name="price_subtotal"/>
+                                </tree>
+                            </field>                            
                             <field name="owned_craft_ids" context="{'from_partner':True,'default_owner_id':id}" attrs="{'invisible':[('customer','!=',True)]}"/>
                             <!-- <field name="owned_craft_ids" attrs="{'invisible':[('is_company','!=',True)]}"/> -->
                             <field name="authorization_ids" context="{'from_partner':True, 'default_partner_id':id}">

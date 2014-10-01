@@ -56,6 +56,6 @@ Projects required:
 
     ],    
     'version': u'1.1',
-    'website': 'www.ingadhoc.com.ar'}
+    'website': 'www.ingadhoc.com'}
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

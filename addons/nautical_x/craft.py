@@ -41,7 +41,6 @@ class craft(models.Model):
     @api.depends('role_book_ids.estimated_dep_date','role_book_ids.est_arrival_date','role_book_ids')
     def _cal_role(self):
         role_books = self.env['nautical.role_book'].search([('craft_id','=',self.id)], order='estimated_dep_date desc')
-        print role_books
         if role_books:
             self.role_book_id = role_books[0]
             self.estimated_dep_date = role_books[0].estimated_dep_date
@@ -69,6 +68,7 @@ class craft(models.Model):
         string='Estimated Arrival Date',
         store=True
     )
+
 
     def name_get(self, cr, uid, ids, context=None):
         # always return the full hierarchical name
@@ -200,9 +200,7 @@ class craft(models.Model):
         'pricelist_id': fields.related('owner_id', 'property_product_pricelist', type='many2one', relation='product.pricelist', string='Pricelist'),
         'fiscal_position': fields.related('owner_id', 'property_account_position', type='many2one', relation='account.fiscal.position', string='Fiscal Position'),
         'currency_id': fields.related('pricelist_id', 'currency_id', type="many2one", relation="res.currency", string="Currency", readonly=True, required=False),
-        # 'role_book_id': fields.function(_cal_role, string='Role book', type='many2one', relation='nautical.role_book',store=True),
         # 'estimated_dep_date': fields.related('role_book_id', 'estimated_dep_date', type='datetime', string='Estimated Departure Date',store=True),
-        # 'est_arrival_date': fields.related('role_book_id', 'est_arrival_date', type='datetime', string='Estimated Arrival Date',store=True),
 # ADDED TRACKING
         # El tracking en locations, por ser m2m, registra los ids y eso no esta bueno
         # 'location_ids': fields.one2many('nautical.location', 'craft_id', string='Location', states={'draft':[('readonly', True)],'permanent_cancellation':[('readonly', True)]}, context={'default_type':'normal'}, domain=[('type','=','normal')], track_visibility='onchange'),
