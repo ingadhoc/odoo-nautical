@@ -57,7 +57,7 @@
                                         </div>
                                 </group>              
                                 <group>
-                                    <field name="recurring_next_date"/>  
+                                    <field name="recurring_next_date" attrs="{'required':[('customer','=',True)]}"/>  
                                 </group>              
                             </group>              
                             <field name="recurring_invoice_line_ids" string="Products">
