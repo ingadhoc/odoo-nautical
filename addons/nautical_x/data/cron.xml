@@ -2,7 +2,8 @@
 <openerp>
     <data noupdate="1">
         <!-- <record forcecreate="True" id="ir_cron_nautical_invoices" model="ir.cron"> -->
-        <record  id="ir_cron_nautical_invoices" model="ir.cron">
+      <!-- En este crom fue remplazado por el crom de abajo -->
+       <!--  <record  id="ir_cron_nautical_invoices" model="ir.cron">
             <field name="name">Nautical Create Storage Service Invoices</field>
             <field name="user_id" ref="base.user_root"/>
             <field name="interval_number">1</field>
@@ -11,11 +12,10 @@
             <field eval="False" name="doall"/>
             <field eval="'res.partner'" name="model"/>
             <field eval="'process_partner_invoices'" name="function"/>
-            <!-- <field eval="'process_active_partner_invoices'" name="function"/> -->
             <field eval="'()'" name="args"/>
-        </record>
+        </record> -->
 
-        <record  id="ir_cron_nautical_partner_invoices" model="ir.cron">
+        <record  id="ir_cron_nautical_invoices" model="ir.cron">
             <field name="name">Nautical Create Person Service Invoices</field>
             <field name="user_id" ref="base.user_root"/>
             <field name="interval_number">1</field>
@@ -24,7 +24,6 @@
             <field eval="False" name="doall"/>
             <field eval="'res.partner'" name="model"/>
             <field eval="'_cron_recurring_create_invoice'" name="function"/>
-            <!-- <field eval="'process_active_partner_invoices'" name="function"/> -->
             <field eval="'()'" name="args"/>
         </record>
                 
