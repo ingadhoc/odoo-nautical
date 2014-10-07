@@ -1,25 +1,4 @@
 # -*- coding: utf-8 -*-
-##############################################################################
-#
-#    Nautical
-#    Copyright (C) 2013 Sistemas ADHOC
-#    No email
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
-
 
 import re
 from openerp import netsvc
@@ -108,14 +87,14 @@ class partner(osv.osv):
     _columns = {
         'recurring_invoice_line_ids': fields.one2many('res.partner.invoice.line', 'partner_id', 'Partner', copy=True),
         # 'recurring_invoices' : fields.boolean('Generate recurring invoices automatically'),
-        # 'recurring_rule_type': fields.selection([
-        #     ('daily', 'Day(s)'),
-        #     ('weekly', 'Week(s)'),
-        #     ('monthly', 'Month(s)'),
-        #     ('yearly', 'Year(s)'),
-        #     ], 'Recurrency', help="Invoice automatically repeat at specified interval"),
-        # 'recurring_interval': fields.integer('Repeat Every', help="Repeat every (Days/Week/Month/Year)"),
-        # 'recurring_next_date': fields.date('Date of Next Invoice'),
+        'recurring_rule_type': fields.selection([
+            ('daily', 'Day(s)'),
+            ('weekly', 'Week(s)'),
+            ('monthly', 'Month(s)'),
+            ('yearly', 'Year(s)'),
+            ], 'Recurrency', help="Invoice automatically repeat at specified interval"),
+        'recurring_interval': fields.integer('Repeat Every', help="Repeat every (Days/Week/Month/Year)"),
+        'recurring_next_date': fields.date('Date of Next Invoice'),
     }
     
 
@@ -124,8 +103,8 @@ class partner(osv.osv):
     ]    
 
     _defaults = {
-        # 'recurring_interval': 1,
-        # 'recurring_rule_type':'monthly'
+        'recurring_interval': 1,
+        'recurring_next_date':lambda *a: time.strftime('%Y-%m-%d'),
     }
 
     def process_partner_invoices(self, cr, uid, ids=None, open_invoices=False, context=None):
@@ -136,6 +115,15 @@ class partner(osv.osv):
         res = None
         context['date_invoice'] = time.strftime(DEFAULT_SERVER_DATE_FORMAT) 
         return self.create_invoices(cr, uid, ids, open_invoices, context)
+
+    def _cron_recurring_create_invoice(self, cr, uid, context=None):
+        context = context or {}
+        current_date =  time.strftime('%Y-%m-%d')
+        if ids:
+            partner_ids = ids
+        else:
+            partner_ids = self.search(cr, uid, [('recurring_next_date','<=', current_date), ('customer','=', True)])
+        return self._recurring_create_invoice(cr, uid, partner_ids, open_invoices=True, context=context)
 
     # def process_active_partner_invoices(self, cr, uid, ids=None, open_invoices=False, context=None):
     #     if context is None:
@@ -175,8 +163,8 @@ class partner(osv.osv):
             # We use the partner prepare invoice fucntion defined in account intereset
             inv_values = self._prepare_invoice(cr, uid, partner, context=context)
             if inv_values:
-                inv_values['comment'] =  _('Storage Service Period ') + time.strftime('%m-%y')
-                inv_values['origin'] = inv_values['reference'] = _('Storage Serv. ') + time.strftime('%m-%y')
+                inv_values['comment'] =  _('Cuota del Periodo ') + time.strftime('%m-%y')
+                inv_values['origin'] = inv_values['reference'] = _('Cuota. ') + time.strftime('%m-%y')
                 inv_id = inv_obj.create(cr, uid, inv_values, context=context)
                 inv_ids.append(inv_id)
 
@@ -185,19 +173,28 @@ class partner(osv.osv):
                     if craft.state not in ['draft', 'permanent_cancellation']:
                         inv_lines_vals = self._prepare_invoice_line_craft(cr, uid, craft, inv_id, context=context)
                         if inv_lines_vals:
-                            print inv_lines_vals
                             self.pool.get('account.invoice.line').create(cr, uid, inv_lines_vals, context=context)
                 
                 # We create invoice lines for other products
                 inv_lines_vals = self._prepare_invoice_line(cr, uid, partner, inv_values['fiscal_position'], inv_id, context=None)
                 if inv_lines_vals:
-                    print inv_lines_vals
                     self.pool.get('account.invoice.line').create(cr, uid, inv_lines_vals, context=context)                
 
                 inv_obj.button_reset_taxes(cr, uid, [inv_id], context=context)
                 # wf_service.trg_write(uid, 'sale.order', sale_id, cr)
                 if open_invoices:
                     wf_service.trg_validate(uid, 'account.invoice', inv_id, 'invoice_open', cr)                            
+                interval = partner.recurring_interval
+                next_date = datetime.strptime(partner.recurring_next_date or current_date, "%Y-%m-%d")
+                if partner.recurring_rule_type == 'daily':
+                    new_date = next_date+relativedelta(days=+interval)
+                elif partner.recurring_rule_type == 'weekly':
+                    new_date = next_date+relativedelta(weeks=+interval)
+                elif partner.recurring_rule_type == 'monthly':
+                    new_date = next_date+relativedelta(months=+interval)
+                else:
+                    new_date = next_date+relativedelta(years=+interval)
+                self.write(cr, uid, [partner.id], {'recurring_next_date': new_date.strftime('%Y-%m-%d')}, context=context)
         return inv_ids
 
     def _prepare_invoice_line(self, cr, uid, partner, fiscal_position_id, inv_id, context=None):

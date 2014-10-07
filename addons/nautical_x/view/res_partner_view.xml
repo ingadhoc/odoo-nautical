@@ -47,8 +47,20 @@
                 <page string="Internal Notes" position="after">
                     <page string="Crafts and Products">
                         <group col="1">
-                            <!-- <button class="oe_link" name="process_partner_invoices"  string="⇒ create invoices" type="object" /> -->                    
-                           <field name="recurring_invoice_line_ids" string="Products">
+                            <button class="oe_link" name="create_invoices"  string="⇒ create invoices" type="object" /> 
+                            <group>
+                                <group>
+                                    <label for="recurring_interval"/>
+                                        <div>
+                                            <field name="recurring_interval" class="oe_inline" attrs="{'required':[('customer','=',True)]}"/>
+                                            <field name="recurring_rule_type" class="oe_inline" attrs="{'required':[('customer','=',True)]}"/>
+                                        </div>
+                                </group>              
+                                <group>
+                                    <field name="recurring_next_date"/>  
+                                </group>              
+                            </group>              
+                            <field name="recurring_invoice_line_ids" string="Products">
                                 <tree string="Account Analytic Lines" editable="bottom">
                                     <field name="product_id" on_change="product_id_change(product_id, uom_id, quantity, False, partner_id)"/>
                                     <field name="name"/>
