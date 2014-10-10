@@ -116,9 +116,11 @@ class partner(osv.osv):
         context['date_invoice'] = time.strftime(DEFAULT_SERVER_DATE_FORMAT) 
         return self.create_invoices(cr, uid, ids, open_invoices, context)
 
-    def _cron_recurring_create_invoice(self, cr, uid, context=None):
+    def _cron_recurring_create_invoice(self, cr, uid, ids=None, context=None):
         context = context or {}
         current_date =  time.strftime('%Y-%m-%d')
+        if ids is None:
+            ids = self.search(cr, uid, [], context=context)
         if ids:
             partner_ids = ids
         else:
@@ -163,15 +165,19 @@ class partner(osv.osv):
             # We use the partner prepare invoice fucntion defined in account intereset
             inv_values = self._prepare_invoice(cr, uid, partner, context=context)
             if inv_values:
-                inv_values['comment'] =  _('Cuota del Periodo ') + time.strftime('%m-%y')
-                inv_values['origin'] = inv_values['reference'] = _('Cuota. ') + time.strftime('%m-%y')
+                invoce_date = datetime.strptime(
+                        partner.recurring_next_date, DEFAULT_SERVER_DATE_FORMAT)
+                
+                inv_values['comment'] =  _('Cuota del Periodo ') + invoce_date.strftime('%m-%y')
+                inv_values['date_invoice'] = partner.recurring_next_date
+                inv_values['origin'] = inv_values['reference'] = _('Cuota. ') + invoce_date.strftime('%m-%y')
                 inv_id = inv_obj.create(cr, uid, inv_values, context=context)
                 inv_ids.append(inv_id)
 
                 # We create invoice lines for active crafts
                 for craft in partner.owned_craft_ids:
                     if craft.state not in ['draft', 'permanent_cancellation']:
-                        inv_lines_vals = self._prepare_invoice_line_craft(cr, uid, craft, inv_id, context=context)
+                        inv_lines_vals = self._prepare_invoice_line_craft(cr, uid, partner, craft, inv_id, context=context)
                         if inv_lines_vals:
                             self.pool.get('account.invoice.line').create(cr, uid, inv_lines_vals, context=context)
                 
@@ -200,6 +206,8 @@ class partner(osv.osv):
     def _prepare_invoice_line(self, cr, uid, partner, fiscal_position_id, inv_id, context=None):
         fpos_obj = self.pool.get('account.fiscal.position')
         fiscal_position = None
+        invoce_date = datetime.strptime(
+                        partner.recurring_next_date, DEFAULT_SERVER_DATE_FORMAT)
         if fiscal_position_id:
             fiscal_position = fpos_obj.browse(cr, uid,  fiscal_position_id, context=context)
         invoice_lines = []
@@ -215,7 +223,7 @@ class partner(osv.osv):
             tax_id = fpos_obj.map_tax(cr, uid, fiscal_position, taxes)
 
             invoice_lines = {
-                'name': line.name,
+                'name': line.name + ' - ' + _('. Period ') + invoce_date.strftime('%m-%y'),
                 'account_id': account_id,
                 # 'account_analytic_id': partner.id,
                 'price_unit': line.price_unit or 0.0,
@@ -227,15 +235,17 @@ class partner(osv.osv):
             }
         return invoice_lines
 
-    def _prepare_invoice_line_craft(self, cr, uid, craft, inv_id, context=None):
+    def _prepare_invoice_line_craft(self, cr, uid, partner, craft, inv_id, context=None):
         if context is None:
             context = {}
 
         result = []
+        invoce_date = datetime.strptime(
+                        partner.recurring_next_date, DEFAULT_SERVER_DATE_FORMAT)
 
         inv_line_values = {
 # TODO add tax, name origin and analitic account
-            'name': craft.product_id.name + ' - ' + (craft.name or '') + _('. Period ') + time.strftime('%m-%y'),
+            'name': craft.product_id.name + ' - ' + (craft.name or '') + _('. Period ') + invoce_date.strftime('%m-%y'),
             # 'origin': sale.name,
             # 'account_id': res['account_id'],
             'price_unit': craft.price_unit,

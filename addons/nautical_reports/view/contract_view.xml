@@ -12,7 +12,7 @@
             <field name="arch" type="xml">
                 <field name="state" position="before">
                                 
-                        <button name="contract_print" string="Print Contract" type="object" attrs="{'invisible':[('state', '!=', 'contracted')]}"/>
+                        <button name="contract_print" string="Print Contract" type="object" class="oe_highlight" attrs="{'invisible':[('state', '!=', 'contracted')]}"/>
                     
             </field>
                 

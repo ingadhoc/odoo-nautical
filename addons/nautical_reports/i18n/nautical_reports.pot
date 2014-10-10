@@ -1,0 +1,47 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* nautical_reports
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-10-09 12:02+0000\n"
+"PO-Revision-Date: 2014-10-09 12:02+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: nautical_reports
+#: model:ir.model,name:nautical_reports.model_nautical_contract
+msgid "Contract"
+msgstr ""
+
+#. module: nautical_reports
+#: model:ir.actions.report.xml,name:nautical_reports.report_contract_odt
+msgid "Contrato"
+msgstr ""
+
+#. module: nautical_reports
+#: model:ir.actions.report.xml,name:nautical_reports.action_aeroo_report_ar_invoice
+msgid "Cuota Sorrento"
+msgstr ""
+
+#. module: nautical_reports
+#: view:nautical.contract:nautical_reports.view_contract_form
+msgid "Print Contract"
+msgstr ""
+
+#. module: nautical_reports
+#: model:ir.actions.report.xml,name:nautical_reports.action_aeroo_report_ar_receipt
+msgid "Recibo Sorrento"
+msgstr ""
+
+#. module: nautical_reports
+#: model:ir.actions.report.xml,name:nautical_reports.report_transitional_retirement_odt
+msgid "Transitional Retirement Report"
+msgstr ""
+

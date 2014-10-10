@@ -58,6 +58,7 @@
                 <!-- we remove header in otrther to remove buttons -->
                 <header position="replace">
                     <header>
+                        
                         <field name="state" widget="statusbar"
                             statusbar_visible="draft,contracted,permanent_cancellation" 
                             statusbar_colors='{}'/>

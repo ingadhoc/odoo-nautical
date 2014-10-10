@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-07 16:17+0000\n"
-"PO-Revision-Date: 2014-10-07 13:25-0300\n"
+"POT-Creation-Date: 2014-10-09 12:05+0000\n"
+"PO-Revision-Date: 2014-10-09 09:08-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -22,8 +22,8 @@ msgid "(update)"
 msgstr "(update)"
 
 #. module: nautical_x
-#: code:addons/nautical_x/partner.py:240
-#: code:addons/sources/odoo-nautical/addons/nautical_x/partner.py:240
+#: code:addons/nautical_x/partner.py:238
+#: code:addons/sources/odoo-nautical/addons/nautical_x/partner.py:238
 #, python-format
 msgid ". Period "
 msgstr ". Periodo"
@@ -218,9 +218,11 @@ msgstr "Contrato Firmado"
 #. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_filter
 msgid "Contracted"
-msgstr "Contracted"
+msgstr "Contratado"
 
 #. module: nautical_x
+#: model:ir.actions.act_window,name:nautical_x.action_nautical_contracts
+#: model:ir.ui.menu,name:nautical_x.menu_contract
 #: view:nautical.craft:nautical_x.view_nautical_craft_form
 msgid "Contracts"
 msgstr "Contratos"
@@ -253,7 +255,7 @@ msgstr "Historial de Embarcacion"
 #. module: nautical_x
 #: view:craft_request:nautical_x.view_craft_request
 msgid "Craft Request"
-msgstr "Craft Request"
+msgstr "Solicitud de embarcacion"
 
 #. module: nautical_x
 #: view:res.partner:nautical_x.view_res_partner_form
@@ -281,14 +283,23 @@ msgid "Created on"
 msgstr "Created on"
 
 #. module: nautical_x
+#: code:addons/nautical_x/partner.py:166
+#: code:addons/sources/odoo-nautical/addons/nautical_x/partner.py:166
+#, python-format
+msgid "Cuota del Periodo "
+msgstr "Cuota del Periodo "
+
+#. module: nautical_x
+#: code:addons/nautical_x/partner.py:167
+#: code:addons/sources/odoo-nautical/addons/nautical_x/partner.py:167
+#, python-format
+msgid "Cuota. "
+msgstr "Cuota. "
+
+#. module: nautical_x
 #: field:nautical.craft,currency_id:0
 msgid "Currency"
 msgstr "Currency"
-
-#. module: nautical_x
-#: model:ir.ui.menu,name:nautical_x.menu_partner_form
-msgid "Customers"
-msgstr "Clientes"
 
 #. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_filter
@@ -416,20 +427,6 @@ msgstr "Fecha de Vencimiento"
 #: view:nautical.craft:nautical_x.view_nautical_craft_filter
 msgid "Expired"
 msgstr "Expirado"
-
-#. module: nautical_x
-#: code:addons/nautical_x/partner.py:166
-#: code:addons/sources/odoo-nautical/addons/nautical_x/partner.py:166
-#, python-format
-msgid "Fee Service Period "
-msgstr "Cuota Período de servicio"
-
-#. module: nautical_x
-#: code:addons/nautical_x/partner.py:167
-#: code:addons/sources/odoo-nautical/addons/nautical_x/partner.py:167
-#, python-format
-msgid "Fee. "
-msgstr "Cuota. "
 
 #. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_filter
@@ -653,6 +650,11 @@ msgstr "Partner %s does not have any activ craft or recurreing invoice line"
 #: view:nautical.partner_record:nautical_x.view_nautical_partner_record_tree
 msgid "Partner Record"
 msgstr "Historial"
+
+#. module: nautical_x
+#: model:ir.ui.menu,name:nautical_x.menu_partner_form
+msgid "Partners"
+msgstr "Contactos"
 
 #. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_filter

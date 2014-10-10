@@ -47,6 +47,7 @@ Projects required:
       'view/account_invoice_view.xml',
       'view/company_view.xml',
       'view/res_partner_account_view.xml',
+      'view/nautical_menuitem.xml',
       'workflow/craft_workflow.xml',
       'data/sequences.xml',
       'data/cron.xml',

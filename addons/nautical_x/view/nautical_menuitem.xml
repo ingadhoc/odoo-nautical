@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<openerp>
+    <data>
+
+       
+
+
+
+
+      
+
+        <record id="action_nautical_contracts" model="ir.actions.act_window">
+            <field name="name">Contracts</field>
+            <field name="res_model">nautical.contract</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref=""/>
+            <field name="search_view_id" ref=""/>
+            <field name="domain">[]</field>
+        </record>
+
+        <menuitem
+            name="Contracts"
+            id="menu_contract"
+            sequence="70"
+            action="action_nautical_contracts"
+            parent="nautical.menu_crafts_view"
+            
+            />
+        
+    </data>
+</openerp>
+<!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4
+     -->
