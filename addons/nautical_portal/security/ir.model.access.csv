@@ -15,3 +15,4 @@ nautical.portal_product_template_version,product_tempalte_version.portal,product
 nautical.portal_product_category,product_category.portal,product.model_product_category,base.group_portal,1,0,0,0
 nautical.portal_product_price_type,product_price_type.portal,product.model_product_pricelist_type,base.group_portal,1,0,0,0
 nautical.portal_mail,mail_nautical.portal,mail.model_mail_compose_message,base.group_portal,1,1,1,1
+nautical.portal_account_summary,account summary.portal,account_partner_account_summary.model_account_summary_wizard,base.group_portal,1,1,1,0
