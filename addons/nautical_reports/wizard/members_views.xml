@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<openerp>
+    <data>
+
+        <record id="members_wizard_form" model="ir.ui.view">
+            <field name="name">members_wizard_form</field>
+            <field name="model">nautical_member.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Members List" version="7.0">
+                    <h2>Want to see a list of partners?</h2>
+                    <footer>
+                        <button string="Print" name="members_print" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+             
+        <act_window name="Members Wizard"
+            id="action_member_wizard"
+            key2="client_action_multi"
+            src_model="res.partner"
+            res_model="nautical_member.wizard"
+            view_mode="form" target="new" view_type="form"/>
+
+            
+
+        <menuitem
+            name="Register of Members"
+            id="menu_members"
+            sequence="90"
+            action="action_member_wizard"
+            parent="nautical.menu_crafts_view"
+            
+            />
+        
+    </data>
+</openerp>

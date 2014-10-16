@@ -29,9 +29,10 @@ class craft_reserve(osv.osv_memory):
         active_id = context.get('active_id', False)
         craft_obj = self.pool.get('nautical.craft')
         wizard = self.browse(cr, uid, ids, context=context)[0]
-        partner_id = self.pool['res.users'].browse(cr,uid,uid,context)
+        partner_id = self.pool['res.users'].browse(cr,uid,[active_id],context)
         craft_id = craft_obj.browse(cr, uid, [active_id])[0]
         role_obj=self.pool['nautical.role_book']
+        print partner_id.id
         
         vals = {
                 'estimated_dep_date': wizard.estimated_dep_date,

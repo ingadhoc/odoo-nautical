@@ -26,6 +26,10 @@ Nautical Reports
         'view/contract_view.xml',
         'report/cuota_report.xml',
         'report/recibo.xml',
+        'report/member_report.xml',
+        'report/ab_wizard.xml',
+        'wizard/members_views.xml',
+        'wizard/ab_wizard_view.xml',
     ],
     'init_xml': [
 

@@ -29,6 +29,8 @@
             parent="nautical.menu_crafts_view"
             
             />
+
+        
         
     </data>
 </openerp>

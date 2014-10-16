@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record id="view_ab_wizard" model="ir.ui.view">
+            <field name="name">ab.form</field>
+            <field name="model">nautical_ab.wizard</field>
+            <field name="arch" type="xml">
+                <form string="AB wizard" version="7.0">
+                    <group col="4">
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                    </group>
+                    <footer>
+                        <button name="list_generated" string="Generate List" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        
+
+
+        <act_window name="Create List"
+                    src_model="nautical_ab.wizard"
+                    res_model="nautical_ab.wizard"
+                    view_mode="form"
+                    target="new"
+                    key2="client_action_multi"
+                    id="action_ab_wizard"
+                    />
+
+       <menuitem
+            name="Altas y Bajas"
+            id="menu_ab"
+            sequence="100"
+            action="action_ab_wizard"
+            parent="nautical.menu_crafts_view"
+            
+        />
+        
+
+    </data>
+</openerp>
