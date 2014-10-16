@@ -5,16 +5,13 @@
     <record id="report_member_odt" model="ir.actions.report.xml">
         <field name="name">Member</field>
         <field name="type">ir.actions.report.xml</field>
-        <field name="model">member_wizard</field>
+        <field name="model">res.partner</field>
         <field name="report_name">report_member_odt</field>
         <field name="report_type">aeroo</field>
         <field name="in_format">oo-odt</field>
-        <field name="out_format" ref="report_aeroo_ooo.report_mimetypes_pdf_odt"/>
-        <!-- <field name="parser_loc"></field> -->
+        <field name="out_format" ref="report_aeroo.report_mimetypes_pdf_odt"/>
         <field name="report_rml">nautical_reports/report/padron.odt</field>
-        <!-- <field name="parser_state">default</field> -->
-        <field name="parser_loc">l10n_ar_aeroo_base/parser.py</field>
-        <field name="parser_state">loc</field>
+        <field name="parser_state"></field>
         <field name="tml_source">file</field>
     </record> 
 

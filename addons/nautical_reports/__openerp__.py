@@ -5,7 +5,6 @@
     'depends': [
         'nautical_x',
         'report_aeroo',
-        'report_aeroo_ooo',
         'l10n_ar_aeroo_base',
         'portal_account_summary',
     ],
