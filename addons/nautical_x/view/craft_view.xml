@@ -7,7 +7,7 @@
             <field name="model">nautical.craft</field>
             <field name="auto_refresh">5</field>
             <field name="arch" type="xml">
-                <tree string="Craft" default_order="estimated_dep_date desc"
+                <tree string="Craft" default_order="estimated_dep_date acend"
                     colors="grey:state=='cancelled';blue:state in ('draft',);black:state in ('in_reparation', 'sailing', 'contracted', 'check_due', 'transitional_retirement', 'stored', 'expired', 'in_custody'); red:state in ('do_not_dispatch'); green:state in ('to_dispatch')"
                     >
                     <field name="estimated_dep_date"

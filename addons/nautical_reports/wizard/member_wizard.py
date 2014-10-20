@@ -10,5 +10,4 @@ class member_wizard(models.Model):
     def members_print(self):
         assert len(self) == 1
         partners = self.env['res.partner'].search([])
-        return self.env['report'].get_action(
-            partners, 'report_member_odt')
+        return self.env['report'].get_action(partners, 'report_member_odt')

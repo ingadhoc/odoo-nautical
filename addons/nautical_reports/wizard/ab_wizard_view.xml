@@ -9,6 +9,7 @@
                     <group col="4">
                         <field name="date_from"/>
                         <field name="date_to"/>
+                        <field name="type"/>
                     </group>
                     <footer>
                         <button name="list_generated" string="Generate List" type="object" class="oe_highlight"/>
@@ -31,7 +32,7 @@
                     />
 
        <menuitem
-            name="Altas y Bajas"
+            name="Authorizations and Cancellations"
             id="menu_ab"
             sequence="100"
             action="action_ab_wizard"

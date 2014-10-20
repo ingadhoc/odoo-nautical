@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-09 12:03+0000\n"
-"PO-Revision-Date: 2014-10-09 09:03-0300\n"
+"POT-Creation-Date: 2014-10-17 16:45+0000\n"
+"PO-Revision-Date: 2014-10-17 13:50-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -15,6 +15,34 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
 "X-Generator: Poedit 1.5.4\n"
+
+#. module: nautical_reports
+#: view:nautical_ab.wizard:nautical_reports.view_ab_wizard
+msgid "AB wizard"
+msgstr "AB wizard"
+
+#. module: nautical_reports
+#: model:ir.actions.report.xml,name:nautical_reports.authorizations_report_odt
+#: selection:nautical_ab.wizard,type:0
+msgid "Authorizations"
+msgstr "Altas"
+
+#. module: nautical_reports
+#: model:ir.ui.menu,name:nautical_reports.menu_ab
+msgid "Authorizations and Cancellations"
+msgstr "Altas Y Bajas"
+
+#. module: nautical_reports
+#: view:nautical_ab.wizard:nautical_reports.view_ab_wizard
+#: view:nautical_member.wizard:nautical_reports.members_wizard_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: nautical_reports
+#: model:ir.actions.report.xml,name:nautical_reports.cancellations_report_odt
+#: selection:nautical_ab.wizard,type:0
+msgid "Cancellations"
+msgstr "Bajas"
 
 #. module: nautical_reports
 #: model:ir.model,name:nautical_reports.model_nautical_contract
@@ -27,9 +55,73 @@ msgid "Contrato"
 msgstr "Contrato"
 
 #. module: nautical_reports
+#: model:ir.actions.act_window,name:nautical_reports.action_ab_wizard
+msgid "Create List"
+msgstr "Crear lista"
+
+#. module: nautical_reports
+#: field:nautical_member.wizard,create_uid:0
+msgid "Created by"
+msgstr "Created by"
+
+#. module: nautical_reports
+#: field:nautical_member.wizard,create_date:0
+msgid "Created on"
+msgstr "Created on"
+
+#. module: nautical_reports
 #: model:ir.actions.report.xml,name:nautical_reports.action_aeroo_report_ar_invoice
 msgid "Cuota Sorrento"
 msgstr "Cuota Sorrento"
+
+#. module: nautical_reports
+#: view:nautical_ab.wizard:nautical_reports.view_ab_wizard
+msgid "Generate List"
+msgstr "Generar Listado"
+
+#. module: nautical_reports
+#: field:nautical_member.wizard,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: nautical_reports
+#: field:nautical_member.wizard,write_uid:0
+msgid "Last Updated by"
+msgstr "Last Updated by"
+
+#. module: nautical_reports
+#: field:nautical_member.wizard,write_date:0
+msgid "Last Updated on"
+msgstr "Last Updated on"
+
+#. module: nautical_reports
+#: model:ir.actions.report.xml,name:nautical_reports.report_member_odt
+msgid "Member"
+msgstr "Socio"
+
+#. module: nautical_reports
+#: view:nautical_member.wizard:nautical_reports.members_wizard_form
+msgid "Members List"
+msgstr "Lista de Socios"
+
+#. module: nautical_reports
+#: model:ir.actions.act_window,name:nautical_reports.action_member_wizard
+msgid "Members Wizard"
+msgstr "Asistente De Socios"
+
+#. module: nautical_reports
+#: code:addons/nautical_reports/wizard/abm_wizard.py:27
+#: code:addons/nautical_reports/wizard/abm_wizard.py:35
+#: code:addons/sources/odoo-nautical/addons/nautical_reports/wizard/abm_wizard.py:27
+#: code:addons/sources/odoo-nautical/addons/nautical_reports/wizard/abm_wizard.py:35
+#, python-format
+msgid "No records of contracts on these dates"
+msgstr "Nohay registro de contratos en esas fechas"
+
+#. module: nautical_reports
+#: view:nautical_member.wizard:nautical_reports.members_wizard_form
+msgid "Print"
+msgstr "Imprimir"
 
 #. module: nautical_reports
 #: view:nautical.contract:nautical_reports.view_contract_form
@@ -42,6 +134,31 @@ msgid "Recibo Sorrento"
 msgstr "Recibo Sorrento"
 
 #. module: nautical_reports
+#: model:ir.ui.menu,name:nautical_reports.menu_members
+msgid "Register of Members"
+msgstr "Registro de Miembros"
+
+#. module: nautical_reports
 #: model:ir.actions.report.xml,name:nautical_reports.report_transitional_retirement_odt
 msgid "Transitional Retirement Report"
 msgstr "Transitional Retirement Report"
+
+#. module: nautical_reports
+#: field:nautical_ab.wizard,type:0
+msgid "Type"
+msgstr "Tipo"
+
+#. module: nautical_reports
+#: view:nautical_member.wizard:nautical_reports.members_wizard_form
+msgid "Want to see a list of partners?"
+msgstr "¿Quieres ver una lista de los socios ?"
+
+#. module: nautical_reports
+#: model:ir.model,name:nautical_reports.model_nautical_ab_wizard
+msgid "Wizard to AB"
+msgstr "Wizard to AB"
+
+#. module: nautical_reports
+#: model:ir.model,name:nautical_reports.model_nautical_member_wizard
+msgid "wizard"
+msgstr "wizard"

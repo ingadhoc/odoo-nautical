@@ -116,7 +116,6 @@ class craft(models.Model):
                         # 'uom': result.get('product_uom'),
                         'date': date_order,
                         })[record.pricelist_id.id]
-            print 'price_unit', price_unit
             # [record.pricelist_id.id]
 
 
@@ -200,7 +199,6 @@ class craft(models.Model):
         'pricelist_id': fields.related('owner_id', 'property_product_pricelist', type='many2one', relation='product.pricelist', string='Pricelist'),
         'fiscal_position': fields.related('owner_id', 'property_account_position', type='many2one', relation='account.fiscal.position', string='Fiscal Position'),
         'currency_id': fields.related('pricelist_id', 'currency_id', type="many2one", relation="res.currency", string="Currency", readonly=True, required=False),
-        # 'estimated_dep_date': fields.related('role_book_id', 'estimated_dep_date', type='datetime', string='Estimated Departure Date',store=True),
 # ADDED TRACKING
         # El tracking en locations, por ser m2m, registra los ids y eso no esta bueno
         # 'location_ids': fields.one2many('nautical.location', 'craft_id', string='Location', states={'draft':[('readonly', True)],'permanent_cancellation':[('readonly', True)]}, context={'default_type':'normal'}, domain=[('type','=','normal')], track_visibility='onchange'),
