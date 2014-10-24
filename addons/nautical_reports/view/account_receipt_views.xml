@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_receipt_form" model="ir.ui.view">
+            <field name="name">account.receipt.form</field>
+            <field name="model">account.voucher</field>
+            <field name="inherit_id" ref="account_voucher.view_sale_receipt_form"></field>
+            <field name="arch" type="xml">
+                <button name="cancel_voucher" position="after">
+                    <button name="recipt_print" type="object" class="oe_highlight" string="Print"/>
+                </button>
+            </field>
+        </record>
+
+</data>
+</openerp>

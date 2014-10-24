@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<openerp>
+<data>
+
+    <record id="report_receipt_odt" model="ir.actions.report.xml">
+        <field name="name">Receipt</field>
+        <field name="type">ir.actions.report.xml</field>
+        <field name="model">account.voucher</field>
+        <field name="report_name">report_receipt_odt</field>
+        <field name="report_type">aeroo</field>
+        <field name="in_format">oo-odt</field>
+        <field name="out_format" ref="report_aeroo.report_mimetypes_pdf_odt"/>
+        <field name="report_rml">nautical_reports/report/recibo_nautica_sin_fondo.odt</field>
+        <field name="parser_state"></field>
+        <field name="tml_source">file</field>
+    </record> 
+
+</data>
+</openerp>

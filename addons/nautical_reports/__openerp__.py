@@ -27,8 +27,10 @@ Nautical Reports
         'report/member_report.xml',
         'report/auth_wizard.xml',
         'report/cancel_wizard.xml',
+        'report/receipt_report.xml',
         'wizard/members_views.xml',
         'wizard/ab_wizard_view.xml',
+        'view/account_receipt_views.xml',
     ],
     'init_xml': [
 

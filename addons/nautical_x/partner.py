@@ -98,8 +98,8 @@ class partner(osv.osv):
             ('sports','Sports'),
             ('absent','Absent'),
             ('students','Students')
-            ], string="Social Category"),
-        'social_number': fields.integer(string="Social Number"),
+            ], string='Social Category'),
+        'social_number': fields.integer(string='Social Number'),
         'recurring_invoice_line_ids': fields.one2many('res.partner.invoice.line', 'partner_id', 'Partner', copy=True),
         # 'recurring_invoices' : fields.boolean('Generate recurring invoices automatically'),
         'recurring_rule_type': fields.selection([
