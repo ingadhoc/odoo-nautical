@@ -9,7 +9,7 @@
 
     """,
     'author': 'Ingeniería ADHOC',
-    'depends': ['nautical_x','portal','nautical_reports'],
+    'depends': ['nautical_x','portal'],
     'data': [
         'wizard/wizard_view.xml',
         'view/portal_craft_view.xml',

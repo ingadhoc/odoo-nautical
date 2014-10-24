@@ -85,6 +85,21 @@ class partner(osv.osv):
     _inherit = 'res.partner'
 
     _columns = {
+        'social_category':fields.selection([
+            ('fees', 'Fees'),
+            ('assets fees','Assets Fees'),
+            ('lifetime','Lifetime'),
+            ('active','Active'),
+            ('cadet','Cadet'),
+            ('minor','Minor'),
+            ('retired and pensioners','Retired and pensioners'),
+            ('transient','Transient'),
+            ('adherents','Adherents'),
+            ('sports','Sports'),
+            ('absent','Absent'),
+            ('students','Students')
+            ], string="Social Category"),
+        'social_number': fields.integer(string="Social Number"),
         'recurring_invoice_line_ids': fields.one2many('res.partner.invoice.line', 'partner_id', 'Partner', copy=True),
         # 'recurring_invoices' : fields.boolean('Generate recurring invoices automatically'),
         'recurring_rule_type': fields.selection([

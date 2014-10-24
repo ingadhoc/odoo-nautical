@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-17 16:51+0000\n"
-"PO-Revision-Date: 2014-10-20 10:33-0300\n"
+"POT-Creation-Date: 2014-10-23 17:17+0000\n"
+"PO-Revision-Date: 2014-10-23 14:27-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -22,12 +22,17 @@ msgid "(update)"
 msgstr "(update)"
 
 #. module: nautical_x
-#: code:addons/nautical_x/partner.py:226 code:addons/nautical_x/partner.py:248
-#: code:addons/sources/odoo-nautical/addons/nautical_x/partner.py:226
-#: code:addons/sources/odoo-nautical/addons/nautical_x/partner.py:248
+#: code:addons/nautical_x/partner.py:241 code:addons/nautical_x/partner.py:263
+#: code:addons/sources/odoo-nautical/addons/nautical_x/partner.py:241
+#: code:addons/sources/odoo-nautical/addons/nautical_x/partner.py:263
 #, python-format
 msgid ". Period "
 msgstr ". Periodo"
+
+#. module: nautical_x
+#: selection:res.partner,social_category:0
+msgid "Absent"
+msgstr "Ausente"
 
 #. module: nautical_x
 #: view:res.partner:nautical_x.view_res_partner_form
@@ -45,9 +50,24 @@ msgid "Accounting"
 msgstr "Contabilidad"
 
 #. module: nautical_x
+#: selection:res.partner,social_category:0
+msgid "Active"
+msgstr "Activo"
+
+#. module: nautical_x
 #: view:res.partner:nautical_x.view_res_partner_form
 msgid "Address"
 msgstr "Dirección"
+
+#. module: nautical_x
+#: selection:res.partner,social_category:0
+msgid "Adherents"
+msgstr "Adherentes"
+
+#. module: nautical_x
+#: selection:res.partner,social_category:0
+msgid "Assets Fees"
+msgstr "Assets Fees"
 
 #. module: nautical_x
 #: field:nautical.craft_record,attachment_ids:0
@@ -82,13 +102,18 @@ msgid "Aux. Engine"
 msgstr "Motor Aux."
 
 #. module: nautical_x
-#: code:addons/nautical_x/craft.py:299
-#: code:addons/sources/odoo-nautical/addons/nautical_x/craft.py:299
+#: code:addons/nautical_x/craft.py:281
+#: code:addons/sources/odoo-nautical/addons/nautical_x/craft.py:281
 #, python-format
 msgid ""
 "Before choosing a product,\n"
 " select an owner."
 msgstr "Antes de elegir un producto , seleccione un propietario."
+
+#. module: nautical_x
+#: selection:res.partner,social_category:0
+msgid "Cadet"
+msgstr "Cadete"
 
 #. module: nautical_x
 #: view:contract_cancelled_wizard:nautical_x.view_contract_cancelled_wizard
@@ -124,8 +149,8 @@ msgid "Cancellation Number"
 msgstr "Número de Cancelación"
 
 #. module: nautical_x
-#: code:addons/nautical_x/craft.py:330
-#: code:addons/sources/odoo-nautical/addons/nautical_x/craft.py:330
+#: code:addons/nautical_x/craft.py:312
+#: code:addons/sources/odoo-nautical/addons/nautical_x/craft.py:312
 #, python-format
 msgid ""
 "Cannot find a pricelist line matching this product and quantity.\n"
@@ -135,15 +160,15 @@ msgstr ""
 "change either the product, the quantity or the pricelist."
 
 #. module: nautical_x
-#: code:addons/nautical_x/contract.py:141
-#: code:addons/sources/odoo-nautical/addons/nautical_x/contract.py:141
+#: code:addons/nautical_x/contract.py:120
+#: code:addons/sources/odoo-nautical/addons/nautical_x/contract.py:120
 #, python-format
 msgid "Cannot move to next stage, an End Code should be provided first."
 msgstr "Cannot move to next stage, an End Code should be provided first."
 
 #. module: nautical_x
-#: code:addons/nautical_x/contract.py:138
-#: code:addons/sources/odoo-nautical/addons/nautical_x/contract.py:138
+#: code:addons/nautical_x/contract.py:117
+#: code:addons/sources/odoo-nautical/addons/nautical_x/contract.py:117
 #, python-format
 msgid "Cannot move to next stage, an End Date should be provided first."
 msgstr "Cannot move to next stage, an End Date should be provided first."
@@ -170,8 +195,8 @@ msgid "Complete Ref"
 msgstr "Ref Completa"
 
 #. module: nautical_x
-#: code:addons/nautical_x/craft.py:339
-#: code:addons/sources/odoo-nautical/addons/nautical_x/craft.py:339
+#: code:addons/nautical_x/craft.py:321
+#: code:addons/sources/odoo-nautical/addons/nautical_x/craft.py:321
 #, python-format
 msgid "Configuration Error!"
 msgstr "Error de Configuración!"
@@ -272,7 +297,6 @@ msgstr "Crear Contrato"
 #. module: nautical_x
 #: field:contract_cancelled_wizard,create_uid:0
 #: field:craft_request,create_uid:0 field:create_contract,create_uid:0
-#: field:nautical_ab.wizard,create_uid:0
 #: field:res.partner.invoice.line,create_uid:0
 msgid "Created by"
 msgstr "Created by"
@@ -280,21 +304,20 @@ msgstr "Created by"
 #. module: nautical_x
 #: field:contract_cancelled_wizard,create_date:0
 #: field:craft_request,create_date:0 field:create_contract,create_date:0
-#: field:nautical_ab.wizard,create_date:0
 #: field:res.partner.invoice.line,create_date:0
 msgid "Created on"
 msgstr "Created on"
 
 #. module: nautical_x
-#: code:addons/nautical_x/partner.py:171
-#: code:addons/sources/odoo-nautical/addons/nautical_x/partner.py:171
+#: code:addons/nautical_x/partner.py:186
+#: code:addons/sources/odoo-nautical/addons/nautical_x/partner.py:186
 #, python-format
 msgid "Cuota del Periodo "
 msgstr "Cuota del Periodo "
 
 #. module: nautical_x
-#: code:addons/nautical_x/partner.py:173
-#: code:addons/sources/odoo-nautical/addons/nautical_x/partner.py:173
+#: code:addons/nautical_x/partner.py:188
+#: code:addons/sources/odoo-nautical/addons/nautical_x/partner.py:188
 #, python-format
 msgid "Cuota. "
 msgstr "Cuota. "
@@ -305,20 +328,15 @@ msgid "Currency"
 msgstr "Currency"
 
 #. module: nautical_x
+#: model:ir.ui.menu,name:nautical_x.menu_partner_form
+msgid "Customers"
+msgstr "Clientes"
+
+#. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_filter
 #: view:res.partner:nautical_x.view_res_partner_filter
 msgid "Customers have higher fees due to two months"
 msgstr "Customers have higher fees due to two months"
-
-#. module: nautical_x
-#: field:nautical_ab.wizard,date_from:0
-msgid "Date From"
-msgstr "Fecha Desde"
-
-#. module: nautical_x
-#: field:nautical_ab.wizard,date_to:0
-msgid "Date To"
-msgstr "Fecha Hasta"
 
 #. module: nautical_x
 #: field:res.partner,recurring_next_date:0
@@ -396,15 +414,15 @@ msgid "Embarcacion Tipo 2"
 msgstr "Embarcacion Tipo 2"
 
 #. module: nautical_x
-#: code:addons/nautical_x/contract.py:140
-#: code:addons/sources/odoo-nautical/addons/nautical_x/contract.py:140
+#: code:addons/nautical_x/contract.py:119
+#: code:addons/sources/odoo-nautical/addons/nautical_x/contract.py:119
 #, python-format
 msgid "End Code is Required."
 msgstr "Código final se requiere."
 
 #. module: nautical_x
-#: code:addons/nautical_x/contract.py:137
-#: code:addons/sources/odoo-nautical/addons/nautical_x/contract.py:137
+#: code:addons/nautical_x/contract.py:116
+#: code:addons/sources/odoo-nautical/addons/nautical_x/contract.py:116
 #, python-format
 msgid "End Date is Required."
 msgstr "Fecha de finalización se requiere."
@@ -420,8 +438,8 @@ msgid "Error ! You cannot create recursive location."
 msgstr "Error! No puede crear ubicaciones recursivas"
 
 #. module: nautical_x
-#: code:addons/nautical_x/craft.py:236
-#: code:addons/sources/odoo-nautical/addons/nautical_x/craft.py:236
+#: code:addons/nautical_x/craft.py:216
+#: code:addons/sources/odoo-nautical/addons/nautical_x/craft.py:216
 #, python-format
 msgid "Error!"
 msgstr "Error!"
@@ -432,11 +450,6 @@ msgid "Estimated Arrival Date"
 msgstr "Fecha Estimada de Arrivo"
 
 #. module: nautical_x
-#: field:account.invoice.line,exempt_amount:0
-msgid "Exempt Amount"
-msgstr "Exempt Amount"
-
-#. module: nautical_x
 #: field:create_contract,expiration_date:0
 msgid "Expiration Date"
 msgstr "Fecha de Vencimiento"
@@ -445,6 +458,11 @@ msgstr "Fecha de Vencimiento"
 #: view:nautical.craft:nautical_x.view_nautical_craft_filter
 msgid "Expired"
 msgstr "Expirado"
+
+#. module: nautical_x
+#: selection:res.partner,social_category:0
+msgid "Fees"
+msgstr "Comisiones"
 
 #. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_filter
@@ -488,8 +506,7 @@ msgstr "Historical Records"
 
 #. module: nautical_x
 #: field:contract_cancelled_wizard,id:0 field:craft_request,id:0
-#: field:create_contract,id:0 field:nautical_ab.wizard,id:0
-#: field:res.partner.invoice.line,id:0
+#: field:create_contract,id:0 field:res.partner.invoice.line,id:0
 msgid "ID"
 msgstr "ID"
 
@@ -535,7 +552,7 @@ msgstr "Kayak"
 
 #. module: nautical_x
 #: field:contract_cancelled_wizard,write_uid:0 field:craft_request,write_uid:0
-#: field:create_contract,write_uid:0 field:nautical_ab.wizard,write_uid:0
+#: field:create_contract,write_uid:0
 #: field:res.partner.invoice.line,write_uid:0
 msgid "Last Updated by"
 msgstr "Last Updated by"
@@ -543,10 +560,14 @@ msgstr "Last Updated by"
 #. module: nautical_x
 #: field:contract_cancelled_wizard,write_date:0
 #: field:craft_request,write_date:0 field:create_contract,write_date:0
-#: field:nautical_ab.wizard,write_date:0
 #: field:res.partner.invoice.line,write_date:0
 msgid "Last Updated on"
 msgstr "Last Updated on"
+
+#. module: nautical_x
+#: selection:res.partner,social_category:0
+msgid "Lifetime"
+msgstr "Lifetime"
 
 #. module: nautical_x
 #: model:ir.model,name:nautical_x.model_nautical_location
@@ -593,11 +614,16 @@ msgstr ""
 "en formularios o en algunas vistas Kanban."
 
 #. module: nautical_x
-#: code:addons/nautical_x/craft.py:237
-#: code:addons/sources/odoo-nautical/addons/nautical_x/craft.py:237
+#: code:addons/nautical_x/craft.py:217
+#: code:addons/sources/odoo-nautical/addons/nautical_x/craft.py:217
 #, python-format
 msgid "Member  does not have the fee per day."
 msgstr "Member  does not have the fee per day."
+
+#. module: nautical_x
+#: selection:res.partner,social_category:0
+msgid "Minor"
+msgstr "Minor"
 
 #. module: nautical_x
 #: model:product.uom,name:nautical_x.product_uom_month
@@ -613,7 +639,7 @@ msgstr "Nombre"
 #. module: nautical_x
 #: view:res.partner:nautical_x.view_res_partner_form
 msgid "National Identity"
-msgstr "National Identity"
+msgstr "Documento de Identidad"
 
 #. module: nautical_x
 #: sql_constraint:res.partner:0
@@ -621,30 +647,30 @@ msgid "National Identity must be unique per Company!"
 msgstr "El Documento Nacional de Identidad debe ser único por Compañía!"
 
 #. module: nautical_x
-#: code:addons/nautical_x/craft.py:299
-#: code:addons/sources/odoo-nautical/addons/nautical_x/craft.py:299
+#: code:addons/nautical_x/craft.py:281
+#: code:addons/sources/odoo-nautical/addons/nautical_x/craft.py:281
 #, python-format
 msgid "No Owner Defined!"
 msgstr "No hay Dueño Definido!"
 
 #. module: nautical_x
-#: code:addons/nautical_x/craft.py:322
-#: code:addons/sources/odoo-nautical/addons/nautical_x/craft.py:322
+#: code:addons/nautical_x/craft.py:304
+#: code:addons/sources/odoo-nautical/addons/nautical_x/craft.py:304
 #, python-format
 msgid "No Pricelist ! : "
 msgstr "No Pricelist ! : "
 
 #. module: nautical_x
-#: code:addons/nautical_x/craft.py:333
-#: code:addons/sources/odoo-nautical/addons/nautical_x/craft.py:333
+#: code:addons/nautical_x/craft.py:315
+#: code:addons/sources/odoo-nautical/addons/nautical_x/craft.py:315
 #, python-format
 msgid "No valid pricelist line found ! :"
 msgstr "No valid pricelist line found ! :"
 
 #. module: nautical_x
-#: field:account.invoice.line,other_taxes_amount:0
-msgid "Other Taxes Amount"
-msgstr "Other Taxes Amount"
+#: view:res.company:nautical_x.view_kinesis_athletics_company_form
+msgid "Number of months to allow limits dispatch boat"
+msgstr "Number of months to allow limits dispatch boat"
 
 #. module: nautical_x
 #: selection:craft_request,requestor_type:0
@@ -664,8 +690,8 @@ msgid "Partner"
 msgstr "Socio"
 
 #. module: nautical_x
-#: code:addons/nautical_x/partner.py:163
-#: code:addons/sources/odoo-nautical/addons/nautical_x/partner.py:163
+#: code:addons/nautical_x/partner.py:178
+#: code:addons/sources/odoo-nautical/addons/nautical_x/partner.py:178
 #, python-format
 msgid "Partner %s does not have any activ craft or recurreing invoice line"
 msgstr "Partner %s does not have any activ craft or recurreing invoice line"
@@ -675,11 +701,6 @@ msgstr "Partner %s does not have any activ craft or recurreing invoice line"
 #: view:nautical.partner_record:nautical_x.view_nautical_partner_record_tree
 msgid "Partner Record"
 msgstr "Historial"
-
-#. module: nautical_x
-#: model:ir.ui.menu,name:nautical_x.menu_partner_form
-msgid "Partners"
-msgstr "Contactos"
 
 #. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_filter
@@ -770,6 +791,11 @@ msgid "Requestor"
 msgstr "Solicitante"
 
 #. module: nautical_x
+#: selection:res.partner,social_category:0
+msgid "Retired and pensioners"
+msgstr "Jubilados y pensionados"
+
+#. module: nautical_x
 #: field:nautical.craft,role_book_id:0
 msgid "Role book"
 msgstr "Libro de Role"
@@ -811,6 +837,21 @@ msgstr ""
 "donde sea que se requiera una imágen pequeña."
 
 #. module: nautical_x
+#: field:res.partner,social_category:0
+msgid "Social Category"
+msgstr "Categoria de Socio"
+
+#. module: nautical_x
+#: field:res.partner,social_number:0
+msgid "Social Number"
+msgstr "Numero de Socio"
+
+#. module: nautical_x
+#: selection:res.partner,social_category:0
+msgid "Sports"
+msgstr "Deportes"
+
+#. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_filter
 #: view:res.partner:nautical_x.view_res_partner_form
 msgid "State"
@@ -835,6 +876,11 @@ msgstr "Almacenado"
 #: view:res.partner:nautical_x.view_res_partner_form
 msgid "Street..."
 msgstr "Calle..."
+
+#. module: nautical_x
+#: selection:res.partner,social_category:0
+msgid "Students"
+msgstr "Estudiantes"
 
 #. module: nautical_x
 #: field:res.partner.invoice.line,price_subtotal:0
@@ -891,6 +937,11 @@ msgid "Total"
 msgstr "Total"
 
 #. module: nautical_x
+#: selection:res.partner,social_category:0
+msgid "Transient"
+msgstr "Transient"
+
+#. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_filter
 msgid "Transitional Retirement"
 msgstr "Retiro de Transición"
@@ -926,19 +977,9 @@ msgid "Untaxed Amount"
 msgstr "Monto sin Impuestos"
 
 #. module: nautical_x
-#: field:account.invoice.line,vat_amount:0
-msgid "Vat Amount"
-msgstr "Vat Amount"
-
-#. module: nautical_x
 #: selection:res.partner,recurring_rule_type:0
 msgid "Week(s)"
 msgstr "Semana(s)"
-
-#. module: nautical_x
-#: model:ir.model,name:nautical_x.model_nautical_ab_wizard
-msgid "Wizard to AB"
-msgstr "Wizard to AB"
 
 #. module: nautical_x
 #: model:ir.model,name:nautical_x.model_contract_cancelled_wizard
@@ -962,8 +1003,8 @@ msgid "Year(s)"
 msgstr "Año(s)"
 
 #. module: nautical_x
-#: code:addons/nautical_x/craft.py:320
-#: code:addons/sources/odoo-nautical/addons/nautical_x/craft.py:320
+#: code:addons/nautical_x/craft.py:302
+#: code:addons/sources/odoo-nautical/addons/nautical_x/craft.py:302
 #, python-format
 msgid ""
 "You have to select an owner!\n"

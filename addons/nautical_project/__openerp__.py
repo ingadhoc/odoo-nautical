@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {'active': False,
-    'author': u'Sistemas ADHOC',
+    'author': u'Ingenieria ADHOC',
     'category': u'base.module_category_knowledge_management',
     'depends': [
         'nautical_x',
@@ -21,8 +21,8 @@
         'base_import',
         'purchase',
         'account_cancel',
-        # nautical_reports, TODO hasta que ande bien aeroo lo instalamos a mano para poder traducir
-        # 'portal_account_summary', TODO hasta que ande bien aeroo lo instalamos a mano para poder traducir
+        'nautical_reports',
+        'portal_account_summary',
     ],
     'description': """
 Nautical Project

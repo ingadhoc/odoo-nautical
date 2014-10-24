@@ -125,6 +125,7 @@
                                             <field name="city" placeholder="City" style="width: 40%%"/>
                                             <field name="state_id" class="oe_no_button" placeholder="State" style="width: 37%%" options='{"no_open": True}' on_change="onchange_state(state_id)"/>
                                             <field name="zip" placeholder="ZIP" style="width: 20%%"/>
+                                            
                                         </div>
                                         <field name="country_id" placeholder="Country" class="oe_no_button" options='{"no_open": True}'/>
                                     </div>
@@ -138,6 +139,20 @@
                 </xpath>
             </field>
         </record>
+
+        <record id="view_partner_form" model="ir.ui.view">
+            <field name="name">social.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"></field>
+            <field name="arch" type="xml">
+                 <field name="website" position="replace">
+                     <field name="social_category"/>
+                     <field name="social_number"/>
+                 </field>
+             </field>
+         </record>
+         
+
 
     </data>
 </openerp>

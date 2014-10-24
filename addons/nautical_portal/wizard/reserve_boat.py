@@ -9,6 +9,7 @@ from datetime import datetime, date
 class craft_reserve(osv.osv_memory):
     _name = 'nautical_portal.reserve_boat'
     _description = 'Wizard to reserve craft'
+    _rec_name = 'destiny'
 
     _columns = {
         'estimated_dep_date': fields.datetime(string='Estimated Departure Date', required=True),
@@ -43,6 +44,7 @@ class craft_reserve(osv.osv_memory):
             }
 
         craft_obj.craft_request(cr, 1, [craft_id.id], 'sail', user.partner_id.id, context=None)
+        print vals
         role_obj.create(cr, uid, vals, context=context)
 
 

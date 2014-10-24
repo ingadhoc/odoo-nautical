@@ -6,7 +6,6 @@
         'nautical_x',
         'report_aeroo',
         'l10n_ar_aeroo_base',
-        'portal_account_summary',
     ],
     'description': """
 Nautical Reports

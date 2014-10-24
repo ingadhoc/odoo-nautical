@@ -12,7 +12,7 @@
             <field name="arch" type="xml">
                 <group name="account_grp" string="Accounting">  
                     <!-- <field name="currency_id" position="before"> -->
-                        <field name="debt_limit_months"/>
+                        <field name="debt_limit_months" help="Number of months to allow limits dispatch boat"/>
                     <!-- </field> -->
                 </group>
             </field>

@@ -1,24 +1,4 @@
 # -*- coding: utf-8 -*-
-##############################################################################
-#
-#    Nautical
-#    Copyright (C) 2013 Sistemas ADHOC
-#    No email
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
 
 import time
 from datetime import datetime, date, timedelta
@@ -28,7 +8,7 @@ import openerp.addons.decimal_precision as dp
 from openerp.tools.translate import _
 from openerp import fields as fields_new
 from openerp import models, api
-from openerp import tools, netsvc
+from openerp import tools, workflow
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT, DEFAULT_SERVER_DATETIME_FORMAT, DATETIME_FORMATS_MAP, float_compare
 
 class craft(models.Model):
@@ -239,7 +219,8 @@ class craft(models.Model):
             return True
 
     def craft_request(self, cr, uid, ids, request_type, partner_id, context=None):
-        wf_service = netsvc.LocalService("workflow")
+        # wf_service = netsvc.LocalService("workflow")
+        
         if request_type == 'sail':
             signal = 'sgn_requested'
         elif request_type== 'transitional_retirement':
@@ -250,7 +231,8 @@ class craft(models.Model):
             signal = 'sgn_to_custody'
         self.write(cr, uid, ids, {'aux_requestor_id':partner_id}, context)
         for craft_id in ids:
-            wf_service.trg_validate(uid, 'nautical.craft', craft_id, signal, cr)
+            workflow.trg_validate(uid, 'nautical.craft', craft_id, signal, cr)
+
 
     def create_craft_record(self, cr, uid, ids, vals, context=None):
         craft_record_obj = self.pool.get('nautical.craft_record')
