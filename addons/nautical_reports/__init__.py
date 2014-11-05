@@ -3,4 +3,3 @@
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
 import contract
 import wizard
-import account_recipt

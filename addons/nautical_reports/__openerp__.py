@@ -6,6 +6,7 @@
         'nautical_x',
         'report_aeroo',
         'l10n_ar_aeroo_base',
+        'l10n_ar_aeroo_receipt',
     ],
     'description': """
 Nautical Reports
@@ -30,7 +31,6 @@ Nautical Reports
         'report/receipt_report.xml',
         'wizard/members_views.xml',
         'wizard/ab_wizard_view.xml',
-        'view/account_receipt_views.xml',
     ],
     'init_xml': [
 
