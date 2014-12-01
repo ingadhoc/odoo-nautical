@@ -5,7 +5,7 @@ from openerp import _
 from openerp import netsvc
 from datetime import datetime, date
 
-class craft_request(osv.osv):
+class craft_request(osv.osv_memory):
     _name = 'craft_request'
     _description = 'Wizard to cancel contract'
 

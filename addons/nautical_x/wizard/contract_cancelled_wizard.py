@@ -5,7 +5,7 @@ from openerp.osv import fields, osv
 from openerp import _
 from openerp import netsvc
 
-class contract_cancelled_wizard(osv.osv):
+class contract_cancelled_wizard(osv.osv_memory):
     _name = 'contract_cancelled_wizard'
     _description = 'Wizard to cancel contract'
 

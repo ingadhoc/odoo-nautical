@@ -3,27 +3,20 @@
     <data>
 
 
- <record id="base.action_partner_form" model="ir.actions.act_window">
+        <record id="base.action_partner_form" model="ir.actions.act_window">
             <field name="name">Socios</field>
-            
         </record>
-
-<record id="base.action_partner_customer_form" model="ir.actions.act_window">
+        <record id="base.action_partner_customer_form" model="ir.actions.act_window">
             <field name="name">Socios</field>
-            
         </record>
-
-<record id="account.action_invoice_tree1" model="ir.actions.act_window">
+        <record id="account.action_invoice_tree1" model="ir.actions.act_window">
             <field name="name">Cuotas de Socios</field>
-            
         </record>
-<record id="account.action_invoice_tree3" model="ir.actions.act_window">
+        <record id="account.action_invoice_tree3" model="ir.actions.act_window">
             <field name="name">Rembolsos al Socio</field>
-            
         </record>
-<record id="account_voucher.action_vendor_receipt" model="ir.actions.act_window">
+        <record id="account_voucher.action_vendor_receipt" model="ir.actions.act_window">
             <field name="name">Pagos de Socios</field>
-            
         </record>
 
 
@@ -33,22 +26,20 @@
             <field name="model">res.partner</field>
             <field name="inherit_id" ref="base.view_res_partner_filter"/>
             <field name="arch" type="xml">
-                <filter string="Customers" position="replace">
-                    <filter string="Socios" name="customer" domain="[('customer','=',1)]" help="Customer Partners"/>
+                <filter string="Customers" position="attributes">
+                    <attribute name="string">Socios</attribute>
                 </filter>
             </field>
         </record>
 
- <record id="view_partner_form" model="ir.ui.view">
+        <record id="view_partner_form" model="ir.ui.view">
             <field name="name">nautical.partner</field>
             <field name="model">res.partner</field>
             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">
-                 <div class="oe_edit_only" position="replace">
-                    <label for="name"/> (
-                        <field name="is_company" on_change="onchange_type(is_company)" class="oe_inline"/> <label for="is_company" string="Es organizacion?"/>)
-                </div>
-                
+                <label for="is_company" position="attributes">
+                    <attribute name="string">Es organizacion?</attribute>
+                </label>
             </field>
         </record>
 <!-- TREE     -->
@@ -58,10 +49,9 @@
             <field name="model">account.invoice</field>
             <field name="inherit_id" ref="account.invoice_tree"/>
             <field name="arch" type="xml">
-                 <field name="partner_id" position="replace">
-                    <field name="partner_id" groups="base.group_user" string="Socios"/>
+                <field name="partner_id" position="attributes">
+                    <attribute name="string">Socios</attribute>
                 </field>
-                
             </field>
         </record>
 
@@ -70,10 +60,9 @@
             <field name="model">account.invoice</field>
             <field name="inherit_id" ref="account.invoice_form"/>
             <field name="arch" type="xml">
-                  <field string="Customer" name="partner_id" position="replace">
-                    <field name="partner_id" string="Socio"/>
+                <field name="partner_id" position="attributes">
+                    <attribute name="string">Socios</attribute>
                 </field>
-                
             </field>
         </record>
 
@@ -82,10 +71,9 @@
             <field name="model">account.voucher.receipt</field>
             <field name="inherit_id" ref="account_voucher_receipt.receipt_form_view"/>
             <field name="arch" type="xml">
-                  <field name="customer_id" position="replace">
-                    <field name="customer_id" string="Socio"/>
+                <field name="customer_id" position="attributes">
+                    <attribute name="string">Socio</attribute>
                 </field>
-                
             </field>
         </record>
 
@@ -94,10 +82,9 @@
             <field name="model">account.voucher</field>
             <field name="inherit_id" ref="account_voucher.view_sale_receipt_form"/>
             <field name="arch" type="xml">
-                  <field name="partner_id" position="replace">
-                    <field name="partner_id" string="Socio" domain="[('customer','=',True)]" on_change="onchange_partner_id(partner_id, journal_id, amount, currency_id, type, date, context)" context="{'search_default_customer':1, 'show_address': 1}" options="{&quot;always_reload&quot;: True}"/>
+                <field name="partner_id" position="attributes">
+                    <attribute name="string">Socio</attribute>
                 </field>
-                
             </field>
         </record>
 

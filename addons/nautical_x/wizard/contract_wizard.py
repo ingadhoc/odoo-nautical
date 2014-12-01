@@ -5,7 +5,7 @@ from openerp.osv import fields, osv
 from openerp import _
 from openerp import netsvc
 
-class create_contract(osv.osv):
+class create_contract(osv.osv_memory):
     _name = 'create_contract'
     _description = 'Wizard to create contract'
     _rec_name = 'start_date'
