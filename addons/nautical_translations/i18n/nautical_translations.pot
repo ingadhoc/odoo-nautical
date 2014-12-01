@@ -4,16 +4,21 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 8.0rc1\n"
+"Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-17 14:34+0000\n"
-"PO-Revision-Date: 2014-09-17 14:34+0000\n"
+"POT-Creation-Date: 2014-11-20 16:32+0000\n"
+"PO-Revision-Date: 2014-11-20 16:32+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: nautical_translations
+#: view:account.invoice:nautical_translations.view_partner_mod_form
+msgid "Customer"
+msgstr ""
 
 #. module: nautical_translations
 #: view:res.partner:nautical_translations.view_res_partner_filter
@@ -28,6 +33,14 @@ msgstr ""
 #. module: nautical_translations
 #: view:res.partner:nautical_translations.view_partner_form
 msgid "Es organizacion?"
+msgstr ""
+
+#. module: nautical_translations
+#: view:account.invoice:nautical_translations.view_partner_mod_form
+#: view:account.invoice:nautical_translations.view_partner_mod_tree
+#: view:account.voucher:nautical_translations.view_partner_mod_voucher_form
+#: view:account.voucher.receipt:nautical_translations.view_partner_mod_receipt_form
+msgid "Partner"
 msgstr ""
 
 #. module: nautical_translations

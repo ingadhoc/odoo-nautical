@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 8.0rc1\n"
+"Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-17 14:51+0000\n"
-"PO-Revision-Date: 2014-09-17 11:51-0300\n"
+"POT-Creation-Date: 2014-11-20 16:57+0000\n"
+"PO-Revision-Date: 2014-11-20 13:59-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -15,6 +15,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
 "X-Generator: Poedit 1.5.4\n"
+
+#. module: nautical_translations
+#: view:account.invoice:nautical_translations.view_partner_mod_form
+msgid "Customer"
+msgstr "Socio"
 
 #. module: nautical_translations
 #: view:res.partner:nautical_translations.view_res_partner_filter
@@ -32,6 +37,14 @@ msgid "Es organizacion?"
 msgstr "Es organizacion?"
 
 #. module: nautical_translations
+#: view:account.invoice:nautical_translations.view_partner_mod_form
+#: view:account.voucher:nautical_translations.view_partner_mod_voucher_form
+#: view:account.voucher.receipt:nautical_translations.view_partner_mod_receipt_form
+msgid "Socio"
+msgstr "Socio"
+
+#. module: nautical_translations
+#: view:account.invoice:nautical_translations.view_partner_mod_tree
 #: view:res.partner:nautical_translations.view_res_partner_filter
 msgid "Socios"
 msgstr "Socios"

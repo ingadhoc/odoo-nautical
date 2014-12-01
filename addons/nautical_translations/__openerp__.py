@@ -8,7 +8,7 @@
     'description': """
 
     """,
-    'author': ['Ingenieria ADHOC'],
+    'author': u'Ingenieria ADHOC',
     'website': 'http://www.ingadhoc.com.ar/',
     'depends': ['nautical','nautical_x'],
     'data': [

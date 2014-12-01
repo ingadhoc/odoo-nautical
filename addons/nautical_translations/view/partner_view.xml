@@ -4,25 +4,25 @@
 
 
  <record id="base.action_partner_form" model="ir.actions.act_window">
-            <field name="name">Partners</field>
+            <field name="name">Socios</field>
             
         </record>
 
 <record id="base.action_partner_customer_form" model="ir.actions.act_window">
-            <field name="name">Partners</field>
+            <field name="name">Socios</field>
             
         </record>
 
 <record id="account.action_invoice_tree1" model="ir.actions.act_window">
-            <field name="name">Membership Fees</field>
+            <field name="name">Cuotas de Socios</field>
             
         </record>
 <record id="account.action_invoice_tree3" model="ir.actions.act_window">
-            <field name="name">Refunds to partner</field>
+            <field name="name">Rembolsos al Socio</field>
             
         </record>
 <record id="account_voucher.action_vendor_receipt" model="ir.actions.act_window">
-            <field name="name">Payments Partner</field>
+            <field name="name">Pagos de Socios</field>
             
         </record>
 
@@ -34,8 +34,7 @@
             <field name="inherit_id" ref="base.view_res_partner_filter"/>
             <field name="arch" type="xml">
                 <filter string="Customers" position="replace">
-
-                <filter string="Socios" name="customer" domain="[('customer','=',1)]" help="Customer Partners"/>
+                    <filter string="Socios" name="customer" domain="[('customer','=',1)]" help="Customer Partners"/>
                 </filter>
             </field>
         </record>
@@ -47,8 +46,57 @@
             <field name="arch" type="xml">
                  <div class="oe_edit_only" position="replace">
                     <label for="name"/> (
-                            <field name="is_company" on_change="onchange_type(is_company)" class="oe_inline"/> <label for="is_company" string="Es organizacion?"/>)
+                        <field name="is_company" on_change="onchange_type(is_company)" class="oe_inline"/> <label for="is_company" string="Es organizacion?"/>)
                 </div>
+                
+            </field>
+        </record>
+<!-- TREE     -->
+
+        <record id="view_partner_mod_tree" model="ir.ui.view">
+            <field name="name">nautical.account.invoice.tree</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_tree"/>
+            <field name="arch" type="xml">
+                 <field name="partner_id" position="replace">
+                    <field name="partner_id" groups="base.group_user" string="Socios"/>
+                </field>
+                
+            </field>
+        </record>
+
+    <record id="view_partner_mod_form" model="ir.ui.view">
+            <field name="name">nautical.account.invoice.form</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="arch" type="xml">
+                  <field string="Customer" name="partner_id" position="replace">
+                    <field name="partner_id" string="Socio"/>
+                </field>
+                
+            </field>
+        </record>
+
+    <record id="view_partner_mod_receipt_form" model="ir.ui.view">
+            <field name="name">nautical.account.voucher.receipt.form</field>
+            <field name="model">account.voucher.receipt</field>
+            <field name="inherit_id" ref="account_voucher_receipt.receipt_form_view"/>
+            <field name="arch" type="xml">
+                  <field name="customer_id" position="replace">
+                    <field name="customer_id" string="Socio"/>
+                </field>
+                
+            </field>
+        </record>
+
+        <record id="view_partner_mod_voucher_form" model="ir.ui.view">
+            <field name="name">nautical.account.voucher.form</field>
+            <field name="model">account.voucher</field>
+            <field name="inherit_id" ref="account_voucher.view_sale_receipt_form"/>
+            <field name="arch" type="xml">
+                  <field name="partner_id" position="replace">
+                    <field name="partner_id" string="Socio" domain="[('customer','=',True)]" on_change="onchange_partner_id(partner_id, journal_id, amount, currency_id, type, date, context)" context="{'search_default_customer':1, 'show_address': 1}" options="{&quot;always_reload&quot;: True}"/>
+                </field>
                 
             </field>
         </record>
@@ -57,33 +105,33 @@
 
     <menuitem
             id="account.menu_finance_receivables"
-            name="Partner"
+            name="Socios"
             parent="account.menu_finance"
             sequence="2"/>
     
     <menuitem
             id="account.menu_action_invoice_tree1"
-            name="Membership Fees"
+            name="Cuotas de Socios"
             parent="account.menu_finance_receivables"
             sequence="10"/>
     <menuitem
             id="account.menu_action_invoice_tree3"
-            name="Refunds to partner"
+            name="Rembolsos al Socio"
             parent="account.menu_finance_receivables"
             sequence="10"/>
     <menuitem
             id="account_voucher.menu_action_vendor_receipt"
-            name="Payments Partner"
+            name="Pagos de Socios"
             parent="account.menu_finance_receivables"
             sequence="12"/>
     <menuitem
             id="account.menu_account_customer"
-            name="Partner"
+            name="Socio"
             parent="account.menu_finance_receivables"
             sequence="100"/>
     <menuitem
             id="base.menu_partner_form"
-            name="Partner"
+            name="Socios"
             parent="base.menu_sales"
             sequence="2"/>
             
