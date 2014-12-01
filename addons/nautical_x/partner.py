@@ -140,7 +140,8 @@ class partner(osv.osv):
             partner_ids = ids
         else:
             partner_ids = self.search(cr, uid, [('recurring_next_date','<=', current_date), ('customer','=', True)])
-        return self._recurring_create_invoice(cr, uid, partner_ids, open_invoices=True, context=context)
+        return self.create_invoices(cr, uid, partner_ids, open_invoices=True, context=context)
+        # return self._recurring_create_invoice(cr, uid, partner_ids, open_invoices=True, context=context)
 
     # def process_active_partner_invoices(self, cr, uid, ids=None, open_invoices=False, context=None):
     #     if context is None:
