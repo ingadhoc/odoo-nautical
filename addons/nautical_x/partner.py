@@ -176,7 +176,7 @@ class partner(osv.osv):
                  ('state', 'not in',  ['draft', 'permanent_cancellation'])],
                 context=context)
             if not active_craft_ids and not partner.recurring_invoice_line_ids:
-                print _('Partner %s does not have any activ craft or recurreing invoice line') % (partner.name)
+                # print _('Partner %s does not have any activ craft or recurreing invoice line') % (partner.name)
                 continue
             # We use the partner prepare invoice fucntion defined in account intereset
             inv_values = self._prepare_invoice(cr, uid, partner, context=context)
