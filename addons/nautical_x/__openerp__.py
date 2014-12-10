@@ -52,6 +52,7 @@ Projects required:
       'data/sequences.xml',
       'data/cron.xml',
       'data/product_data.xml',
+      'security/ir.model.access.csv',
     ],
     'init_xml': [   
 
