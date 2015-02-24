@@ -36,8 +36,8 @@
                 <!-- Scamos el campo national identity de partner person y lo ponemos ne otro lugar -->
                 <field name="national_identity" position="replace"/>
                 <h1 position="after">
-                    <h2><field name="national_identity" attrs="{'required':[('customer','=',True),('is_company','!=',True)]}" placeholder="National Identity"/></h2>
-                </h1>
+                    <!-- <h2><field name="national_identity" attrs="{'required':[('customer','=',True),('is_company','!=',True)]}" placeholder="National Identity"/></h2>
+ -->                </h1>
 
                 <page string="Internal Notes" position="before">
                     <page string="Historical Records">
