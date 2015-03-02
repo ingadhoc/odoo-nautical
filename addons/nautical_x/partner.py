@@ -93,7 +93,7 @@ class partner(osv.osv):
         'document_number',
         # 'document_type_id',
         # 'document_type_id.name',
-        )
+    )
     def _cal_number(self):
         self.social_number = self.document_number
         self.national_identity = self.document_number
@@ -106,8 +106,8 @@ class partner(osv.osv):
         #     self.national_identity = False
 
     national_identity = new_fields.Char(compute="_cal_number", store=True)
-    social_number = new_fields.Integer(compute="_cal_number",
-                                       string='Social Number')
+    social_number = new_fields.Char(compute="_cal_number",
+                                    string='Social Number')
     document_number = new_fields.Char(required=True)
 
     _columns = {
