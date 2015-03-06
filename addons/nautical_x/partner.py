@@ -171,8 +171,13 @@ class partner(osv.osv):
                 inv_values['date_invoice'] = partner.recurring_next_date
                 inv_values['origin'] = inv_values['reference'] = _(
                     'Cuota. ') + invoce_date.strftime('%m-%y')
-                inv_id = inv_obj.create(cr, uid, inv_values, context=context)
-                _logger.info('Invoice id: %i created' % (inv_id))
+                try:
+                    inv_id = inv_obj.create(cr, uid, inv_values, context=context)
+                    _logger.info('Invoice id: %i created' % (inv_id))
+                except Exception, e:
+                    _logger.warning(
+                        "Unable to create invoice. This is what we get: %s" % e)
+                    continue
                 inv_ids.append(inv_id)
 
                 # We create invoice lines for active crafts
