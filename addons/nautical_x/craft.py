@@ -183,6 +183,8 @@ class craft(models.Model):
         # El tracking en locations, por ser m2m, registra los ids y eso no esta bueno
         # 'location_ids': fields.one2many('nautical.location', 'craft_id', string='Location', states={'draft':[('readonly', True)],'permanent_cancellation':[('readonly', True)]}, context={'default_type':'normal'}, domain=[('type','=','normal')], track_visibility='onchange'),
         'owner_id': fields.many2one('res.partner', string='Owner', readonly=True, states={'draft':[('readonly', False)]}, ondelete='cascade', required=True, track_visibility='onchange'),
+        'lenght': fields.float(string='Lenght'),
+        'breadth': fields.float(string='Breadth'),
     }
 
     _defaults = {

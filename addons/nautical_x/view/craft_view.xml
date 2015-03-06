@@ -255,6 +255,10 @@
                 </field>
                 <field name="owner_id" position="replace">
                     <field name="owner_id" filter_domain="[('owner_id', 'child_of', self)]"/>
+                    <field string="Breadth Lower than" name="breadth" filter_domain="[('breadth','&lt;=', self)]"/>
+                    <field string="Breadth Greater than" name="breadth" filter_domain="[('breadth','&gt;=', self)]"/>
+                    <field string="Lenght Greater than" name="lenght" filter_domain="[('lenght','&gt;=', self)]"/>
+                    <field string="Lenght Lower than" name="lenght" filter_domain="[('lenght','&lt;=', self)]"/>
                 </field>
                 <search string="Craft">
                         <filter string="Don't Dispatch Partner" name="dont_dispatch" domain="[('partner_payment_earliest_due_date', '&lt;=', (context_today() + relativedelta(months=-2)).strftime('%%Y-%%m-%%d') )]" help="Customers have higher fees due to two months"/>

@@ -3,6 +3,8 @@
 import re
 from openerp import netsvc
 from openerp.osv import osv, fields
+from openerp import fields as new_fields
+from openerp import api
 from datetime import datetime, date, timedelta
 from openerp import _
 from dateutil.relativedelta import relativedelta
@@ -86,6 +88,28 @@ class partner(osv.osv):
 
     _inherit = 'res.partner'
 
+    @api.one
+    @api.depends(
+        'document_number',
+        # 'document_type_id',
+        # 'document_type_id.name',
+    )
+    def _cal_number(self):
+        self.social_number = self.document_number
+        self.national_identity = self.document_number
+        # lo dejamos por las dudas que al cliente no le guste que guardemos el cuit como si fuese un documento
+        # if self.document_type_id.name == 'DNI':
+        #     self.social_number = self.document_number
+        #     self.national_identity = self.document_number
+        # else:
+        #     self.social_number = self.document_number
+        #     self.national_identity = False
+
+    national_identity = new_fields.Char(compute="_cal_number", store=True)
+    social_number = new_fields.Char(compute="_cal_number",
+                                    string='Social Number')
+    document_number = new_fields.Char(required=True)
+
     _columns = {
         'social_category': fields.selection([
             ('fees', 'Fees'),
@@ -101,7 +125,6 @@ class partner(osv.osv):
             ('absent', 'Absent'),
             ('students', 'Students')
         ], string='Social Category'),
-        'social_number': fields.integer(string='Social Number'),
         'recurring_invoice_line_ids': fields.one2many('res.partner.invoice.line', 'partner_id', 'Partner', copy=True),
         # 'recurring_invoices' : fields.boolean('Generate recurring invoices automatically'),
         'recurring_rule_type': fields.selection([

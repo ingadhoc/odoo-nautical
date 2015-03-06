@@ -36,8 +36,8 @@
                 <!-- Scamos el campo national identity de partner person y lo ponemos ne otro lugar -->
                 <field name="national_identity" position="replace"/>
                 <h1 position="after">
-                    <h2><field name="national_identity" attrs="{'required':[('customer','=',True)]}" placeholder="National Identity"/></h2>
-                </h1>
+                    <!-- <h2><field name="national_identity" attrs="{'required':[('customer','=',True),('is_company','!=',True)]}" placeholder="National Identity"/></h2>
+ -->                </h1>
 
                 <page string="Internal Notes" position="before">
                     <page string="Historical Records">
@@ -145,10 +145,18 @@
             <field name="model">res.partner</field>
             <field name="inherit_id" ref="base.view_partner_form"></field>
             <field name="arch" type="xml">
-                 <field name="website" position="after">
-                     <field name="social_category"/>
-                     <field name="social_number"/>
-                 </field>
+                    <field name="document_type_id" position="replace">
+                    </field>
+                    <field name="document_number" position="replace">
+                    </field>
+                    <field name="title" position="after">
+                        <field name="document_type_id" colspan="1"/>
+                        <field name="document_number" colspan="1"/>
+                    </field>
+                    <field name="website" position="after">
+                        <field name="social_category"/>
+                        <field name="social_number"/>
+                    </field>
              </field>
          </record>
          
