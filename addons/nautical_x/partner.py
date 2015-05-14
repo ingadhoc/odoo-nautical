@@ -40,6 +40,7 @@ class res_partner_invoice_line(osv.osv):
         'quantity': 1,
     }
 
+
     def product_id_change(self, cr, uid, ids, product, uom_id, qty=0, partner_id=False, price_unit=False, pricelist_id=False, context=None):
         context = context or {}
         uom_obj = self.pool.get('product.uom')
@@ -80,6 +81,17 @@ class res_partner_invoice_line(osv.osv):
                 cr, uid, res.uom_id.id, res_final['value']['price_unit'], result['uom_id'])
             res_final['value']['price_unit'] = new_price
         return res_final
+
+    @api.model
+    def create(self, vals):
+        if vals.get('product_id'):
+            defaults = self.product_id_change(
+                vals.get('product_id'),
+                vals.get('oum_id', False),
+                context=None
+            )['value']
+        vals = dict(defaults, **vals)
+        return super(res_partner_invoice_line, self).create(vals)
 
 
 class partner(osv.osv):
@@ -195,7 +207,8 @@ class partner(osv.osv):
                 inv_values['origin'] = inv_values['reference'] = _(
                     'Cuota. ') + invoce_date.strftime('%m-%y')
                 try:
-                    inv_id = inv_obj.create(cr, uid, inv_values, context=context)
+                    inv_id = inv_obj.create(
+                        cr, uid, inv_values, context=context)
                     _logger.info('Invoice id: %i created' % (inv_id))
                 except Exception, e:
                     _logger.warning(
