@@ -5,7 +5,6 @@
     'depends': [
         'nautical_x',
         'nautical_search_by_ni',
-        'web_group_expand',
         'l10n_ar_invoice',
         'l10n_ar_chart_generic',
         'l10n_ar_bank',
