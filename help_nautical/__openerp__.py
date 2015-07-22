@@ -22,7 +22,7 @@
 
 
 {   'author': 'Sistemas ADHOC',
-    'demo_xml': [
+    'demo': [
     ],
     'depends': ['help_doc','nautical'],
     'description': 'Nautical Documentation',
@@ -31,7 +31,7 @@
     'license': 'AGPL-3',
     'name': 'Nautical Documentation',
     'test': [],
-    'update_xml': [
+    'data': [
         'document_page_data.xml',
         ],
     'version': 'No version',

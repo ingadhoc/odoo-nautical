@@ -10,9 +10,9 @@
     """,
     'author': u'Ingenieria ADHOC',
     'website': 'http://www.ingadhoc.com.ar/',
-    'depends': ['nautical','nautical_x'],
+    'depends': ['nautical', 'nautical_x'],
     'data': [
-    'view/partner_view.xml',
+        'view/partner_view.xml',
     ],
     'test': [''],
     'installable': True,
