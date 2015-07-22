@@ -1,9 +1,8 @@
-from openerp import netsvc
 from openerp import models, fields, api
 from openerp.tools.translate import _
 from openerp.exceptions import except_orm
 
-class authorizations_cancellations(models.Model):
+class authorizations_cancellations(models.TransientModel):
     """"""
     _name = 'nautical_ab.wizard'
     _description = 'Wizard to AB'

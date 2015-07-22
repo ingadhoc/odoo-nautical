@@ -1,7 +1,7 @@
 from openerp import models, api
 
 
-class member_wizard(models.Model):
+class member_wizard(models.TransientModel):
     """"""
     _name = 'nautical_member.wizard'
     _description = 'wizard'
