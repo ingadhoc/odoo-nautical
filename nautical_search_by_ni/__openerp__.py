@@ -8,8 +8,8 @@
     'description': """
 Search on partners by national identity field on m2o widgets
     """,
-    'author': ['Sistemas ADHOC'],
-    'website': 'http://www.sistemasadhoc.com.ar/',
+    'author': ['ADHOC SA'],
+    'website': 'www.adhoc.com.ar',
     'depends': ['nautical'],
     'data': [
     ],

@@ -22,7 +22,7 @@
 
 
 {   'active': False,
-    'author': u'Sistemas ADHOC',
+    'author': u'ADHOC SA',
     'category': u'base.module_category_knowledge_management',
     'demo': [],
     'depends': [u'mail', u'product', u'contacts'],
@@ -89,6 +89,6 @@
                       u'workflow/contract_workflow.xml',
                       'security/ir.model.access.csv'],
     'version': u'1.1',
-    'website': ''}
+    'website': 'www.adhoc.com.ar'}
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

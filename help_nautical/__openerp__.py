@@ -21,7 +21,7 @@
 ##############################################################################
 
 
-{   'author': 'Sistemas ADHOC',
+{   'author': 'ADHOC SA',
     'demo': [
     ],
     'depends': ['help_doc','nautical'],
@@ -37,6 +37,6 @@
     'version': 'No version',
     'auto_install': True,
     'category': 'Hidden',
-    'website': ''}
+    'website': 'www.adhoc.com.ar'}
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
