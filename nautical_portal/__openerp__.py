@@ -8,7 +8,7 @@
     'description': """
 
     """,
-    'author': 'Ingeniería ADHOC',
+    'author': 'ADHOC SA',
     'depends': ['nautical_x','portal'],
     'data': [
         'wizard/wizard_view.xml',

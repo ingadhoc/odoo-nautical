@@ -8,8 +8,8 @@
     'description': """
 
     """,
-    'author': u'Ingenieria ADHOC',
-    'website': 'http://www.ingadhoc.com.ar/',
+    'author': u'ADHOC SA',
+    'website': 'www.adhoc.com.ar',
     'depends': ['nautical', 'nautical_x'],
     'data': [
         'view/partner_view.xml',
