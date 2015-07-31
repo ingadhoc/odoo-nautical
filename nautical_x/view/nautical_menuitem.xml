@@ -30,6 +30,25 @@
             
             />
 
+        <record id="action_nautical_social_category" model="ir.actions.act_window">
+            <field name="name">Social Category</field>
+            <field name="res_model">nautical.social_category</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref=""/>
+            <field name="search_view_id" ref=""/>
+            <field name="domain">[]</field>
+        </record>
+
+        <menuitem
+            name="Social Categories"
+            id="menu_social_category"
+            sequence="10"
+            action="action_nautical_social_category"
+            parent="nautical.menu_configuration"
+            
+            />
+
         
         
     </data>
