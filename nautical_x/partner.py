@@ -44,7 +44,6 @@ class res_partner_invoice_line(osv.osv):
         'quantity': 1,
     }
 
-
     def product_id_change(self, cr, uid, ids, product, uom_id, qty=0, partner_id=False, price_unit=False, pricelist_id=False, context=None):
         context = context or {}
         uom_obj = self.pool.get('product.uom')
@@ -98,6 +97,15 @@ class res_partner_invoice_line(osv.osv):
         return super(res_partner_invoice_line, self).create(vals)
 
 
+class social_category(osv.osv):
+
+    """"""
+
+    _name = 'nautical.social_category'
+
+    name = new_fields.Char(string='Name')
+
+
 class partner(osv.osv):
 
     """"""
@@ -125,22 +133,24 @@ class partner(osv.osv):
     social_number = new_fields.Char(compute="_cal_number",
                                     string='Social Number')
     document_number = new_fields.Char(required=True)
+    social_category_id = new_fields.Many2one('nautical.social_category',
+                                             string='Social Category')
 
     _columns = {
-        'social_category': fields.selection([
-            ('fees', 'Fees'),
-            ('assets fees', 'Assets Fees'),
-            ('lifetime', 'Lifetime'),
-            ('active', 'Active'),
-            ('cadet', 'Cadet'),
-            ('minor', 'Minor'),
-            ('retired and pensioners', 'Retired and pensioners'),
-            ('transient', 'Transient'),
-            ('adherents', 'Adherents'),
-            ('sports', 'Sports'),
-            ('absent', 'Absent'),
-            ('students', 'Students')
-        ], string='Social Category'),
+        # 'social_category': fields.selection([
+        #     ('fees', 'Fees'),
+        #     ('assets fees', 'Assets Fees'),
+        #     ('lifetime', 'Lifetime'),
+        #     ('active', 'Active'),
+        #     ('cadet', 'Cadet'),
+        #     ('minor', 'Minor'),
+        #     ('retired and pensioners', 'Retired and pensioners'),
+        #     ('transient', 'Transient'),
+        #     ('adherents', 'Adherents'),
+        #     ('sports', 'Sports'),
+        #     ('absent', 'Absent'),
+        #     ('students', 'Students')
+        # ], string='Social Category'),
         'recurring_invoice_line_ids': fields.one2many('res.partner.invoice.line', 'partner_id', 'Partner', copy=True),
         # 'recurring_invoices' : fields.boolean('Generate recurring invoices automatically'),
         'recurring_rule_type': fields.selection([

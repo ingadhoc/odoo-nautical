@@ -146,7 +146,7 @@
             <field name="inherit_id" ref="base.view_partner_form"></field>
             <field name="arch" type="xml">
                     <field name="website" position="after">
-                        <field name="social_category"/>
+                        <field name="social_category_id"/>
                         <field name="social_number"/>
                     </field>
              </field>
