@@ -180,9 +180,13 @@ class partner(osv.osv):
         else:
             partner_ids = self.search(
                 cr, uid, [('recurring_next_date', '<=', current_date), ('customer', '=', True)])
-        return self.create_invoices(cr, uid, partner_ids, open_invoices=True, context=context)
+        return self.create_invoices(
+            cr, uid, partner_ids, open_invoices=True,
+            automatic=True, context=context)
 
-    def create_invoices(self, cr, uid, ids, open_invoices=False, context=None):
+    def create_invoices(
+            self, cr, uid, ids, open_invoices=False,
+            automatic=False, context=None):
         wf_service = netsvc.LocalService("workflow")
         current_date = time.strftime('%Y-%m-%d')
         inv_obj = self.pool.get('account.invoice')
@@ -254,6 +258,10 @@ class partner(osv.osv):
                     new_date = next_date + relativedelta(years=+interval)
                 self.write(cr, uid, [partner.id], {
                            'recurring_next_date': new_date.strftime('%Y-%m-%d')}, context=context)
+
+                if automatic:
+                    # auto-commit for batch processing
+                    cr.commit()
         return inv_ids
 
     def _prepare_invoice_line(self, cr, uid, partner, fiscal_position_id, inv_id, context=None):
