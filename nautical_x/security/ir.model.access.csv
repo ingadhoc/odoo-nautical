@@ -1,4 +1,6 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
 access_res_partner_invoice_line_account_user,res_partner_invoice_line_account_user,model_res_partner_invoice_line,account.group_account_user,1,1,1,1
 access_res_partner_invoice_line_sale_user,res_partner_invoice_line_sale_user,model_res_partner_invoice_line,base.group_sale_salesman,1,1,1,1
 access_res_partner_invoice_line_all,res_partner_invoice_line_all,model_res_partner_invoice_line,,1,0,0,0
+access_social_category,access_social_category,nautical_x.model_nautical_social_category,,1,0,0,0
+access_social_category_manager,access.social_category_manager,nautical_x.model_nautical_social_category,nautical.group_manager,1,1,1,1
