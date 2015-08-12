@@ -57,11 +57,9 @@ class res_partner_invoice_line(osv.osv):
                 # local_context.update({'lang': part.lang})
 
         result = {}
-        print local_context
         res = self.pool.get('product.product').browse(
             cr, uid, product, context=local_context)
         price = False
-        print 'price', res.price
         name = False
         if price_unit is not False:
             price = res.price
@@ -72,7 +70,6 @@ class res_partner_invoice_line(osv.osv):
                 cr, uid, [res.id], context=context)[0][1]
             if res.description_sale:
                 name += '\n' + res.description_sale
-
         result.update({'name': name or False, 'uom_id':
                        uom_id or res.uom_id.id or False, 'price_unit': price})
 
@@ -246,9 +243,10 @@ class partner(osv.osv):
                 # We create invoice lines for other products
                 inv_lines_vals = self._prepare_invoice_line(
                     cr, uid, partner, inv_values['fiscal_position'], inv_id, context=None)
-                if inv_lines_vals:
-                    self.pool.get('account.invoice.line').create(
-                        cr, uid, inv_lines_vals, context=context)
+                for inv_line in inv_lines_vals:
+                    if inv_line:
+                        self.pool.get('account.invoice.line').create(
+                            cr, uid, inv_line, context=context)
 
                 inv_obj.button_reset_taxes(cr, uid, [inv_id], context=context)
                 # wf_service.trg_write(uid, 'sale.order', sale_id, cr)
@@ -291,14 +289,19 @@ class partner(osv.osv):
                 account_id = res.categ_id.property_account_income_categ.id
             account_id = fpos_obj.map_account(
                 cr, uid, fiscal_position, account_id)
+            default_analytics = self.pool.get('account.analytic.default').account_get(
+                cr, uid, line.product_id.id, partner.id, context=None)
+            analytics_id = False
+            if default_analytics:
+                analytics_id = default_analytics.analytics_id.id
 
             taxes = res.taxes_id or False
             tax_id = fpos_obj.map_tax(cr, uid, fiscal_position, taxes)
 
-            invoice_lines = {
+            lines = {
                 'name': line.name + ' - ' + _('. Period ') + invoce_date.strftime('%m-%y'),
                 'account_id': account_id,
-                # 'account_analytic_id': partner.id,
+                'analytics_id': analytics_id,
                 'price_unit': line.price_unit or 0.0,
                 'quantity': line.quantity,
                 'uos_id': line.uom_id.id or False,
@@ -306,15 +309,20 @@ class partner(osv.osv):
                 'invoice_id': inv_id,
                 'invoice_line_tax_id': [(6, 0, tax_id)],
             }
+            invoice_lines.append(lines)
         return invoice_lines
 
     def _prepare_invoice_line_craft(self, cr, uid, partner, craft, inv_id, context=None):
         if context is None:
             context = {}
 
-        result = []
         invoce_date = datetime.strptime(
             partner.recurring_next_date, DEFAULT_SERVER_DATE_FORMAT)
+        default_analytics = self.pool.get('account.analytic.default').account_get(
+                cr, uid, craft.product_id.id, partner.id, context=None)
+        analytics_id = False
+        if default_analytics:
+            analytics_id = default_analytics.analytics_id.id
 
         inv_line_values = {
             # TODO add tax, name origin and analitic account
@@ -330,7 +338,7 @@ class partner(osv.osv):
             'invoice_id': inv_id,
             'invoice_line_tax_id': [(6, 0, [x.id for x in craft.tax_id])],
             # 'invoice_line_tax_id': [(6, 0, [x.id for x in line.tax_id])],
-            # 'account_analytic_id': line.order_id.project_id and line.order_id.project_id.id or False,
+            'analytics_id': analytics_id,
             # 'invoice_line_tax_id': res.get('invoice_line_tax_id'),
             # 'account_analytic_id': sale.project_id.id or False,
         }
