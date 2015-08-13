@@ -235,7 +235,7 @@ class partner(osv.osv):
                 for craft in partner.owned_craft_ids:
                     if craft.state not in ['draft', 'permanent_cancellation']:
                         inv_lines_vals = self._prepare_invoice_line_craft(
-                            cr, uid, partner, craft, inv_id, context=context)
+                            cr, uid, partner, craft, inv_id, inv_values['fiscal_position'], context=context)
                         if inv_lines_vals:
                             self.pool.get('account.invoice.line').create(
                                 cr, uid, inv_lines_vals, context=context)
@@ -312,14 +312,23 @@ class partner(osv.osv):
             invoice_lines.append(lines)
         return invoice_lines
 
-    def _prepare_invoice_line_craft(self, cr, uid, partner, craft, inv_id, context=None):
+    def _prepare_invoice_line_craft(self, cr, uid, partner, craft, inv_id, fiscal_position_id, context=None):
         if context is None:
             context = {}
-
+        fpos_obj = self.pool.get('account.fiscal.position')
+        fiscal_position = None
+        if fiscal_position_id:
+            fiscal_position = fpos_obj.browse(
+                cr, uid,  fiscal_position_id, context=context)
         invoce_date = datetime.strptime(
             partner.recurring_next_date, DEFAULT_SERVER_DATE_FORMAT)
+        account_id = craft.product_id.property_account_income.id
+        if not account_id:
+            account_id = craft.product_id.categ_id.property_account_income_categ.id
+        account_id = fpos_obj.map_account(
+            cr, uid, fiscal_position, account_id)
         default_analytics = self.pool.get('account.analytic.default').account_get(
-                cr, uid, craft.product_id.id, partner.id, context=None)
+            cr, uid, craft.product_id.id, partner.id, context=None)
         analytics_id = False
         if default_analytics:
             analytics_id = default_analytics.analytics_id.id
@@ -328,7 +337,7 @@ class partner(osv.osv):
             # TODO add tax, name origin and analitic account
             'name': craft.product_id.name + ' - ' + (craft.name or '') + _('. Period ') + invoce_date.strftime('%m-%y'),
             # 'origin': sale.name,
-            # 'account_id': res['account_id'],
+            'account_id': account_id,
             'price_unit': craft.price_unit,
             'craft_id': craft.id,
             'quantity': 1.0,
