@@ -34,7 +34,7 @@
     'data': [
         'document_page_data.xml',
         ],
-    'version': 'No version',
+    'version': '8.0.0.0.0',
     'auto_install': True,
     'category': 'Hidden',
     'website': 'www.adhoc.com.ar'}

@@ -3,7 +3,7 @@
 
 {
     'name': 'Nautical Traslations',
-    'version': '1.0.1',
+    'version': '8.0.1.0.1',
     'category': 'Knowledge Management',
     'description': """
 

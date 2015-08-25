@@ -2,7 +2,7 @@
 
 {
     'name': 'Nautical Portal',
-    'version': '0.1',
+    'version': '8.0.0.1.0',
     'category': 'Tools',
     'complexity': 'easy',
     'description': """

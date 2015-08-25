@@ -77,7 +77,7 @@ Projects required:
     'init_xml': [   
 
     ],    
-    'version': u'1.1',
+    'version': '8.0.1.1.0',
     'website': 'www.ingadhoc.com'}
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

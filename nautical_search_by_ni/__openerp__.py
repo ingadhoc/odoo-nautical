@@ -3,7 +3,7 @@
 
 {
     'name': 'Partner search by National Identity',
-    'version': '1.0.1',
+    'version': '8.0.1.0.1',
     'category': 'Knowledge Management',
     'description': """
 Search on partners by national identity field on m2o widgets
