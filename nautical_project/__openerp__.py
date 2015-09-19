@@ -27,7 +27,6 @@
         'l10n_ar_invoice',
         'l10n_ar_chart_generic',
         'l10n_ar_bank',
-        'adhoc_base_setup',
         'purchase',
         'account_interests',
         # 'web_adhoc_cust',
