@@ -66,7 +66,7 @@
             </field>
         </record>
 
-    <record id="view_partner_mod_receipt_form" model="ir.ui.view">
+<!--     <record id="view_partner_mod_receipt_form" model="ir.ui.view">
             <field name="name">nautical.account.voucher.receipt.form</field>
             <field name="model">account.voucher.receipt</field>
             <field name="inherit_id" ref="account_voucher_receipt.receipt_form_view"/>
@@ -75,7 +75,7 @@
                     <attribute name="string">Socio</attribute>
                 </field>
             </field>
-        </record>
+        </record> -->
 
         <record id="view_partner_mod_voucher_form" model="ir.ui.view">
             <field name="name">nautical.account.voucher.form</field>
