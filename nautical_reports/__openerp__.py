@@ -25,7 +25,7 @@
         'nautical_x',
         'report_aeroo',
         'l10n_ar_aeroo_base',
-        'l10n_ar_aeroo_receipt',
+        'l10n_ar_aeroo_voucher',
     ],
     'description': """
 Nautical Reports

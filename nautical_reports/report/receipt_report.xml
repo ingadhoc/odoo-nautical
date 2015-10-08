@@ -2,7 +2,7 @@
 <openerp>
 <data>
 
-    <record id="l10n_ar_aeroo_receipt.action_aeroo_report_ar_receipt" model="ir.actions.report.xml">
+    <record id="l10n_ar_aeroo_voucher.action_aeroo_report_ar_voucher" model="ir.actions.report.xml">
         
         <field name="report_rml">nautical_reports/report/recibo_nautica_sin_fondo.odt</field>
         </record> 
