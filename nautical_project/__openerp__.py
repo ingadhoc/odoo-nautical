@@ -33,7 +33,7 @@
         # Others addons
         # 'web_nocreatedb', Disabled for now to make it easier to test
         # 'cron_run_manually',
-        'disable_openerp_online',
+        # 'disable_openerp_online',
         # OpenERP officla addons
         'base_import',
         'purchase',
