@@ -3,19 +3,8 @@
 # For copyright and license notices, see __openerp__.py file in module root
 # directory
 ##############################################################################
+from openerp.osv import osv
 
-import datetime
-from lxml import etree
-import math
-import pytz
-import re
-
-import openerp
-from openerp import SUPERUSER_ID
-from openerp import pooler, tools
-from openerp.osv import osv, fields
-from openerp.tools.translate import _
-from openerp.tools.yaml_import import is_comment
 
 class res_partner(osv.osv):
     _inherit = "res.partner"
