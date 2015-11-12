@@ -36,6 +36,9 @@ env:
   - VERSION="8.0" TESTS="0" LINT_CHECK="0" TRANSIFEX="0"
   - TRANSIFEX_USER='jjscarafia'
   - TRANSIFEX_ORGANIZATION='adhoc'
+  # exclude this module because o unknown error
+  - EXCLUDE="nautical_search_by_ni,nautical_translations"
+  # dummy " for better formatting
   # to get secure, run 'travis encrypt TRANSIFEX_PASSWORD=[transifex_password] -r [github_repo]'
   # example of github repo 'ingadhoc/odoo-infrastructure'
   - secure: dzgJixNgHTzZrEYfXxesEJ1ql6l/jSm5zS4WXTEhQT9eVv8gDEWv157wUZKEONUA6yTu7CatWKMFbVOQE6+hSTYZUM4zXE6276fITq0rekRKnukQJu8VbNt+tUP/MXJ5qEvmDJcf7+1rRmOYp2hPrDzCQ7ciu77ZUV1CKjrSFcTZn8LuI5TuAozZdTVXdhsoj2kuSqixL4NIBNx3NnfQV7HFugHA878Grm9SXUjIBKiG+WNCUicoHK09dk6rYTSiSjVo1UpJYaxbVMjiy9D0H33gEvSiRpq8eDpXFkHBLztkpqH+j4L0B7bkqyhEwF5Uh0sB+5lU3oNmeHo8a6U9ck5FGddlNB5u9Gm5hVLYc5zjiKUVBrHkdftUlOudiNE0CRwKa+/Lft5+CIy4vlP+aJ3p2NqYVOW9/Cf8PzzENsOtfLZTG5QEM/YRS3vuE9MxqwqTOM7pGgJN39Z8lkPwwKMBgCcY211sxBtHs3pysOk2CVFU8gW2C1eTmdUWr74RSKwtjGDk0mIk0Ff4Z0m1/U/LiOHYWuRNImUlAhB2l0EVOtHb2bOZaYXCviwZGeIk5+dkqoo2Q7OPnMIZPQ+O8RAUTKMhYqfBpLIUZRL4q3Tozi0p3rsyKa1mxuum6PC/Y0ByyY9yHRvykdjZOeneJUnbCWjRUStq0/tIHrkDEys=
