@@ -25,7 +25,11 @@ class res_partner_invoice_line(osv.osv):
     def _amount_line(self, cr, uid, ids, prop, unknow_none, unknow_dict, context=None):
         res = {}
         for line in self.browse(cr, uid, ids, context=context):
-            res[line.id] = line.quantity * line.price_unit
+            price_unit = line.price_unit
+            if line.discount:
+                price_unit = line.price_unit - \
+                    (line.price_unit * line.discount) / 100
+            res[line.id] = line.quantity * price_unit
             # if line.analytic_account_id.pricelist_id:
                 # cur = line.analytic_account_id.pricelist_id.currency_id
                 # res[line.id] = self.pool.get('res.currency').round(cr, uid, cur, res[line.id])
@@ -38,6 +42,7 @@ class res_partner_invoice_line(osv.osv):
         'quantity': fields.float('Quantity', required=True),
         'uom_id': fields.many2one('product.uom', 'Unit of Measure', required=True),
         'price_unit': fields.float('Unit Price', required=True),
+        'discount': fields.float('Discount (%)'),
         'price_subtotal': fields.function(_amount_line, string='Sub Total', type="float", digits_compute=dp.get_precision('Account')),
     }
     _defaults = {
@@ -92,6 +97,11 @@ class res_partner_invoice_line(osv.osv):
             )['value']
         vals = dict(defaults, **vals)
         return super(res_partner_invoice_line, self).create(vals)
+
+    # @api.onchange('product_id', 'discount')
+    # def discount_change(self):
+    #     if self.discount:
+    #         self.p
 
 
 class social_category(osv.osv):
@@ -307,6 +317,7 @@ class partner(osv.osv):
                 'uos_id': line.uom_id.id or False,
                 'product_id': line.product_id.id or False,
                 'invoice_id': inv_id,
+                'discount': line.discount or 0.0,
                 'invoice_line_tax_id': [(6, 0, tax_id)],
             }
             invoice_lines.append(lines)

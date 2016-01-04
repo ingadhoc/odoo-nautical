@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-31 12:22+0000\n"
-"PO-Revision-Date: 2015-07-31 12:22+0000\n"
+"POT-Creation-Date: 2016-01-04 13:12+0000\n"
+"PO-Revision-Date: 2016-01-04 13:12+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,8 +21,8 @@ msgid "(update)"
 msgstr ""
 
 #. module: nautical_x
-#: code:addons/nautical_x/partner.py:291
-#: code:addons/nautical_x/partner.py:313
+#: code:addons/nautical_x/partner.py:312
+#: code:addons/nautical_x/partner.py:349
 #, python-format
 msgid ". Period "
 msgstr ""
@@ -292,13 +292,13 @@ msgid "Created on"
 msgstr ""
 
 #. module: nautical_x
-#: code:addons/nautical_x/partner.py:218
+#: code:addons/nautical_x/partner.py:229
 #, python-format
 msgid "Cuota del Periodo "
 msgstr ""
 
 #. module: nautical_x
-#: code:addons/nautical_x/partner.py:221
+#: code:addons/nautical_x/partner.py:232
 #, python-format
 msgid "Cuota. "
 msgstr ""
@@ -306,11 +306,6 @@ msgstr ""
 #. module: nautical_x
 #: field:nautical.craft,currency_id:0
 msgid "Currency"
-msgstr ""
-
-#. module: nautical_x
-#: model:ir.ui.menu,name:nautical_x.menu_partner_form
-msgid "Customers"
 msgstr ""
 
 #. module: nautical_x
@@ -346,6 +341,7 @@ msgstr ""
 
 #. module: nautical_x
 #: field:nautical.craft,discount:0
+#: field:res.partner.invoice.line,discount:0
 msgid "Discount (%)"
 msgstr ""
 
@@ -498,6 +494,7 @@ msgstr ""
 
 #. module: nautical_x
 #: view:res.partner:nautical_x.view_res_partner_form
+#: field:sale.order,internal_notes:0
 msgid "Internal Notes"
 msgstr ""
 
@@ -808,6 +805,11 @@ msgstr ""
 #: model:ir.actions.act_window,name:nautical_x.action_nautical_social_category
 #: field:res.partner,social_category_id:0
 msgid "Social Category"
+msgstr ""
+
+#. module: nautical_x
+#: model:ir.ui.menu,name:nautical_x.menu_partner_form
+msgid "Socios"
 msgstr ""
 
 #. module: nautical_x

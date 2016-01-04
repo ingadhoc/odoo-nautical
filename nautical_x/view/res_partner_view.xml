@@ -67,6 +67,7 @@
                                     <field name="quantity"/>
                                     <field name="uom_id"/>
                                     <field name="price_unit"/>
+                                    <field name="discount"/>
                                     <field name="price_subtotal"/>
                                 </tree>
                             </field>                            
