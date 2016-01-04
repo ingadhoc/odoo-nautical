@@ -1,20 +1,22 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* nautical_x
-#
+# * nautical_x
+# 
+# Translators:
+# Nicolas Mac Rouillon <nmr@ingadhoc.com>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 8.0\n"
+"Project-Id-Version: odoo-nautical (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-04 13:13+0000\n"
-"PO-Revision-Date: 2016-01-04 10:14-0300\n"
-"Last-Translator: <>\n"
-"Language-Team: \n"
+"POT-Creation-Date: 2016-01-04 13:51+0000\n"
+"PO-Revision-Date: 2016-01-04 13:51+0000\n"
+"Last-Translator: Nicolas Mac Rouillon <nmr@ingadhoc.com>\n"
+"Language-Team: Spanish (http://www.transifex.com/adhoc/ingadhoc-odoo-nautical-8-0/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: \n"
-"X-Generator: Poedit 1.5.4\n"
+"Content-Transfer-Encoding: \n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_form
@@ -26,11 +28,6 @@ msgstr "(update)"
 #, python-format
 msgid ". Period "
 msgstr ". Period "
-
-#. module: nautical_x
-#: field:res.company,point_of_sale_ids:0
-msgid "AFIP Point of Sales"
-msgstr "AFIP Point of Sales"
 
 #. module: nautical_x
 #: view:res.partner:nautical_x.view_res_partner_form
@@ -90,9 +87,7 @@ msgstr "Motor Aux."
 msgid ""
 "Before choosing a product,\n"
 " select an owner."
-msgstr ""
-"Before choosing a product,\n"
-" select an owner."
+msgstr "Before choosing a product,\n select an owner."
 
 #. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_filter
@@ -143,9 +138,7 @@ msgstr "Cancellation Number"
 msgid ""
 "Cannot find a pricelist line matching this product and quantity.\n"
 "You have to change either the product, the quantity or the pricelist."
-msgstr ""
-"Cannot find a pricelist line matching this product and quantity.\n"
-"You have to change either the product, the quantity or the pricelist."
+msgstr "Cannot find a pricelist line matching this product and quantity.\nYou have to change either the product, the quantity or the pricelist."
 
 #. module: nautical_x
 #: code:addons/nautical_x/contract.py:124
@@ -261,7 +254,7 @@ msgstr "Embarcación Poseída por "
 #. module: nautical_x
 #: model:ir.model,name:nautical_x.model_nautical_craft_record
 msgid "Craft Record"
-msgstr "Craft Record"
+msgstr "Historial de Embarcacion"
 
 #. module: nautical_x
 #: view:craft_request:nautical_x.view_craft_request
@@ -313,6 +306,11 @@ msgid "Currency"
 msgstr "Currency"
 
 #. module: nautical_x
+#: model:ir.ui.menu,name:nautical_x.menu_partner_form
+msgid "Customers"
+msgstr ""
+
+#. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_filter
 #: view:res.partner:nautical_x.view_res_partner_filter
 msgid "Customers have higher fees due to two months"
@@ -339,6 +337,11 @@ msgid "Debt oldest"
 msgstr "Deuda más antigua"
 
 #. module: nautical_x
+#: model:product.pricelist.version,name:nautical_x.ver0
+msgid "Default Luz Y Fuerza Pricelist Version"
+msgstr "Versión por defecto de Lista de Precios Luz y Fuerza "
+
+#. module: nautical_x
 #: field:res.partner.invoice.line,name:0
 msgid "Description"
 msgstr "Descripción"
@@ -346,7 +349,7 @@ msgstr "Descripción"
 #. module: nautical_x
 #: field:nautical.craft,discount:0 field:res.partner.invoice.line,discount:0
 msgid "Discount (%)"
-msgstr "Descuento (%)"
+msgstr "Discount (%)"
 
 #. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_to_dispatch_tree
@@ -361,7 +364,7 @@ msgstr "Desplazamiento"
 #. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_filter
 msgid "Do Not Dispatch"
-msgstr "Do Not Dispatch"
+msgstr "No despachar"
 
 #. module: nautical_x
 #: view:res.partner:nautical_x.view_res_partner_filter
@@ -377,6 +380,16 @@ msgstr "Don't Dispatch Partner"
 #: view:nautical.craft:nautical_x.view_nautical_craft_filter
 msgid "Draft"
 msgstr "Borrador"
+
+#. module: nautical_x
+#: model:product.template,name:nautical_x.nautical_product_02_product_template
+msgid "Embarcacion Tipo 1"
+msgstr "Embarcacion Tipo 1"
+
+#. module: nautical_x
+#: model:product.template,name:nautical_x.nautical_product_03_product_template
+msgid "Embarcacion Tipo 2"
+msgstr "Embarcacion Tipo 2"
 
 #. module: nautical_x
 #: code:addons/nautical_x/contract.py:123
@@ -414,7 +427,7 @@ msgstr "Estimated Arrival Date"
 #. module: nautical_x
 #: field:create_contract,expiration_date:0
 msgid "Expiration Date"
-msgstr "Expiration Date"
+msgstr "Fecha de Vencimiento"
 
 #. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_filter
@@ -462,16 +475,6 @@ msgid "Historical Records"
 msgstr "Historical Records"
 
 #. module: nautical_x
-#: field:nautical.craft,hull:0
-msgid "Hull"
-msgstr "Casco"
-
-#. module: nautical_x
-#: field:nautical.craft,hull_year:0
-msgid "Hull Year"
-msgstr "Año del Casco"
-
-#. module: nautical_x
 #: field:contract_cancelled_wizard,id:0 field:craft_request,id:0
 #: field:create_contract,id:0 field:nautical.social_category,id:0
 #: field:res.partner.invoice.line,id:0
@@ -495,7 +498,6 @@ msgstr "En reparacion"
 
 #. module: nautical_x
 #: view:res.partner:nautical_x.view_res_partner_form
-#: field:sale.order,internal_notes:0
 msgid "Internal Notes"
 msgstr "Notas internas"
 
@@ -515,9 +517,9 @@ msgid "Invoices"
 msgstr "Facturas"
 
 #. module: nautical_x
-#: field:res.company,journal_ids:0
-msgid "Journals"
-msgstr "Journals"
+#: model:product.template,name:nautical_x.nautical_product_01_product_template
+msgid "Kayak"
+msgstr "Kayak"
 
 #. module: nautical_x
 #: field:contract_cancelled_wizard,write_uid:0 field:craft_request,write_uid:0
@@ -551,11 +553,6 @@ msgid "Location"
 msgstr "Location"
 
 #. module: nautical_x
-#: field:nautical.craft,location_category_id:0
-msgid "Location Category"
-msgstr "Categoría de Guarda"
-
-#. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_form
 #: field:nautical.craft,locations_string:0
 msgid "Locations"
@@ -567,6 +564,11 @@ msgstr "Ubicaciones"
 #: view:nautical.location:nautical_x.nautical_location_tree_view
 msgid "Locations Tree"
 msgstr "Árbol de Ubicaciones"
+
+#. module: nautical_x
+#: model:product.pricelist,name:nautical_x.list_luz_y_fuerza
+msgid "Luz y Fuerza"
+msgstr "Luz y Fuerza"
 
 #. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_form
@@ -582,12 +584,9 @@ msgstr "Medium-sized image"
 #: help:nautical.craft,image_medium:0
 msgid ""
 "Medium-sized image of the craft. It is automatically resized as a 128x128px "
-"image, with aspect ratio preserved, only when the image exceeds one of those "
-"sizes. Use this field in form views or some kanban views."
-msgstr ""
-"Medium-sized image of the craft. It is automatically resized as a 128x128px "
-"image, with aspect ratio preserved, only when the image exceeds one of those "
-"sizes. Use this field in form views or some kanban views."
+"image, with aspect ratio preserved, only when the image exceeds one of those"
+" sizes. Use this field in form views or some kanban views."
+msgstr "Medium-sized image of the craft. It is automatically resized as a 128x128px image, with aspect ratio preserved, only when the image exceeds one of those sizes. Use this field in form views or some kanban views."
 
 #. module: nautical_x
 #: code:addons/nautical_x/craft.py:223
@@ -641,14 +640,9 @@ msgid "Number of months to allow limits dispatch boat"
 msgstr "Número de meses límites para permitir despachan barco"
 
 #. module: nautical_x
-#: field:res.partner,other_afip_document_class_ids:0
-msgid "Other AFIP Documents"
-msgstr "Other AFIP Documents"
-
-#. module: nautical_x
 #: selection:craft_request,requestor_type:0
 msgid "Owner"
-msgstr "Owner"
+msgstr "Dueño..."
 
 #. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_form
@@ -665,7 +659,7 @@ msgstr "Socio"
 #. module: nautical_x
 #: view:res.partner.invoice.line:nautical_x.view_partner_invoice_line_form
 msgid "Partner Invoice Line"
-msgstr "Partner Invoice Line"
+msgstr ""
 
 #. module: nautical_x
 #: model:ir.model,name:nautical_x.model_nautical_partner_record
@@ -707,7 +701,7 @@ msgstr "Producto"
 #. module: nautical_x
 #: model:ir.model,name:nautical_x.model_product_template
 msgid "Product Template"
-msgstr "Plantilla de producto"
+msgstr "Plantilla de Producto"
 
 #. module: nautical_x
 #: view:res.partner:nautical_x.view_res_partner_form
@@ -787,15 +781,6 @@ msgid "Service Authorizations"
 msgstr "Autorizaciones de servicio"
 
 #. module: nautical_x
-#: help:res.partner,other_afip_document_class_ids:0
-msgid ""
-"Set here if this partner can issue other documents further        than "
-"invoices, credit notes and debit notes"
-msgstr ""
-"Set here if this partner can issue other documents further        than "
-"invoices, credit notes and debit notes"
-
-#. module: nautical_x
 #: field:nautical.craft,image_small:0
 msgid "Small-sized image"
 msgstr "Small-sized image"
@@ -804,34 +789,31 @@ msgstr "Small-sized image"
 #: help:nautical.craft,image_small:0
 msgid ""
 "Small-sized image of the craft. It is automatically resized as a 64x64px "
-"image, with aspect ratio preserved. Use this field anywhere a small image is "
-"required."
-msgstr ""
-"Small-sized image of the craft. It is automatically resized as a 64x64px "
-"image, with aspect ratio preserved. Use this field anywhere a small image is "
-"required."
+"image, with aspect ratio preserved. Use this field anywhere a small image is"
+" required."
+msgstr "Small-sized image of the craft. It is automatically resized as a 64x64px image, with aspect ratio preserved. Use this field anywhere a small image is required."
 
 #. module: nautical_x
 #: model:ir.ui.menu,name:nautical_x.menu_social_category
 msgid "Social Categories"
-msgstr "Categorías de Socio"
+msgstr ""
 
 #. module: nautical_x
 #: model:ir.actions.act_window,name:nautical_x.action_nautical_social_category
 #: field:res.partner,social_category_id:0
 msgid "Social Category"
-msgstr "Categoría Socio"
-
-#. module: nautical_x
-#: model:ir.ui.menu,name:nautical_x.menu_partner_form
-msgid "Socios"
-msgstr "Socios"
+msgstr "Categoria de Socio"
 
 #. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_filter
 #: view:res.partner:nautical_x.view_res_partner_form
 msgid "State"
 msgstr "Estado"
+
+#. module: nautical_x
+#: model:product.category,name:nautical_x.product_category_storage_service
+msgid "Storage Service"
+msgstr "Servicio de Almacenamiento"
 
 #. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_to_dispatch_tree
@@ -868,9 +850,7 @@ msgstr "Taxes"
 msgid ""
 "This field holds the image used as image for the craft, limited to "
 "1024x1024px."
-msgstr ""
-"This field holds the image used as image for the craft, limited to "
-"1024x1024px."
+msgstr "This field holds the image used as image for the craft, limited to 1024x1024px."
 
 #. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_form
@@ -943,16 +923,6 @@ msgid "Week(s)"
 msgstr "Semana(s)"
 
 #. module: nautical_x
-#: field:nautical.craft,weight:0
-msgid "Weight"
-msgstr "Peso"
-
-#. module: nautical_x
-#: field:nautical.craft,weight_uom_id:0
-msgid "Weight UOM"
-msgstr "UDM del Peso"
-
-#. module: nautical_x
 #: model:ir.model,name:nautical_x.model_contract_cancelled_wizard
 #: model:ir.model,name:nautical_x.model_craft_request
 msgid "Wizard to cancel contract"
@@ -979,9 +949,7 @@ msgstr "Año(s)"
 msgid ""
 "You have to select an owner!\n"
 "Please set one before choosing a product."
-msgstr ""
-"You have to select an owner!\n"
-"Please set one before choosing a product."
+msgstr "You have to select an owner!\nPlease set one before choosing a product."
 
 #. module: nautical_x
 #: view:res.partner:nautical_x.view_res_partner_form
@@ -1006,15 +974,11 @@ msgstr "false"
 #. module: nautical_x
 #: view:nautical.craft:nautical_x.view_nautical_craft_tree
 msgid ""
-"grey:state in ('permanent_cancellation');blue:state in ('draft',);black:"
-"state in ('in_reparation', 'sailing', 'contracted', 'check_due', "
-"'transitional_retirement', 'stored', 'in_custody'); red:state in "
-"('do_not_dispatch','expired'); green:state in ('to_dispatch')"
-msgstr ""
-"grey:state in ('permanent_cancellation');blue:state in ('draft',);black:"
-"state in ('in_reparation', 'sailing', 'contracted', 'check_due', "
-"'transitional_retirement', 'stored', 'in_custody'); red:state in "
-"('do_not_dispatch','expired'); green:state in ('to_dispatch')"
+"grey:state in ('permanent_cancellation');blue:state in "
+"('draft',);black:state in ('in_reparation', 'sailing', 'contracted', "
+"'check_due', 'transitional_retirement', 'stored', 'in_custody'); red:state "
+"in ('do_not_dispatch','expired'); green:state in ('to_dispatch')"
+msgstr "grey:state in ('permanent_cancellation');blue:state in ('draft',);black:state in ('in_reparation', 'sailing', 'contracted', 'check_due', 'transitional_retirement', 'stored', 'in_custody'); red:state in ('do_not_dispatch','expired'); green:state in ('to_dispatch')"
 
 #. module: nautical_x
 #: view:contract_cancelled_wizard:nautical_x.view_contract_cancelled_wizard

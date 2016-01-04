@@ -1,30 +1,21 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* nautical_translations
-#
+# * nautical_translations
+# 
+# Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 8.0\n"
+"Project-Id-Version: odoo-nautical (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-20 16:57+0000\n"
-"PO-Revision-Date: 2014-11-20 13:59-0300\n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2015-11-11 20:45+0000\n"
+"PO-Revision-Date: 2015-09-01 19:12+0000\n"
+"Last-Translator: Juan Jose Scarafia <scarafia.juanjose@gmail.com>\n"
+"Language-Team: Spanish (http://www.transifex.com/adhoc/ingadhoc-odoo-nautical-8-0/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: \n"
-"X-Generator: Poedit 1.5.4\n"
-
-#. module: nautical_translations
-#: view:account.invoice:nautical_translations.view_partner_mod_form
-msgid "Customer"
-msgstr "Socio"
-
-#. module: nautical_translations
-#: view:res.partner:nautical_translations.view_res_partner_filter
-msgid "Customer Partners"
-msgstr "Socios"
+"Content-Transfer-Encoding: \n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: nautical_translations
 #: view:res.partner:nautical_translations.view_res_partner_filter
@@ -37,13 +28,12 @@ msgid "Es organizacion?"
 msgstr "Es organizacion?"
 
 #. module: nautical_translations
-#: view:account.invoice:nautical_translations.view_partner_mod_form
 #: view:account.voucher:nautical_translations.view_partner_mod_voucher_form
-#: view:account.voucher.receipt:nautical_translations.view_partner_mod_receipt_form
 msgid "Socio"
 msgstr "Socio"
 
 #. module: nautical_translations
+#: view:account.invoice:nautical_translations.view_partner_mod_form
 #: view:account.invoice:nautical_translations.view_partner_mod_tree
 #: view:res.partner:nautical_translations.view_res_partner_filter
 msgid "Socios"
