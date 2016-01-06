@@ -10,6 +10,7 @@
     """,
     'author': u'ADHOC SA',
     'website': 'www.adhoc.com.ar',
+    'license': 'AGPL-3',
     'depends': ['nautical', 'nautical_x'],
     'data': [
         'view/partner_view.xml',
