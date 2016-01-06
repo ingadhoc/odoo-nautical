@@ -9,6 +9,8 @@
 
     """,
     'author': 'ADHOC SA',
+    'website': 'www.adhoc.com.ar',
+    'license': 'AGPL-3',
     'depends': ['nautical_x','portal'],
     'data': [
         'wizard/wizard_view.xml',
