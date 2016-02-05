@@ -69,12 +69,14 @@
                             states="permanent_cancellation"
                             string="To Draft"
                             />
-                        <button name="sgn_picked"
+                        <button name="action_set_picked"
+                            type="object"
                             states="to_dispatch"
                             string="Picked"
                             class="oe_highlight"
                             />
-                        <button name="sgn_dispached"
+                        <button name="action_set_dispached"
+                            type="object"
                             states="picked"
                             string="Dispached"
                             class="oe_highlight"
@@ -109,7 +111,8 @@
                             string="Requested"
                             class="oe_highlight"
                             />
-                        <button name="sgn_store"
+                        <button name="action_set_stored"
+                            type="object"
                             states="contracted,do_not_dispatch,in_custody,in_reparation,picked,sailing,to_dispatch,transitional_retirement"
                             string="Store"
                             class="oe_highlight"
@@ -127,7 +130,7 @@
                         <field name="ref"
                             />
                         <field name="product_id"
-                            on_change="onchange_product(product_id)"
+                            
                             />
                         <field name="plate"
                             attrs="{'invisible':[('craft_type','=','kayak')],'required':[('craft_type','!=','kayak')]}"

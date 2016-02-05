@@ -170,10 +170,10 @@ class partner(osv.osv):
         'recurring_next_date': fields.date('Date of Next Invoice'),
     }
 
-    _sql_constraints = [
-        ('national_identity_uniq', 'unique(national_identity, company_id)',
-         'National Identity must be unique per Company!'),
-    ]
+    # _sql_constraints = [
+    #     ('national_identity_uniq', 'unique(national_identity, company_id)',
+    #      'National Identity must be unique per Company!'),
+    # ]
 
     _defaults = {
         'recurring_interval': 1,

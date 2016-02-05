@@ -85,10 +85,8 @@
                       u'data/partner_track.xml',
                       u'data/craft_brand_track.xml',
                       u'data/authorization_track.xml',
-                      u'workflow/craft_workflow.xml',
-                      u'workflow/contract_workflow.xml',
                       'security/ir.model.access.csv'],
-    'version': '8.0.1.1.0',
+    'version': '8.0.1.2.0',
     'website': 'www.adhoc.com.ar'}
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

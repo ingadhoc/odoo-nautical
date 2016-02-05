@@ -12,7 +12,7 @@ import openerp.addons.decimal_precision as dp
 from openerp.tools.translate import _
 from openerp import fields as fields_new
 from openerp import models, api
-from openerp import tools, workflow
+from openerp import tools
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT, DEFAULT_SERVER_DATETIME_FORMAT, DATETIME_FORMATS_MAP, float_compare
 
 class craft(models.Model):
@@ -225,19 +225,18 @@ class craft(models.Model):
             return True
 
     def craft_request(self, cr, uid, ids, request_type, partner_id, context=None):
-        # wf_service = netsvc.LocalService("workflow")
         
         if request_type == 'sail':
-            signal = 'sgn_requested'
+            state = 'to_dispatch'
         elif request_type== 'transitional_retirement':
-            signal = 'sgn_to_transitional_retirement'
+            state = 'transitional_retirement'
         elif request_type== 'in_reparation':
-            signal = 'sgn_to_reparation'
+            state = 'in_reparation'
         elif request_type== 'in_custody':
-            signal = 'sgn_to_custody'
-        self.write(cr, uid, ids, {'aux_requestor_id':partner_id}, context)
-        for craft_id in ids:
-            workflow.trg_validate(uid, 'nautical.craft', craft_id, signal, cr)
+            state = 'in_custody'
+        self.write(cr, uid, ids, {'aux_requestor_id':partner_id, 'state': state}, context)
+        # for craft_id in ids:
+        #     workflow.trg_validate(uid, 'nautical.craft', craft_id, signal, cr)
 
 
     def create_craft_record(self, cr, uid, ids, vals, context=None):
@@ -358,4 +357,16 @@ class craft(models.Model):
                     return True
                 else:
                     return False
+
+    def action_set_stored(self, cr, uid, ids, *args):
+        self.write(cr, uid, ids, {'state': 'stored'})
+        return True
+
+    def action_set_picked(self, cr, uid, ids, *args):
+        self.write(cr, uid, ids, {'state': 'picked'})
+        return True
+
+    def action_set_dispached(self, cr, uid, ids, *args):
+        self.write(cr, uid, ids, {'state': 'sailing'})
+        return True
 

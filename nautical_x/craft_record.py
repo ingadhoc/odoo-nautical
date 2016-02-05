@@ -5,17 +5,16 @@
 ##############################################################################
 
 
-import re
-from openerp import netsvc
 from openerp.osv import osv, fields
+
 
 class craft_record(osv.osv):
     """Craft Record"""
-    
+
     _inherit = 'nautical.craft_record'
 
     _columns = {
-        'attachment_ids': fields.many2many('ir.attachment', 'craft_record_attachment_rel','contract_id', 'attachment_id', 'Attachments'),
+        'attachment_ids': fields.many2many('ir.attachment', 'craft_record_attachment_rel', 'contract_id', 'attachment_id', 'Attachments'),
     }
 
     _defaults = {

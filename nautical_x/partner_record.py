@@ -4,8 +4,6 @@
 # directory
 ##############################################################################
 
-import re
-from openerp import netsvc
 from openerp.osv import osv, fields
 
 class partner_record(osv.osv):

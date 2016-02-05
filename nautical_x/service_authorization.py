@@ -5,7 +5,6 @@
 ##############################################################################
 
 import re
-from openerp import netsvc
 from openerp.osv import osv, fields
 
 class service_authorization(osv.osv):

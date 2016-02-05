@@ -42,16 +42,16 @@ class contract(osv.osv):
     ]
 
 
-    def action_wfk_set_draft(self, cr, uid, ids, *args):
-        self.write(cr, uid, ids, {'state':'draft'})
-        wf_service = netsvc.LocalService("workflow")
-        for obj_id in ids:
-            wf_service.trg_delete(uid, 'nautical.contract', obj_id, cr)
-            wf_service.trg_create(uid, 'nautical.contract', obj_id, cr)
-        return True
+#     def action_wfk_set_draft(self, cr, uid, ids, *args):
+#         self.write(cr, uid, ids, {'state':'draft'})
+#         wf_service = netsvc.LocalService("workflow")
+#         for obj_id in ids:
+#             wf_service.trg_delete(uid, 'nautical.contract', obj_id, cr)
+#             wf_service.trg_create(uid, 'nautical.contract', obj_id, cr)
+#         return True
 
 
 
-contract()
+# contract()
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
