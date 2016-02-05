@@ -27,19 +27,22 @@
                     
                     <field name="state" />
 
-                    <button name="sgn_store"
+                    <button name="action_set_stored" 
+                        type="object"
                         states="contracted,do_not_dispatch,in_custody,in_reparation,sailing,to_dispatch,transitional_retirement,picked"
                         string="Store"
                         icon="gtk-go-back"
                         class="oe_highlight"
                         />
-                    <button name="sgn_picked"
+                    <button name="action_set_picked"
+                        type="object"
                         states="to_dispatch"
                         string="Picked"
                         icon="gtk-go-forward"
                         class="oe_highlight"
                         />                                                
-                    <button name="sgn_dispached"
+                    <button name="action_set_dispached"
+                        type="object"
                         states="picked"
                         string="Dispached"
                         icon="gtk-go-forward"

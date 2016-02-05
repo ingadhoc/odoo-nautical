@@ -6,7 +6,6 @@
 
 
 import re
-from openerp import netsvc
 from openerp.osv import osv, fields
 
 class authorization(osv.osv):

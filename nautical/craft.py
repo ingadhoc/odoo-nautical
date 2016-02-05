@@ -101,16 +101,12 @@ class craft(osv.osv):
     ]
 
 
-    def onchange_product(self, cr, uid, ids, context=None):
-        """"""
-        raise NotImplementedError
+    # def onchange_product(self, cr, uid, ids, context=None):
+    #     """"""
+    #     raise NotImplementedError
 
     def action_wfk_set_draft(self, cr, uid, ids, *args):
         self.write(cr, uid, ids, {'state':'draft'})
-        wf_service = netsvc.LocalService("workflow")
-        for obj_id in ids:
-            wf_service.trg_delete(uid, 'nautical.craft', obj_id, cr)
-            wf_service.trg_create(uid, 'nautical.craft', obj_id, cr)
         return True
 
 

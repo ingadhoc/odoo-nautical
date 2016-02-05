@@ -4,8 +4,6 @@
 # directory
 ##############################################################################
 
-import re
-from openerp import netsvc
 from openerp import models, api, fields
 
 class invoice_line(models.Model):

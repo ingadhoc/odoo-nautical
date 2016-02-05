@@ -21,7 +21,7 @@
 {
     'active': False,
     'name': 'Nautical Module Modifications',
-    'version': '8.0.1.2.0',
+    'version': '8.0.1.3.0',
     'category': 'base.module_category_knowledge_management',
     'depends': [
         'nautical',
@@ -69,7 +69,6 @@ Projects required:
         'view/res_partner_account_view.xml',
         'view/partner_invoice_line_view.xml',
         'view/nautical_menuitem.xml',
-        'workflow/craft_workflow.xml',
         'data/sequences.xml',
         'data/cron.xml',
         'data/product_data.xml',

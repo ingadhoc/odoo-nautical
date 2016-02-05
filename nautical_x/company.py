@@ -4,7 +4,6 @@
 # directory
 ##############################################################################
 import re
-from openerp import netsvc
 from openerp.tools.translate import _
 from openerp.osv import osv, fields
 
