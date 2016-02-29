@@ -118,6 +118,7 @@
                     <!-- <field name="state" widget="statusbar" attrs="{'invisible':[('state','not in',['draft','contracted'])]}" statusbar_visible="draft,contracted,stored"/> -->
                     <!-- <field name="state" widget="statusbar" domain="[('name','in',['stored','to_dispatch','sailing'])]" statusbar_colors='{"permanent_cancellation":"red","expired":"red"}'/> -->
                 </field>
+                
                 <sheet string="Craft" position="replace">
                     <sheet string="Craft">
                         <field name="pricelist_id" invisible="1"/>

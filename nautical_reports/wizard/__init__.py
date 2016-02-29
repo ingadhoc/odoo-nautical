@@ -6,3 +6,6 @@
 
 import member_wizard
 import abm_wizard
+import contract_cancelled_wizard
+import contract_wizard
+import craft_request

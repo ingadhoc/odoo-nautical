@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record id="view_craft_request" model="ir.ui.view">
+            <field name="name">craft_request.form.inherit</field>
+            <field name="model">craft_request</field>
+            <field name="inherit_id" ref="nautical_x.view_craft_request"/>
+            <field name="arch" type="xml">
+                <button string="Confirm" position="after">
+                    or
+                    <button name="craft_request" string="Confirm And Print Report" type="object" class="oe_highlight" context="{'print_report' : True}" attrs="{'invisible':[('request_type','!=','transitional_retirement')]}"/>
+                </button>
+            </field>
+        </record>
+        
+    </data>
+</openerp>

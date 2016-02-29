@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record id="view_create_contract" model="ir.ui.view">
+            <field name="name">create_contract.form</field>
+            <field name="model">create_contract</field>
+            <field name="inherit_id" ref="nautical_x.view_create_contract"/>
+            <field name="arch" type="xml">
+                <button name="create_contract" position="after">
+                    or
+                    <button name="create_contract" string="Create Contract and Print Report" type="object" class="oe_highlight" context="{'print_report' : True}"/>
+                </button>
+            </field>
+        </record>
+      
+
+    </data>
+</openerp>

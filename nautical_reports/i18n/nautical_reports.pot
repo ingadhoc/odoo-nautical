@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-30 15:56+0000\n"
-"PO-Revision-Date: 2014-10-30 15:56+0000\n"
+"POT-Creation-Date: 2016-02-19 15:33+0000\n"
+"PO-Revision-Date: 2016-02-19 15:33+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,8 +21,8 @@ msgid "AB wizard"
 msgstr ""
 
 #. module: nautical_reports
-#: model:ir.model,name:nautical_reports.model_account_voucher
-msgid "Accounting Voucher"
+#: model:ir.actions.report.xml,name:nautical_reports.report_alta_odt
+msgid "Alta Report"
 msgstr ""
 
 #. module: nautical_reports
@@ -37,9 +37,19 @@ msgid "Authorizations and Cancellations"
 msgstr ""
 
 #. module: nautical_reports
+#: model:ir.actions.report.xml,name:nautical_reports.report_baja_odt
+msgid "Baja Report"
+msgstr ""
+
+#. module: nautical_reports
 #: view:nautical_ab.wizard:nautical_reports.view_ab_wizard
 #: view:nautical_member.wizard:nautical_reports.members_wizard_form
 msgid "Cancel"
+msgstr ""
+
+#. module: nautical_reports
+#: view:contract_cancelled_wizard:nautical_reports.view_contract_cancelled_wizard
+msgid "Cancel Contract and Print Report"
 msgstr ""
 
 #. module: nautical_reports
@@ -49,13 +59,38 @@ msgid "Cancellations"
 msgstr ""
 
 #. module: nautical_reports
+#: view:craft_request:nautical_reports.view_craft_request
+msgid "Confirm"
+msgstr ""
+
+#. module: nautical_reports
+#: view:craft_request:nautical_reports.view_craft_request
+msgid "Confirm And Print Report"
+msgstr ""
+
+#. module: nautical_reports
 #: model:ir.model,name:nautical_reports.model_nautical_contract
 msgid "Contract"
 msgstr ""
 
 #. module: nautical_reports
+#: field:nautical.contract,number:0
+msgid "Contract Number"
+msgstr ""
+
+#. module: nautical_reports
 #: model:ir.actions.report.xml,name:nautical_reports.report_contract_odt
 msgid "Contrato"
+msgstr ""
+
+#. module: nautical_reports
+#: model:ir.model,name:nautical_reports.model_nautical_craft
+msgid "Craft"
+msgstr ""
+
+#. module: nautical_reports
+#: view:create_contract:nautical_reports.view_create_contract
+msgid "Create Contract and Print Report"
 msgstr ""
 
 #. module: nautical_reports
@@ -129,38 +164,44 @@ msgid "Members Wizard"
 msgstr ""
 
 #. module: nautical_reports
-#: code:addons/nautical_reports/wizard/abm_wizard.py:27
-#: code:addons/nautical_reports/wizard/abm_wizard.py:35
-#: code:addons/sources/odoo-nautical/addons/nautical_reports/wizard/abm_wizard.py:27
-#: code:addons/sources/odoo-nautical/addons/nautical_reports/wizard/abm_wizard.py:35
+#: code:addons/nautical_reports/wizard/abm_wizard.py:26
+#: code:addons/nautical_reports/wizard/abm_wizard.py:34
+#: code:addons/sources/odoo-nautical/nautical_reports/wizard/abm_wizard.py:26
+#: code:addons/sources/odoo-nautical/nautical_reports/wizard/abm_wizard.py:34
 #, python-format
 msgid "No records of contracts on these dates"
 msgstr ""
 
 #. module: nautical_reports
-#: view:account.voucher:nautical_reports.view_receipt_form
 #: view:nautical_member.wizard:nautical_reports.members_wizard_form
 msgid "Print"
 msgstr ""
 
 #. module: nautical_reports
 #: view:nautical.contract:nautical_reports.view_contract_form
+#: view:nautical.craft:nautical_reports.view_craft_form
 msgid "Print Contract"
 msgstr ""
 
 #. module: nautical_reports
-#: model:ir.actions.report.xml,name:nautical_reports.report_receipt_odt
-msgid "Receipt"
+#: view:nautical.contract:nautical_reports.view_contract_form
+#: view:nautical.craft:nautical_reports.view_craft_form
+msgid "Print Low Report"
 msgstr ""
 
 #. module: nautical_reports
-#: model:ir.actions.report.xml,name:nautical_reports.action_aeroo_report_ar_receipt
-msgid "Recibo Sorrento"
+#: view:nautical.craft:nautical_reports.view_craft_form
+msgid "Print Retirement Report"
 msgstr ""
 
 #. module: nautical_reports
 #: model:ir.ui.menu,name:nautical_reports.menu_members
 msgid "Register of Members"
+msgstr ""
+
+#. module: nautical_reports
+#: model:ir.actions.report.xml,name:nautical_reports.retirement_report_odt
+msgid "Retirement Report"
 msgstr ""
 
 #. module: nautical_reports
@@ -181,6 +222,26 @@ msgstr ""
 #. module: nautical_reports
 #: model:ir.model,name:nautical_reports.model_nautical_ab_wizard
 msgid "Wizard to AB"
+msgstr ""
+
+#. module: nautical_reports
+#: model:ir.model,name:nautical_reports.model_contract_cancelled_wizard
+#: model:ir.model,name:nautical_reports.model_craft_request
+msgid "Wizard to cancel contract"
+msgstr ""
+
+#. module: nautical_reports
+#: model:ir.model,name:nautical_reports.model_create_contract
+msgid "Wizard to create contract"
+msgstr ""
+
+#. module: nautical_reports
+#: view:contract_cancelled_wizard:nautical_reports.view_contract_cancelled_wizard
+#: view:craft_request:nautical_reports.view_craft_request
+#: view:create_contract:nautical_reports.view_create_contract
+#: view:nautical_ab.wizard:nautical_reports.view_ab_wizard
+#: view:nautical_member.wizard:nautical_reports.members_wizard_form
+msgid "or"
 msgstr ""
 
 #. module: nautical_reports

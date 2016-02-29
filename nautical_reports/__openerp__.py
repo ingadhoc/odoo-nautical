@@ -34,13 +34,16 @@ Nautical Reports
     'init_xml': [],
     'installable': True,
     'license': 'AGPL-3',
-    'name': u'Nautical Reports',
+    'name': 'Nautical Reports',
     'test': [],
     'demo': [
     ],
     'data': [
-        'report/transitional_retirement.xml',
         'report/contract_report.xml',
+        'report/report_alta.xml',
+        'report/report_baja.xml',
+        'report/report_retirement.xml',
+        'view/craft_view.xml',
         'view/contract_view.xml',
         'report/cuota_report.xml',
         'report/recibo.xml',
@@ -50,11 +53,14 @@ Nautical Reports
         'report/receipt_report.xml',
         'wizard/members_views.xml',
         'wizard/ab_wizard_view.xml',
+        'wizard/contract_wizard_view.xml',
+        'wizard/contract_cancelled_wizard_view.xml',
+        'wizard/craft_request_view.xml',
     ],
     'init_xml': [
 
     ],
-    'version': '8.0.1.1.0',
+    'version': '8.0.1.2.0',
     'website': 'www.adhoc.com.ar'}
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

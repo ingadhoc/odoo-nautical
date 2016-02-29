@@ -98,18 +98,3 @@ class craft_request(osv.osv_memory):
             craft_obj.craft_request(
                 cr, uid, [craft_id.id], wizard.request_type, partner_id, context)
         return True
-
-    def generate_report(self, cr, uid, ids, context=None):
-        context = context or {}
-        wizard = self.browse(cr, uid, ids)[0]
-        active_id = context.get('active_id', False)
-        craft_obj = self.pool.get('nautical.craft')
-        craft_id = craft_obj.browse(cr, uid, [active_id])[0]
-
-        if not active_id:
-            return {'type': 'ir.actions.act_window_close'}
-
-        ret = {'type': 'ir.actions.report.xml',
-               'context': context,
-               'report_name': 'report_transitional_retirement_odt'}
-        return ret

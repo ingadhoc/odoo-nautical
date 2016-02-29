@@ -153,6 +153,24 @@
              </field>
          </record>
          
+<!-- INHERITED TREE  -->
+    <record id="view_res_partner_tree" model="ir.ui.view">
+            <field name="name">res.partner.tree</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_tree"/>
+            <field name="priority">20</field>
+            <field name="arch" type="xml">
+                <field name="balance" position="replace"/>
+                <field name="display_name" position="after">
+                    <field name="craft_name"/>
+                    <field name="balance"/>
+                </field>
+                <field name="phone" position="replace"/>
+                <field name="email" position="after">
+                    <field name="phone"/>
+                </field>
+            </field>
+        </record>
 
 
     </data>

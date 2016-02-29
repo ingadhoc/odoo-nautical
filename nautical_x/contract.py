@@ -102,6 +102,8 @@ class contract(osv.osv):
     _constraints = [
     ]
 
+    
+
     @api.one
     @api.constrains('state')
     def validate_contract_permanent_cancellation(self):

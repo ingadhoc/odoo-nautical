@@ -35,7 +35,8 @@ class create_contract(osv.osv_memory):
             expiration_date = wizard.expiration_date
             new_contract_vals = {'start_date': start_date, 'start_code': start_code, 'expiration_date':
                                  expiration_date, 'owner_id': craft.owner_id.id, 'craft_id': craft.id, 'state': 'contracted'}
-            contract_obj.create(cr, uid, new_contract_vals, context=context)
+            contract_obj.create(
+                cr, uid, new_contract_vals, context=context)
             craft_obj.write(
                 cr, uid, craft.id, {'state': 'contracted'}, context=context)
 

@@ -2,17 +2,17 @@
 <openerp>
 <data>
 
-    <record id="authorizations_report_odt" model="ir.actions.report.xml">
-        <field name="name">Authorizations</field>
+    <record id="report_alta_odt" model="ir.actions.report.xml">
+        <field name="name">Alta Report</field>
         <field name="type">ir.actions.report.xml</field>
-        <field name="model">nautical.contract</field>
-        <field name="report_name">authorizations_report_odt</field>
+        <field name="model">nautical.craft</field>
+        <field name="report_name">report_alta_odt</field>
         <field name="report_type">aeroo</field>
         <field name="in_format">oo-odt</field>
         <field name="out_format" ref="report_aeroo.report_mimetypes_pdf_odt"/>
-        <field name="report_rml">nautical_reports/report/alta.odt</field>
-        <field name="parser_state">loc</field>
         <field name="parser_loc">l10n_ar_aeroo_base/parser.py</field>
+        <field name="report_rml">nautical_reports/report/report_alta.odt</field>
+        <field name="parser_state">loc</field>
         <field name="tml_source">file</field>
     </record> 
 
