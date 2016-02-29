@@ -22,6 +22,13 @@ addons:
       - python-serial
       - python-yaml
       - libcups2-dev # for aeroo
+      # FE
+      - python-dev
+      - swig
+      - libffi-dev
+      - libssl-dev
+      - python-m2crypto
+      - python-httplib2
 #     Search your packages here:
 #       https://github.com/travis-ci/apt-package-whitelist/blob/master/ubuntu-precise
 #      - wkhtmltopdf  # only add if needed and check the before_install section below
@@ -61,7 +68,7 @@ install:
   - pip install git+https://github.com/aeroo/aeroolib.git@master pycups==1.9.68
 
   # odoo argentina
-  - pip install geopy==0.95.1 BeautifulSoup # because l10n_ar_states module is installed
+  # - pip install geopy==0.95.1 BeautifulSoup # because l10n_ar_states module is installed
 
   # repository requirements
   - pip install -r requirements.txt
