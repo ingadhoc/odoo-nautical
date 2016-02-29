@@ -1,26 +1,30 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * nautical_reports
-# 
-# Translators:
+# 	* nautical_reports
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: odoo-nautical (8.0)\n"
+"Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-04 13:51+0000\n"
-"PO-Revision-Date: 2015-10-08 23:20+0000\n"
-"Last-Translator: Juan Jose Scarafia <scarafia.juanjose@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/adhoc/ingadhoc-odoo-nautical-8-0/language/es/)\n"
+"POT-Creation-Date: 2016-02-19 15:34+0000\n"
+"PO-Revision-Date: 2016-02-19 12:46-0300\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
-"Language: es\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 1.5.4\n"
 
 #. module: nautical_reports
 #: view:nautical_ab.wizard:nautical_reports.view_ab_wizard
 msgid "AB wizard"
 msgstr "AB wizard"
+
+#. module: nautical_reports
+#: model:ir.actions.report.xml,name:nautical_reports.report_alta_odt
+msgid "Alta Report"
+msgstr "Reporte Alta"
 
 #. module: nautical_reports
 #: model:ir.actions.report.xml,name:nautical_reports.authorizations_report_odt
@@ -34,10 +38,20 @@ msgid "Authorizations and Cancellations"
 msgstr "Altas Y Bajas"
 
 #. module: nautical_reports
+#: model:ir.actions.report.xml,name:nautical_reports.report_baja_odt
+msgid "Baja Report"
+msgstr "Reporte Baja"
+
+#. module: nautical_reports
 #: view:nautical_ab.wizard:nautical_reports.view_ab_wizard
 #: view:nautical_member.wizard:nautical_reports.members_wizard_form
 msgid "Cancel"
 msgstr "Cancelar"
+
+#. module: nautical_reports
+#: view:contract_cancelled_wizard:nautical_reports.view_contract_cancelled_wizard
+msgid "Cancel Contract and Print Report"
+msgstr "Cancelar Contrato y Imprimir Reporte Baja"
 
 #. module: nautical_reports
 #: model:ir.actions.report.xml,name:nautical_reports.cancellations_report_odt
@@ -46,14 +60,39 @@ msgid "Cancellations"
 msgstr "Bajas"
 
 #. module: nautical_reports
+#: view:craft_request:nautical_reports.view_craft_request
+msgid "Confirm"
+msgstr "Confirmar"
+
+#. module: nautical_reports
+#: view:craft_request:nautical_reports.view_craft_request
+msgid "Confirm And Print Report"
+msgstr "Confirmar y Imprimir Reporte Retiro"
+
+#. module: nautical_reports
 #: model:ir.model,name:nautical_reports.model_nautical_contract
 msgid "Contract"
 msgstr "Contrato"
 
 #. module: nautical_reports
+#: field:nautical.contract,number:0
+msgid "Contract Number"
+msgstr "Numero de Contrato"
+
+#. module: nautical_reports
 #: model:ir.actions.report.xml,name:nautical_reports.report_contract_odt
 msgid "Contrato"
 msgstr "Contrato"
+
+#. module: nautical_reports
+#: model:ir.model,name:nautical_reports.model_nautical_craft
+msgid "Craft"
+msgstr "Embarcación"
+
+#. module: nautical_reports
+#: view:create_contract:nautical_reports.view_create_contract
+msgid "Create Contract and Print Report"
+msgstr "Crear y Imprimir Reporte Alta"
 
 #. module: nautical_reports
 #: model:ir.actions.act_window,name:nautical_reports.action_ab_wizard
@@ -127,6 +166,8 @@ msgstr "Asistente De Socios"
 #. module: nautical_reports
 #: code:addons/nautical_reports/wizard/abm_wizard.py:26
 #: code:addons/nautical_reports/wizard/abm_wizard.py:34
+#: code:addons/sources/odoo-nautical/nautical_reports/wizard/abm_wizard.py:26
+#: code:addons/sources/odoo-nautical/nautical_reports/wizard/abm_wizard.py:34
 #, python-format
 msgid "No records of contracts on these dates"
 msgstr "No hay registro de contratos en esas fechas"
@@ -138,8 +179,20 @@ msgstr "Imprimir"
 
 #. module: nautical_reports
 #: view:nautical.contract:nautical_reports.view_contract_form
+#: view:nautical.craft:nautical_reports.view_craft_form
 msgid "Print Contract"
 msgstr "Imprimir Contrato"
+
+#. module: nautical_reports
+#: view:nautical.contract:nautical_reports.view_contract_form
+#: view:nautical.craft:nautical_reports.view_craft_form
+msgid "Print Low Report"
+msgstr "Imprimir Reporte Baja"
+
+#. module: nautical_reports
+#: view:nautical.craft:nautical_reports.view_craft_form
+msgid "Print Retirement Report"
+msgstr "Imprimir Reporte Retiro"
 
 #. module: nautical_reports
 #: model:ir.ui.menu,name:nautical_reports.menu_members
@@ -147,9 +200,14 @@ msgid "Register of Members"
 msgstr "Registro de Miembros"
 
 #. module: nautical_reports
+#: model:ir.actions.report.xml,name:nautical_reports.retirement_report_odt
+msgid "Retirement Report"
+msgstr "Reporte Retiro"
+
+#. module: nautical_reports
 #: model:ir.actions.report.xml,name:nautical_reports.report_transitional_retirement_odt
 msgid "Transitional Retirement Report"
-msgstr "Transitional Retirement Report"
+msgstr "Reporte de Retiro Transitorio"
 
 #. module: nautical_reports
 #: field:nautical_ab.wizard,type:0
@@ -167,10 +225,24 @@ msgid "Wizard to AB"
 msgstr "Wizard to AB"
 
 #. module: nautical_reports
+#: model:ir.model,name:nautical_reports.model_contract_cancelled_wizard
+#: model:ir.model,name:nautical_reports.model_craft_request
+msgid "Wizard to cancel contract"
+msgstr "Wizard to cancel contract"
+
+#. module: nautical_reports
+#: model:ir.model,name:nautical_reports.model_create_contract
+msgid "Wizard to create contract"
+msgstr "Wizard to create contract"
+
+#. module: nautical_reports
+#: view:contract_cancelled_wizard:nautical_reports.view_contract_cancelled_wizard
+#: view:craft_request:nautical_reports.view_craft_request
+#: view:create_contract:nautical_reports.view_create_contract
 #: view:nautical_ab.wizard:nautical_reports.view_ab_wizard
 #: view:nautical_member.wizard:nautical_reports.members_wizard_form
 msgid "or"
-msgstr ""
+msgstr "o"
 
 #. module: nautical_reports
 #: model:ir.model,name:nautical_reports.model_nautical_member_wizard

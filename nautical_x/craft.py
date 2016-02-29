@@ -234,7 +234,7 @@ class craft(models.Model):
             state = 'in_reparation'
         elif request_type== 'in_custody':
             state = 'in_custody'
-        self.write(cr, uid, ids, {'aux_requestor_id':partner_id, 'state': state}, context)
+        self.write(cr, uid, ids, {'aux_requestor_id': partner_id, 'state': state}, context)
         # for craft_id in ids:
         #     workflow.trg_validate(uid, 'nautical.craft', craft_id, signal, cr)
 
@@ -370,3 +370,4 @@ class craft(models.Model):
         self.write(cr, uid, ids, {'state': 'sailing'})
         return True
 
+   

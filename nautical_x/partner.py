@@ -98,11 +98,6 @@ class res_partner_invoice_line(osv.osv):
         vals = dict(defaults, **vals)
         return super(res_partner_invoice_line, self).create(vals)
 
-    # @api.onchange('product_id', 'discount')
-    # def discount_change(self):
-    #     if self.discount:
-    #         self.p
-
 
 class social_category(osv.osv):
 
@@ -136,12 +131,21 @@ class partner(osv.osv):
         #     self.social_number = self.document_number
         #     self.national_identity = False
 
+    @api.one
+    def _get_craft_names(self):
+        if self.owned_craft_ids:
+            craft_name = ''
+            for craft in self.owned_craft_ids:
+                craft_name += str(craft.name) + ', '
+            self.craft_name = craft_name
+
     national_identity = new_fields.Char(compute="_cal_number", store=True)
     social_number = new_fields.Char(compute="_cal_number",
                                     string='Social Number')
     document_number = new_fields.Char(required=True)
     social_category_id = new_fields.Many2one('nautical.social_category',
                                              string='Social Category')
+    craft_name = new_fields.Char(compute="_get_craft_names")
 
     _columns = {
         # 'social_category': fields.selection([
@@ -212,7 +216,7 @@ class partner(osv.osv):
             active_craft_ids = self.pool['nautical.craft'].search(
                 cr, uid,
                 [('owner_id', '=', partner.id),
-                 ('state', 'not in',  ['draft', 'permanent_cancellation'])],
+                 ('state', 'not in', ['draft', 'permanent_cancellation'])],
                 context=context)
             if not active_craft_ids and not partner.recurring_invoice_line_ids:
                 _logger.info(
@@ -289,7 +293,7 @@ class partner(osv.osv):
             partner.recurring_next_date, DEFAULT_SERVER_DATE_FORMAT)
         if fiscal_position_id:
             fiscal_position = fpos_obj.browse(
-                cr, uid,  fiscal_position_id, context=context)
+                cr, uid, fiscal_position_id, context=context)
         invoice_lines = []
         for line in partner.recurring_invoice_line_ids:
 
@@ -330,7 +334,7 @@ class partner(osv.osv):
         fiscal_position = None
         if fiscal_position_id:
             fiscal_position = fpos_obj.browse(
-                cr, uid,  fiscal_position_id, context=context)
+                cr, uid, fiscal_position_id, context=context)
         invoce_date = datetime.strptime(
             partner.recurring_next_date, DEFAULT_SERVER_DATE_FORMAT)
         account_id = craft.product_id.property_account_income.id

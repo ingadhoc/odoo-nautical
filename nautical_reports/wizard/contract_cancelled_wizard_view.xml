@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record id="view_contract_cancelled_wizard" model="ir.ui.view">
+            <field name="name">contract_cancelled_wizard.form</field>
+            <field name="model">contract_cancelled_wizard</field>
+            <field name="inherit_id" ref="nautical_x.view_contract_cancelled_wizard"/>
+            <field name="arch" type="xml">
+                <button name="contract_cancelled_wizard" position="after">
+                    or
+                    <button name="contract_cancelled_wizard" string="Cancel Contract and Print Report" type="object" class="oe_highlight" context="{'print_report' : True}"/>
+                </button>
+            </field>
+        </record>
+        
+        
+
+    </data>
+</openerp>

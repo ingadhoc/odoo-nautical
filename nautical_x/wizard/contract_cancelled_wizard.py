@@ -37,7 +37,6 @@ class contract_cancelled_wizard(osv.osv_memory):
                              'cancellation_note': cancellation_note, 'state': 'permanent_cancellation'}
             contract_obj.write(
                 cr, uid, contract_id, contract_vals, context=context)
-
             # Empty locations
             craft_obj.write(cr, uid, active_id, {
                             'location_ids': [(5, 0)], 'state': 'permanent_cancellation'}, context=context)

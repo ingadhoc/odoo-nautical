@@ -5,13 +5,14 @@
 <openerp>
     <data>
 
-        <record id="view_contract_form" model="ir.ui.view">
-            <field name="name">nautical.contract.report.form</field>
-            <field name="model">nautical.contract</field>
-            <field name="inherit_id" ref="nautical_x.view_nautical_contract_form"/>
+        <record id="view_craft_form" model="ir.ui.view">
+            <field name="name">nautical.craft.report.form</field>
+            <field name="model">nautical.craft</field>
+            <field name="inherit_id" ref="nautical_x.view_nautical_craft_form"/>
             <field name="arch" type="xml">
-                <field name="state" position="after">
+                <field name="state" position="before">
                     <button name="contract_alta_print" string="Print Contract" type="object" class="oe_highlight" attrs="{'invisible':[('state', '!=', 'contracted')]}"/>
+                    <button name="retirement_report_print" string="Print Retirement Report" type="object" class="oe_highlight" attrs="{'invisible':[('state', '!=', 'transitional_retirement')]}"/>
                     <button name="low_report_print" string="Print Low Report" type="object" class="oe_highlight" attrs="{'invisible':[('state', '!=', 'permanent_cancellation')]}"/>
                 </field>
             </field>

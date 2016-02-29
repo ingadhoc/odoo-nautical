@@ -15,9 +15,9 @@
                         <field name="service_requestor_id" attrs="{'invisible':[('request_type','!=','in_reparation')],'required':[('request_type','=','in_reparation')]}"/> 
                         <field name="custody_requestor_id" attrs="{'invisible':[('request_type','!=','in_custody')],'required':[('request_type','=','in_custody')]}"/>
                     </group>
-                    <div attrs="{'invisible':[('request_type','!=','transitional_retirement')]}">
+                    <!-- <div attrs="{'invisible':[('request_type','!=','transitional_retirement')]}">
 Remember to print, fill, scan and attache this form <button string="Transitional Retirement Form" class="oe_link" name="generate_report" type="object"/>
-                    </div>
+                    </div> -->
                     <footer>
                         <button name="craft_request" string="Confirm" type="object" class="oe_highlight"/>
                         or
