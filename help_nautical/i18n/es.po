@@ -1,0 +1,29 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * help_nautical
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: odoo-nautical (8.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-01-06 18:22+0000\n"
+"PO-Revision-Date: 2015-09-01 19:12+0000\n"
+"Last-Translator: Juan Jose Scarafia <scarafia.juanjose@gmail.com>\n"
+"Language-Team: Spanish (http://www.transifex.com/adhoc/ingadhoc-odoo-nautical-8-0/language/es/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: help_nautical
+#: model:ir.actions.act_window,name:help_nautical.action_nautical_page
+#: model:ir.ui.menu,name:help_nautical.menu_accounting_invoicing_page
+msgid "Nautical"
+msgstr "Náutico"
+
+#. module: help_nautical
+#: model:ir.ui.menu,name:help_nautical.menu_accounting_documentation
+msgid "Nuatical"
+msgstr "Náutico"

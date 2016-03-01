@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: odoo-nautical (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-04 13:51+0000\n"
-"PO-Revision-Date: 2016-01-04 13:51+0000\n"
-"Last-Translator: Nicolas Mac Rouillon <nmr@ingadhoc.com>\n"
+"POT-Creation-Date: 2016-02-29 18:08+0000\n"
+"PO-Revision-Date: 2016-02-29 18:08+0000\n"
+"Last-Translator: Juan Jose Scarafia <scarafia.juanjose@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/adhoc/ingadhoc-odoo-nautical-8-0/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,7 +24,7 @@ msgid "(update)"
 msgstr "(update)"
 
 #. module: nautical_x
-#: code:addons/nautical_x/partner.py:312 code:addons/nautical_x/partner.py:349
+#: code:addons/nautical_x/partner.py:316 code:addons/nautical_x/partner.py:353
 #, python-format
 msgid ". Period "
 msgstr ". Period "
@@ -82,7 +82,7 @@ msgid "Aux. Engine"
 msgstr "Motor Aux."
 
 #. module: nautical_x
-#: code:addons/nautical_x/craft.py:287
+#: code:addons/nautical_x/craft.py:286
 #, python-format
 msgid ""
 "Before choosing a product,\n"
@@ -133,7 +133,7 @@ msgid "Cancellation Number"
 msgstr "Cancellation Number"
 
 #. module: nautical_x
-#: code:addons/nautical_x/craft.py:318
+#: code:addons/nautical_x/craft.py:317
 #, python-format
 msgid ""
 "Cannot find a pricelist line matching this product and quantity.\n"
@@ -141,13 +141,13 @@ msgid ""
 msgstr "Cannot find a pricelist line matching this product and quantity.\nYou have to change either the product, the quantity or the pricelist."
 
 #. module: nautical_x
-#: code:addons/nautical_x/contract.py:124
+#: code:addons/nautical_x/contract.py:116
 #, python-format
 msgid "Cannot move to next stage, an End Code should be provided first."
 msgstr "Cannot move to next stage, an End Code should be provided first."
 
 #. module: nautical_x
-#: code:addons/nautical_x/contract.py:121
+#: code:addons/nautical_x/contract.py:113
 #, python-format
 msgid "Cannot move to next stage, an End Date should be provided first."
 msgstr "Cannot move to next stage, an End Date should be provided first."
@@ -174,7 +174,7 @@ msgid "Complete Ref"
 msgstr "Complete Ref"
 
 #. module: nautical_x
-#: code:addons/nautical_x/craft.py:327
+#: code:addons/nautical_x/craft.py:326
 #, python-format
 msgid "Configuration Error!"
 msgstr "Configuration Error!"
@@ -289,13 +289,13 @@ msgid "Created on"
 msgstr "Created on"
 
 #. module: nautical_x
-#: code:addons/nautical_x/partner.py:229
+#: code:addons/nautical_x/partner.py:233
 #, python-format
 msgid "Cuota del Periodo "
 msgstr "Cuota del Periodo "
 
 #. module: nautical_x
-#: code:addons/nautical_x/partner.py:232
+#: code:addons/nautical_x/partner.py:236
 #, python-format
 msgid "Cuota. "
 msgstr "Cuota. "
@@ -392,13 +392,13 @@ msgid "Embarcacion Tipo 2"
 msgstr "Embarcacion Tipo 2"
 
 #. module: nautical_x
-#: code:addons/nautical_x/contract.py:123
+#: code:addons/nautical_x/contract.py:115
 #, python-format
 msgid "End Code is Required."
 msgstr "End Code is Required."
 
 #. module: nautical_x
-#: code:addons/nautical_x/contract.py:120
+#: code:addons/nautical_x/contract.py:112
 #, python-format
 msgid "End Date is Required."
 msgstr "End Date is Required."
@@ -612,24 +612,19 @@ msgid "National Identity"
 msgstr "Documento de Identidad"
 
 #. module: nautical_x
-#: sql_constraint:res.partner:0
-msgid "National Identity must be unique per Company!"
-msgstr "National Identity must be unique per Company!"
-
-#. module: nautical_x
-#: code:addons/nautical_x/craft.py:287
+#: code:addons/nautical_x/craft.py:286
 #, python-format
 msgid "No Owner Defined!"
 msgstr "No Owner Defined!"
 
 #. module: nautical_x
-#: code:addons/nautical_x/craft.py:310
+#: code:addons/nautical_x/craft.py:309
 #, python-format
 msgid "No Pricelist ! : "
 msgstr "No Pricelist ! : "
 
 #. module: nautical_x
-#: code:addons/nautical_x/craft.py:321
+#: code:addons/nautical_x/craft.py:320
 #, python-format
 msgid "No valid pricelist line found ! :"
 msgstr "No valid pricelist line found ! :"
@@ -722,11 +717,6 @@ msgstr "Historial"
 #: field:res.partner,recurring_rule_type:0
 msgid "Recurrency"
 msgstr "Recurrencia"
-
-#. module: nautical_x
-#: view:craft_request:nautical_x.view_craft_request
-msgid "Remember to print, fill, scan and attache this form"
-msgstr "Remember to print, fill, scan and attache this form"
 
 #. module: nautical_x
 #: field:res.partner,recurring_interval:0
@@ -888,11 +878,6 @@ msgid "Transitional Retirement"
 msgstr "Retiro de Transición"
 
 #. module: nautical_x
-#: view:craft_request:nautical_x.view_craft_request
-msgid "Transitional Retirement Form"
-msgstr "Transitional Retirement Form"
-
-#. module: nautical_x
 #: view:res.partner:nautical_x.view_res_partner_form
 msgid "True"
 msgstr "True"
@@ -944,7 +929,7 @@ msgid "Year(s)"
 msgstr "Año(s)"
 
 #. module: nautical_x
-#: code:addons/nautical_x/craft.py:308
+#: code:addons/nautical_x/craft.py:307
 #, python-format
 msgid ""
 "You have to select an owner!\n"
