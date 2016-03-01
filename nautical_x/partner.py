@@ -145,7 +145,9 @@ class partner(osv.osv):
     document_number = new_fields.Char(required=True)
     social_category_id = new_fields.Many2one('nautical.social_category',
                                              string='Social Category')
-    craft_name = new_fields.Char(compute="_get_craft_names")
+    craft_name = new_fields.Char(
+    	compute="_get_craft_names",
+    	string='Nombre de embarcación')
 
     _columns = {
         # 'social_category': fields.selection([
