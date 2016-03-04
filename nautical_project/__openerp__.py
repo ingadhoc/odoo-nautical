@@ -27,7 +27,7 @@
         'l10n_ar_chart_generic',
         'l10n_ar_bank',
         'purchase',
-        # 'account_interests',
+        'account_interests',
         # 'web_adhoc_cust',
         # Others addons
         # 'web_nocreatedb', Disabled for now to make it easier to test
