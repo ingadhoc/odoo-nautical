@@ -28,7 +28,7 @@ class contract_cancelled_wizard(osv.osv_memory):
         contract_obj = self.pool.get('nautical.contract')
         craft_obj = self.pool.get('nautical.craft')
         contract_id = contract_obj.search(
-            cr, uid, [('craft_id', '=', active_id), ('state', '=' 'contracted')],
+            cr, uid, [('craft_id', '=', active_id), ('state', '=', 'contracted')],
             order='id desc',
             context=context)[0]
         if active_id:
