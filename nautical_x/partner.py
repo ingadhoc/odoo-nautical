@@ -136,7 +136,7 @@ class partner(osv.osv):
         if self.owned_craft_ids:
             craft_name = ''
             for craft in self.owned_craft_ids:
-                craft_name += str(craft.name) + ', '
+                craft_name += craft.name.encode('utf8') + ', '
             self.craft_name = craft_name
 
     national_identity = new_fields.Char(compute="_cal_number", store=True)
@@ -146,8 +146,9 @@ class partner(osv.osv):
     social_category_id = new_fields.Many2one('nautical.social_category',
                                              string='Social Category')
     craft_name = new_fields.Char(
-    	compute="_get_craft_names",
-    	string='Nombre de embarcación')
+        compute="_get_craft_names",
+        string='Nombre de embarcación',
+        )
 
     _columns = {
         # 'social_category': fields.selection([
