@@ -41,7 +41,8 @@ class res_partner_invoice_line(osv.osv):
         'name': fields.text('Description', required=True),
         'quantity': fields.float('Quantity', required=True),
         'uom_id': fields.many2one('product.uom', 'Unit of Measure', required=True),
-        'price_unit': fields.float('Unit Price', required=True),
+        'price_unit': fields.related('product_id.price', type='float', string='Unit Price', required=True),
+        # 'price_unit': fields.float('Unit Price', required=True),
         'discount': fields.float('Discount (%)'),
         'price_subtotal': fields.function(_amount_line, string='Sub Total', type="float", digits_compute=dp.get_precision('Account')),
     }
