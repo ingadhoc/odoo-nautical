@@ -20,7 +20,7 @@
 ##############################################################################
 {
     'name': 'Nautical Reports',
-    'version': '8.0.1.3.0',
+    'version': '8.0.1.4.0',
     'author': 'ADHOC SA',
     'license': 'AGPL-3',
     'category': 'base.module_category_knowledge_management',
@@ -35,6 +35,7 @@ Nautical Reports
         'report_aeroo',
         'l10n_ar_aeroo_base',
         'l10n_ar_aeroo_voucher',
+        'login_serial',
     ],
     'demo': [
     ],
@@ -52,6 +53,7 @@ Nautical Reports
         'report/auth_wizard.xml',
         'report/cancel_wizard.xml',
         'report/receipt_report.xml',
+        'report/carnet_report.xml',
         'wizard/members_views.xml',
         'wizard/ab_wizard_view.xml',
         'wizard/contract_wizard_view.xml',
@@ -61,5 +63,3 @@ Nautical Reports
     'active': False,
     'installable': True,
 }
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
