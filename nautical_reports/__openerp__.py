@@ -26,6 +26,7 @@
         'report_aeroo',
         'l10n_ar_aeroo_base',
         'l10n_ar_aeroo_voucher',
+        'login_serial',
     ],
     'description': """
 Nautical Reports
@@ -51,6 +52,7 @@ Nautical Reports
         'report/auth_wizard.xml',
         'report/cancel_wizard.xml',
         'report/receipt_report.xml',
+        'report/carnet_report.xml',
         'wizard/members_views.xml',
         'wizard/ab_wizard_view.xml',
         'wizard/contract_wizard_view.xml',
@@ -60,7 +62,7 @@ Nautical Reports
     'init_xml': [
 
     ],
-    'version': '8.0.1.2.0',
+    'version': '8.0.1.3.0',
     'website': 'www.adhoc.com.ar'}
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
