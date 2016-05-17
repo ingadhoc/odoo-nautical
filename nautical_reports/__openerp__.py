@@ -18,9 +18,18 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-{'active': False,
-    'author': u'ADHOC SA',
-    'category': u'base.module_category_knowledge_management',
+{
+    'name': 'Nautical Reports',
+    'version': '8.0.1.4.0',
+    'author': 'ADHOC SA',
+    'license': 'AGPL-3',
+    'category': 'base.module_category_knowledge_management',
+    'website': 'www.adhoc.com.ar',
+    'description': """
+Nautical Reports
+================
+""",
+    'test': [],
     'depends': [
         'nautical_x',
         'report_aeroo',
@@ -28,15 +37,6 @@
         'l10n_ar_aeroo_voucher',
         'login_serial',
     ],
-    'description': """
-Nautical Reports
-================
-""",
-    'init_xml': [],
-    'installable': True,
-    'license': 'AGPL-3',
-    'name': 'Nautical Reports',
-    'test': [],
     'demo': [
     ],
     'data': [
@@ -44,6 +44,7 @@ Nautical Reports
         'report/report_alta.xml',
         'report/report_baja.xml',
         'report/report_retirement.xml',
+        'report/export_craft_report.xml',
         'view/craft_view.xml',
         'view/contract_view.xml',
         'report/cuota_report.xml',
@@ -59,10 +60,6 @@ Nautical Reports
         'wizard/contract_cancelled_wizard_view.xml',
         'wizard/craft_request_view.xml',
     ],
-    'init_xml': [
-
-    ],
-    'version': '8.0.1.3.0',
-    'website': 'www.adhoc.com.ar'}
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+    'active': False,
+    'installable': True,
+}
