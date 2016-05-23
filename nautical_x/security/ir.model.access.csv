@@ -4,3 +4,9 @@ access_res_partner_invoice_line_sale_user,res_partner_invoice_line_sale_user,mod
 access_res_partner_invoice_line_all,res_partner_invoice_line_all,model_res_partner_invoice_line,,1,0,0,0
 access_social_category,access_social_category,nautical_x.model_nautical_social_category,,1,0,0,0
 access_social_category_manager,access.social_category_manager,nautical_x.model_nautical_social_category,nautical.group_manager,1,1,1,1
+access_product_price_history_manager,product.template.manager,product.model_product_template,nautical.group_manager,1,1,1,1
+access_product_template_user,product.template.user,product.model_product_template,nautical.group_user,1,1,1,1
+access_product_template_tractorista,product.template.tractorista,product.model_product_template,nautical.group_tractorista,1,1,1,1
+access_product_price_history_manager,product.price_history.manager,product.model_product_price_history,nautical.group_manager,1,1,1,1
+access_product_price_history_user,product.price_history.user,product.model_product_price_history,nautical.group_user,1,1,1,1
+access_product_price_history_tractorista,product.price_history.tractorista,product.model_product_price_history,nautical.group_tractorista,1,1,1,1
