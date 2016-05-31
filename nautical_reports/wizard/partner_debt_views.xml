@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<openerp>
+    <data>
+
+        <record id="partner_debt_wizard_form" model="ir.ui.view">
+            <field name="name">nautical_partner_debt_form</field>
+            <field name="model">nautical_partner_debt.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Members debt List" version="7.0">
+                    <h2>Want to see a list of partners with debt?</h2>
+                    <footer>
+                        <button string="Print" name="members_print" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+             
+        <act_window name="Members with debt Wizard"
+            id="action_partner_debt_wizard"
+            src_model="res.partner"
+            res_model="nautical_partner_debt.wizard"
+            view_mode="form" target="new" view_type="form"/>
+
+            
+
+        <menuitem
+            name="Partner Debt"
+            id="menu_partner_debt"
+            sequence="100"
+            action="action_partner_debt_wizard"
+            parent="account.menu_finance_receivables"
+            
+            />
+        
+    </data>
+</openerp>

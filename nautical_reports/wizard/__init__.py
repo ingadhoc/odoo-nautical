@@ -4,8 +4,9 @@
 # directory
 ##############################################################################
 
-import member_wizard
-import abm_wizard
-import contract_cancelled_wizard
-import contract_wizard
-import craft_request
+from . import member_wizard
+from . import abm_wizard
+from . import contract_cancelled_wizard
+from . import contract_wizard
+from . import craft_request
+from . import partner_debt_wizard

@@ -20,7 +20,7 @@
 ##############################################################################
 {
     'name': 'Nautical Reports',
-    'version': '8.0.1.4.0',
+    'version': '8.0.1.5.0',
     'author': 'ADHOC SA',
     'license': 'AGPL-3',
     'category': 'base.module_category_knowledge_management',
@@ -54,11 +54,13 @@ Nautical Reports
         'report/cancel_wizard.xml',
         'report/receipt_report.xml',
         'report/carnet_report.xml',
+        'report/partners_debt_report.xml',
         'wizard/members_views.xml',
         'wizard/ab_wizard_view.xml',
         'wizard/contract_wizard_view.xml',
         'wizard/contract_cancelled_wizard_view.xml',
         'wizard/craft_request_view.xml',
+        'wizard/partner_debt_views.xml',
     ],
     'active': False,
     'installable': True,
