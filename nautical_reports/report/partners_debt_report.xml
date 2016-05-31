@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<openerp>
+<data>
+
+    <record id="partner_debt_report" model="ir.actions.report.xml">
+        <field name="name">Partners Debt Report</field>
+        <field name="type">ir.actions.report.xml</field>
+        <field name="model">res.partner</field>
+        <field name="report_name">partner_debt_report</field>
+        <field name="report_type">aeroo</field>
+        <field name="in_format">oo-ods</field>
+        <field name="report_rml">nautical_reports/report/partners_debt_report.ods</field>
+        <field name="out_format" ref="report_aeroo.report_mimetypes_xls_odt"/>
+        <field name="parser_state">default</field>
+        <field name="tml_source">file</field>
+    </record>
+
+
+</data>
+</openerp>

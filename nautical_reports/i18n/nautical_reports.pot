@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-19 15:33+0000\n"
-"PO-Revision-Date: 2016-02-19 15:33+0000\n"
+"POT-Creation-Date: 2016-05-31 12:42+0000\n"
+"PO-Revision-Date: 2016-05-31 12:42+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -44,6 +44,7 @@ msgstr ""
 #. module: nautical_reports
 #: view:nautical_ab.wizard:nautical_reports.view_ab_wizard
 #: view:nautical_member.wizard:nautical_reports.members_wizard_form
+#: view:nautical_partner_debt.wizard:nautical_reports.partner_debt_wizard_form
 msgid "Cancel"
 msgstr ""
 
@@ -56,6 +57,11 @@ msgstr ""
 #: model:ir.actions.report.xml,name:nautical_reports.cancellations_report_odt
 #: selection:nautical_ab.wizard,type:0
 msgid "Cancellations"
+msgstr ""
+
+#. module: nautical_reports
+#: model:ir.actions.report.xml,name:nautical_reports.carnet_report
+msgid "Carnet Report"
 msgstr ""
 
 #. module: nautical_reports
@@ -101,12 +107,14 @@ msgstr ""
 #. module: nautical_reports
 #: field:nautical_ab.wizard,create_uid:0
 #: field:nautical_member.wizard,create_uid:0
+#: field:nautical_partner_debt.wizard,create_uid:0
 msgid "Created by"
 msgstr ""
 
 #. module: nautical_reports
 #: field:nautical_ab.wizard,create_date:0
 #: field:nautical_member.wizard,create_date:0
+#: field:nautical_partner_debt.wizard,create_date:0
 msgid "Created on"
 msgstr ""
 
@@ -126,6 +134,11 @@ msgid "Date To"
 msgstr ""
 
 #. module: nautical_reports
+#: model:ir.actions.report.xml,name:nautical_reports.export_craft_report
+msgid "Export Craft Report"
+msgstr ""
+
+#. module: nautical_reports
 #: view:nautical_ab.wizard:nautical_reports.view_ab_wizard
 msgid "Generate List"
 msgstr ""
@@ -133,18 +146,21 @@ msgstr ""
 #. module: nautical_reports
 #: field:nautical_ab.wizard,id:0
 #: field:nautical_member.wizard,id:0
+#: field:nautical_partner_debt.wizard,id:0
 msgid "ID"
 msgstr ""
 
 #. module: nautical_reports
 #: field:nautical_ab.wizard,write_uid:0
 #: field:nautical_member.wizard,write_uid:0
+#: field:nautical_partner_debt.wizard,write_uid:0
 msgid "Last Updated by"
 msgstr ""
 
 #. module: nautical_reports
 #: field:nautical_ab.wizard,write_date:0
 #: field:nautical_member.wizard,write_date:0
+#: field:nautical_partner_debt.wizard,write_date:0
 msgid "Last Updated on"
 msgstr ""
 
@@ -164,6 +180,16 @@ msgid "Members Wizard"
 msgstr ""
 
 #. module: nautical_reports
+#: view:nautical_partner_debt.wizard:nautical_reports.partner_debt_wizard_form
+msgid "Members debt List"
+msgstr ""
+
+#. module: nautical_reports
+#: model:ir.actions.act_window,name:nautical_reports.action_partner_debt_wizard
+msgid "Members with debt Wizard"
+msgstr ""
+
+#. module: nautical_reports
 #: code:addons/nautical_reports/wizard/abm_wizard.py:26
 #: code:addons/nautical_reports/wizard/abm_wizard.py:34
 #: code:addons/sources/odoo-nautical/nautical_reports/wizard/abm_wizard.py:26
@@ -173,7 +199,18 @@ msgid "No records of contracts on these dates"
 msgstr ""
 
 #. module: nautical_reports
+#: model:ir.ui.menu,name:nautical_reports.menu_partner_debt
+msgid "Partner Debt"
+msgstr ""
+
+#. module: nautical_reports
+#: model:ir.actions.report.xml,name:nautical_reports.partner_debt_report
+msgid "Partners Debt Report"
+msgstr ""
+
+#. module: nautical_reports
 #: view:nautical_member.wizard:nautical_reports.members_wizard_form
+#: view:nautical_partner_debt.wizard:nautical_reports.partner_debt_wizard_form
 msgid "Print"
 msgstr ""
 
@@ -205,13 +242,13 @@ msgid "Retirement Report"
 msgstr ""
 
 #. module: nautical_reports
-#: model:ir.actions.report.xml,name:nautical_reports.report_transitional_retirement_odt
-msgid "Transitional Retirement Report"
+#: field:nautical_ab.wizard,type:0
+msgid "Type"
 msgstr ""
 
 #. module: nautical_reports
-#: field:nautical_ab.wizard,type:0
-msgid "Type"
+#: view:nautical_partner_debt.wizard:nautical_reports.partner_debt_wizard_form
+msgid "Want to see a list of partners with debt?"
 msgstr ""
 
 #. module: nautical_reports
@@ -241,6 +278,7 @@ msgstr ""
 #: view:create_contract:nautical_reports.view_create_contract
 #: view:nautical_ab.wizard:nautical_reports.view_ab_wizard
 #: view:nautical_member.wizard:nautical_reports.members_wizard_form
+#: view:nautical_partner_debt.wizard:nautical_reports.partner_debt_wizard_form
 msgid "or"
 msgstr ""
 
