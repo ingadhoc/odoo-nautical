@@ -346,11 +346,11 @@ class partner(osv.osv):
             account_id = craft.product_id.categ_id.property_account_income_categ.id
         account_id = fpos_obj.map_account(
             cr, uid, fiscal_position, account_id)
-        default_analytics = self.pool.get('account.analytic.default').account_get(
+        default_analytic = self.pool.get('account.analytic.default').account_get(
             cr, uid, craft.product_id.id, partner.id, context=None)
-        analytics_id = False
-        if default_analytics:
-            analytics_id = default_analytics.analytics_id.id
+        analytic_id = False
+        if default_analytic:
+            analytic_id = default_analytic.analytic_id.id
 
         inv_line_values = {
             # TODO add tax, name origin and analitic account
@@ -366,7 +366,7 @@ class partner(osv.osv):
             'invoice_id': inv_id,
             'invoice_line_tax_id': [(6, 0, [x.id for x in craft.tax_id])],
             # 'invoice_line_tax_id': [(6, 0, [x.id for x in line.tax_id])],
-            'analytics_id': analytics_id,
+            'analytic_id': analytic_id,
             # 'invoice_line_tax_id': res.get('invoice_line_tax_id'),
             # 'account_analytic_id': sale.project_id.id or False,
         }
