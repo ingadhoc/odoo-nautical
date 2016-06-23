@@ -31,8 +31,8 @@ class res_partner_invoice_line(osv.osv):
                     (line.price_unit * line.discount) / 100
             res[line.id] = line.quantity * price_unit
             # if line.analytic_account_id.pricelist_id:
-                # cur = line.analytic_account_id.pricelist_id.currency_id
-                # res[line.id] = self.pool.get('res.currency').round(cr, uid, cur, res[line.id])
+            # cur = line.analytic_account_id.pricelist_id.currency_id
+            # res[line.id] = self.pool.get('res.currency').round(cr, uid, cur, res[line.id])
         return res
 
     _columns = {
@@ -60,7 +60,7 @@ class res_partner_invoice_line(osv.osv):
         # if partner_id:
             # part = self.pool.get('res.partner').browse(cr, uid, partner_id, context=local_context)
             # if part.lang:
-                # local_context.update({'lang': part.lang})
+            # local_context.update({'lang': part.lang})
 
         result = {}
         res = self.pool.get('product.product').browse(
@@ -149,7 +149,7 @@ class partner(osv.osv):
     craft_name = new_fields.Char(
         compute="_get_craft_names",
         string='Nombre de embarcación',
-        )
+    )
 
     _columns = {
         # 'social_category': fields.selection([
@@ -307,11 +307,11 @@ class partner(osv.osv):
                 account_id = res.categ_id.property_account_income_categ.id
             account_id = fpos_obj.map_account(
                 cr, uid, fiscal_position, account_id)
-            default_analytics = self.pool.get('account.analytic.default').account_get(
+            default_analytic = self.pool.get('account.analytic.default').account_get(
                 cr, uid, line.product_id.id, partner.id, context=None)
-            analytics_id = False
-            if default_analytics:
-                analytics_id = default_analytics.analytics_id.id
+            analytic_id = False
+            if default_analytic:
+                analytic_id = default_analytic.analytic_id.id
 
             taxes = res.taxes_id or False
             tax_id = fpos_obj.map_tax(cr, uid, fiscal_position, taxes)
@@ -319,7 +319,7 @@ class partner(osv.osv):
             lines = {
                 'name': line.name + ' - ' + _('. Period ') + invoce_date.strftime('%m-%y'),
                 'account_id': account_id,
-                'analytics_id': analytics_id,
+                'analytic_id': analytic_id,
                 'price_unit': line.price_unit or 0.0,
                 'quantity': line.quantity,
                 'uos_id': line.uom_id.id or False,
