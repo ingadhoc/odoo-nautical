@@ -226,8 +226,6 @@ class partner(osv.osv):
                 _logger.info(
                     'Fail to create recurring invoice for partner %s, he does not have any activ craft or recurreing invoice line' % (partner.name))
                 continue
-            # We use the partner prepare invoice fucntion defined in account
-            # intereset
             inv_values = self._prepare_invoice(
                 cr, uid, partner, context=context)
             if inv_values:
@@ -371,3 +369,48 @@ class partner(osv.osv):
             # 'account_analytic_id': sale.project_id.id or False,
         }
         return inv_line_values
+
+    def _prepare_invoice(self, cr, uid, partner, journal_id=None, context=None):
+        """
+        Se pueden agregar el name origin y reference, después de llamar a esta funcion, por ejemplo
+            invoice_vals = self._prepare_invoice (cr, uid, partner, jorunal_id, context)
+            invoice_vals['name'] = ''
+            invoice_vals['origin'] = ''
+            invoice_vals['reference'] = ''
+        Prepare the dict of values to create the new invoice for a
+           sales order. This method may be overridden to implement custom
+           invoice generation (making sure to call super() to establish
+           a clean extension chain).
+
+           :param browse_record order: sale.order record to invoice
+           :param list(int) line: list of invoice line IDs that must be
+                                  attached to the invoice
+           :return: dict of value to create() the invoice
+        """
+        if context is None:
+            context = {}
+        if journal_id is None:
+            journal_ids = self.pool.get('account.journal').search(
+                cr,
+                uid,
+                [('type', '=', 'sale'),
+                ('company_id', '=', partner.company_id.id)],
+                limit=1)
+            if not journal_ids:
+                raise except_orm(_('Error!'),
+                    ('Please define sales journal for this company: "%s" (id:%d).') % (partner.company_id.name, partner.company_id.id))
+            journal_id = journal_ids[0]
+        invoice_vals = {
+            'type': 'out_invoice',
+            'account_id': partner.property_account_receivable.id,
+            'partner_id': partner.id,
+            'journal_id': journal_id,
+            # 'invoice_line': [(6, 0, lines)],
+            'currency_id': partner.property_product_pricelist.currency_id.id,
+            'payment_term': partner.property_payment_term.id or False,
+            'fiscal_position': partner.property_account_position.id,
+            'date_invoice': context.get('date_invoice', False),
+            'company_id': partner.company_id.id,
+            'user_id': partner.user_id.id or False
+        }
+        return invoice_vals
