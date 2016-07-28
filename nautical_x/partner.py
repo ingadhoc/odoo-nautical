@@ -38,6 +38,7 @@ class res_partner_invoice_line(osv.osv):
     _columns = {
         'product_id': fields.many2one('product.product', 'Product', required=True),
         'partner_id': fields.many2one('res.partner', 'Partner'),
+        'company_id': fields.many2one('res.company', 'Company', required=True),
         'name': fields.text('Description', required=True),
         'quantity': fields.float('Quantity', required=True),
         'uom_id': fields.many2one('product.uom', 'Unit of Measure', required=True),
@@ -48,6 +49,7 @@ class res_partner_invoice_line(osv.osv):
     }
     _defaults = {
         'quantity': 1,
+        'company_id': lambda self,cr,uid,c: self.pool.get('res.users').browse(cr, uid, uid, c).company_id.id,
     }
 
     def product_id_change(self, cr, uid, ids, product, uom_id, qty=0, partner_id=False, price_unit=False, pricelist_id=False, context=None):
@@ -205,6 +207,7 @@ class partner(osv.osv):
         else:
             partner_ids = self.search(
                 cr, uid, [('recurring_next_date', '<=', current_date), ('customer', '=', True)])
+        print 'partner_ids[:3]', partner_ids[:3]
         return self.create_invoices(
             cr, uid, partner_ids, open_invoices=True,
             automatic=True, context=context)
@@ -216,70 +219,81 @@ class partner(osv.osv):
         current_date = time.strftime('%Y-%m-%d')
         inv_obj = self.pool.get('account.invoice')
         inv_ids = []
-        for partner in self.browse(cr, uid, ids, context=context):
-            active_craft_ids = self.pool['nautical.craft'].search(
-                cr, uid,
-                [('owner_id', '=', partner.id),
-                 ('state', 'not in', ['draft', 'permanent_cancellation'])],
-                context=context)
-            if not active_craft_ids and not partner.recurring_invoice_line_ids:
-                _logger.info(
-                    'Fail to create recurring invoice for partner %s, he does not have any activ craft or recurreing invoice line' % (partner.name))
-                continue
-            inv_values = self._prepare_invoice(
-                cr, uid, partner, context=context)
-            if inv_values:
-                invoce_date = datetime.strptime(
-                    partner.recurring_next_date, DEFAULT_SERVER_DATE_FORMAT)
+        for partner_id in ids:
+            for company_id in self.pool['res.company'].search(cr, uid, [], context=context):
+                new_context = context.copy()
+                new_context['company_id'] = company_id
+                partner = self.browse(cr, uid, partner_id, context=new_context)
 
-                inv_values['comment'] = _(
-                    'Cuota del Periodo ') + invoce_date.strftime('%m-%y')
-                inv_values['date_invoice'] = partner.recurring_next_date
-                inv_values['origin'] = inv_values['reference'] = _(
-                    'Cuota. ') + invoce_date.strftime('%m-%y')
-                try:
-                    inv_id = inv_obj.create(
-                        cr, uid, inv_values, context=context)
-                    _logger.info('Invoice id: %i created' % (inv_id))
-                except Exception, e:
-                    _logger.warning(
-                        "Unable to create invoice. This is what we get: %s" % e)
+                active_craft_ids = self.pool['nautical.craft'].search(
+                    cr, uid,
+                    [('owner_id', '=', partner.id),
+                     ('state', 'not in', ['draft', 'permanent_cancellation']),
+                     ('company_id', '=', company_id)],
+                    context=new_context)
+                recurring_invoice_line_ids = self.pool[
+                    'res.partner.invoice.line'].search(
+                    cr, uid, [
+                        ('partner_id', '=', partner.id),
+                        ('company_id', '=', company_id)], context=new_context)
+                if not active_craft_ids and not recurring_invoice_line_ids:
+                    _logger.info(
+                        'Fail to create recurring invoice for partner %s, he does not have any activ craft or recurreing invoice line' % (partner.name))
                     continue
-                inv_ids.append(inv_id)
+                inv_values = self._prepare_invoice(
+                    cr, uid, partner, context=new_context)
+                if inv_values:
+                    invoce_date = datetime.strptime(
+                        partner.recurring_next_date, DEFAULT_SERVER_DATE_FORMAT)
 
-                # We create invoice lines for active crafts
-                for craft in partner.owned_craft_ids:
-                    if craft.state not in ['draft', 'permanent_cancellation']:
+                    inv_values['comment'] = _(
+                        'Cuota del Periodo ') + invoce_date.strftime('%m-%y')
+                    inv_values['date_invoice'] = partner.recurring_next_date
+                    inv_values['origin'] = inv_values['reference'] = _(
+                        'Cuota. ') + invoce_date.strftime('%m-%y')
+                    try:
+                        inv_id = inv_obj.create(
+                            cr, uid, inv_values, context=new_context)
+                        _logger.info('Invoice id: %i created' % (inv_id))
+                    except Exception, e:
+                        _logger.warning(
+                            "Unable to create invoice. This is what we get: %s" % e)
+                        continue
+                    inv_ids.append(inv_id)
+
+                    # We create invoice lines for active crafts
+                    for craft_id in active_craft_ids:
+                        craft = self.pool['nautical.craft'].browse(cr, uid, craft_id, context=new_context)
                         inv_lines_vals = self._prepare_invoice_line_craft(
-                            cr, uid, partner, craft, inv_id, inv_values['fiscal_position'], context=context)
+                            cr, uid, partner, craft, inv_id, inv_values['fiscal_position'], context=new_context)
                         if inv_lines_vals:
                             self.pool.get('account.invoice.line').create(
-                                cr, uid, inv_lines_vals, context=context)
+                                cr, uid, inv_lines_vals, context=new_context)
 
-                # We create invoice lines for other products
-                inv_lines_vals = self._prepare_invoice_line(
-                    cr, uid, partner, inv_values['fiscal_position'], inv_id, context=None)
-                for inv_line in inv_lines_vals:
-                    if inv_line:
-                        self.pool.get('account.invoice.line').create(
-                            cr, uid, inv_line, context=context)
+                    # We create invoice lines for other products
+                    inv_lines_vals = self._prepare_invoice_line(
+                        cr, uid, partner, inv_values['fiscal_position'], inv_id, context=new_context)
+                    for inv_line in inv_lines_vals:
+                        if inv_line:
+                            self.pool.get('account.invoice.line').create(
+                                cr, uid, inv_line, context=new_context)
 
-                inv_obj.button_reset_taxes(cr, uid, [inv_id], context=context)
-                # wf_service.trg_write(uid, 'sale.order', sale_id, cr)
-                if open_invoices:
-                    wf_service.trg_validate(
-                        uid, 'account.invoice', inv_id, 'invoice_open', cr)
-                interval = partner.recurring_interval
-                next_date = datetime.strptime(
-                    partner.recurring_next_date or current_date, "%Y-%m-%d")
-                if partner.recurring_rule_type == 'daily':
-                    new_date = next_date + relativedelta(days=+interval)
-                elif partner.recurring_rule_type == 'weekly':
-                    new_date = next_date + relativedelta(weeks=+interval)
-                elif partner.recurring_rule_type == 'monthly':
-                    new_date = next_date + relativedelta(months=+interval)
-                else:
-                    new_date = next_date + relativedelta(years=+interval)
+                    inv_obj.button_reset_taxes(cr, uid, [inv_id], context=new_context)
+                    # wf_service.trg_write(uid, 'sale.order', sale_id, cr)
+                    if open_invoices:
+                        wf_service.trg_validate(
+                            uid, 'account.invoice', inv_id, 'invoice_open', cr)
+                    interval = partner.recurring_interval
+                    next_date = datetime.strptime(
+                        partner.recurring_next_date or current_date, "%Y-%m-%d")
+                    if partner.recurring_rule_type == 'daily':
+                        new_date = next_date + relativedelta(days=+interval)
+                    elif partner.recurring_rule_type == 'weekly':
+                        new_date = next_date + relativedelta(weeks=+interval)
+                    elif partner.recurring_rule_type == 'monthly':
+                        new_date = next_date + relativedelta(months=+interval)
+                    else:
+                        new_date = next_date + relativedelta(years=+interval)
                 self.write(cr, uid, [partner.id], {
                            'recurring_next_date': new_date.strftime('%Y-%m-%d')}, context=context)
 
@@ -304,9 +318,9 @@ class partner(osv.osv):
             if not account_id:
                 account_id = res.categ_id.property_account_income_categ.id
             account_id = fpos_obj.map_account(
-                cr, uid, fiscal_position, account_id)
+                cr, uid, fiscal_position, account_id, context=context)
             default_analytic = self.pool.get('account.analytic.default').account_get(
-                cr, uid, line.product_id.id, partner.id, context=None)
+                cr, uid, line.product_id.id, partner.id, context=context)
             analytic_id = False
             if default_analytic:
                 analytic_id = default_analytic.analytic_id.id
@@ -343,9 +357,9 @@ class partner(osv.osv):
         if not account_id:
             account_id = craft.product_id.categ_id.property_account_income_categ.id
         account_id = fpos_obj.map_account(
-            cr, uid, fiscal_position, account_id)
+            cr, uid, fiscal_position, account_id, context=context)
         default_analytic = self.pool.get('account.analytic.default').account_get(
-            cr, uid, craft.product_id.id, partner.id, context=None)
+            cr, uid, craft.product_id.id, partner.id, context=context)
         analytic_id = False
         if default_analytic:
             analytic_id = default_analytic.analytic_id.id
@@ -389,12 +403,13 @@ class partner(osv.osv):
         """
         if context is None:
             context = {}
+        company_id = context.get('company_id', partner.company_id.id)
         if journal_id is None:
             journal_ids = self.pool.get('account.journal').search(
                 cr,
                 uid,
                 [('type', '=', 'sale'),
-                ('company_id', '=', partner.company_id.id)],
+                ('company_id', '=', company_id)],
                 limit=1)
             if not journal_ids:
                 raise except_orm(_('Error!'),
@@ -410,7 +425,7 @@ class partner(osv.osv):
             'payment_term': partner.property_payment_term.id or False,
             'fiscal_position': partner.property_account_position.id,
             'date_invoice': context.get('date_invoice', False),
-            'company_id': partner.company_id.id,
+            'company_id': company_id,
             'user_id': partner.user_id.id or False
         }
         return invoice_vals

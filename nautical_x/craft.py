@@ -52,6 +52,12 @@ class craft(models.Model):
         string='Estimated Arrival Date',
         store=True
     )
+    company_id = fields_new.Many2one(
+        'res.company',
+        'Company',
+        required=True,
+        default=lambda self: self.env.user.company_id,
+    )
 
 
     def name_get(self, cr, uid, ids, context=None):

@@ -139,6 +139,7 @@
                                 <field name="tax_id" widget="many2many_tags"/>
                                 <field name="name" attrs="{'required':[('craft_type','!=','kayak')]}"/>
                                 <field name="plate" attrs="{'invisible':[('craft_type','=','kayak')],'required':[('craft_type','!=','kayak')]}"/>                            
+                                <field name="company_id" groups="base.group_multi_company"/>
                             </group>                            
                             <group class="oe_subtotal_footer oe_right" name="sale_total">
                                 <field name="price_unit" widget="monetary" options="{'currency_field': 'currency_id'}"/>

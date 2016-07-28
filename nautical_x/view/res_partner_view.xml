@@ -69,6 +69,7 @@
                                     <field name="price_unit"/>
                                     <field name="discount"/>
                                     <field name="price_subtotal"/>
+                                    <field name="company_id" groups="base.group_multi_company"/>
                                 </tree>
                             </field>                            
                             <field name="owned_craft_ids" context="{'from_partner':True,'default_owner_id':id}" attrs="{'invisible':[('customer','!=',True)]}"/>
