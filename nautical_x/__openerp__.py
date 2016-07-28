@@ -21,7 +21,7 @@
 {
     'active': False,
     'name': 'Nautical Module Modifications',
-    'version': '8.0.1.6.0',
+    'version': '8.0.1.7.0',
     'category': 'base.module_category_knowledge_management',
     'depends': [
         'nautical',
@@ -74,6 +74,7 @@ Projects required:
         'data/cron.xml',
         'data/product_data.xml',
         'security/ir.model.access.csv',
+        'security/security.xml',
     ],
     'init_xml': [
 

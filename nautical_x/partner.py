@@ -207,7 +207,6 @@ class partner(osv.osv):
         else:
             partner_ids = self.search(
                 cr, uid, [('recurring_next_date', '<=', current_date), ('customer', '=', True)])
-        print 'partner_ids[:3]', partner_ids[:3]
         return self.create_invoices(
             cr, uid, partner_ids, open_invoices=True,
             automatic=True, context=context)
@@ -223,6 +222,7 @@ class partner(osv.osv):
             for company_id in self.pool['res.company'].search(cr, uid, [], context=context):
                 new_context = context.copy()
                 new_context['company_id'] = company_id
+                new_context['force_company'] = company_id
                 partner = self.browse(cr, uid, partner_id, context=new_context)
 
                 active_craft_ids = self.pool['nautical.craft'].search(
@@ -311,7 +311,15 @@ class partner(osv.osv):
             fiscal_position = fpos_obj.browse(
                 cr, uid, fiscal_position_id, context=context)
         invoice_lines = []
-        for line in partner.recurring_invoice_line_ids:
+        company_id = context.get('company_id', partner.company_id.id)
+        line_ids = self.pool[
+            'res.partner.invoice.line'].search(
+            cr, uid, [
+                ('partner_id', '=', partner.id),
+                ('company_id', '=', company_id)], context=context)
+        for line in self.pool[
+                'res.partner.invoice.line'].browse(
+                cr, uid, line_ids, context=context):
 
             res = line.product_id
             account_id = res.property_account_income.id

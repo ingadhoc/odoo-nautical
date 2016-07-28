@@ -26,7 +26,7 @@
                     <field name="locations_string"/>
                     
                     <field name="state" />
-
+                    <field name="company_id" groups="base.group_multi_company"/>
                     <button name="action_set_stored" 
                         type="object"
                         states="contracted,do_not_dispatch,in_custody,in_reparation,sailing,to_dispatch,transitional_retirement,picked"
