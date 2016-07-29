@@ -288,8 +288,6 @@ class craft(models.Model):
 
     def product_id_change(self, cr, uid, ids, pricelist, product_id, partner_id=False, update_tax=True, fiscal_position=False, context=None):
         # Partner would be the owner
-        if not  partner_id:
-            raise osv.except_osv(_('No Owner Defined!'), _('Before choosing a product,\n select an owner.'))
         context = context or {}
         warning = {}
         product_uom_obj = self.pool.get('product.uom')
@@ -301,6 +299,8 @@ class craft(models.Model):
         domain = {}
 
         if product_id:
+            if not partner_id:
+                raise osv.except_osv(_('No Owner Defined!'), _('Before choosing a product,\n select an owner.'))
             product_obj = product_obj.browse(cr, uid, product_id, context=context)
 
             fpos = fiscal_position and self.pool.get('account.fiscal.position').browse(cr, uid, fiscal_position) or False
