@@ -35,7 +35,6 @@ Nautical Reports
         'report_aeroo',
         'l10n_ar_aeroo_base',
         'l10n_ar_aeroo_voucher',
-        'login_serial',
     ],
     'demo': [
     ],

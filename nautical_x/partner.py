@@ -111,7 +111,7 @@ class social_category(osv.osv):
     name = new_fields.Char(string='Name')
 
 
-class partner(osv.osv):
+class res_partner(osv.osv):
 
     """"""
 

@@ -15,35 +15,12 @@
         </record>
 
         <!-- FORMVIEW -->
-        <record id="view_res_partner_form" model="ir.ui.view">
+        <record id="view_res_partner_crafts_and_products_form" model="ir.ui.view">
             <field name="name">contact.partner.form</field>
             <field name="model">res.partner</field>
-            <field name="inherit_id" ref="partner_person.view_partner_person_form"></field>
+            <field name="inherit_id" ref="login_serial.view_partner_form"></field>
             <field name="arch" type="xml">
-                <!-- Sacamos la opcion de nombre y apellido separados -->
-                <field name="name" position="attributes">
-                    <attribute name="attrs"></attribute>
-                </field>                        
-                <field name="firstname" position="attributes">
-                    <attribute name="invisible">True</attribute>
-                    <attribute name="attrs"></attribute>
-                </field>
-                <field name="lastname" position="attributes">
-                    <attribute name="invisible">True</attribute>
-                    <attribute name="attrs"></attribute>
-                </field>
 
-                <!-- Scamos el campo national identity de partner person y lo ponemos ne otro lugar -->
-                <field name="national_identity" position="replace"/>
-                <h1 position="after">
-                    <!-- <h2><field name="national_identity" attrs="{'required':[('customer','=',True),('is_company','!=',True)]}" placeholder="National Identity"/></h2>
- -->                </h1>
-
-                <page string="Internal Notes" position="before">
-                    <page string="Historical Records">
-                        <field name="historical_record_ids"/>
-                    </page>
-                </page>
                 <page string="Internal Notes" position="after">
                     <page string="Crafts and Products">
                         <group col="1">
@@ -81,6 +58,38 @@
                                 </tree>
                             </field>
                         </group>
+                    </page>
+                </page>
+            </field>
+        </record>
+        <!-- FORMVIEW -->
+        <record id="view_res_partner_form" model="ir.ui.view">
+            <field name="name">contact.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="partner_person.view_partner_person_form"></field>
+            <field name="arch" type="xml">
+                <!-- Sacamos la opcion de nombre y apellido separados -->
+                <field name="name" position="attributes">
+                    <attribute name="attrs"></attribute>
+                </field>
+                <field name="firstname" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                    <attribute name="attrs"></attribute>
+                </field>
+                <field name="lastname" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                    <attribute name="attrs"></attribute>
+                </field>
+
+                <!-- Scamos el campo national identity de partner person y lo ponemos ne otro lugar -->
+                <field name="national_identity" position="replace"/>
+                <h1 position="after">
+                    <!-- <h2><field name="national_identity" attrs="{'required':[('customer','=',True),('is_company','!=',True)]}" placeholder="National Identity"/></h2>
+ -->                </h1>
+
+                <page string="Internal Notes" position="before">
+                    <page string="Historical Records">
+                        <field name="historical_record_ids"/>
                     </page>
                 </page>
                 <xpath expr="//form[@string='Contact']" position="replace"> 

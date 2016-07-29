@@ -32,7 +32,8 @@
         'sale',
         'account_followup',
         'partner_person',
-        'account_partner_balance'
+        'account_partner_balance',
+        'login_serial',
     ],
     'description': """
 Nautical Module Modifications
