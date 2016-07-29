@@ -208,6 +208,7 @@ class res_partner(osv.osv):
             partner_ids = self.search(
                 cr, uid, [('recurring_next_date', '<=', current_date), ('customer', '=', True)])
         return self.create_invoices(
+            # cr, uid, [2585, 1325, 2545], open_invoices=False,
             cr, uid, partner_ids, open_invoices=True,
             automatic=True, context=context)
 
@@ -283,23 +284,24 @@ class res_partner(osv.osv):
                     if open_invoices:
                         wf_service.trg_validate(
                             uid, 'account.invoice', inv_id, 'invoice_open', cr)
-                    interval = partner.recurring_interval
-                    next_date = datetime.strptime(
-                        partner.recurring_next_date or current_date, "%Y-%m-%d")
-                    if partner.recurring_rule_type == 'daily':
-                        new_date = next_date + relativedelta(days=+interval)
-                    elif partner.recurring_rule_type == 'weekly':
-                        new_date = next_date + relativedelta(weeks=+interval)
-                    elif partner.recurring_rule_type == 'monthly':
-                        new_date = next_date + relativedelta(months=+interval)
-                    else:
-                        new_date = next_date + relativedelta(years=+interval)
-                self.write(cr, uid, [partner.id], {
-                           'recurring_next_date': new_date.strftime('%Y-%m-%d')}, context=context)
+            partner = self.browse(cr, uid, partner_id, context=context)
+            interval = partner.recurring_interval
+            next_date = datetime.strptime(
+                partner.recurring_next_date or current_date, "%Y-%m-%d")
+            if partner.recurring_rule_type == 'daily':
+                new_date = next_date + relativedelta(days=+interval)
+            elif partner.recurring_rule_type == 'weekly':
+                new_date = next_date + relativedelta(weeks=+interval)
+            elif partner.recurring_rule_type == 'monthly':
+                new_date = next_date + relativedelta(months=+interval)
+            else:
+                new_date = next_date + relativedelta(years=+interval)
+            self.write(cr, uid, [partner.id], {
+                       'recurring_next_date': new_date.strftime('%Y-%m-%d')}, context=context)
 
-                if automatic:
-                    # auto-commit for batch processing
-                    cr.commit()
+            if automatic:
+                # auto-commit for batch processing
+                cr.commit()
         return inv_ids
 
     def _prepare_invoice_line(self, cr, uid, partner, fiscal_position_id, inv_id, context=None):
@@ -339,7 +341,7 @@ class res_partner(osv.osv):
             lines = {
                 'name': line.name + ' - ' + _('. Period ') + invoce_date.strftime('%m-%y'),
                 'account_id': account_id,
-                'analytic_id': analytic_id,
+                'account_analytic_id': analytic_id,
                 'price_unit': line.price_unit or 0.0,
                 'quantity': line.quantity,
                 'uos_id': line.uom_id.id or False,
