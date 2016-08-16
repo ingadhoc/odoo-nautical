@@ -219,6 +219,7 @@ class res_partner(osv.osv):
         current_date = time.strftime('%Y-%m-%d')
         inv_obj = self.pool.get('account.invoice')
         inv_ids = []
+        context = context or {}
         for partner_id in ids:
             for company_id in self.pool['res.company'].search(cr, uid, [], context=context):
                 new_context = context.copy()
