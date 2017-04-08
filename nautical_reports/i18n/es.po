@@ -1,20 +1,22 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* nautical_reports
-#
+# * nautical_reports
+# 
+# Translators:
+# Javier Diez <jd@adhoc.com.ar>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 8.0\n"
+"Project-Id-Version: odoo-nautical (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-31 12:43+0000\n"
-"PO-Revision-Date: 2016-05-31 09:55-0300\n"
-"Last-Translator: <>\n"
-"Language-Team: \n"
+"POT-Creation-Date: 2016-09-30 15:45+0000\n"
+"PO-Revision-Date: 2016-05-31 13:28+0000\n"
+"Last-Translator: Juan José Scarafía <scarafia.juanjose@gmail.com>\n"
+"Language-Team: Spanish (http://www.transifex.com/adhoc/ingadhoc-odoo-nautical-8-0/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: \n"
-"X-Generator: Poedit 1.5.4\n"
+"Content-Transfer-Encoding: \n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: nautical_reports
 #: view:nautical_ab.wizard:nautical_reports.view_ab_wizard
@@ -192,11 +194,14 @@ msgstr "Lista de Socios Deudores"
 #. module: nautical_reports
 #: code:addons/nautical_reports/wizard/abm_wizard.py:26
 #: code:addons/nautical_reports/wizard/abm_wizard.py:34
-#: code:addons/sources/odoo-nautical/nautical_reports/wizard/abm_wizard.py:26
-#: code:addons/sources/odoo-nautical/nautical_reports/wizard/abm_wizard.py:34
 #, python-format
 msgid "No records of contracts on these dates"
 msgstr "No hay registro de contratos en esas fechas"
+
+#. module: nautical_reports
+#: model:ir.model,name:nautical_reports.model_res_partner
+msgid "Partner"
+msgstr ""
 
 #. module: nautical_reports
 #: model:ir.ui.menu,name:nautical_reports.menu_partner_debt
