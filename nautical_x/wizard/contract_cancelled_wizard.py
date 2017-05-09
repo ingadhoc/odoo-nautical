@@ -28,20 +28,24 @@ class contract_cancelled_wizard(osv.osv_memory):
         contract_obj = self.pool.get('nautical.contract')
         craft_obj = self.pool.get('nautical.craft')
         contract_id = contract_obj.search(
-            cr, uid, [('craft_id', '=', active_id), ('state', '=', 'contracted')],
+            cr, uid, [('craft_id', '=', active_id),
+                      ('state', '=', 'contracted')],
             order='id desc',
-            context=context)[0]
+            context=context, limit=1)
         if active_id:
             end_date = wizard.end_date
             end_code = wizard.end_code
             cancellation_note = wizard.cancellation_note
-            contract_vals = {'end_date': end_date, 'end_code': end_code,
-                             'cancellation_note': cancellation_note, 'state': 'permanent_cancellation'}
+            contract_vals = {
+                'end_date': end_date, 'end_code': end_code,
+                'cancellation_note': cancellation_note,
+                'state': 'permanent_cancellation'}
             contract_obj.write(
                 cr, uid, contract_id, contract_vals, context=context)
             # Empty locations
-            craft_obj.write(cr, uid, active_id, {
-                            'location_ids': [(5, 0)], 'state': 'permanent_cancellation'}, context=context)
-
+            craft_obj.write(cr, uid, active_id,
+                            {'location_ids': [(5, 0)],
+                             'state': 'permanent_cancellation'},
+                            context=context)
 
         return True
