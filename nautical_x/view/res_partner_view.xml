@@ -170,10 +170,8 @@
             <field name="inherit_id" ref="base.view_partner_tree"/>
             <field name="priority">20</field>
             <field name="arch" type="xml">
-                <field name="balance" position="replace"/>
                 <field name="display_name" position="after">
                     <field name="craft_name"/>
-                    <field name="balance"/>
                 </field>
                 <field name="phone" position="replace"/>
                 <field name="email" position="after">
